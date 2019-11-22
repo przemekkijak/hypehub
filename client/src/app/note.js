@@ -37,9 +37,15 @@ class Render extends Component {
                     <div className="noteContent">
                         {
                             this.state.current.map((item) =>
+                                <div class="itemSlot">
                                 <span>{item.item_name}</span>
+                                <span>{item.item_buyPrice}</span>
+                                <span>{item.item_size}</span>
+                                <span>{item.item_condition}/10</span>
+                                </div>
                             )
                         }
+
                     </div>
 
                  </div>

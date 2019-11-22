@@ -36,19 +36,14 @@
   cursor: pointer;
 }
 .tableNaviElement {
+  padding: 25px;
+  border-bottom: 1px solid black;
   display: flex;
   height: 5vh;
   justify-content: center;
   align-items: center;
 }
-.isActive {
-  background-color: hsla(0,0%,18%,0.250);
-}
-.ItemsTable {
-  position: relative;
-  display: grid;
 
-}
 .itemSlot {
   display: grid;
   grid-template-columns: 25% 15% 15% 15% 10% 10% 10%;
@@ -73,5 +68,6 @@
 
 .noteContent {
   display: grid;
-  grid-template-columns: repeat(4, 25%);
+  padding-top:10px;
+
 }
