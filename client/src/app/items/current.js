@@ -16,12 +16,18 @@ class Current extends React.Component {
 
     render() {
         return (
-           <div className="itemSlot">
-               {
-                   this.state.currentItems.map((item) =>
+            <div className="container">
+           {
+                this.state.currentItems.map((item) =>
+                   <div className="itemSlot">
                     <p>{item.item_name}</p>
-                   )}
-           </div>
+                    <p>{item.item_buyPrice}</p>
+                    <p>{item.item_size}</p>
+                    <p>{item.item_condition}/10</p>
+                 </div>
+                    )}
+            </div>
+
         )
     }
 }
