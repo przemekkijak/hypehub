@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './styles/note.css';
+import Current from './items/current';
 
 
 class Render extends Component {
@@ -35,17 +36,7 @@ class Render extends Component {
                         <span>Stan</span>
                     </div>
                     <div className="noteContent">
-                        {
-                            this.state.current.map((item) =>
-                                <div class="itemSlot">
-                                <span>{item.item_name}</span>
-                                <span>{item.item_buyPrice}</span>
-                                <span>{item.item_size}</span>
-                                <span>{item.item_condition}/10</span>
-                                </div>
-                            )
-                        }
-
+                        <Current/>
                     </div>
 
                  </div>
