@@ -39,4 +39,6 @@ class Current extends React.Component {
 }
 
 
-export default Current;
+export default (
+    Current
+);

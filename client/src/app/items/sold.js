@@ -20,27 +20,32 @@ class Sold extends React.Component {
         });
     }
 
+    generateItems() {
+        return(
 
-    render() {
-        return (
-            <div className="container">
-                <div className="itemsInfo">
-                        <span>Nazwa</span>
-                        <span>Cena</span>
-                        <span>Zarobek</span>
-                        <span>Rozmiar</span>
-                        <span>Stan</span>
-                </div>
-
-                {this.state.soldItems.map((item) =>
+             this.state.soldItems.map((item) =>
                    <div className="itemSlot">
                     <p>{item.item_name}</p>
                     <p>{item.item_buyPrice}</p>
                     <p>{item.item_sellPrice-item.item_buyPrice}</p>
                     <p>{item.item_size}</p>
                     <p>{item.item_condition}/10</p>
-                 </div>
-                )}
+             </div> ))
+    }
+
+    render() {
+        return (
+            <div className="container">
+                 <div className="itemsInfo">
+                        <span>Nazwa</span>
+                        <span>Cena</span>
+                        <span>Zarobek</span>
+                        <span>Rozmiar</span>
+                        <span>Stan</span>
+                </div>
+                {this.state.showForm && this.generateItems()}
+                <button onClick={this._showForm.bind(null,true)}>test</button>
+                <button onClick={this._showForm.bind(null,false)}>wylacz</button>
             </div>
 
         )
@@ -48,4 +53,6 @@ class Sold extends React.Component {
 }
 
 
-export default Sold;
+export default (
+    Sold
+)
