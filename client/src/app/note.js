@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './styles/note.css';
 import Current from './items/current';
+import Sold from './items/sold';
 
 
 class Render extends Component {
@@ -25,18 +26,13 @@ class Render extends Component {
             <div class="noteContainer">
                  <div className="tableContainer">
                     <div className="tableNavi">
-                        <span className="tableNaviElement isActive" name="current">Aktualne</span>
+                        <span className="tableNaviElement" name="current">Aktualne</span>
                         <span className="tableNaviElement" name="sold">Sprzedane</span>
                         <span className="tableNaviElement" name="pending">Zamowione</span>
                     </div>
-                    <div className="itemsInfo">
-                        <span>Nazwa</span>
-                        <span>Cena</span>
-                        <span>Rozmiar</span>
-                        <span>Stan</span>
-                    </div>
                     <div className="noteContent">
-                        <Current/>
+                        {/* <Current/> */}
+                        <Sold/>
                     </div>
 
                  </div>
