@@ -1,0 +1,77 @@
+@import url('App.css');
+
+.noteContrainer{
+  width: 100vw;
+  height: 100vh;
+}
+
+.tableContainer {
+    position: absolute;
+    width: 50vw;
+    height: 70vh;
+    left: 50%;
+    top: 12%;
+    transform: translate(-50%);
+    color: var(--font-color);
+    background-color: hsla(0, 2%, 37%, 0.199);
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+
+.tableNavi {
+  display: grid;
+  grid-template-columns: repeat(3,33%);
+  position: relative;
+}
+.itemsInfo {
+  display: grid;
+  grid-template-columns: 25% 15% 15% 15% 5%;
+  padding-bottom:2px;
+  opacity: 0.5;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tableNavi span:hover {
+  cursor: pointer;
+}
+.tableNaviElement {
+  display: flex;
+  height: 5vh;
+  justify-content: center;
+  align-items: center;
+}
+.isActive {
+  background-color: hsla(0,0%,18%,0.250);
+}
+.ItemsTable {
+  position: relative;
+  display: grid;
+
+}
+.itemSlot {
+  display: grid;
+  grid-template-columns: 25% 15% 15% 15% 10% 10% 10%;
+  height: 50px;
+}
+.itemSlot:hover{
+  background-color: hsla(0,0%,18%,0.250);
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item button {
+  background: none;
+  outline: none;
+  color: white;
+  border: none;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.noteContent {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}

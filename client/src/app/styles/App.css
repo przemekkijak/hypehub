@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Assistant, sans-serif;
+}
+:root {
+  --background-color: black;
+  --menu-color:rgb(104, 8, 8);
+  --font-color: rgba(226,226,226, 0.774);
+  overflow: hidden;
+}
+.App {
+  text-align: center;
+  background-color: var(--background-color);
+  height: 100vh;
+  width: 100vw;
+  font-size: 17px;
+  color: white;
+}
+#index-photo {
+  position: absolute;
+  top: 0%;
+  left:60%;
+  opacity: 0.5;
+}
