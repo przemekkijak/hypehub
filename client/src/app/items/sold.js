@@ -5,7 +5,7 @@ class Sold extends React.Component {
     constructor(props) {
         super(props);
         this.state = {soldItems: [],
-        showForm: false};
+        showForm: true};
     }
 
     componentDidMount() {
@@ -14,7 +14,7 @@ class Sold extends React.Component {
         .then(soldItems => (this.setState({soldItems})))
     }
 
-    _showForm = (bool) => {
+    showForm = (bool) => {
         this.setState({
             showForm: bool
         });
@@ -44,8 +44,8 @@ class Sold extends React.Component {
                         <span>Stan</span>
                 </div>
                 {this.state.showForm && this.generateItems()}
-                <button onClick={this._showForm.bind(null,true)}>test</button>
-                <button onClick={this._showForm.bind(null,false)}>wylacz</button>
+                {/* <button onClick={this.showForm.bind(null,true)}>test</button>
+                <button onClick={this.showForm.bind(null,false)}>wylacz</button> */}
             </div>
 
         )

@@ -2,39 +2,45 @@ import React, {Component} from 'react';
 import './styles/note.css';
 import Current from './items/current';
 import Sold from './items/sold';
+import ToggleBox from './items/ToggleBox';
+
 
 
 class Render extends Component {
     constructor(props) {
         super(props);
-        this.state = {current: [],
-                    sold: []};
+        this.state = {
+            viewCurrent: false,
+            viewSold: false,
+            viewPending: false,
+        };
+    }
 
-        }
-        componentDidMount() {
-      fetch('http://localhost:3000/getCurrentItems')
-      .then(response => response.json())
-      .then(current => (this.setState({current})))
-
-      fetch('http://localhost:3000/getSoldItems')
-      .then(response => response.json())
-      .then(sold => (this.setState({sold})))
-      }
+    toggleNote(type) {
+        const {opened} = this.state;
+        this.setState({
+            opened: !opened,
+        });
+    }
 
     render() {
         return (
             <div class="noteContainer">
                  <div className="tableContainer">
                     <div className="tableNavi">
-                        <span className="tableNaviElement" name="current">Aktualne</span>
-                        <span className="tableNaviElement" name="sold">Sprzedane</span>
-                        <span className="tableNaviElement" name="pending">Zamowione</span>
+                        <button className="naviButton" name="current" onClick={() => this.toggleNote("current")}>Aktualne</button>
+                        <button className="naviButton" name="sold" onClick={() => this.toggleNote()}>Sprzedane</button>
+                        <button className="naviButton" name="pending" onClick={() => this.toggleNote()}>W trakcie</button>
                     </div>
-                    <div className="noteContent">
-                        {/* <Current/> */}
-                        <Sold/>
-                    </div>
-
+                 { this.state.opened && (
+                    <Current/>
+                 )}
+                 { this.state.viewSold && (
+                    <Sold/>
+                 )}
+                 { this.state.viewPending && (
+                        <p>dopiero sie robia</p>
+                     )}
                  </div>
                  </div>
 

@@ -43,7 +43,14 @@
   justify-content: center;
   align-items: center;
 }
-
+.naviButton {
+  height: 50px;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--font-color);
+  font-size: 0.9em;
+}
 .itemSlot {
   display: grid;
   grid-template-columns: 25% 15% 15% 15% 10% 10% 10%;
