@@ -10,17 +10,37 @@ class Render extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            viewCurrent: false,
+            viewCurrent: true,
             viewSold: false,
             viewPending: false,
         };
     }
 
     toggleNote(type) {
-        const {opened} = this.state;
+        const {viewCurrent, viewSold, viewPending} = this.state;
+
         this.setState({
-            opened: !opened,
-        });
+            viewCurrent: false,
+            viewSold: false,
+            viewPending: false,
+        })
+        switch(type) {
+            case "current":
+                this.setState({
+                    viewCurrent: !viewCurrent,
+                })
+                break;
+            case "sold":
+                this.setState({
+                    viewSold: !viewSold,
+                })
+                break;
+            case "pending":
+                this.setState({
+                    viewPending: !viewPending,
+                })
+                break;
+        }
     }
 
     render() {
@@ -29,18 +49,12 @@ class Render extends Component {
                  <div className="tableContainer">
                     <div className="tableNavi">
                         <button className="naviButton" name="current" onClick={() => this.toggleNote("current")}>Aktualne</button>
-                        <button className="naviButton" name="sold" onClick={() => this.toggleNote()}>Sprzedane</button>
-                        <button className="naviButton" name="pending" onClick={() => this.toggleNote()}>W trakcie</button>
+                        <button className="naviButton" name="sold" onClick={() => this.toggleNote("sold")}>Sprzedane</button>
+                        <button className="naviButton" name="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
                     </div>
-                 { this.state.opened && (
-                    <Current/>
-                 )}
-                 { this.state.viewSold && (
-                    <Sold/>
-                 )}
-                 { this.state.viewPending && (
-                        <p>dopiero sie robia</p>
-                     )}
+                 { this.state.viewCurrent && (<Current/>)}
+                 { this.state.viewSold && (<Sold/>)}
+                 { this.state.viewPending && (<p>dopiero sie robia</p>)}
                  </div>
                  </div>
 

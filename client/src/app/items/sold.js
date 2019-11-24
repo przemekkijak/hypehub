@@ -14,38 +14,27 @@ class Sold extends React.Component {
         .then(soldItems => (this.setState({soldItems})))
     }
 
-    showForm = (bool) => {
-        this.setState({
-            showForm: bool
-        });
-    }
-
-    generateItems() {
-        return(
-
-             this.state.soldItems.map((item) =>
-                   <div className="itemSlot">
-                    <p>{item.item_name}</p>
-                    <p>{item.item_buyPrice}</p>
-                    <p>{item.item_sellPrice-item.item_buyPrice}</p>
-                    <p>{item.item_size}</p>
-                    <p>{item.item_condition}/10</p>
-             </div> ))
-    }
-
     render() {
         return (
             <div className="container">
                  <div className="itemsInfo">
                         <span>Nazwa</span>
-                        <span>Cena</span>
-                        <span>Zarobek</span>
                         <span>Rozmiar</span>
                         <span>Stan</span>
+                        <span>Cena kupna</span>
+                        <span>Zarobek</span>
                 </div>
-                {this.state.showForm && this.generateItems()}
-                {/* <button onClick={this.showForm.bind(null,true)}>test</button>
-                <button onClick={this.showForm.bind(null,false)}>wylacz</button> */}
+                {
+                    this.state.soldItems.map((item) =>
+                        <div className="itemSlot">
+                            <p>{item.item_name}</p>
+                            <p>{item.item_size}</p>
+                            <p>{item.item_condition}/10</p>
+                            <p>{item.item_buyPrice}</p>
+                            <p>{item.item_sellPrice-item.item_buyPrice}</p>
+                          </div>
+                          )
+                }
             </div>
 
         )

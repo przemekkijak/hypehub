@@ -19,17 +19,19 @@ class Current extends React.Component {
             <div className="container">
                   <div className="itemsInfo">
                         <span>Nazwa</span>
-                        <span>Cena</span>
                         <span>Rozmiar</span>
                         <span>Stan</span>
+                        <span>Cena kupna</span>
+
                     </div>
            {
                 this.state.currentItems.map((item) =>
                    <div className="itemSlot">
                     <p>{item.item_name}</p>
-                    <p>{item.item_buyPrice}</p>
                     <p>{item.item_size}</p>
                     <p>{item.item_condition}/10</p>
+                    <p>{item.item_buyPrice}</p>
+
                  </div>
                     )}
             </div>
