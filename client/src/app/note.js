@@ -17,28 +17,36 @@ class Render extends React.Component {
     }
 
     toggleNote(type) {
-        const {viewCurrent, viewSold, viewPending} = this.state;
-
+        const {viewCurrent,viewSold,viewPending} = this.state;
         this.setState({
             viewCurrent: false,
             viewSold: false,
             viewPending: false,
-        })
+        });
+        const elements = ["current","sold","pending"];
+        elements.forEach(element => {
+            document.getElementById(element).style.color = "";
+        });
+
+
         switch(type) {
             case "current":
                 this.setState({
-                    viewCurrent: !viewCurrent,
+                    viewCurrent: true,
                 })
+                document.getElementById("current").style.color="white";
                 break;
             case "sold":
                 this.setState({
-                    viewSold: !viewSold,
+                    viewSold: true,
                 })
+                document.getElementById("sold").style.color="white";
                 break;
             case "pending":
                 this.setState({
-                    viewPending: !viewPending,
+                    viewPending: true,
                 })
+                document.getElementById("pending").style.color="white";
                 break;
         }
     }
@@ -48,9 +56,9 @@ class Render extends React.Component {
             <div class="noteContainer">
                  <div className="tableContainer">
                     <div className="tableNavi">
-                        <button className="naviButton" name="current" onClick={() => this.toggleNote("current")}>Aktualne</button>
-                        <button className="naviButton" name="sold" onClick={() => this.toggleNote("sold")}>Sprzedane</button>
-                        <button className="naviButton" name="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
+                        <button className="naviButton" id="current"onClick={() => this.toggleNote("current")}>Aktualne</button>
+                        <button className="naviButton" id="sold" onClick={() => this.toggleNote("sold")}>Sprzedane</button>
+                        <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
                     </div>
                  { this.state.viewCurrent && (<Current/>)}
                  { this.state.viewSold && (<Sold/>)}
