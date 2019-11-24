@@ -22,7 +22,7 @@ class Current extends React.Component {
                         <span>Rozmiar</span>
                         <span>Stan</span>
                         <span>Cena kupna</span>
-
+                        <span>Sprzedaj</span>
                     </div>
            {
                 this.state.currentItems.map((item) =>
@@ -31,6 +31,7 @@ class Current extends React.Component {
                     <p>{item.item_size}</p>
                     <p>{item.item_condition}/10</p>
                     <p>{item.item_buyPrice}</p>
+                    <button className="sellButton">$</button>
 
                  </div>
                     )}

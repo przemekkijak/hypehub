@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './styles/note.css';
 import Current from './items/current';
 import Sold from './items/sold';
@@ -6,7 +6,7 @@ import ToggleBox from './items/ToggleBox';
 
 
 
-class Render extends Component {
+class Render extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -56,13 +56,18 @@ class Render extends Component {
                  { this.state.viewSold && (<Sold/>)}
                  { this.state.viewPending && (<p>dopiero sie robia</p>)}
                  </div>
+                 <div className="noteMenu">
+                    <button className="buttonMenu">Dodaj</button>
+                    <button className="buttonMenu">Usun</button>
+                    <button className="buttonMenu">Modyfikuj</button>
                  </div>
 
+
+                 </div>
         )
     }
 }
 
 export default {
-    Render,
-
+    Render
 }

@@ -4,7 +4,6 @@
   width: 100vw;
   height: 100vh;
 }
-
 .tableContainer {
     position: absolute;
     width: 50vw;
@@ -16,12 +15,11 @@
     background-color: hsla(0, 2%, 37%, 0.199);
     border-radius: 5px;
     font-size: 0.9em;
+    cursor: pointer;
   }
-
 .tableNavi {
   display: grid;
   grid-template-columns: repeat(3,33%);
-  position: relative;
 }
 .itemsInfo {
   display: grid;
@@ -29,19 +27,6 @@
   padding-bottom: 10px;
   opacity: 0.5;
   font-size: 12px;
-  cursor: pointer;
-}
-
-.tableNavi span:hover {
-  cursor: pointer;
-}
-.tableNaviElement {
-  padding: 25px;
-  border-bottom: 1px solid black;
-  display: flex;
-  height: 5vh;
-  justify-content: center;
-  align-items: center;
 }
 .naviButton {
   height: 50px;
@@ -50,14 +35,42 @@
   outline: none;
   color: var(--font-color);
   font-size: 0.9em;
+  cursor: pointer;
 }
 .itemSlot {
   display: grid;
   grid-template-columns: 25% 15% 15% 15% 5% 10%;
   height: 50px;
   align-content: center;
-  cursor: pointer;
 }
 .itemSlot:hover{
   background-color: hsla(0,0%,18%,0.250);
+}
+.sellButton {
+  background: none;
+  outline: none;
+  border: none;
+  color: var(--font-color);
+  cursor: pointer;
+  border: 1px solid var(--font-color);
+  width: 50px;
+
+}
+.noteMenu{
+  position: absolute;
+  top: 40%;
+  left: 17%;
+  transform: translate(-50%,-50%);
+  opacity: 0.9;
+  width: 10vw;
+  height: 18vh;
+  display: grid;
+  background-color: hsla(0, 2%, 37%, 0.199);
+}
+.buttonMenu{
+  background: none;
+  outline: none;
+  border: none;
+  border: 1px solid hsla(0, 70%, 42%, 0.527);
+  color: var(--font-color);
 }
