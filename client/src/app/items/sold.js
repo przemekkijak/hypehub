@@ -27,11 +27,11 @@ class Sold extends React.Component {
                 {
                     this.state.soldItems.map((item) =>
                         <div className="itemSlot">
-                            <p>{item.item_name}</p>
-                            <p>{item.item_size}</p>
-                            <p>{item.item_condition}/10</p>
-                            <p>{item.item_buyPrice}</p>
-                            <p>{item.item_sellPrice-item.item_buyPrice}</p>
+                            <p>{item.name}</p>
+                            <p>{item.size}</p>
+                            <p>{item.cond}/10</p>
+                            <p>{item.buyPrice}</p>
+                            <p>{item.sellPrice-item.buyPrice}</p>
                           </div>
                           )
                 }

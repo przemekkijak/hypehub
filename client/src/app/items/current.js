@@ -27,10 +27,10 @@ class Current extends React.Component {
            {
                 this.state.currentItems.map((item) =>
                    <div className="itemSlot">
-                    <p>{item.item_name}</p>
-                    <p>{item.item_size}</p>
-                    <p>{item.item_condition}/10</p>
-                    <p>{item.item_buyPrice}</p>
+                    <p>{item.name}</p>
+                    <p>{item.size}</p>
+                    <p>{item.cond}/10</p>
+                    <p>{item.buyPrice}</p>
                     <button className="sellButton">$</button>
 
                  </div>

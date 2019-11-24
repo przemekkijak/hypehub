@@ -13,8 +13,10 @@ class Render extends React.Component {
             viewCurrent: true,
             viewSold: false,
             viewPending: false,
+
         };
     }
+
 
     toggleNote(type) {
         const {viewCurrent,viewSold,viewPending} = this.state;
