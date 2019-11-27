@@ -1,5 +1,7 @@
 import React from 'react';
 import './styles/note.css';
+import NoteMenu from './noteMenu'
+import Modal from './noteMenu';
 
 class Render extends React.Component {
     constructor(props) {
@@ -40,26 +42,18 @@ class Render extends React.Component {
         elements.forEach(element => {
             document.getElementById(element).style.color = "";
         });
-
-
         // Showing tab and setting color to see which one is active
         switch(type) {
             case "current":
-                this.setState({
-                    viewCurrent: true,
-                })
+                this.setState({viewCurrent: true,})
                 document.getElementById("current").style.color="white";
                 break;
             case "sold":
-                this.setState({
-                    viewSold: true,
-                })
+                this.setState({viewSold: true,})
                 document.getElementById("sold").style.color="white";
                 break;
             case "pending":
-                this.setState({
-                    viewPending: true,
-                })
+                this.setState({viewPending: true,})
                 document.getElementById("pending").style.color="white";
                 break;
         }
@@ -116,12 +110,11 @@ class Render extends React.Component {
         )
     }
 
-
     render() {
         return (
             <div class="noteContainer">
                  <div className="tableContainer">
-                    <div className="tableNavi">
+                    <div className="noteTableNavi">
                         <button className="naviButton" id="current"onClick={() => this.toggleNote("current")}>Aktualne</button>
                         <button className="naviButton" id="sold" onClick={() => this.toggleNote("sold")}>Sprzedane</button>
                         <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
@@ -130,13 +123,7 @@ class Render extends React.Component {
                  { this.state.viewSold && (this.soldItems())}
                  { this.state.viewPending && (this.pendingItems)}
                  </div>
-                 <div className="noteMenu">
-                    <button className="buttonMenu">Dodaj</button>
-                    <button className="buttonMenu">Usun</button>
-                    <button className="buttonMenu">Modyfikuj</button>
-                 </div>
-
-
+                <button onClick={<Modal/>}>test</button>
                  </div>
         )
     }
