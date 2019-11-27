@@ -1,10 +1,8 @@
 import React from 'react';
 import './styles/note.css';
-import NoteMenu from './noteMenu'
 import Current from './note/current'
 import Sold from './note/sold'
 import Pending from './note/pending'
-import Modal from './noteMenu';
 
 class Render extends React.Component {
     constructor(props) {
@@ -56,22 +54,20 @@ class Render extends React.Component {
         }
     }
 
-
     render() {
         return (
-            <div class="noteContainer">
                  <div className="tableContainer">
                     <div className="noteTableNavi">
                         <button className="naviButton" id="current"onClick={() => this.toggleNote("current")}>Aktualne</button>
                         <button className="naviButton" id="sold" onClick={() => this.toggleNote("sold")}>Sprzedane</button>
                         <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
                     </div>
-                 {this.state.viewCurrent && (<Current items={this.state.currentItems}/>)}
+                    <div className="noteContent">
+                 { this.state.viewCurrent && (<Current items={this.state.currentItems}/>)}
                  { this.state.viewSold && (<Sold items={this.state.soldItems}/>)}
                  { this.state.viewPending && <Pending/>}
-                 </div>
-                {/* MUSZE SIE TU POBAWIĆ Z MODALEM */}
-                 </div>
+                    </div>
+                </div>
         )
     }
 }

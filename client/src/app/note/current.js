@@ -20,7 +20,7 @@ class Current extends React.Component{
                     <div className="itemSlot">
                         <p>{item.name}</p>
                         <p>{item.size}</p>
-                        <p>{item.cond}</p>
+                        <p>{item.cond}/10</p>
                         <p>{item.buyPrice}</p>
                         <button className="sellButton">$</button>
                     </div>

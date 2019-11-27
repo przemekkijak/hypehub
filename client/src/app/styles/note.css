@@ -7,12 +7,12 @@
 .tableContainer {
     position: absolute;
     width: 50vw;
-    height: 70vh;
+    height: 60vh;
     left: 50%;
-    top: 12%;
+    top: 17%;
     transform: translate(-50%);
     color: var(--font-color);
-    background-color: hsla(0, 2%, 37%, 0.199);
+    /* background-color: hsla(0, 2%, 37%, 0.199); */
     border-radius: 2px;
     font-size: 0.9em;
     cursor: pointer;
@@ -21,6 +21,11 @@
   display: grid;
   grid-template-columns: repeat(3,33%);
   border-bottom: 1px solid rgba(95, 79, 79, 0.445);
+}
+.noteContent {
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
 }
 .itemsInfo {
   display: grid;
@@ -77,27 +82,23 @@
   color: var(--font-color);
   cursor: pointer;
 }
-/* menu */
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 5; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-/* Modal Content */
-.modalContent {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #69686857;
 }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(146, 145, 145);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
