@@ -4,14 +4,28 @@ import React from 'react';
 class Current extends React.Component{
     constructor(props) {
         super(props);
+
     }
-
-
-
-
     render() {
         return(
-            <p>Test</p>
+            <div className="currentContainer">
+                <div className="itemsInfo">
+                        <span>Nazwa</span>
+                        <span>Rozmiar</span>
+                        <span>Stan</span>
+                        <span>Cena kupna</span>
+                        <span>Zarobek</span>
+                </div>
+                {this.props.items.map((item) =>
+                    <div className="itemSlot">
+                        <p>{item.name}</p>
+                        <p>{item.size}</p>
+                        <p>{item.cond}</p>
+                        <p>{item.buyPrice}</p>
+                        <button className="sellButton">$</button>
+                    </div>
+                )}
+            </div>
         )
     }
 }

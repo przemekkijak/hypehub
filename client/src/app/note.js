@@ -1,6 +1,9 @@
 import React from 'react';
 import './styles/note.css';
 import NoteMenu from './noteMenu'
+import Current from './note/current'
+import Sold from './note/sold'
+import Pending from './note/pending'
 import Modal from './noteMenu';
 
 class Render extends React.Component {
@@ -16,20 +19,16 @@ class Render extends React.Component {
 
         };
     }
-    // fetching data
     componentDidMount() {
-
-        // Get Current Items
         fetch('http://localhost:3000/getCurrentItems')
         .then(response => response.json())
         .then(currentItems => this.setState({currentItems}))
 
-        // Get sold Items
         fetch('http://localhost:3000/getSoldItems')
         .then(response => response.json())
         .then(soldItems => this.setState({soldItems}))
     }
-    // Switching between tabs
+
     toggleNote(type) {
         const {viewCurrent,viewSold,viewPending} = this.state;
         this.setState({
@@ -37,12 +36,10 @@ class Render extends React.Component {
             viewSold: false,
             viewPending: false,
         });
-        // Reset color, to set one active tab
         const elements = ["current","sold","pending"];
         elements.forEach(element => {
             document.getElementById(element).style.color = "";
         });
-        // Showing tab and setting color to see which one is active
         switch(type) {
             case "current":
                 this.setState({viewCurrent: true,})
@@ -60,56 +57,6 @@ class Render extends React.Component {
     }
 
 
-    currentItems() {
-        return (
-            <div className="container">
-            <div className="itemsInfo">
-                  <span>Nazwa</span>
-                  <span>Rozmiar</span>
-                  <span>Stan</span>
-                  <span>Cena kupna</span>
-                  <span>Sprzedaj</span>
-              </div>
-     {
-          this.state.currentItems.map((item) =>
-             <div className="itemSlot">
-              <p>{item.name}</p>
-              <p>{item.size}</p>
-              <p>{item.cond}/10</p>
-              <p>{item.buyPrice}</p>
-              <button className="sellButton">$</button>
-
-           </div>
-              )}
-      </div>
-        )
-    }
-    soldItems() {
-        return (
-            <div className="container">
-                 <div className="itemsInfo">
-                        <span>Nazwa</span>
-                        <span>Rozmiar</span>
-                        <span>Stan</span>
-                        <span>Cena kupna</span>
-                        <span>Zarobek</span>
-                </div>
-                {
-                    this.state.soldItems.map((item) =>
-                        <div className="itemSlot">
-                            <p>{item.name}</p>
-                            <p>{item.size}</p>
-                            <p>{item.cond}/10</p>
-                            <p>{item.buyPrice}</p>
-                            <p>{item.sellPrice-item.buyPrice}</p>
-                          </div>
-                          )
-                }
-            </div>
-
-        )
-    }
-
     render() {
         return (
             <div class="noteContainer">
@@ -119,11 +66,11 @@ class Render extends React.Component {
                         <button className="naviButton" id="sold" onClick={() => this.toggleNote("sold")}>Sprzedane</button>
                         <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
                     </div>
-                 { this.state.viewCurrent && (this.currentItems())}
-                 { this.state.viewSold && (this.soldItems())}
-                 { this.state.viewPending && (this.pendingItems)}
+                 {this.state.viewCurrent && (<Current items={this.state.currentItems}/>)}
+                 { this.state.viewSold && (<Sold items={this.state.soldItems}/>)}
+                 { this.state.viewPending && <Pending/>}
                  </div>
-                <button onClick={<Modal/>}>test</button>
+                {/* MUSZE SIE TU POBAWIĆ Z MODALEM */}
                  </div>
         )
     }
