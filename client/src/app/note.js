@@ -3,6 +3,7 @@ import './styles/note.css';
 import Current from './note/current'
 import Sold from './note/sold'
 import Pending from './note/pending'
+import NoteMenu from './note/noteMenu'
 
 class Render extends React.Component {
     constructor(props) {
@@ -56,6 +57,7 @@ class Render extends React.Component {
 
     render() {
         return (
+            <div className="container">
                  <div className="tableContainer">
                     <div className="noteTableNavi">
                         <button className="naviButton" id="current"onClick={() => this.toggleNote("current")}>Aktualne</button>
@@ -63,11 +65,13 @@ class Render extends React.Component {
                         <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
                     </div>
                     <div className="noteContent">
-                 { this.state.viewCurrent && (<Current items={this.state.currentItems}/>)}
-                 { this.state.viewSold && (<Sold items={this.state.soldItems}/>)}
-                 { this.state.viewPending && <Pending/>}
+                        { this.state.viewCurrent && (<Current items={this.state.currentItems}/>)}
+                        { this.state.viewSold && (<Sold items={this.state.soldItems}/>)}
+                        { this.state.viewPending && <Pending/>}
                     </div>
                 </div>
+                <NoteMenu/>
+            </div>
         )
     }
 }

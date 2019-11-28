@@ -61,26 +61,30 @@
   cursor: pointer;
   border: 1px solid var(--font-color);
   width: 50px;
-
 }
-.noteMenu{
+.noteMenu {
   position: absolute;
-  top: 40%;
-  left: 17%;
-  transform: translate(-50%,-50%);
-  opacity: 0.9;
-  width: 10vw;
+  width: 5vw;
   height: 15vh;
+  left: 15%;
+  top: 30%;
   display: grid;
-  background-color: hsla(0, 2%, 37%, 0.199);
 }
-.buttonMenu{
+.noteMenuButton {
+  background: none;
+  outline: none;
+  border: 1px solid hsla(0, 70%, 42%, 0.527);
+  color: var(--font-color);
+}
+
+.sellButton{
   background: none;
   outline: none;
   border: none;
   border: 1px solid hsla(0, 70%, 42%, 0.527);
   color: var(--font-color);
   cursor: pointer;
+  height: 25px;
 }
 /* width */
 ::-webkit-scrollbar {
