@@ -9,9 +9,9 @@ class Render extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            viewCurrent: true,
-            viewSold: false,
-            viewPending: false,
+            showCurrent: true,
+            showSold: false,
+            showPending: false,
             currentItems: [],
             soldItems: [],
             pendingItems: [],
@@ -31,9 +31,9 @@ class Render extends React.Component {
     toggleNote(type) {
         const {viewCurrent,viewSold,viewPending} = this.state;
         this.setState({
-            viewCurrent: false,
-            viewSold: false,
-            viewPending: false,
+            showCurrent: false,
+            showSold: false,
+            showPending: false,
         });
         const elements = ["current","sold","pending"];
         elements.forEach(element => {
@@ -41,15 +41,15 @@ class Render extends React.Component {
         });
         switch(type) {
             case "current":
-                this.setState({viewCurrent: true,})
+                this.setState({showCurrent: true,})
                 document.getElementById("current").style.color="white";
                 break;
             case "sold":
-                this.setState({viewSold: true,})
+                this.setState({showSold: true,})
                 document.getElementById("sold").style.color="white";
                 break;
             case "pending":
-                this.setState({viewPending: true,})
+                this.setState({showPending: true,})
                 document.getElementById("pending").style.color="white";
                 break;
         }
@@ -65,9 +65,9 @@ class Render extends React.Component {
                         <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
                     </div>
                     <div className="noteContent">
-                        { this.state.viewCurrent && (<Current items={this.state.currentItems}/>)}
-                        { this.state.viewSold && (<Sold items={this.state.soldItems}/>)}
-                        { this.state.viewPending && <Pending/>}
+                        { this.state.showCurrent && (<Current items={this.state.currentItems}/>)}
+                        { this.state.showSold && (<Sold items={this.state.soldItems}/>)}
+                        { this.state.showPending && <Pending/>}
                     </div>
                 </div>
                 <NoteMenu/>

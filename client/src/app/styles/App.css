@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Assistant, sans-serif;
+  color: var(--font-color);
 }
 :root {
   --background-color: black;
@@ -16,7 +17,6 @@
   height: 100vh;
   width: 100vw;
   font-size: 17px;
-  color: white;
 }
 #index-photo {
   position: absolute;

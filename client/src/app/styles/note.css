@@ -11,8 +11,6 @@
     left: 50%;
     top: 17%;
     transform: translate(-50%);
-    color: var(--font-color);
-    /* background-color: hsla(0, 2%, 37%, 0.199); */
     border-radius: 2px;
     font-size: 0.9em;
     cursor: pointer;
@@ -40,7 +38,6 @@
   border: none;
   background: none;
   outline: none;
-  color: var(--font-color);
   font-size: 0.9em;
   cursor: pointer;
 }
@@ -57,7 +54,6 @@
   background: none;
   outline: none;
   border: none;
-  color: var(--font-color);
   cursor: pointer;
   border: 1px solid var(--font-color);
   width: 50px;
@@ -65,24 +61,25 @@
 .noteMenu {
   position: absolute;
   width: 5vw;
-  height: 15vh;
+  height: 12vh;
   left: 15%;
-  top: 30%;
+  top: 25%;
   display: grid;
+  align-content: space-between;
 }
 .noteMenuButton {
+  height: 30px;
   background: none;
   outline: none;
   border: 1px solid hsla(0, 70%, 42%, 0.527);
-  color: var(--font-color);
-}
+  cursor: pointer;
 
+}
 .sellButton{
   background: none;
   outline: none;
   border: none;
   border: 1px solid hsla(0, 70%, 42%, 0.527);
-  color: var(--font-color);
   cursor: pointer;
   height: 25px;
 }
@@ -106,3 +103,21 @@
   background: #555;
 }
 
+.itemMenuBox {
+  position: absolute;
+  width: 10vw;
+  height: 20vh;
+  left: 0%;
+  top: 50%;
+  font-size: 14px;
+  /* background-color: pink; */
+}
+
+.itemMenuBox input {
+
+  height: 35px;
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid hsla(0, 70%, 42%, 0.527);
+}
