@@ -39,6 +39,8 @@ class NoteMenu extends React.Component{
                     <p><input name="itemSize" placeholder="Rozmiar"/></p>
                     <p><input name="itemPrice" placeholder="Cena"/></p>
                     <p><input name="itemCond" placeholder="Stan"/></p>
+                    <p><button className="menuButton">Dodaj</button></p>
+
             </div>
         )
     }
