@@ -19,6 +19,10 @@ class App extends Component {
       }
     }
     componentDidMount() {
+      this.fetchItems();
+    }
+
+    fetchItems() {
       Axios.get('http://localhost:3000/getCurrentItems')
       .then(response => this.setState({currentItems: response.data}));
 

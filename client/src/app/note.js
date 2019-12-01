@@ -14,15 +14,6 @@ class Render extends React.Component {
             showPending: false,
         };
     }
-    // componentDidMount() {
-    //     fetch('http://localhost:3000/getCurrentItems')
-    //     .then(response => response.json())
-    //     .then(currentItems => this.setState({currentItems}))
-
-    //     fetch('http://localhost:3000/getSoldItems')
-    //     .then(response => response.json())
-    //     .then(soldItems => this.setState({soldItems}))
-    // }
 
     toggleNote(type) {
         this.setState({
