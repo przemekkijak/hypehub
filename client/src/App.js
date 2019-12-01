@@ -40,7 +40,7 @@ class App extends Component {
       <div className="App">
 
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
-          <img src="img/indexbaks.jpg" alt="Baks index" id="index-photo"/>
+          {/* <img src="img/indexbaks.jpg" alt="Baks index" id="index-photo"/> */}
           <div className="naviContainer">
                 <div className="navigation">
                     <span className="naviElement" onClick={() => this.toggle("note")}>NOTE</span>

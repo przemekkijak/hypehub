@@ -6,9 +6,10 @@
   color: var(--font-color);
 }
 :root {
-  --background-color: black;
-  --menu-color:rgb(104, 8, 8);
-  --font-color: rgba(226,226,226, 0.774);
+  --background-color:rgb(16, 19, 27);
+  --menu-color: #66FCF1;
+  --menu-color2: #45A29E;
+  --font-color: #C5C6C7;
   overflow: hidden;
 }
 .App {
