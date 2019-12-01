@@ -5,9 +5,7 @@ import $ from 'jquery'
 
 
 class NoteMenu extends React.Component{
-    constructor(props) {
-        super(props);
-    }
+
     toggleOption(option) {
         const options = ["#addBox","#deleteBox","#modifyBox"];
         options.forEach((element) => {
@@ -15,6 +13,7 @@ class NoteMenu extends React.Component{
             $(element).css('visibility','hidden');
 
         })
+                    // eslint-disable-next-line
                     if($(option).css('opacity') == 0) {
                             $(option).css('opacity', 1);
                             $(option).css('visibility','visible');

@@ -1,9 +1,7 @@
 import React from 'react';
 
 class Bump extends React.Component{
-    constructor(props) {
-        super(props);
-    }
+
 
 
     render() {

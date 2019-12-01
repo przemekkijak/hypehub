@@ -16,7 +16,6 @@ class App extends Component {
     }
 
     toggle(option) {
-      const {showNote, showResell, showBump, showAccount} = this.state;
       this.setState({
         showNote: false,
         showResell: false,
@@ -24,6 +23,9 @@ class App extends Component {
       })
 
       switch(option) {
+        default:
+          this.setState({showNote: true,})
+          break;
         case "note":
           this.setState({showNote: true,})
           break;

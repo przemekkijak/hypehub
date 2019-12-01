@@ -1,6 +1,5 @@
 import React from 'react';
 
-const data = {username: "test"};
 
 class AddItem extends React.Component {
     constructor(props) {

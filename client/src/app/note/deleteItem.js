@@ -1,11 +1,6 @@
 import React from 'react'
-import $ from 'jquery'
-
 
 class DeleteItem extends React.Component{
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return(

@@ -29,7 +29,6 @@ class Render extends React.Component {
     }
 
     toggleNote(type) {
-        const {viewCurrent,viewSold,viewPending} = this.state;
         this.setState({
             showCurrent: false,
             showSold: false,
@@ -40,6 +39,9 @@ class Render extends React.Component {
             document.getElementById(element).style.color = "";
         });
         switch(type) {
+            default:
+                this.setState({showCurrent: true,})
+                break;
             case "current":
                 this.setState({showCurrent: true,})
                 document.getElementById("current").style.color="white";

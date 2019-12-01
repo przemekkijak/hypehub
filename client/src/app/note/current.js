@@ -2,10 +2,7 @@ import React from 'react';
 
 
 class Current extends React.Component{
-    constructor(props) {
-        super(props);
 
-    }
     render() {
         return(
             <div className="currentContainer">
