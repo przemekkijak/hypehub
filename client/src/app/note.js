@@ -12,21 +12,17 @@ class Render extends React.Component {
             showCurrent: true,
             showSold: false,
             showPending: false,
-            currentItems: [],
-            soldItems: [],
-            pendingItems: [],
-
         };
     }
-    componentDidMount() {
-        fetch('http://localhost:3000/getCurrentItems')
-        .then(response => response.json())
-        .then(currentItems => this.setState({currentItems}))
+    // componentDidMount() {
+    //     fetch('http://localhost:3000/getCurrentItems')
+    //     .then(response => response.json())
+    //     .then(currentItems => this.setState({currentItems}))
 
-        fetch('http://localhost:3000/getSoldItems')
-        .then(response => response.json())
-        .then(soldItems => this.setState({soldItems}))
-    }
+    //     fetch('http://localhost:3000/getSoldItems')
+    //     .then(response => response.json())
+    //     .then(soldItems => this.setState({soldItems}))
+    // }
 
     toggleNote(type) {
         this.setState({
@@ -64,11 +60,11 @@ class Render extends React.Component {
                     <div className="noteTableNavi">
                         <button className="naviButton" id="current"onClick={() => this.toggleNote("current")}>Aktualne</button>
                         <button className="naviButton" id="sold" onClick={() => this.toggleNote("sold")}>Sprzedane</button>
-                        <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>W trakcie</button>
+                        <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>Zamowione</button>
                     </div>
                     <div className="noteContent">
-                        { this.state.showCurrent && (<Current items={this.state.currentItems}/>)}
-                        { this.state.showSold && (<Sold items={this.state.soldItems}/>)}
+                        { this.state.showCurrent && (<Current items={this.props.currentItems}/>)}
+                        { this.state.showSold && (<Sold items={this.props.soldItems}/>)}
                         { this.state.showPending && <Pending/>}
                     </div>
                 </div>

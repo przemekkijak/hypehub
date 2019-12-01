@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Note from './app/note.js';
 import Resell from './app/resell';
 import Bump from './app/bump';
+import Axios from 'axios';
 
 
 class App extends Component {
@@ -12,7 +13,17 @@ class App extends Component {
         showResell: false,
         showBump: false,
         showAccount: false,
+        currentItems: [],
+        soldItems: [],
+        pendingItems: [],
       }
+    }
+    componentDidMount() {
+      Axios.get('http://localhost:3000/getCurrentItems')
+      .then(response => this.setState({currentItems: response.data}));
+
+      Axios.get('http://localhost:3000/getSoldItems')
+      .then(response => this.setState({soldItems: response.data}));
     }
 
     toggle(option) {
@@ -51,7 +62,7 @@ class App extends Component {
                     <span className="naviElement">ACCOUNT</span>
                 </div>
             </div>
-          {this.state.showNote && (<Note.Render/>)}
+          {this.state.showNote && (<Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems}/>)}
           {this.state.showResell && (<Resell/>)}
           {this.state.showBump && (<Bump/>)}
       </div>

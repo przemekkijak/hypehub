@@ -13,7 +13,7 @@ class Sold extends React.Component {
                         <span>Zarobek</span>
                 </div>
             {this.props.items.map((item) =>
-                    <div className="itemSlot">
+                    <div className="itemSlot" key={item.id}>
                       <p>{item.name}</p>
                       <p>{item.size}</p>
                       <p>{item.cond}/10</p>
