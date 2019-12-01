@@ -17,7 +17,7 @@ class Current extends React.Component{
                         <span>Sprzedaj</span>
                 </div>
                 {this.props.items.map((item) =>
-                    <div className="itemSlot">
+                    <div className="itemSlot" key={item.id}>
                         <p>{item.name}</p>
                         <p>{item.size}</p>
                         <p>{item.cond}/10</p>

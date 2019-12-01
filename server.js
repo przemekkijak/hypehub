@@ -6,7 +6,9 @@ const bodyParser = require('body-parser');
 
 // bodyParser to deconstruct variables after POST
 app.use(bodyParser.json());
-
+app.use(express.json({
+    type: ['application/json', 'text/plain']
+  }));
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -34,5 +36,8 @@ app.get('/getSoldItems', (req,res) => {
 
 // Adding item to SQL
 app.post('/addItem', (req,res) => {
-    // var item =
-})
+    connection.query("INSERT into hh_items (name,buyPrice,size,cond,sold) values ('" + req.body.name + "','" + req.body.price + "','" + req.body.size + "','" + req.body.cond + "',0);", function(error) {
+        if(error) throw error;
+    })
+
+});

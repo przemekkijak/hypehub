@@ -1,37 +1,31 @@
 import React from 'react';
 
+const data = {username: "test"};
 
 class AddItem extends React.Component {
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.itemName = React.createRef();
+        this.itemPrice = React.createRef();
+        this.itemSize = React.createRef();
+        this.itemCond = React.createRef();
+
     }
 
-    handleSubmit(event) {
-        event.preventDefault()
-        var data = {
-            name: this.refs.itemName,
-            size: this.refs.itemSize,
-            price: this.refs.itemBuyPrice,
-            cond: this.refs.itemCond,
-        }
-        console.log(data)
+    handleSubmit(e) {
+        e.preventDefault();
         fetch('http://localhost:3000/addItem', {
             method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify(data)
-        }).then(function(response) {
-            if(response.status >= 400) {
-                throw new Error("Bad response from server");
-            }
-            return response.json();
-        }).then(function(data) {
-            console.log(data)
-            if(data == "success"){
-                this.setState({msg: "Item dodany!"});
-            }
-        }).catch(function(err) {
-            console.log(err)
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                    name: this.itemName.current.value,
+                    price: this.itemPrice.current.value,
+                    size: this.itemSize.current.value,
+                    cond: this.itemCond.current.value,
+            }),
         });
     }
 
@@ -39,13 +33,13 @@ class AddItem extends React.Component {
     render() {
 
         return(
-            <div className="itemMenuBox">
-            <form>
-                <p><input name="itemName" placeholder="Nazwa" refs="itemName"/></p>
-                <p><input name="itemSize" placeholder="Rozmiar" refs="itemSize"/></p>
-                <p><input name="itemPrice" placeholder="Cena" refs="itemBuyPrice"/></p>
-                <p><input name="itemCond" placeholder="Stan" refs="itemCond"/></p>
-                <p><input type="submit" className="menuButton" value="Dodaj"/> </p>
+        <div className="itemMenuBox">
+            <form onSubmit={this.handleSubmit}>
+                <p><input name="[item]name" placeholder="Nazwa" ref={this.itemName}/></p>
+                <p><input name="[item]size" placeholder="Rozmiar" ref={this.itemSize}/></p>
+                <p><input name="[item]price" placeholder="Cena" ref={this.itemPrice}/></p>
+                <p><input name="[item]cond" placeholder="Stan" ref={this.itemCond}/></p>
+                <p><button type="submit" className="menuButton" value="Submit">Dodaj</button></p>
             </form>
         </div>
         )

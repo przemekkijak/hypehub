@@ -6,7 +6,7 @@ class NoteMenu extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            showAdd: false,
+            showAdd: true,
             showDelete: false,
             showModify: false,
         }

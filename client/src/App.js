@@ -43,10 +43,10 @@ class App extends Component {
           <img src="img/indexbaks.jpg" alt="Baks index" id="index-photo"/>
           <div className="naviContainer">
                 <div className="navigation">
-                    <span class="naviElement" onClick={() => this.toggle("note")}>NOTE</span>
-                    <span class="naviElement" onClick={() => this.toggle("resell")}>RESELL</span>
-                    <span class="naviElement" onClick={() => this.toggle("bump")}>BUMP</span>
-                    <span class="naviElement">ACCOUNT</span>
+                    <span className="naviElement" onClick={() => this.toggle("note")}>NOTE</span>
+                    <span className="naviElement" onClick={() => this.toggle("resell")}>RESELL</span>
+                    <span className="naviElement" onClick={() => this.toggle("bump")}>BUMP</span>
+                    <span className="naviElement">ACCOUNT</span>
                 </div>
             </div>
           {this.state.showNote && (<Note.Render/>)}

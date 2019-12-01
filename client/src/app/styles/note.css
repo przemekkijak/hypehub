@@ -28,7 +28,7 @@
 .itemsInfo {
   display: grid;
   padding-top: 3px;
-  grid-template-columns: 25% 15% 15% 15% 5% 10%;
+  grid-template-columns: 35% 15% 15% 15% 5% 10%;
   padding-bottom: 10px;
   opacity: 0.5;
   font-size: 12px;
@@ -43,7 +43,7 @@
 }
 .itemSlot {
   display: grid;
-  grid-template-columns: 25% 15% 15% 15% 5% 10%;
+  grid-template-columns: 35% 15% 15% 15% 5% 10%;
   height: 50px;
   align-content: center;
 }
@@ -59,16 +59,21 @@
   width: 50px;
 }
 .noteMenu {
+  display: inline;
   position: absolute;
-  width: 5vw;
-  height: 12vh;
-  left: 15%;
-  top: 25%;
-  display: grid;
-  align-content: space-between;
+  /* width: 15vw; */
+  height: 5vh;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%);
+  /* display: grid; */
+  align-content: space-around;
+  /* background-color: pink; */
 }
 .noteMenuButton {
+  margin: 10px;
   height: 30px;
+  width: 10vw;
   background: none;
   outline: none;
   border: 1px solid hsla(0, 70%, 42%, 0.527);
@@ -95,12 +100,12 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(146, 145, 145);
+  background: rgba(58, 58, 58, 0.329);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgba(41, 40, 40, 0.336);
 }
 
 .itemMenuBox {
