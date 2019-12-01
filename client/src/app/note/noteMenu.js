@@ -1,4 +1,5 @@
 import React from 'react'
+import AddItem from './addItem'
 
 
 class NoteMenu extends React.Component{
@@ -10,7 +11,6 @@ class NoteMenu extends React.Component{
             showModify: false,
         }
     }
-
     toggleOption(option) {
         const {showAdd, showDelete,showModify} = this.state;
         this.setState({
@@ -32,18 +32,6 @@ class NoteMenu extends React.Component{
         }
     }
 
-    addItem() {
-        return(
-            <div className="itemMenuBox">
-                    <p><input name="itemName" placeholder="Nazwa"/></p>
-                    <p><input name="itemSize" placeholder="Rozmiar"/></p>
-                    <p><input name="itemPrice" placeholder="Cena"/></p>
-                    <p><input name="itemCond" placeholder="Stan"/></p>
-                    <p><button className="menuButton">Dodaj</button></p>
-
-            </div>
-        )
-    }
 
     render() {
 
@@ -54,7 +42,7 @@ class NoteMenu extends React.Component{
                     <button className="noteMenuButton" onClick={() => this.toggleOption("delete")}>Usun</button>
                     <button className="noteMenuButton" onClick={() => this.toggleOption("modify")}>Modyfikuj</button>
                 </div>
-                {this.state.showAdd && (this.addItem())}
+                {this.state.showAdd && <AddItem/>}
             </div>
 
         )
