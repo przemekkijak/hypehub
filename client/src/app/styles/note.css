@@ -1,5 +1,25 @@
 @import url('App.css');
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #69686857;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(58, 58, 58, 0.329);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(41, 40, 40, 0.336);
+}
+
 .noteContrainer{
   width: 100vw;
   height: 100vh;
@@ -30,6 +50,7 @@
   font-size: 0.9em;
   cursor: pointer;
 }
+/* Content of note table */
 .noteContent {
   position: relative;
   overflow-y: auto;
@@ -55,24 +76,23 @@
 .itemSlot:hover{
   background-color: hsla(0,0%,18%,0.250);
 }
+/* Menu options container "Add/remove/Modify */
 .noteMenu {
   display: inline;
   position: absolute;
-  height: 5vh;
   left: 50%;
   top: 85%;
   transform: translate(-50%);
   align-content: space-around;
-  /* background-color: pink; */
 }
 .noteMenuButton {
+  cursor: pointer;
   margin: 10px;
-  height: 30px;
+  height: 4vh;
   width: 10vw;
   background: none;
   outline: none;
   border: 1px solid var(--menu-color2);
-  cursor: pointer;
 
 }
 .sellButton{
@@ -83,27 +103,9 @@
   cursor: pointer;
   height: 25px;
 }
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #69686857;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgba(58, 58, 58, 0.329);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(41, 40, 40, 0.336);
-}
 
 
+/* Adding item container */
 .itemMenuBox {
   position: absolute;
   width: 10vw;
@@ -112,15 +114,11 @@
   top: 50%;
   font-size: 14px;
   opacity: 0;
-  animation: fadeMenu 0.3s forwards;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes fadeMenu {
-  from {opacity: 0;}
-  to {opacity:1;}
-  }
-
-/* Adding item container */
+/* Adding item input */
 .itemMenuBox input {
   height: 35px;
   background: none;

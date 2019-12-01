@@ -1,48 +1,40 @@
 import React from 'react'
 import AddItem from './addItem'
+import DeleteItem from './deleteItem'
+import $ from 'jquery'
 
 
 class NoteMenu extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {
-            showAdd: true,
-            showDelete: false,
-            showModify: false,
-        }
     }
     toggleOption(option) {
-        const {showAdd, showDelete,showModify} = this.state;
-        this.setState({
-            showAdd: false,
-            showDelete: false,
-            showModify: false,
-        });
+        const options = ["#addBox","#deleteBox","#modifyBox"];
+        options.forEach((element) => {
+            $(element).css('opacity', 0);
+            $(element).css('visibility','hidden');
 
-        switch(option) {
-            case "add":
-                this.setState({showAdd: !showAdd})
-                break;
-            case "delete":
-                this.setState({showDelete: !showDelete})
-                break;
-            case "modify":
-                this.setState({showModify: !showModify})
-                break;
-        }
-    }
-
+        })
+                    if($(option).css('opacity') == 0) {
+                            $(option).css('opacity', 1);
+                            $(option).css('visibility','visible');
+                    } else {
+                            $(option).css('opacity', 0);
+                            $(option).css('visibility','hidden');
+                        }
+            }
 
     render() {
 
         return(
             <div className="container">
                 <div className="noteMenu">
-                    <button className="noteMenuButton" onClick={() => this.toggleOption("add")}>Dodaj</button>
-                    <button className="noteMenuButton" onClick={() => this.toggleOption("delete")}>Usun</button>
-                    <button className="noteMenuButton" onClick={() => this.toggleOption("modify")}>Modyfikuj</button>
+                    <button className="noteMenuButton" onClick={() => this.toggleOption("#addBox")}>Dodaj</button>
+                    <button className="noteMenuButton" onClick={() => this.toggleOption("#deleteBox")}>Usun</button>
+                    <button className="noteMenuButton" onClick={() => this.toggleOption("modifyBox")}>Modyfikuj</button>
                 </div>
-                {this.state.showAdd && <AddItem/>}
+                <AddItem/>
+                <DeleteItem/>
             </div>
 
         )

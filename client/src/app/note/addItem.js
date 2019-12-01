@@ -33,12 +33,12 @@ class AddItem extends React.Component {
     render() {
 
         return(
-        <div className="itemMenuBox">
+        <div className="itemMenuBox" id="addBox">
             <form onSubmit={this.handleSubmit}>
-                <p><input name="[item]name" placeholder="Nazwa" ref={this.itemName}/></p>
-                <p><input name="[item]size" placeholder="Rozmiar" ref={this.itemSize}/></p>
-                <p><input name="[item]price" placeholder="Cena" ref={this.itemPrice}/></p>
-                <p><input name="[item]cond" placeholder="Stan" ref={this.itemCond}/></p>
+                <p><input placeholder="Nazwa" ref={this.itemName} required/></p>
+                <p><input placeholder="Rozmiar" ref={this.itemSize} required/></p>
+                <p><input placeholder="Cena" ref={this.itemPrice} required/></p>
+                <p><input placeholder="Stan" ref={this.itemCond} required/></p>
                 <p><button type="submit" className="menuButton" value="Submit">Dodaj</button></p>
             </form>
         </div>
