@@ -12,7 +12,15 @@ class Render extends React.Component {
             showCurrent: true,
             showSold: false,
             showPending: false,
+            deleteMode: false,
         };
+        this.toggleDelete = this.toggleDelete.bind(this)
+    }
+
+    toggleDelete() {
+        this.setState({
+            deleteMode: !this.state.deleteMode
+        });
     }
 
     toggleNote(type) {
@@ -54,12 +62,12 @@ class Render extends React.Component {
                         <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>Zamowione</button>
                     </div>
                     <div className="noteContent">
-                        { this.state.showCurrent && (<Current items={this.props.currentItems}/>)}
+                        { this.state.showCurrent && (<Current items={this.props.currentItems} deleteMode={this.state.deleteMode}/>)}
                         { this.state.showSold && (<Sold items={this.props.soldItems}/>)}
                         { this.state.showPending && <Pending/>}
                     </div>
                 </div>
-                <NoteMenu/>
+                <NoteMenu deleteMode={this.toggleDelete}/>
             </div>
         )
     }

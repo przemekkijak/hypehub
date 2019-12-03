@@ -39,5 +39,8 @@ app.post('/addItem', (req,res) => {
     connection.query("INSERT into hh_items (name,buyPrice,size,cond,sold) values ('" + req.body.name + "','" + req.body.price + "','" + req.body.size + "','" + req.body.cond + "',0);", function(error) {
         if(error) throw error;
     })
-
+});
+app.post('/deleteItem', (req,res) => {
+    console.log("item usuniety " + req.body.item);
+    if(error) throw error;
 });

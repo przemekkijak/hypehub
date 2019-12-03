@@ -1,6 +1,5 @@
 import React from 'react'
 import AddItem from './addItem'
-import DeleteItem from './deleteItem'
 import $ from 'jquery'
 
 
@@ -29,11 +28,11 @@ class NoteMenu extends React.Component{
             <div className="container">
                 <div className="noteMenu">
                     <button className="noteMenuButton" onClick={() => this.toggleOption("#addBox")}>Dodaj</button>
-                    <button className="noteMenuButton" onClick={() => this.toggleOption("#deleteBox")}>Usun</button>
+                    <button className="noteMenuButton" onClick={this.props.deleteMode}>Usun</button>
                     <button className="noteMenuButton" onClick={() => this.toggleOption("modifyBox")}>Modyfikuj</button>
                 </div>
                 <AddItem/>
-                <DeleteItem/>
+                {/* <DeleteItem/> */}
             </div>
 
         )
