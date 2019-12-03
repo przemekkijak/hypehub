@@ -23,6 +23,10 @@ class Render extends React.Component {
         });
     }
 
+    deleteItem(id) {
+
+    }
+
     toggleNote(type) {
         this.setState({
             showCurrent: false,
@@ -63,7 +67,7 @@ class Render extends React.Component {
                     </div>
                     <div className="noteContent">
                         { this.state.showCurrent && (<Current items={this.props.currentItems} deleteMode={this.state.deleteMode}/>)}
-                        { this.state.showSold && (<Sold items={this.props.soldItems}/>)}
+                        { this.state.showSold && (<Sold items={this.props.soldItems} deleteMode={this.state.deleteMode}/>)}
                         { this.state.showPending && <Pending/>}
                     </div>
                 </div>

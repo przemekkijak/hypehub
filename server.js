@@ -40,7 +40,12 @@ app.post('/addItem', (req,res) => {
         if(error) throw error;
     })
 });
-
+// Deleting Item
 app.post('/deleteItem', (req,res) => {
-    connection.query("delete from hh_items where id='"+req.body.item+"';");
+    connection.query("DELETE from hh_items where id='"+req.body.item+"';");
 });
+
+app.post('/sellItem', (req,res) => {
+    // console.log('selling item id='+req.body.item+' for ' +  req.body.price);
+    connection.query("UPDATE hh_items set sold='1', sellPrice='"+req.body.price+"' where id='"+req.body.item+"';");
+})

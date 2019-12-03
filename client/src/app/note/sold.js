@@ -19,6 +19,9 @@ class Sold extends React.Component {
                       <p>{item.cond}/10</p>
                       <p>{item.buyPrice}</p>
                       <p>{item.sellPrice-item.buyPrice}</p>
+                      {this.props.deleteMode && (
+                            <button className="noteButton" id="deleteButton" onClick={() => this.deleteItem(item.id)}>Usun</button>
+                        )}
                     </div>
             )
 

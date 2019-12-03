@@ -10,6 +10,15 @@ class Current extends React.Component{
         })
     }
 
+    sellItem(id) {
+        const itemPrice = prompt("Za ile sprzedales item?");
+        Axios.post('http://localhost:3000/sellItem', {
+            item: id,
+            price: itemPrice,
+        })
+
+    }
+
     render() {
         return(
             <div className="currentContainer">
@@ -26,7 +35,8 @@ class Current extends React.Component{
                         <p>{item.size}</p>
                         <p>{item.cond}/10</p>
                         <p>{item.buyPrice}</p>
-                        <button className="noteButton">$</button>
+                        <button className="noteButton"
+                        onClick={() => this.sellItem(item.id)}>$</button>
                         {this.props.deleteMode && (
                             <button className="noteButton" id="deleteButton" onClick={() => this.deleteItem(item.id)}>Usun</button>
                         )}
