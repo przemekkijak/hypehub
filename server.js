@@ -40,7 +40,7 @@ app.post('/addItem', (req,res) => {
         if(error) throw error;
     })
 });
+
 app.post('/deleteItem', (req,res) => {
-    console.log("item usuniety " + req.body.item);
-    if(error) throw error;
+    connection.query("delete from hh_items where id='"+req.body.item+"';");
 });

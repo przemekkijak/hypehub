@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 
 class AddItem extends React.Component {
@@ -14,17 +15,23 @@ class AddItem extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        fetch('http://localhost:3000/addItem', {
-            method: 'POST',
-            headers: {
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({
-                    name: this.itemName.current.value,
-                    price: this.itemPrice.current.value,
-                    size: this.itemSize.current.value,
-                    cond: this.itemCond.current.value,
-            }),
+        // fetch('http://localhost:3000/addItem', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type':'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //             name: this.itemName.current.value,
+        //             price: this.itemPrice.current.value,
+        //             size: this.itemSize.current.value,
+        //             cond: this.itemCond.current.value,
+        //     }),
+        // });
+        Axios.post('http://localhost:3000/addItem', {
+            name: this.itemName.current.value,
+            price: this.itemPrice.current.value,
+            size: this.itemSize.current.value,
+            cond: this.itemCond.current.value,
         });
     }
 
