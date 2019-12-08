@@ -4,7 +4,7 @@ import Current from './note/current'
 import Sold from './note/sold'
 import Pending from './note/pending'
 import NoteMenu from './note/noteMenu'
-import $ from 'jquery';
+import $ from 'jquery'
 
 import {
     BrowserRouter as Router,
@@ -23,11 +23,18 @@ class Render extends React.Component {
     }
 
     toggleDelete() {
-        this.setState({
-            deleteMode: !this.state.deleteMode,
-        });
-        console.log('delete mode' + this.state.deleteMode)
-    }
+        this.setState(prevState => ({
+            deleteMode: !prevState.deleteMode
+        }));
+                            // eslint-disable-next-line
+                            if($(".deleteButton").css('opacity') == 0) {
+                                $(".deleteButton").css('opacity', 1);
+                                $(".deleteButton").css('visibility','visible');
+                        } else {
+                                $(".deleteButton").css('opacity', 0);
+                                $(".deleteButton").css('visibility','hidden');
+                            }
+}
 
     render() {
         return (
@@ -51,13 +58,13 @@ class Render extends React.Component {
                             </Route>
 
                             <Route path="/">
-                             <Current items={this.props.currentItems}/>
+                             <Current items={this.props.currentItems} deleteMode={this.state.deleteMode}/>
                             </Route>
 
                         </Switch>
                     </div>
                 </div>
-                <NoteMenu deleteMode={() => this.toggleDelete()}/>
+                <NoteMenu deleteMode={this.toggleDelete}/>
             </div>
             </Router>
         )

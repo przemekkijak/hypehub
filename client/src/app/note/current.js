@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import $ from 'jquery';
 
 
 
@@ -32,12 +33,13 @@ class Current extends React.Component{
                 </div>
                 {this.props.items.map((item) =>
                     <div className="itemSlot" key={item.id}>
-                        <p>{item.name}</p>
+                        <p id="itemName">{item.name}</p>
                         <p>{item.size}</p>
                         <p>{item.cond}/10</p>
                         <p>{item.buyPrice}</p>
                         <button className="noteButton"
                         onClick={() => this.sellItem(item.id)}>$</button>
+                        <button className="noteButton deleteButton" onClick={() => this.deleteItem(item.id)}>x</button>
                     </div>
                 )}
             </div>

@@ -83,6 +83,14 @@
   align-content: center;
   border-bottom: 1px solid rgba(69, 162, 157, 0.322);
 }
+.itemSlot p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#earnings {
+  justify-content: left;
+}
 .itemSlot:hover{
   background-color: hsla(0,0%,18%,0.250);
 }
@@ -114,7 +122,13 @@
   height: 23px;
   width: 50px;
 }
+.deleteButton {
+  border: 1px solid rgb(145, 4, 4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
 
+}
 
 
 /* Adding item container */
