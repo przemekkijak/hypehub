@@ -23,9 +23,6 @@ class Render extends React.Component {
         });
     }
 
-    deleteItem(id) {
-
-    }
 
     toggleNote(type) {
         this.setState({

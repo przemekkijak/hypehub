@@ -3,7 +3,13 @@ import Note from './app/note.js';
 import Resell from './app/resell';
 import Bump from './app/bump';
 import Axios from 'axios';
+import './app/styles/App.css';
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 class App extends Component {
     constructor(props) {
@@ -54,22 +60,24 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div className="App">
-
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
-          {/* <img src="img/indexbaks.jpg" alt="Baks index" id="index-photo"/> */}
           <div className="naviContainer">
                 <div className="navigation">
-                    <span className="naviElement" onClick={() => this.toggle("note")}>NOTE</span>
-                    <span className="naviElement" onClick={() => this.toggle("resell")}>RESELL</span>
+                    <span className="naviElement"><Link to="/">NOTE</Link></span>
+                    <span className="naviElement"><Link to="/Resell">RESELL</Link></span>
                     <span className="naviElement" onClick={() => this.toggle("bump")}>BUMP</span>
                     <span className="naviElement">ACCOUNT</span>
                 </div>
             </div>
-          {this.state.showNote && (<Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems}/>)}
+            <Router exact path="/" component={Note}/>
+            <Router path="/resell" component={Resell}/>
+          {/* {this.state.showNote && (<Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems}/>)}
           {this.state.showResell && (<Resell/>)}
-          {this.state.showBump && (<Bump/>)}
+          {this.state.showBump && (<Bump/>)} */}
       </div>
+      </Router>
     );
   }
 }
