@@ -40,7 +40,7 @@ class App extends Component {
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
           <div className="naviContainer">
                 <div className="navigation">
-                    <span className="naviElement"><Link class="link" to="/">NOTE</Link></span>
+                   <Link class="link naviElement" to="/">NOTE</Link>
                     <span className="naviElement"><Link class="link" to="/resell">RESELL</Link></span>
                     <span className="naviElement"><Link class="link" to="/bump">BUMP</Link></span>
                     <span className="naviElement">ACCOUNT</span>

@@ -32,7 +32,7 @@ class Render extends React.Component {
                                 $(".deleteButton").css('visibility','visible');
                         } else {
                                 $(".deleteButton").css('opacity', 0);
-                                $(".deleteButton").css('visibility','hidden');
+                                $("deleteButton").css('visibility','hidden');
                             }
 }
 
