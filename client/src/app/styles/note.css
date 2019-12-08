@@ -50,6 +50,9 @@
   font-size: 0.9em;
   cursor: pointer;
 }
+.link {
+  text-decoration: none;
+}
 /* Content of note table */
 .noteContent {
   position: relative;

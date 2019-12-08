@@ -5,13 +5,17 @@ import Sold from './note/sold'
 import Pending from './note/pending'
 import NoteMenu from './note/noteMenu'
 
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch
+  } from 'react-router-dom';
+
 class Render extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showCurrent: true,
-            showSold: false,
-            showPending: false,
             deleteMode: false,
         };
         this.toggleDelete = this.toggleDelete.bind(this)
@@ -23,53 +27,33 @@ class Render extends React.Component {
         });
     }
 
-
-    toggleNote(type) {
-        this.setState({
-            showCurrent: false,
-            showSold: false,
-            showPending: false,
-        });
-        const elements = ["current","sold","pending"];
-        elements.forEach(element => {
-            document.getElementById(element).style.color = "";
-        });
-        switch(type) {
-            default:
-                this.setState({showCurrent: true,})
-                break;
-            case "current":
-                this.setState({showCurrent: true,})
-                document.getElementById("current").style.color="white";
-                break;
-            case "sold":
-                this.setState({showSold: true,})
-                document.getElementById("sold").style.color="white";
-                break;
-            case "pending":
-                this.setState({showPending: true,})
-                document.getElementById("pending").style.color="white";
-                break;
-        }
-    }
-
     render() {
         return (
+            <Router>
             <div className="container">
                  <div className="tableContainer">
                     <div className="noteTableNavi">
-                        <button className="naviButton" id="current"onClick={() => this.toggleNote("current")}>Aktualne</button>
-                        <button className="naviButton" id="sold" onClick={() => this.toggleNote("sold")}>Sprzedane</button>
-                        <button className="naviButton" id="pending" onClick={() => this.toggleNote("pending")}>Zamowione</button>
+                        <button className="naviButton" id="current"><Link class="link" to="/current">Aktualne</Link></button>
+                        <button className="naviButton" id="sold"><Link class="link" to="/sold">Sprzedane</Link></button>
+                        <button className="naviButton" id="pending"><Link class="link" to="/pending">Zamowione</Link></button>
                     </div>
                     <div className="noteContent">
-                        { this.state.showCurrent && (<Current items={this.props.currentItems} deleteMode={this.state.deleteMode}/>)}
-                        { this.state.showSold && (<Sold items={this.props.soldItems} deleteMode={this.state.deleteMode}/>)}
-                        { this.state.showPending && <Pending/>}
+                        <Switch>
+                            <Route path="/sold">
+                              <Sold items={this.props.soldItems} deleteMode={this.state.deleteMode}/>
+                            </Route>
+                            <Route path="/pending">
+                                <Pending/>
+                            </Route>
+                            <Route path="/">
+                             <Current items={this.props.currentItems} deleteMode={this.state.deleteMode}/>
+                            </Route>
+                        </Switch>
                     </div>
                 </div>
                 <NoteMenu deleteMode={this.toggleDelete}/>
             </div>
+            </Router>
         )
     }
 }

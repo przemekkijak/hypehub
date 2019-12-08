@@ -25,6 +25,9 @@
   left:60%;
   opacity: 0.5;
 }
+.link {
+  text-decoration: none;
+}
 
 .naviContainer {
   position: relative;

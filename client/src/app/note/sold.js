@@ -1,6 +1,14 @@
 import React from 'react'
+import Axios from 'axios'
 
 class Sold extends React.Component {
+
+
+    deleteItem(id) {
+        Axios.post('http://localhost:3000/deleteItem',{
+            item: id
+        })
+    }
 
     render() {
         return(
