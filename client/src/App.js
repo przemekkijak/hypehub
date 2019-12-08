@@ -13,6 +13,8 @@ import {
   Switch
 } from 'react-router-dom';
 
+
+
 class App extends Component {
     constructor(props) {
       super(props)
@@ -20,23 +22,29 @@ class App extends Component {
         currentItems: [],
         soldItems: [],
         pendingItems: [],
-        response: false,
-        endpoint: "http://localhost:4001"
+        endpoint: "http://localhost:4001",
+        color: 'white'
+
       }
     }
+
+
     componentDidMount() {
-      // this.fetchItems();
-      const { endpoint } = this.state;
-      const socket = socketIOClient(endpoint);
-      socket.on("test");
+      this.getCurrent();
+      this.getSold();
     }
+    getCurrent = () => {
+      const socket = socketIOClient(this.state.endpoint);
+      socket.emit('getCurrentItems', data => {
+        this.setState({currentItems: data})
+      })
+    }
+    getSold = () => {
+      const socket = socketIOClient(this.state.endpoint);
+      socket.emit('getSoldItems', data => {
+        this.setState({soldItems: data})
+      })
 
-    fetchItems() {
-      Axios.get('http://localhost:3000/getCurrentItems')
-      .then(response => this.setState({currentItems: response.data}));
-
-      Axios.get('http://localhost:3000/getSoldItems')
-      .then(response => this.setState({soldItems: response.data}));
     }
 
   render() {
@@ -51,6 +59,7 @@ class App extends Component {
                     <span className="naviElement"><Link class="link" to="/bump">BUMP</Link></span>
                     <span className="naviElement">ACCOUNT</span>
                 </div>
+                <button onClick={() => this.getCurrent() }>Change Color</button>
             </div>
             <Switch>
               <Route path="/resell">

@@ -5,42 +5,37 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
 const http = require('http');
-const socketIo = require('socket.io');
+const socketIO = require('socket.io');
 const axios = require('axios');
 
-// const index = require('./client/src/app/routes/index');
-// app.use(index);
 
-const server = http.createServer(app);
-const io = socketIo(server);
-const portS = process.env.PORT || 4001;
+const server = http.createServer(app)
 
-const currentItems = []
-const soldItems = []
-const pendingItems = []
+const io = socketIO(server)
 
 
-io.on("connection", socket => {
-  console.log("[SocketIO] Klient polaczony");
+io.on('connection', socket => {
 
+    socket.on('getCurrentItems', (fn) => {
+        connection.query('SELECT * from hh_items where sold = "0"', function(error, results) {
+            if(error) throw error;
+            fn(results);
+            console.log('Current items updated');
+        })
+    })
 
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
-  })
-
-  socket.on("test", () => {
-      io.sockets.emit("Test socketa");
-      console.log("Test socketIO");
-  })
-
-  
-
+    socket.on('getSoldItems', (fn) => {
+        connection.query('SELECT * from hh_items where sold = "1"', function(error, results) {
+            if(error) throw error;
+            fn(results);
+            console.log('Sold items updated');
+        })
+    })
 
 });
 
-server.listen(portS, () => console.log(`Listening socketIO on port ${portS}`));
 
-
+server.listen(4001, () => console.log(`SocketServer listening on port 4001`));
 
 // bodyParser to deconstruct variables after POST
 app.use(bodyParser.json());
@@ -56,13 +51,6 @@ const connection = mysql.createConnection({
 connection.connect();
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
-//Get Current items from SQL
-const getCurrent = app.get('/getCurrentItems', (req,res) => {
-    connection.query('SELECT * from hh_items where sold = "0"', function(error, results, fields) {
-if(error) throw error;
-res.send(results)
-    });
-});
 
 // Get SOLD items from SQL
 const getSold = app.get('/getSoldItems', (req,res) => {
