@@ -8,14 +8,45 @@ const http = require('http');
 const socketIo = require('socket.io');
 const axios = require('axios');
 
-const index = require('./client/src/app/routes/index');
-app.use(index);
+// const index = require('./client/src/app/routes/index');
+// app.use(index);
 
 const server = http.createServer(app);
 const io = socketIo(server);
+const portS = process.env.PORT || 4001;
 
-const getApiAndEmit = "TODO"
+const currentItems = [];
+const soldItems = [];
+const pendingItems = [];
 
+// const getApiAndEmit = async socket => {
+//     try {
+        
+    
+//     } catch (error) {
+//         console.log(`Error: ${error.code}`);
+//     }
+// }
+
+io.on("connection", socket => {
+  console.log("New client connected");
+
+
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
+
+  socket.on("getCurrentItems", () => {
+    console.log('items get');
+      connection.query('SELECT * from hh_items where sold=0')
+      .on('result', items => {
+          currentItems.push(items);
+      })
+    });
+});
+
+server.listen(portS, () => console.log(`Listening socketIO on port ${portS}`));
 
 
 
@@ -34,7 +65,7 @@ connection.connect();
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 //Get Current items from SQL
-app.get('/getCurrentItems', (req,res) => {
+const getCurrent = app.get('/getCurrentItems', (req,res) => {
     connection.query('SELECT * from hh_items where sold = "0"', function(error, results, fields) {
 if(error) throw error;
 res.send(results)
@@ -42,7 +73,7 @@ res.send(results)
 });
 
 // Get SOLD items from SQL
-app.get('/getSoldItems', (req,res) => {
+const getSold = app.get('/getSoldItems', (req,res) => {
     connection.query('SELECT * from hh_items where sold= "1"', function(error, results, fields) {
         if(error) throw error;
         res.send(results);

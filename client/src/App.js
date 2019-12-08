@@ -4,6 +4,7 @@ import Resell from './app/resell';
 import Bump from './app/bump';
 import Axios from 'axios';
 import './app/styles/App.css';
+import socketIOClient from 'socket.io-client';
 
 import {
   BrowserRouter as Router,
@@ -19,10 +20,15 @@ class App extends Component {
         currentItems: [],
         soldItems: [],
         pendingItems: [],
+        response: false,
+        endpoint: "http://localhost:4001"
       }
     }
     componentDidMount() {
-      this.fetchItems();
+      // this.fetchItems();
+      const { endpoint } = this.state;
+      const socket = socketIOClient(endpoint);
+      socket.on("getCurrentItems", items => this.setState({currentItems: items}));
     }
 
     fetchItems() {
