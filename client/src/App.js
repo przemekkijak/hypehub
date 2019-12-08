@@ -28,7 +28,7 @@ class App extends Component {
       // this.fetchItems();
       const { endpoint } = this.state;
       const socket = socketIOClient(endpoint);
-      socket.on("getCurrentItems", items => this.setState({currentItems: items}));
+      socket.on("test");
     }
 
     fetchItems() {

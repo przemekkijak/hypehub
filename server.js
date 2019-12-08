@@ -15,35 +15,27 @@ const server = http.createServer(app);
 const io = socketIo(server);
 const portS = process.env.PORT || 4001;
 
-const currentItems = [];
-const soldItems = [];
-const pendingItems = [];
+const currentItems = []
+const soldItems = []
+const pendingItems = []
 
-// const getApiAndEmit = async socket => {
-//     try {
-        
-    
-//     } catch (error) {
-//         console.log(`Error: ${error.code}`);
-//     }
-// }
 
 io.on("connection", socket => {
-  console.log("New client connected");
-
+  console.log("[SocketIO] Klient polaczony");
 
 
   socket.on("disconnect", () => {
     console.log("Client disconnected");
-  });
+  })
 
-  socket.on("getCurrentItems", () => {
-    console.log('items get');
-      connection.query('SELECT * from hh_items where sold=0')
-      .on('result', items => {
-          currentItems.push(items);
-      })
-    });
+  socket.on("test", () => {
+      io.sockets.emit("Test socketa");
+      console.log("Test socketIO");
+  })
+
+  
+
+
 });
 
 server.listen(portS, () => console.log(`Listening socketIO on port ${portS}`));
