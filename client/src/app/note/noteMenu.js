@@ -16,9 +16,11 @@ class NoteMenu extends React.Component{
                     if($(option).css('opacity') == 0) {
                             $(option).css('opacity', 1);
                             $(option).css('visibility','visible');
+                            console.log('toggle on');
                     } else {
                             $(option).css('opacity', 0);
                             $(option).css('visibility','hidden');
+                            console.log('toggle off');
                         }
             }
 
@@ -28,11 +30,10 @@ class NoteMenu extends React.Component{
             <div className="container">
                 <div className="noteMenu">
                     <button className="noteMenuButton" onClick={() => this.toggleOption("#addBox")}>Dodaj</button>
-                    <button className="noteMenuButton" onClick={this.props.deleteMode}>Usun</button>
-                    <button className="noteMenuButton" onClick={() => this.toggleOption("modifyBox")}>Modyfikuj</button>
+                    <button className="noteMenuButton" onClick={() => this.toggleOption("#deleteBox")}>Usun</button>
+                    <button className="noteMenuButton" onClick={() => this.toggleOption("#modifyBox")}>Modyfikuj</button>
                 </div>
                 <AddItem/>
-                {/* <DeleteItem/> */}
             </div>
 
         )

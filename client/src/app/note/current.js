@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 
 
+
 class Current extends React.Component{
 
     deleteItem(id) {
@@ -37,9 +38,6 @@ class Current extends React.Component{
                         <p>{item.buyPrice}</p>
                         <button className="noteButton"
                         onClick={() => this.sellItem(item.id)}>$</button>
-                        {this.props.deleteMode && (
-                            <button className="noteButton" id="deleteButton" onClick={() => this.deleteItem(item.id)}>Usun</button>
-                        )}
                     </div>
                 )}
             </div>
