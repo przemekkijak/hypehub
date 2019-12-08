@@ -4,6 +4,21 @@ const port = process.env.PORT || 8080;
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
+const http = require('http');
+const socketIo = require('socket.io');
+const axios = require('axios');
+
+const index = require('./client/src/app/routes/index');
+app.use(index);
+
+const server = http.createServer(app);
+const io = socketIo(server);
+
+const getApiAndEmit = "TODO"
+
+
+
+
 // bodyParser to deconstruct variables after POST
 app.use(bodyParser.json());
 app.use(express.json({
@@ -48,4 +63,4 @@ app.post('/deleteItem', (req,res) => {
 app.post('/sellItem', (req,res) => {
     // console.log('selling item id='+req.body.item+' for ' +  req.body.price);
     connection.query("UPDATE hh_items set sold='1', sellPrice='"+req.body.price+"' where id='"+req.body.item+"';");
-})
+});
