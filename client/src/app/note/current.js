@@ -1,16 +1,16 @@
 import React from 'react';
-import Axios from 'axios';
-
+import socketIOClient from 'socket.io-client'
 
 class Current extends React.Component{
 
     sellItem = (id) => {
         const itemPrice = prompt("Za ile sprzedales item?");
-        Axios.post('http://localhost:3000/sellItem', {
-            item: id,
+        const socket = socketIOClient('http://localhost:4001')
+        let item = {
+            id: id,
             price: itemPrice,
-        });
-        console.log('item sold ID:' + id);
+        }
+        socket.emit('sellItem', item)
         this.props.refreshItems();
 
     }

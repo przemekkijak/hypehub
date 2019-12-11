@@ -3,9 +3,6 @@ import socketIOClient from 'socket.io-client'
 
 
 class AddItem extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     handleSubmit = (e) => {
         e.preventDefault();
