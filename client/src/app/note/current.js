@@ -9,9 +9,9 @@ class Current extends React.Component{
         Axios.post('http://localhost:3000/sellItem', {
             item: id,
             price: itemPrice,
-        })
-        console.log('item sold' + id)
-        this.props.refreshItems()
+        });
+        console.log('item sold ID:' + id);
+        this.props.refreshItems();
 
     }
 

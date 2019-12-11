@@ -11,11 +11,10 @@ class AddItem extends React.Component {
         this.itemSize = React.createRef();
         this.itemCond = React.createRef();
 
-        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.hideBox()
         Axios.post('http://localhost:3000/addItem', {
@@ -23,8 +22,8 @@ class AddItem extends React.Component {
             price: this.itemPrice.current.value,
             size: this.itemSize.current.value,
             cond: this.itemCond.current.value,
-        })
-        this.props.refreshItems()
+        });
+        this.props.refreshItems();
         this.formBox.reset();
 
     }

@@ -32,7 +32,6 @@ io.on('connection', socket => {
 
 });
 
-
 server.listen(4001, () => console.log(`SocketServer listening on port 4001`));
 
 // bodyParser to deconstruct variables after POST
@@ -48,15 +47,6 @@ const connection = mysql.createConnection({
 })
 connection.connect();
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
-
-
-// Get SOLD items from SQL
-const getSold = app.get('/getSoldItems', (req,res) => {
-    connection.query('SELECT * from hh_items where sold= "1"', function(error, results, fields) {
-        if(error) throw error;
-        res.send(results);
-    });
-});
 
 // Adding item to SQL
 app.post('/addItem', (req,res) => {
