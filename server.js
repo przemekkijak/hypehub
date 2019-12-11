@@ -43,7 +43,6 @@ io.on('connection', socket => {
     })
 
     socket.on('sellItem',(item) => {
-        console.log('trying to sell item for ' + item.price + ' hmm ' + item.id)
         connection.query("UPDATE hh_items set sold='1', sellPrice='"+item.price+"' where id='"+item.id+"';", function(error) {
             if(error) throw error;
         })
