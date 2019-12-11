@@ -39,7 +39,6 @@
 .noteTableNavi {
   display: grid;
   grid-template-columns: 33% 34% 33%;
-  border-bottom: 1px solid rgba(79, 82, 95, 0.445);
 }
 .link {
   text-decoration: none;
@@ -48,7 +47,7 @@
 .naviButton {
   height: 50px;
   border: none;
-  background-color: rgba(67, 153, 153, 0.589);
+  background-color: rgba(30, 92, 92, 0.589);
   outline: none;
   font-size: 0.9em;
   cursor: pointer;

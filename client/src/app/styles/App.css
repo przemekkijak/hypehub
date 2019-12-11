@@ -6,9 +6,9 @@
   color: var(--font-color);
 }
 :root {
-  --background-color:rgb(21, 25, 34);
-  --menu-color: #66FCF1;
-  --menu-color2: #45A29E;
+  --background-color:rgb(12, 20, 19);
+  --menu-color: rgb(82, 189, 182);
+  --menu-color2: rgb(30, 139, 134);
   --font-color: #C5C6C7;
   overflow: hidden;
 }
