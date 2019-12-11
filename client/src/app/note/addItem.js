@@ -1,7 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 
-
 class AddItem extends React.Component {
     constructor(props) {
         super(props);
@@ -21,6 +20,7 @@ class AddItem extends React.Component {
             size: this.itemSize.current.value,
             cond: this.itemCond.current.value,
         });
+
     }
 
 

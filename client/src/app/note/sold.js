@@ -1,14 +1,6 @@
 import React from 'react'
-import Axios from 'axios'
 
 class Sold extends React.Component {
-
-
-    deleteItem(id) {
-        Axios.post('http://localhost:3000/deleteItem',{
-            item: id
-        })
-    }
 
     render() {
         return(
@@ -27,7 +19,7 @@ class Sold extends React.Component {
                       <p>{item.cond}/10</p>
                       <p>{item.buyPrice}</p>
                       <p id="earnings">{item.sellPrice-item.buyPrice}</p>
-                      <button className="noteButton deleteButton" onClick={() => this.deleteItem(item.id)}>x</button>
+                      <button className="noteButton deleteButton" onClick={this.props.deleteItem(item.id)}>x</button>
                     </div>
             )
 

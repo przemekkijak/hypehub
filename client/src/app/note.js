@@ -36,6 +36,11 @@ class Render extends React.Component {
                             }
 }
 
+       deleteItem = (id) => {
+
+           console.log('delete item' + id);
+       }
+
     render() {
         return (
             <Router>
@@ -50,7 +55,7 @@ class Render extends React.Component {
                         <Switch>
 
                             <Route path="/sold">
-                              <Sold items={this.props.soldItems}/>
+                              <Sold items={this.props.soldItems} deleteItem={this.deleteItem}/>
                             </Route>
 
                             <Route path="/pending">
@@ -64,7 +69,7 @@ class Render extends React.Component {
                         </Switch>
                     </div>
                 </div>
-                <NoteMenu deleteMode={this.toggleDelete}/>
+                <NoteMenu deleteMode={this.toggleDelete} refreshItems={this.props.refreshItems}/>
             </div>
             </Router>
         )
