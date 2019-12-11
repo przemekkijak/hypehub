@@ -1,43 +1,36 @@
 import React from 'react';
-import Axios from 'axios';
+import socketIOClient from 'socket.io-client'
 
 
 class AddItem extends React.Component {
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.itemName = React.createRef();
-        this.itemPrice = React.createRef();
-        this.itemSize = React.createRef();
-        this.itemCond = React.createRef();
-
-
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.hideBox()
-        Axios.post('http://localhost:3000/addItem', {
-            name: this.itemName.current.value,
-            price: this.itemPrice.current.value,
-            size: this.itemSize.current.value,
-            cond: this.itemCond.current.value,
-        });
+        let item = {
+            name: this.itemName.value,
+            price: this.itemPrice.value,
+            size: this.itemSize.value,
+            cond: this.itemCond.value,
+        }
+        const socket = socketIOClient('http://localhost:4001');
+        socket.emit('addItem', item)
         this.props.refreshItems();
         this.formBox.reset();
 
     }
-
-
     render() {
 
         return(
         <div className="itemMenuBox" id="addBox">
             <form onSubmit={this.handleSubmit} ref={(el) => this.formBox = el}>
-                <p><input placeholder="Nazwa" ref={this.itemName} required/></p>
-                <p><input placeholder="Rozmiar" ref={this.itemSize} required/></p>
-                <p><input placeholder="Cena" ref={this.itemPrice} required/></p>
-                <p><input placeholder="Stan" ref={this.itemCond} required/></p>
+                <p><input placeholder="Nazwa" ref={(el) => this.itemName = el} required/></p>
+                <p><input placeholder="Rozmiar" ref={(el) => this.itemSize = el} required/></p>
+                <p><input placeholder="Cena" ref={(el) => this.itemPrice = el} required/></p>
+                <p><input placeholder="Stan" ref={(el) => this.itemCond = el} required/></p>
                 <p><button type="submit" className="menuButton" value="Submit">Dodaj</button></p>
             </form>
         </div>

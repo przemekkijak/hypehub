@@ -6,8 +6,6 @@ const bodyParser = require('body-parser');
 
 const http = require('http');
 const socketIO = require('socket.io');
-const axios = require('axios');
-
 
 const server = http.createServer(app)
 
@@ -28,6 +26,22 @@ io.on('connection', socket => {
             if(error) throw error;
             fn(results);
         })
+    })
+
+    socket.on('deleteItem', (id) => {
+        console.log('deleting item' + id)
+        connection.query("DELETE from hh_items where id='"+id+"';",
+        function(error) {
+            if(error) throw error;
+    })
+})
+
+    socket.on('addItem', (item) => {
+        connection.query("INSERT into hh_items (name,buyPrice,size,cond,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "',0);", function(error) {
+            if(error) throw error;
+        })
+        console.log('test adding');
+        
     })
 
 });

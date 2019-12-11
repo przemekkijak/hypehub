@@ -5,7 +5,7 @@ import Sold from './note/sold'
 import Pending from './note/pending'
 import NoteMenu from './note/noteMenu'
 import $ from 'jquery'
-import Axios from 'axios'
+import socketIOClient from 'socket.io-client'
 
 import {
     BrowserRouter as Router,
@@ -37,9 +37,8 @@ class Render extends React.Component {
     }
 
        deleteItem = (id) => {
-           Axios.post('http://localhost:3000/deleteItem', {
-               item: id.target.id
-           })
+           const socket = socketIOClient('http://localhost:4001');
+           socket.emit('deleteItem', id.target.id)
            this.props.refreshItems();
        }
 
