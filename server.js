@@ -20,7 +20,6 @@ io.on('connection', socket => {
         connection.query('SELECT * from hh_items where sold = "0"', function(error, results) {
             if(error) throw error;
             fn(results);
-            console.log('Current items updated');
         })
     })
 
@@ -28,7 +27,6 @@ io.on('connection', socket => {
         connection.query('SELECT * from hh_items where sold = "1"', function(error, results) {
             if(error) throw error;
             fn(results);
-            console.log('Sold items updated');
         })
     })
 

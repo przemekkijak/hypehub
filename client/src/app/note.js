@@ -5,6 +5,7 @@ import Sold from './note/sold'
 import Pending from './note/pending'
 import NoteMenu from './note/noteMenu'
 import $ from 'jquery'
+import Axios from 'axios'
 
 import {
     BrowserRouter as Router,
@@ -19,10 +20,9 @@ class Render extends React.Component {
         this.state = {
             deleteMode: false,
         };
-        this.toggleDelete = this.toggleDelete.bind(this)
     }
 
-    toggleDelete() {
+    toggleDelete = () => {
         this.setState(prevState => ({
             deleteMode: !prevState.deleteMode
         }));
@@ -34,11 +34,13 @@ class Render extends React.Component {
                                 $(".deleteButton").css('opacity', 0);
                                 $("deleteButton").css('visibility','hidden');
                             }
-}
+    }
 
        deleteItem = (id) => {
-
-           console.log('delete item' + id);
+           Axios.post('http://localhost:3000/deleteItem', {
+               item: id.target.id
+           })
+           this.props.refreshItems();
        }
 
     render() {
@@ -53,19 +55,15 @@ class Render extends React.Component {
                     </div>
                     <div className="noteContent">
                         <Switch>
-
                             <Route path="/sold">
                               <Sold items={this.props.soldItems} deleteItem={this.deleteItem}/>
                             </Route>
-
                             <Route path="/pending">
                                 <Pending/>
                             </Route>
-
                             <Route path="/">
-                             <Current items={this.props.currentItems} deleteMode={this.state.deleteMode}/>
+                             <Current items={this.props.currentItems} deleteItem={this.deleteItem} refreshItems={this.props.refreshItems}/>
                             </Route>
-
                         </Switch>
                     </div>
                 </div>

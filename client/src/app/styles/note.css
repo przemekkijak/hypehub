@@ -70,7 +70,7 @@
 .itemsInfo {
   display: grid;
   padding-top: 3px;
-  grid-template-columns: 35% 15% 15% 15% 5% 10%;
+  grid-template-columns: 40% 10% 15% 15% 10% 5%;
   padding-bottom: 10px;
   opacity: 0.5;
   font-size: 12px;
@@ -78,7 +78,7 @@
 
 .itemSlot {
   display: grid;
-  grid-template-columns: 35% 15% 15% 15% 10% 10%;
+  grid-template-columns: 40% 10% 15% 15% 10% 5%;
   height: 50px;
   align-content: center;
   border-bottom: 1px solid rgba(69, 162, 157, 0.322);
@@ -87,9 +87,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-#earnings {
-  justify-content: left;
 }
 .itemSlot:hover{
   background-color: hsla(0,0%,18%,0.250);
@@ -103,6 +100,7 @@
   transform: translate(-50%);
   align-content: space-around;
 }
+/* Buttons for "Add / Remove / Modify */
 .noteMenuButton {
   cursor: pointer;
   margin: 10px;
@@ -113,6 +111,7 @@
   border: 1px solid var(--menu-color2);
 
 }
+/* Button inside Note  {Sell/Delete}*/
 .noteButton{
   background: none;
   outline: none;
@@ -120,8 +119,10 @@
   border: 1px solid var(--menu-color2);
   cursor: pointer;
   height: 23px;
-  width: 50px;
+  width: 25px;
+  justify-items: center;
 }
+/* Specific color for delete button */
 .deleteButton {
   border: 1px solid rgb(145, 4, 4);
   opacity: 0;
@@ -141,7 +142,7 @@
   font-size: 14px;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 /* Adding item input */
@@ -152,11 +153,11 @@
   border: none;
   border-bottom: 1px solid var(--menu-color2);
 }
+/* button for submiting input / adding item etc */
 .menuButton {
   margin: 20px;
   width: 80px;
   height: 30px;
   background: none;
-  /* outline: none; */
   border: 1px solid var(--menu-color);
 }

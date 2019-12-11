@@ -37,25 +37,11 @@ class App extends Component {
       socket.emit('getCurrentItems', data => {
         this.setState({currentItems: data})
       })
-
       socket.emit('getSoldItems', data => {
         this.setState({soldItems: data})
       })
     }
 
-    // getCurrentItems = () => {
-    //   const socket = socketIOClient(this.state.endpoint);
-    //   socket.emit('getCurrentItems', data => {
-    //     this.setState({currentItems: data})
-    //   })
-    // }
-    // getSoldItems = () => {
-    //   const socket = socketIOClient(this.state.endpoint);
-    //   socket.emit('getSoldItems', data => {
-    //     this.setState({soldItems: data})
-    //   })
-
-    // }
 
   render() {
     return (

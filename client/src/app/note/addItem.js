@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 
+
 class AddItem extends React.Component {
     constructor(props) {
         super(props);
@@ -10,16 +11,21 @@ class AddItem extends React.Component {
         this.itemSize = React.createRef();
         this.itemCond = React.createRef();
 
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
     handleSubmit(e) {
         e.preventDefault();
+        this.props.hideBox()
         Axios.post('http://localhost:3000/addItem', {
             name: this.itemName.current.value,
             price: this.itemPrice.current.value,
             size: this.itemSize.current.value,
             cond: this.itemCond.current.value,
-        });
+        })
+        this.props.refreshItems()
+        this.formBox.reset();
 
     }
 
@@ -28,7 +34,7 @@ class AddItem extends React.Component {
 
         return(
         <div className="itemMenuBox" id="addBox">
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} ref={(el) => this.formBox = el}>
                 <p><input placeholder="Nazwa" ref={this.itemName} required/></p>
                 <p><input placeholder="Rozmiar" ref={this.itemSize} required/></p>
                 <p><input placeholder="Cena" ref={this.itemPrice} required/></p>

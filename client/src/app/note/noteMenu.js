@@ -31,7 +31,7 @@ class NoteMenu extends React.Component{
                     <button className="noteMenuButton" onClick={this.props.deleteMode}>Usun</button>
                     <button className="noteMenuButton" onClick={() => this.toggleOption("#modifyBox")}>Modyfikuj</button>
                 </div>
-                <AddItem/>
+                <AddItem refreshItems={this.props.refreshItems} hideBox={this.toggleOption}/>
             </div>
 
         )
