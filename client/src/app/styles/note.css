@@ -2,7 +2,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 7px;
 }
 
 /* Track */
@@ -12,7 +12,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(58, 58, 58, 0.329);
+  background: var(--menu-color2);
 }
 
 /* Handle on hover */
@@ -47,7 +47,8 @@
 .naviButton {
   height: 50px;
   border: none;
-  background-color: rgba(30, 92, 92, 0.589);
+  /* background-color: rgba(30, 92, 92, 0.589); */
+  background-color: var(--menu-color2);
   outline: none;
   font-size: 0.9em;
   cursor: pointer;
@@ -127,6 +128,7 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease-in-out;
+
 
 }
 

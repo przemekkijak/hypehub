@@ -30,7 +30,6 @@ class App extends Component {
     componentDidMount() {
       this.refreshItems();
     }
-
     refreshItems = () => {
 
       const socket = socketIOClient(this.state.endpoint);

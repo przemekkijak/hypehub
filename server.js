@@ -15,14 +15,14 @@ const io = socketIO(server)
 io.on('connection', socket => {
 
     socket.on('getCurrentItems', (fn) => {
-        connection.query('SELECT * from hh_items where sold = "0"', function(error, results) {
+        connection.query('SELECT * from hh_items where sold = "0" order by createdAt', function(error, results) {
             if(error) throw error;
             fn(results);
         })
     })
 
     socket.on('getSoldItems', (fn) => {
-        connection.query('SELECT * from hh_items where sold = "1"', function(error, results) {
+        connection.query('SELECT * from hh_items where sold = "1" order by soldAt', function(error, results) {
             if(error) throw error;
             fn(results);
         })
@@ -37,13 +37,26 @@ io.on('connection', socket => {
 })
     // adding items
     socket.on('addItem', (item) => {
-        connection.query("INSERT into hh_items (name,buyPrice,size,cond,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "',0);", function(error) {
+        let date_ob = new Date();
+        let date = ("0" + date_ob.getDate()).slice(-2);
+        let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        let year = date_ob.getFullYear();
+        let fullDate = (year+'-'+month+'-'+date);
+
+        connection.query("INSERT into hh_items (name,buyPrice,size,cond,sold,createdAt) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "',0,'"+fullDate+"');", function(error) {
             if(error) throw error;
         })
     })
 
     socket.on('sellItem',(item) => {
-        connection.query("UPDATE hh_items set sold='1', sellPrice='"+item.price+"' where id='"+item.id+"';", function(error) {
+
+        let date_ob = new Date();
+        let date = ("0" + date_ob.getDate()).slice(-2);
+        let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        let year = date_ob.getFullYear();
+        let fullDate = (year+'-'+month+'-'+date);
+
+        connection.query("UPDATE hh_items set sold='1', sellPrice='"+item.price+"', soldAt='"+fullDate+"' where id='"+item.id+"';", function(error) {
             if(error) throw error;
         })
     })
