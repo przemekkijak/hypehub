@@ -12,7 +12,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--menu-color2);
+  background: var(--menu-color);
 }
 
 /* Handle on hover */
@@ -47,8 +47,8 @@
 .naviButton {
   height: 50px;
   border: none;
-  /* background-color: rgba(30, 92, 92, 0.589); */
-  background-color: var(--menu-color2);
+  /* background-color: rgb(13, 133, 93); */
+  background-color: var(--menu-color);
   outline: none;
   font-size: 0.9em;
   cursor: pointer;
