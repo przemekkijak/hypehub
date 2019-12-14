@@ -19,15 +19,14 @@ class SellItem extends React.Component {
         this.props.handleModal('add');
 
     }
+
+
+
     render() {
         return(
         <div className="itemMenuBox">
             <form onSubmit={this.handleSubmit} ref={(el) => this.formBox = el}>
-                <p><input placeholder="Nazwa" ref={(el) => this.itemName = el} required/></p>
-                <p><input placeholder="Rozmiar" ref={(el) => this.itemSize = el} required/></p>
-                <p><input placeholder="Cena" ref={(el) => this.itemPrice = el} required/></p>
-                <p><input placeholder="Stan" ref={(el) => this.itemCond = el} required/></p>
-                <p><button type="submit" className="menuButton" value="Submit">Dodaj</button></p>
+                <p>test</p>
             </form>
         </div>
         )
