@@ -1,37 +1,44 @@
 import React from 'react'
 import AddItem from './addItem'
-import $ from 'jquery'
+import ReactModal from 'react-modal'
 
+ReactModal.setAppElement('#root');
 
 class NoteMenu extends React.Component{
+        constructor(props) {
+            super(props);
 
-    toggleOption(option) {
-        const options = ["#addBox","#deleteBox","#modifyBox"];
-        options.forEach((element) => {
-            $(element).css('opacity', 0);
-            $(element).css('visibility','hidden');
+            this.state = {
+                addModal: false,
+                modifyModal: false
+            };
+        }
 
-        })
-                    // eslint-disable-next-line
-                    if($(option).css('opacity') == 0) {
-                            $(option).css('opacity', 1);
-                            $(option).css('visibility','visible');
-                    } else {
-                            $(option).css('opacity', 0);
-                            $(option).css('visibility','hidden');
-                        }
-            }
-
+        handleModal = (modalType) => {
+            if(modalType === 'add') {
+                this.setState({addModal: !this.state.addModal})
+            } else {
+                this.setState({modifyModal: !this.state.modifyModal})
+            };
+        }
     render() {
 
         return(
             <div className="container">
                 <div className="noteMenu">
-                    <button className="noteMenuButton" onClick={() => this.toggleOption("#addBox")}>Dodaj</button>
+                    <button className="noteMenuButton" onClick={() => this.handleModal('add')}>Dodaj</button>
                     <button className="noteMenuButton" onClick={this.props.deleteMode}>Usun</button>
-                    <button className="noteMenuButton" onClick={() => this.toggleOption("#modifyBox")}>Modyfikuj</button>
+                    <button className="noteMenuButton">Modyfikuj</button>
                 </div>
-                <AddItem refreshItems={this.props.refreshItems} hideBox={this.toggleOption}/>
+
+                <ReactModal isOpen={this.state.addModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => this.handleModal('add')}>
+                    <AddItem refreshItems={this.props.refreshItems} handleModal={this.handleModal}/>
+                </ReactModal>
+
+                {/* <ReactModal isOpen={this.state.addModal} contentLabel={"Dodawanie przedmiotu"}
+                className={"modalContent"} overlayClassName={"modalOverlay"}>
+                    <ModifyItem/>
+                </ReactModal> */}
             </div>
 
         )

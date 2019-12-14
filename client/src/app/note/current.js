@@ -1,19 +1,30 @@
 import React from 'react';
-import socketIOClient from 'socket.io-client'
+import ReactModal from 'react-modal'
+import SellItem from './sellItem'
+
+ReactModal.setAppElement('#root');
 
 class Current extends React.Component{
 
-    sellItem = (id) => {
-        const itemPrice = prompt("Za ile sprzedales item?");
-        const socket = socketIOClient('http://localhost:4001')
-        let item = {
-            id: id,
-            price: itemPrice,
-        }
-        socket.emit('sellItem', item)
-        this.props.refreshItems();
+    // handleModal = () => {
+    //     this.setState({sellModal: !this.state.sellModal})
+    // }
 
-    }
+
+    // sellItem = (id) => {
+    //     const itemPrice = this.itemPrice;
+    //     this.setState({sellModal: true})
+    //     console.log('opening sell modal')
+    //     const socket = socketIOClient('http://localhost:4001')
+    //     let item = {
+    //         id: id,
+    //         // price: itemPrice,
+    //     }
+    //     // socket.emit('sellItem', item)
+    //     this.props.refreshItems();
+
+    // }
+
 
     render() {
         return(

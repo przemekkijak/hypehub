@@ -19,9 +19,9 @@ class Render extends React.Component {
         super(props);
         this.state = {
             deleteMode: false,
+
         };
     }
-
     toggleDelete = () => {
         this.setState(prevState => ({
             deleteMode: !prevState.deleteMode
@@ -40,6 +40,7 @@ class Render extends React.Component {
            const socket = socketIOClient('http://localhost:4001');
            socket.emit('deleteItem', id.target.id)
            this.props.refreshItems();
+           this.toggleDelete();
        }
 
     render() {

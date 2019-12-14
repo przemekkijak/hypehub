@@ -2,7 +2,7 @@ import React from 'react';
 import socketIOClient from 'socket.io-client'
 
 
-class AddItem extends React.Component {
+class SellItem extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -34,4 +34,4 @@ class AddItem extends React.Component {
     }
 }
 
-export default AddItem;
+export default SellItem;

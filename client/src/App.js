@@ -12,8 +12,6 @@ import {
   Switch
 } from 'react-router-dom';
 
-
-
 class App extends Component {
     constructor(props) {
       super(props)
@@ -25,13 +23,10 @@ class App extends Component {
 
       }
     }
-
-
     componentDidMount() {
       this.refreshItems();
     }
     refreshItems = () => {
-
       const socket = socketIOClient(this.state.endpoint);
       socket.emit('getCurrentItems', data => {
         this.setState({currentItems: data})
@@ -41,11 +36,10 @@ class App extends Component {
       })
     }
 
-
   render() {
     return (
       <Router>
-      <div className="App">
+      <div className="App" id="root">
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
           <div className="naviContainer">
                 <div className="navigation">
@@ -71,5 +65,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
