@@ -156,8 +156,12 @@
   height: 500px;
   background-color: pink;
 }
+.activeButton {
+  background-color: #FFFFFF;
+}
 
-/* modal - background */
+
+/* MODAL OPTIONS */
 .modalOverlay {
   position: absolute;
   top: 0;
@@ -168,7 +172,6 @@
   width: 100%;
   height: 100%;
 }
-
 .modalContent{
   position: absolute;
   left: 50%;
@@ -176,7 +179,6 @@
   transform: translate(-50%,-50%);
   outline: none;
 }
-
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 300ms ease-in-out;

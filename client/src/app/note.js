@@ -49,9 +49,9 @@ class Render extends React.Component {
             <div className="container">
                  <div className="tableContainer">
                     <div className="noteTableNavi">
-                    <Link className="link naviButton" id="current" to="/current">Aktualne</Link>
-                    <Link className="link naviButton" id="sold" to="/sold">Sprzedane</Link>
-                    <Link className="link naviButton" id="pending" to="/pending">Zamowione</Link>
+                    <Link className="link naviButton" to="/current">Aktualne</Link>
+                    <Link className="link naviButton" to="/sold">Sprzedane</Link>
+                    <Link className="link naviButton"  to="/pending">Zamowione</Link>
                     </div>
                     <div className="noteContent">
                         <Switch>
