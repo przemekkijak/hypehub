@@ -63,12 +63,15 @@
   opacity: 0.6;
   font-size: 12px;
 }
+.item {
+  border-bottom: 1px solid rgba(69, 162, 157, 0.322);
+  /* height: 80px; */
+}
 .itemSlot {
   display: grid;
   grid-template-columns: 40% 10% 15% 15% 10% 5%;
   height: 50px;
   align-content: center;
-  border-bottom: 1px solid rgba(69, 162, 157, 0.322);
 }
 .itemSlot p {
   display: flex;
@@ -78,6 +81,10 @@
 .itemSlot:hover{
   background-color: hsla(0,0%,18%,0.250);
 }
+.itemDetails {
+  position: relative;
+}
+
 /* Menu options container "Add/remove/Modify */
 .noteMenu {
   display: inline;
@@ -114,14 +121,13 @@
 }
 /* Adding item container */
 .itemMenuBox {
-  width: 20vw;
+  width: 17vw;
   height: 25vh;
   font-size: 16px;
 }
-
 /* Adding item input */
 .itemMenuBox input {
-  height: 45px;
+  height: 42px;
   width: 100%;
   background: none;
   outline: none;
@@ -137,9 +143,22 @@
   background: none;
   border: 1px solid var(--menu-color);
 }
+.customSelect select {
+  background: none;
+  outline: none;
+  border: none;
+}
+.customSelect {
+  backgroud: none;
+}
+
 /* Custom styling for active menu */
 .active {
   background-color: var(--menu-color3);
+}
+
+.itemDetails {
+  height: 25px;
 }
 
 
