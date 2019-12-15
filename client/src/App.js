@@ -41,14 +41,14 @@ class App extends Component {
       <Router>
       <div className="App" id="root">
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
-          <div className="naviContainer">
+          {/* <div className="naviContainer"> */}
                 <div className="navigation">
                    <Link className="link naviElement" to="/">NOTE</Link>
-                    <span className="naviElement"><Link className="link" to="/resell">RESELL</Link></span>
-                    <span className="naviElement"><Link className="link" to="/bump">BUMP</Link></span>
-                    <span className="naviElement">ACCOUNT</span>
+                   <Link className="link naviElement" to="/resell">RESELL</Link>
+                   <Link className="link naviElement" to="/bump">BUMP</Link>
+                   <Link className="link naviElement" to="/account">ACCOUNT</Link>
                 </div>
-            </div>
+            {/* </div> */}
             <Switch>
               <Route path="/resell">
                 <Resell/>

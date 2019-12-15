@@ -1,5 +1,6 @@
 @import url('App.css');
 
+
 /* width */
 ::-webkit-scrollbar {
   width: 7px;
@@ -19,31 +20,26 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(41, 40, 40, 0.336);
 }
-.contrainer{
-  width: 100vw;
-  height: 100vh;
-}
+
 .tableContainer {
     position: absolute;
     width: 65vw;
     height: 60vh;
     left: 50%;
-    top: 17%;
-    transform: translate(-50%);
-    border-radius: 2px;
+    top: 50%;
+    transform: translate(-50%,-50%);
     font-size: 0.9em;
     cursor: pointer;
   }
   /* Table navi */
 .noteTableNavi {
-  display: grid;
-  grid-template-columns: 33% 34% 33%;
+  display: flex;
 }
 /* Table Navi Buttons (Current|Sold|Pending */
 .naviButton {
+  width: 100%;
   height: 50px;
   border: none;
-  /* background-color: rgb(13, 133, 93); */
   background-color: var(--menu-color);
   outline: none;
   font-size: 0.9em;
@@ -51,9 +47,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.link {
-  text-decoration: none;
 }
 /* Content of note table */
 .noteContent {
@@ -90,7 +83,6 @@
   display: inline;
   left: 50%;
   transform: translate(-50%);
-  align-content: space-around;
 }
 /* Buttons for "Add / Remove / Modify */
 .noteMenuButton {
@@ -145,14 +137,9 @@
   background: none;
   border: 1px solid var(--menu-color);
 }
-.sellBox {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background-color: pink;
-}
-.activeButton {
-  background-color: #FFFFFF;
+/* Custom styling for active menu */
+.active {
+  background-color: var(--menu-color3);
 }
 
 
@@ -183,4 +170,17 @@
 }
 .ReactModal__Overlay--before-close{
   opacity: 0;
+}
+
+@media only screen and (max-width: 800px) {
+
+  .tableContainer {
+    top: 45%;
+    width: 100%;
+  }
+  .noteMenuButton {
+    width: 30vw;
+  }
+
+
 }

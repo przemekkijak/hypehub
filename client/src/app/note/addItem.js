@@ -22,6 +22,7 @@ class AddItem extends React.Component {
     render() {
         return(
         <div className="itemMenuBox">
+            <label>Dodaj przedmiot</label>
             <form onSubmit={this.handleSubmit} ref={(el) => this.formBox = el}>
                 <p><input placeholder="Nazwa" ref={(el) => this.itemName = el} autoFocus={true} required/></p>
                 <p><input placeholder="Rozmiar" ref={(el) => this.itemSize = el} required/></p>

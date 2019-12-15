@@ -1,5 +1,3 @@
-@import url('responsive.css');
-
 *{
   margin: 0;
   padding: 0;
@@ -11,8 +9,7 @@
   --background-color:rgb(24, 32, 37);
   --menu-color: rgb(22, 119, 78);
   --menu-color2: rgb(51, 138, 109);
-  /* --menu-color: rgb(82, 189, 182); */
-  /* --menu-color2: rgb(30, 139, 134); */
+  --menu-color3: rgb(11, 109, 68);
   --font-color: #C5C6C7;
   overflow: hidden;
 }
@@ -22,44 +19,28 @@
   height: 100vh;
   width: 100vw;
   font-size: 17px;
+  overflow-x: hidden;
 }
 
-#index-photo {
-  position: absolute;
-  top: -20%;
-  left:60%;
-  opacity: 0.5;
-}
 .link {
   text-decoration: none;
 }
 
-.naviContainer {
-  position: relative;
-  width: 100vw;
-  height: 7vh;
-}
 .navigation {
-  position: relative;
   color: var(--font-color);
-  position: relative;
-  padding-left: 5%;
-  left: 70%;
-  top: 70%;
-  transform: translateY(-50%);
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%,-50%);
   display: grid;
-  grid-template-columns:repeat(4,5%);
+  grid-template-columns:repeat(4,30%);
   font-family: Assistant, sans-serif;
   font-size: 0.8em;
-  align-content: center;
-  justify-items: center;
 }
-.navigation span:hover{
-  cursor: pointer;
-  color: rgba(226,226,226, 0.9);
+.naviElement {
+  display: flex;
+  justify-content: space-between;
 }
-.naviElement{
-display: flex;
-justify-content: center;
-align-items: center;
+.naviElement:hover{
+  color: rgb(226, 226, 226);
 }

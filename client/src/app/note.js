@@ -10,7 +10,7 @@ import socketIOClient from 'socket.io-client'
 import {
     BrowserRouter as Router,
     Route,
-    Link,
+    NavLink,
     Switch
   } from 'react-router-dom';
 
@@ -46,12 +46,11 @@ class Render extends React.Component {
     render() {
         return (
             <Router>
-            <div className="container">
                  <div className="tableContainer">
                     <div className="noteTableNavi">
-                    <Link className="link naviButton" to="/current">Aktualne</Link>
-                    <Link className="link naviButton" to="/sold">Sprzedane</Link>
-                    <Link className="link naviButton"  to="/pending">Zamowione</Link>
+                    <NavLink className="link naviButton" activeClassName="active" to="/current">Aktualne</NavLink>
+                    <NavLink className="link naviButton" to="/sold">Sprzedane</NavLink>
+                    <NavLink className="link naviButton"  to="/pending">Zamowione</NavLink>
                     </div>
                     <div className="noteContent">
                         <Switch>
@@ -68,7 +67,6 @@ class Render extends React.Component {
                     </div>
                     <NoteMenu deleteMode={this.toggleDelete} refreshItems={this.props.refreshItems}/>
                 </div>
-            </div>
             </Router>
         )
     }
