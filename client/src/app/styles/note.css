@@ -19,13 +19,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(41, 40, 40, 0.336);
 }
-.noteContrainer{
+.contrainer{
   width: 100vw;
   height: 100vh;
 }
 .tableContainer {
     position: absolute;
-    width: 50vw;
+    width: 65vw;
     height: 60vh;
     left: 50%;
     top: 17%;
@@ -38,9 +38,6 @@
 .noteTableNavi {
   display: grid;
   grid-template-columns: 33% 34% 33%;
-}
-.link {
-  text-decoration: none;
 }
 /* Table Navi Buttons (Current|Sold|Pending */
 .naviButton {
@@ -55,14 +52,14 @@
   align-items: center;
   justify-content: center;
 }
-.activeButton {
-  color: pink;
+.link {
+  text-decoration: none;
 }
 /* Content of note table */
 .noteContent {
   position: relative;
   overflow-y: auto;
-  height: 100%;
+  height: 90%;
 }
 /* Items navigation */
 .itemsInfo {
@@ -91,9 +88,7 @@
 /* Menu options container "Add/remove/Modify */
 .noteMenu {
   display: inline;
-  position: absolute;
   left: 50%;
-  top: 85%;
   transform: translate(-50%);
   align-content: space-around;
 }
@@ -129,7 +124,7 @@
 .itemMenuBox {
   width: 20vw;
   height: 25vh;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* Adding item input */

@@ -13,7 +13,6 @@ class NoteMenu extends React.Component{
                 modifyModal: false
             };
         }
-
         handleModal = (modalType) => {
             if(modalType === 'add') {
                 this.setState({addModal: !this.state.addModal})
@@ -24,12 +23,10 @@ class NoteMenu extends React.Component{
     render() {
 
         return(
-            <div className="container">
                 <div className="noteMenu">
                     <button className="noteMenuButton" onClick={() => this.handleModal('add')}>Dodaj</button>
                     <button className="noteMenuButton" onClick={this.props.deleteMode}>Usun</button>
                     <button className="noteMenuButton">Modyfikuj</button>
-                </div>
 
                 <ReactModal isOpen={this.state.addModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => this.handleModal('add')}>
                     <AddItem refreshItems={this.props.refreshItems} handleModal={this.handleModal}/>
@@ -39,7 +36,7 @@ class NoteMenu extends React.Component{
                 className={"modalContent"} overlayClassName={"modalOverlay"}>
                     <ModifyItem/>
                 </ReactModal> */}
-            </div>
+                 </div>
 
         )
     }

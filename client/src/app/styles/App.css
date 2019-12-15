@@ -1,3 +1,5 @@
+@import url('responsive.css');
+
 *{
   margin: 0;
   padding: 0;
@@ -21,6 +23,7 @@
   width: 100vw;
   font-size: 17px;
 }
+
 #index-photo {
   position: absolute;
   top: -20%;

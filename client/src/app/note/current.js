@@ -20,15 +20,7 @@ class Current extends React.Component{
 
     sellItem = (id) => {
         this.setState({sellModal: true})
-        // const socket = socketIOClient('http://localhost:4001')
-        // let item = {
-        //     id: id,
-            // price: itemPrice,
-        // }
-        // socket.emit('sellItem', item)
-        this.props.refreshItems();
         this.setState({currentId: id})
-
     }
 
 

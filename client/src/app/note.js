@@ -66,8 +66,8 @@ class Render extends React.Component {
                             </Route>
                         </Switch>
                     </div>
+                    <NoteMenu deleteMode={this.toggleDelete} refreshItems={this.props.refreshItems}/>
                 </div>
-                <NoteMenu deleteMode={this.toggleDelete} refreshItems={this.props.refreshItems}/>
             </div>
             </Router>
         )
