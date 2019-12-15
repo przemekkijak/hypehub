@@ -52,6 +52,16 @@ class Render extends React.Component {
                     <NavLink className="link naviButton" to="/sold">Sprzedane</NavLink>
                     <NavLink className="link naviButton"  to="/pending">Zamowione</NavLink>
                     </div>
+                    <div className="itemsInfo">
+                        <span>Nazwa</span>
+                        <span>Rozmiar</span>
+                        <span>Stan</span>
+                        <span>Cena kupna</span>
+                        <Switch>
+                            <Route path="/sold"><span>Profit</span></Route>
+                            <Route path="/current"><span>Sprzedaj</span></Route>
+                        </Switch>
+                    </div>
                     <div className="noteContent">
                         <Switch>
                             <Route path="/sold">

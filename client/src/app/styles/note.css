@@ -23,7 +23,7 @@
 
 .tableContainer {
     position: absolute;
-    width: 65vw;
+    width: 60vw;
     height: 60vh;
     left: 50%;
     top: 50%;
@@ -57,10 +57,10 @@
 /* Items navigation */
 .itemsInfo {
   display: grid;
-  padding-top: 3px;
+  padding-top: 2px;
   grid-template-columns: 40% 10% 15% 15% 10% 5%;
-  padding-bottom: 10px;
-  opacity: 0.5;
+  padding-bottom: 3px;
+  opacity: 0.6;
   font-size: 12px;
 }
 .itemSlot {

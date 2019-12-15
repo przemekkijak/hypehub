@@ -27,13 +27,6 @@ class Current extends React.Component{
     render() {
         return(
             <div className="currentContainer">
-                <div className="itemsInfo">
-                        <span>Nazwa</span>
-                        <span>Rozmiar</span>
-                        <span>Stan</span>
-                        <span>Cena kupna</span>
-                        <span>Sprzedaj</span>
-                </div>
                 {this.props.items.map((item) =>
                     <div className="itemSlot" key={item.id}>
                         <p>{item.name}</p>
