@@ -143,14 +143,7 @@
   background: none;
   border: 1px solid var(--menu-color);
 }
-.customSelect select {
-  background: none;
-  outline: none;
-  border: none;
-}
-.customSelect {
-  backgroud: none;
-}
+
 
 /* Custom styling for active menu */
 .active {

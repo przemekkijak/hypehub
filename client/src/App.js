@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Note from './app/note.js';
 import Resell from './app/resell';
 import Bump from './app/bump';
+import Login from './app/login'
 import './app/styles/App.css';
 import socketIOClient from 'socket.io-client';
 
@@ -20,6 +21,7 @@ class App extends Component {
         soldItems: [],
         pendingItems: [],
         endpoint: "http://localhost:4001",
+        isLoged: false
 
       }
     }
@@ -35,30 +37,26 @@ class App extends Component {
         this.setState({soldItems: data})
       })
     }
+    handleLogin = () => {
+      this.setState({isLoged: !this.state.isLoged});
+    }
 
   render() {
     return (
       <Router>
       <div className="App" id="root">
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
-          {/* <div className="naviContainer"> */}
-                <div className="navigation">
-                   <Link className="link naviElement" to="/">NOTE</Link>
+                {this.state.isLoged && (<div className="navigation">
+                   <Link className="link naviElement" to="/home">NOTE</Link>
                    <Link className="link naviElement" to="/resell">RESELL</Link>
                    <Link className="link naviElement" to="/bump">BUMP</Link>
                    <Link className="link naviElement" to="/account">ACCOUNT</Link>
-                </div>
-            {/* </div> */}
+                </div>)}
             <Switch>
-              <Route path="/resell">
-                <Resell/>
-              </Route>
-              <Route path="/bump">
-                <Bump/>
-              </Route>
-              <Route path="/">
-                <Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()}/>
-              </Route>
+              <Route path="/resell"><Resell/></Route>
+              <Route path="/bump"><Bump/></Route>
+              <Route path="/home"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()}/></Route>
+              <Route path="/"><Login handleLogin={() => this.handleLogin()}/></Route>
             </Switch>
       </div>
       </Router>

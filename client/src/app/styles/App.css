@@ -53,3 +53,23 @@
 .naviElement:hover{
   color: rgb(226, 226, 226);
 }
+
+.loginBox {
+  width: 12vw;
+  height: 25vh;
+  font-size: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+/* Adding item input */
+.loginBox input {
+  height: 42px;
+  width: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--menu-color2);
+  justify-items: center;
+}
