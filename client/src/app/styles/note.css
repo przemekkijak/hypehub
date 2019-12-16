@@ -58,7 +58,7 @@
 .itemsInfo {
   display: grid;
   padding-top: 2px;
-  grid-template-columns: 40% 10% 15% 15% 10% 5%;
+  grid-template-columns: 40% 10% 15% 15% 5% 5% 5%;
   padding-bottom: 3px;
   opacity: 0.6;
   font-size: 12px;
@@ -69,7 +69,7 @@
 }
 .itemSlot {
   display: grid;
-  grid-template-columns: 40% 10% 15% 15% 10% 5%;
+  grid-template-columns: 40% 10% 15% 15% 5% 5% 5%;
   height: 50px;
   align-content: center;
 }

@@ -41,7 +41,8 @@ app.use(express.json({
   }));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    // res.sendFile(path.join(__dirname + '/index.html'));
+    res.redirect('localhost:3000/note');
 })
 
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
@@ -57,7 +58,7 @@ io.on('connection', socket => {
             if(results.length > 0) {
                 console.log('User found')
                 console.log(results)
-                socket.emit('success');
+                socket.emit('success','logged successfully');
             } else {
                 socket.emit('failed','failed to login')
                 console.log('user not found');

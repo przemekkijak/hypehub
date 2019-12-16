@@ -21,8 +21,8 @@ class App extends Component {
         soldItems: [],
         pendingItems: [],
         isLoged: false
-
       }
+      const currentContext = React.createContext();
     }
     componentDidMount() {
       this.refreshItems();
@@ -46,7 +46,7 @@ class App extends Component {
       <div className="App" id="root">
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
                 {this.state.isLoged && (<div className="navigation">
-                   <Link className="link naviElement" to="/home">NOTE</Link>
+                   <Link className="link naviElement" to="/note">NOTE</Link>
                    <Link className="link naviElement" to="/resell">RESELL</Link>
                    <Link className="link naviElement" to="/bump">BUMP</Link>
                    <Link className="link naviElement" to="/account">ACCOUNT</Link>
@@ -54,8 +54,8 @@ class App extends Component {
             <Switch>
               <Route path="/resell"><Resell/></Route>
               <Route path="/bump"><Bump/></Route>
-              <Route path="/home"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()}/></Route>
-              <Route path="/"><Login handleLogin={() => this.handleLogin()}/></Route>
+              {!this.state.isLoged && (<Route path="/"><Login handleLogin={() => this.handleLogin()}/></Route>)}
+              <Route path="/"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()}/></Route>
             </Switch>
       </div>
       </Router>

@@ -48,9 +48,9 @@ class Render extends React.Component {
             <Router>
                  <div className="tableContainer">
                     <div className="noteTableNavi">
-                    <NavLink className="link naviButton" activeClassName="active" to="/current">Aktualne</NavLink>
-                    <NavLink className="link naviButton" to="/sold">Sprzedane</NavLink>
-                    <NavLink className="link naviButton"  to="/pending">Zamowione</NavLink>
+                    <NavLink className="link naviButton" activeClassName="active" to="/note/current">Aktualne</NavLink>
+                    <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
+                    <NavLink className="link naviButton"  to="/note/pending">Zamowione</NavLink>
                     </div>
                     <div className="itemsInfo">
                         <span>Nazwa</span>
@@ -58,16 +58,16 @@ class Render extends React.Component {
                         <span>Stan</span>
                         <span>Cena kupna</span>
                         <Switch>
-                            <Route path="/sold"><span>Profit</span></Route>
-                            <Route path="/current"><span>Sprzedaj</span></Route>
+                            <Route path="/note/sold"><span>Profit</span></Route>
+                            <Route path="/note/current"><span>Sprzedaj</span></Route>
                         </Switch>
                     </div>
                     <div className="noteContent">
                         <Switch>
-                            <Route path="/sold">
+                            <Route path="/note/sold">
                               <Sold items={this.props.soldItems} deleteItem={this.deleteItem}/>
                             </Route>
-                            <Route path="/pending">
+                            <Route path="/note/pending">
                                 <Pending/>
                             </Route>
                             <Route path="/">
