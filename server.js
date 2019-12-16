@@ -1,16 +1,17 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 8080;
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
-const session = require('express-session');
+const app = require('express')()
+const port = process.env.PORT || 8080
+const mysql = require('mysql')
+const bodyParser = require('body-parser')
 
-const http = require('http');
-const socketIO = require('socket.io');
+const session = require('express-session')({
+    secret: 'hype',
+    resave: true,
+    saveUninitialized: true
+})
+const sharedsession = require('express-socket.io-session')
 
-const server = http.createServer(app)
-
-const io = socketIO(server)
+const server = require('http').createServer(app)
+const io = require('socket.io')(server)
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -27,41 +28,39 @@ connection.connect((error) => {
     }
 
 });
-
 server.listen(4001, () => console.log(`Socketserver listening on port 4001`));
-
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}));
-app.use(bodyParser.json());
-app.use(express.json({
-    type: ['application/json', 'text/plain']
-  }));
-
-app.get('/', (req, res) => {
-    // res.sendFile(path.join(__dirname + '/index.html'));
-    res.redirect('localhost:3000/note');
-})
-
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 
+app.use(bodyParser.json());
+app.use(session);
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/index.html'));
+})
+
+
+io.use(sharedsession(session))
 
 io.on('connection', socket => {
 
-    socket.on('auth', (user) => {
+    io.sockets.on('connection', () => {
+        console.log('user connected');
+    })
+    io.on('disconect', () => {
+        console.log('user disconnected');
+    })
+
+    socket.on('login', (user) => {
         connection.query('SELECT * from users WHERE username = "'+user.username+'" and password = "'+user.password+'"', function(error, results)  {
             if(error) throw error;
             if(results.length > 0) {
-                console.log('User found')
-                console.log(results)
+                socket.handshake.session.user = user;
+                socket.handshake.session.save();
                 socket.emit('success','logged successfully');
+
             } else {
                 socket.emit('failed','failed to login')
-                console.log('user not found');
             }
         })
     })

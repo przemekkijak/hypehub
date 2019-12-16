@@ -1,16 +1,17 @@
 import React from 'react'
 import socketIOClient from 'socket.io-client'
-import {Redirect} from 'react-router-dom'
-
-
 class Login extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            failed: false,
         }
     }
 
+    componentDidMount() {
+        this.setState({failed: false});
+    }
 
     handleSubmit = (e) => {
         const socket = socketIOClient('http://localhost:4001');
@@ -19,13 +20,14 @@ class Login extends React.Component {
             username: this.username.value,
             password: this.password.value,
         }
-        socket.emit('auth',user)
+        socket.emit('login',user)
         socket.on('success', (res) => {
             console.log(res);
             this.props.handleLogin();
         })
         socket.on('failed',(res) => {
             console.log(res);
+            this.setState({failed: true})
         })
     }
 
@@ -35,6 +37,7 @@ class Login extends React.Component {
             <div className="container">
                 <div className="loginBox" onSubmit={this.handleSubmit}>
                     <form>
+                    {this.state.failed && (<label>Login lub haslo nieprawidlowe</label>)}
                         <input placeholder="Login" ref={(el) => this.username = el} autoFocus={true} required/>
                         <input type="password" placeholder="Haslo" ref={(el) => this.password = el} required/>
                         <button type="submit" className="menuButton" >Zaloguj</button>
