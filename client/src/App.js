@@ -20,7 +20,6 @@ class App extends Component {
         currentItems: [],
         soldItems: [],
         pendingItems: [],
-        endpoint: "http://localhost:4001",
         isLoged: false
 
       }
@@ -29,7 +28,7 @@ class App extends Component {
       this.refreshItems();
     }
     refreshItems = () => {
-      const socket = socketIOClient(this.state.endpoint);
+      const socket = socketIOClient('http://localhost:4001');
       socket.emit('getCurrentItems', data => {
         this.setState({currentItems: data})
       })

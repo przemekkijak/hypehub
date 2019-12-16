@@ -52,11 +52,16 @@ app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 io.on('connection', socket => {
 
     socket.on('auth', (user) => {
-        console.log('Login: ' +user.username)
-        console.log('Pass: ' + user.password)
         connection.query('SELECT * from users WHERE username = "'+user.username+'" and password = "'+user.password+'"', function(error, results)  {
             if(error) throw error;
-            console.log(results);
+            if(results.length > 0) {
+                console.log('User found')
+                console.log(results)
+                socket.emit('success');
+            } else {
+                socket.emit('failed','failed to login')
+                console.log('user not found');
+            }
         })
     })
 

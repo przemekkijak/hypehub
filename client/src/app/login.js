@@ -1,5 +1,6 @@
 import React from 'react'
 import socketIOClient from 'socket.io-client'
+import {Link} from 'react-router-dom'
 
 
 class Login extends React.Component {
@@ -13,6 +14,12 @@ class Login extends React.Component {
             password: this.password.value,
         }
         socket.emit('auth',user)
+        socket.on('success', (res) => {
+            console.log(res);
+        })
+        socket.on('failed',(res) => {
+            console.log(res);
+        })
     }
 
     render() {
@@ -22,10 +29,11 @@ class Login extends React.Component {
 
                 <div className="loginBox" onSubmit={this.handleSubmit}>
                     <form>
-                        <input placeholder="Login" ref={(el) => this.username = el} autofocus={true}/>
-                        <input placeholder="Haslo" ref={(el) => this.password = el}/>
+                        <input placeholder="Login" ref={(el) => this.username = el} autoFocus={true} required/>
+                        <input placeholder="Haslo" ref={(el) => this.password = el} required/>
                         <button type="submit" className="menuButton" onClick={this.props.handleLogin}>Zaloguj</button>
                     </form>
+
                 </div>
             </div>
         )
