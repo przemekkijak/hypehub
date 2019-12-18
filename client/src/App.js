@@ -20,13 +20,19 @@ class App extends Component {
         currentItems: [],
         soldItems: [],
         pendingItems: [],
-        isLoged: false
+        isLoged: false,
       }
-      const currentContext = React.createContext();
     }
     componentDidMount() {
+      const socket = socketIOClient('localhost:4001');
       this.refreshItems();
-    }
+      socket.on('loggedIn', (loginStatus) => {
+        console.log('geting loggedIn emit');
+        if(loginStatus) {
+            this.handleLogin();
+        }
+    })
+  }
     refreshItems = () => {
       const socket = socketIOClient('http://localhost:4001');
       socket.emit('getCurrentItems', data => {
@@ -54,8 +60,10 @@ class App extends Component {
             <Switch>
               <Route path="/resell"><Resell/></Route>
               <Route path="/bump"><Bump/></Route>
-              {!this.state.isLoged && (<Route path="/"><Login handleLogin={() => this.handleLogin()}/></Route>)}
-              <Route path="/"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()}/></Route>
+              {(this.state.isLoged) ?
+               (<Route path="/"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()}/></Route>)
+               :
+               (<Route path="/"><Login handleLogin={() => this.handleLogin()}/></Route>)}
             </Switch>
       </div>
       </Router>

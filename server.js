@@ -6,13 +6,16 @@ const bodyParser = require('body-parser')
 const session = require('express-session')({
     secret: 'hype',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {maxAge: 600000}
 })
 const sharedsession = require('express-socket.io-session')
 
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 
+
+// SQL connect
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -28,27 +31,34 @@ connection.connect((error) => {
     }
 
 });
+// listenings
 server.listen(4001, () => console.log(`Socketserver listening on port 4001`));
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 
 app.use(bodyParser.json());
+
+
+// handle sesssion
 app.use(session);
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
-})
+io.use(sharedsession(session));
 
 
-io.use(sharedsession(session))
-
+// socketIO
 io.on('connection', socket => {
 
-    io.sockets.on('connection', () => {
-        console.log('user connected');
+    io.sockets.on('connect', () => {
+        console.log('connect session ' + socket.handshake.sessionID)
+        if(socket.handshake.session.user) {
+            socket.emit('loggedIn', true);
+        } else {
+            console.log('userData empty - not logged in');
+        }
+
     })
-    io.on('disconect', () => {
-        console.log('user disconnected');
+
+    socket.on('disconnect', function() {
+        console.log('disconnect ' + socket.handshake.sessionID);
     })
 
     socket.on('login', (user) => {
@@ -57,10 +67,12 @@ io.on('connection', socket => {
             if(results.length > 0) {
                 socket.handshake.session.user = user;
                 socket.handshake.session.save();
-                socket.emit('success','logged successfully');
+                console.log('logged successfully as '+ socket.handshake.session.user.username);
+                socket.emit('success', socket.handshake.session.user.username);
 
             } else {
                 socket.emit('failed','failed to login')
+                console.log('failed to login');
             }
         })
     })

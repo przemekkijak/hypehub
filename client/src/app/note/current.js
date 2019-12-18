@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal'
 import SellItem from './sellItem'
-import $ from 'jquery'
 
 ReactModal.setAppElement('#root');
 
@@ -29,8 +28,8 @@ class Current extends React.Component{
         return(
             <div className="currentContainer">
                 {this.props.items.map((item) =>
-                <div className="item">
-                    <div className="itemSlot" id={item.id} key={item.id}>
+                <div className="item" key={item.id}>
+                    <div className="itemSlot" id={item.id}>
                         <p>{item.name}</p>
                         <p>{item.size}</p>
                         <p>{item.cond}/10</p>

@@ -21,12 +21,11 @@ class Login extends React.Component {
             password: this.password.value,
         }
         socket.emit('login',user)
-        socket.on('success', (res) => {
-            console.log(res);
+        socket.on('success', (data) => {
+            console.log('Logged as ' + data);
             this.props.handleLogin();
         })
         socket.on('failed',(res) => {
-            console.log(res);
             this.setState({failed: true})
         })
     }
