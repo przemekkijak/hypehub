@@ -22,7 +22,6 @@ class Login extends React.Component {
         }
         socket.emit('login',user)
         socket.on('success', (data) => {
-            console.log('Logged as ' + data);
             this.props.handleLogin();
         })
         socket.on('failed',(res) => {

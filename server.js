@@ -47,15 +47,10 @@ io.use(sharedsession(session));
 // socketIO
 io.on('connection', socket => {
 
-    io.sockets.on('connect', () => {
-        console.log('connect session ' + socket.handshake.sessionID)
+           console.log('connect session ' + socket.handshake.sessionID)
         if(socket.handshake.session.user) {
             socket.emit('loggedIn', true);
-        } else {
-            console.log('userData empty - not logged in');
         }
-
-    })
 
     socket.on('disconnect', function() {
         console.log('disconnect ' + socket.handshake.sessionID);
@@ -66,6 +61,8 @@ io.on('connection', socket => {
             if(error) throw error;
             if(results.length > 0) {
                 socket.handshake.session.user = user;
+                socket.handshake.session.user.id = results[0].id;
+                console.log('user id :' + socket.handshake.session.user.id);
                 socket.handshake.session.save();
                 console.log('logged successfully as '+ socket.handshake.session.user.username);
                 socket.emit('success', socket.handshake.session.user.username);
@@ -73,13 +70,14 @@ io.on('connection', socket => {
             } else {
                 socket.emit('failed','failed to login')
                 console.log('failed to login');
+                socket.handshake.session.save();
             }
         })
     })
 
 
     socket.on('getCurrentItems', (fn) => {
-        connection.query('SELECT * from hh_items where sold = "0" order by createdAt', function(error, results) {
+        connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.user.id+'" and sold = "0" order by createdAt', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting current items from database');

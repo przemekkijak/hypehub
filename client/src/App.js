@@ -25,9 +25,9 @@ class App extends Component {
     }
     componentDidMount() {
       const socket = socketIOClient('localhost:4001');
-      this.refreshItems();
       socket.on('loggedIn', (loginStatus) => {
         console.log('geting loggedIn emit');
+        this.refreshItems();
         if(loginStatus) {
             this.handleLogin();
         }
