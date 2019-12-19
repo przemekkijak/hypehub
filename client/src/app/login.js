@@ -17,12 +17,13 @@ class Login extends React.Component {
         const socket = socketIOClient('http://localhost:4001');
         e.preventDefault();
         let user = {
+            id: null,
             username: this.username.value,
             password: this.password.value,
         }
         socket.emit('login',user)
-        socket.on('success', (data) => {
-            this.props.handleLogin();
+        socket.on('success', (username,id) => {
+            this.props.handleLogin(id);
         })
         socket.on('failed',(res) => {
             this.setState({failed: true})
@@ -40,7 +41,6 @@ class Login extends React.Component {
                         <input type="password" placeholder="Haslo" ref={(el) => this.password = el} required/>
                         <button type="submit" className="menuButton" >Zaloguj</button>
                     </form>
-
                 </div>
             </div>
         )

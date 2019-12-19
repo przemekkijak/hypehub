@@ -15,8 +15,8 @@ class Sold extends React.Component {
         return(
             <div className="soldContainer">
             {this.props.items.map((item) =>
-                <div className="item">
-                    <div className="itemSlot" key={item.id}>
+                <div className="item" key={item.id}>
+                    <div className="itemSlot">
                       <p>{item.name}</p>
                       <p>{item.size}</p>
                       <p>{item.cond}/10</p>

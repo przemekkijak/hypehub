@@ -10,7 +10,8 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Switch
+  Switch,
+  Redirect,
 } from 'react-router-dom';
 
 class App extends Component {
@@ -21,15 +22,17 @@ class App extends Component {
         soldItems: [],
         pendingItems: [],
         isLoged: false,
+        userID: 0,
       }
     }
     componentDidMount() {
       const socket = socketIOClient('localhost:4001');
-      socket.on('loggedIn', (loginStatus) => {
-        console.log('geting loggedIn emit');
-        this.refreshItems();
+      socket.on('loggedIn', (loginStatus, id) => {
         if(loginStatus) {
-            this.handleLogin();
+            this.setState({isLoged: true});
+            this.setState({userID: id});
+            console.log('User ID: ' +id);
+            this.refreshItems();
         }
     })
   }
@@ -42,8 +45,11 @@ class App extends Component {
         this.setState({soldItems: data})
       })
     }
-    handleLogin = () => {
-      this.setState({isLoged: !this.state.isLoged});
+
+    handleLogin = (id) => {
+      this.refreshItems();
+      this.setState({isLoged: true});
+      console.log('Zalogowano jako ID: ' + id);
     }
 
   render() {
@@ -57,14 +63,15 @@ class App extends Component {
                    <Link className="link naviElement" to="/bump">BUMP</Link>
                    <Link className="link naviElement" to="/account">ACCOUNT</Link>
                 </div>)}
+                {(this.state.isLoged) ?
             <Switch>
               <Route path="/resell"><Resell/></Route>
               <Route path="/bump"><Bump/></Route>
-              {(this.state.isLoged) ?
-               (<Route path="/"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()}/></Route>)
-               :
-               (<Route path="/"><Login handleLogin={() => this.handleLogin()}/></Route>)}
+               <Route path="/"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()} userID={this.state.userID}/></Route>
             </Switch>
+            :
+             <Route path="/login"><Login handleLogin={(id) => this.handleLogin(id)}/></Route>
+            }
       </div>
       </Router>
     );

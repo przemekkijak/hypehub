@@ -7,7 +7,7 @@ const session = require('express-session')({
     secret: 'hype',
     resave: true,
     saveUninitialized: true,
-    cookie: {maxAge: 600000}
+    maxAge: 6000000
 })
 const sharedsession = require('express-socket.io-session')
 
@@ -47,13 +47,12 @@ io.use(sharedsession(session));
 // socketIO
 io.on('connection', socket => {
 
-           console.log('connect session ' + socket.handshake.sessionID)
         if(socket.handshake.session.user) {
-            socket.emit('loggedIn', true);
+            socket.emit('loggedIn', true, socket.handshake.session.user.id);
         }
 
     socket.on('disconnect', function() {
-        console.log('disconnect ' + socket.handshake.sessionID);
+
     })
 
     socket.on('login', (user) => {
@@ -62,10 +61,9 @@ io.on('connection', socket => {
             if(results.length > 0) {
                 socket.handshake.session.user = user;
                 socket.handshake.session.user.id = results[0].id;
-                console.log('user id :' + socket.handshake.session.user.id);
                 socket.handshake.session.save();
-                console.log('logged successfully as '+ socket.handshake.session.user.username);
-                socket.emit('success', socket.handshake.session.user.username);
+                console.log('Logged as ' + socket.handshake.session.user.username + ' ID: ' + socket.handshake.session.user.id);
+                socket.emit('success', socket.handshake.session.user.username, socket.handshake.session.user.id);
 
             } else {
                 socket.emit('failed','failed to login')
@@ -77,23 +75,28 @@ io.on('connection', socket => {
 
 
     socket.on('getCurrentItems', (fn) => {
+        //  ownerID = "'+socket.handshake.session.user.id+'" and
+        if(socket.handshake.session.user) {
         connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.user.id+'" and sold = "0" order by createdAt', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting current items from database');
-            } else {
+            }
             fn(results);
-        }})
+            })
+        }
     })
 
     socket.on('getSoldItems', (fn) => {
-        connection.query('SELECT * from hh_items where sold = "1" order by soldAt', function(error, results) {
+        if(socket.handshake.session.user) {
+        connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.user.id+'" and sold = "1" order by soldAt', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting sold items from database');
             }
             fn(results);
-        })
+            })
+        }
     })
 
     socket.on('deleteItem', (id) => {
@@ -112,7 +115,7 @@ io.on('connection', socket => {
         let year = date_ob.getFullYear();
         let fullDate = (year+'-'+month+'-'+date);
 
-        connection.query("INSERT into hh_items (name,buyPrice,size,cond,sold,createdAt) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "',0,'"+fullDate+"');", function(error) {
+        connection.query("INSERT into hh_items (name,buyPrice,size,cond,ownerID,sold,createdAt) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID + "',0,'"+fullDate+"');", function(error) {
             if(error) {
                 console.log(error)
                 console.log('Error while adding item to database');

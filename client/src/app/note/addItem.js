@@ -11,7 +11,9 @@ class AddItem extends React.Component {
             price: this.itemPrice.value,
             size: this.itemSize.value,
             cond: this.itemCond.value,
+            ownerID: this.props.userID,
         }
+        console.log('useriD: ' + this.props.userID);
         const socket = socketIOClient('http://localhost:4001');
         socket.emit('addItem', item)
         this.props.refreshItems();
