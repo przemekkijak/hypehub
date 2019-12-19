@@ -28,13 +28,11 @@ class App extends Component {
     componentDidMount() {
       const socket = socketIOClient('localhost:4001');
       socket.on('loggedIn', (loginStatus, id) => {
-        if(loginStatus) {
-            this.setState({isLoged: true});
-            this.setState({userID: id});
-            console.log('User ID: ' +id);
-            this.refreshItems();
-        }
-    })
+        this.refreshItems();
+        this.setState({isLoged: true});
+        this.setState({userID: id});
+
+        })
   }
     refreshItems = () => {
       const socket = socketIOClient('http://localhost:4001');
@@ -46,10 +44,10 @@ class App extends Component {
       })
     }
 
-    handleLogin = (id) => {
-      this.refreshItems();
+    handleLogin(id) {
       this.setState({isLoged: true});
-      console.log('Zalogowano jako ID: ' + id);
+      this.setState({userID: id});
+      this.refreshItems();
     }
 
   render() {
@@ -57,7 +55,8 @@ class App extends Component {
       <Router>
       <div className="App" id="root">
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
-                {this.state.isLoged && (<div className="navigation">
+                {this.state.isLoged &&
+                (<div className="navigation">
                    <Link className="link naviElement" to="/note">NOTE</Link>
                    <Link className="link naviElement" to="/resell">RESELL</Link>
                    <Link className="link naviElement" to="/bump">BUMP</Link>
@@ -70,8 +69,12 @@ class App extends Component {
                <Route path="/"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()} userID={this.state.userID}/></Route>
             </Switch>
             :
+            <>
              <Route path="/login"><Login handleLogin={(id) => this.handleLogin(id)}/></Route>
+             <Redirect to="/login"/>
+             </>
             }
+
       </div>
       </Router>
     );
