@@ -16,7 +16,7 @@ class Login extends React.Component {
 
     handleSubmit = (e) => {
         const socket = socketIOClient('http://localhost:4001');
-        // e.preventDefault();
+        e.preventDefault();
         let user = {
             id: null,
             username: this.username.value,
@@ -27,7 +27,8 @@ class Login extends React.Component {
             localStorage.setItem('username', username);
             localStorage.setItem('logged','true')
             localStorage.setItem('id',id);
-           return <Redirect to ="/"/>
+
+            this.props.handleLogin();
         })
         socket.on('failed',(res) => {
             this.setState({failed: true})

@@ -38,7 +38,6 @@ app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 app.use(bodyParser.json());
 
-var userID = 0;
 var isLoged = false;
 
 // handle sesssion
@@ -58,8 +57,9 @@ io.on('connection', socket => {
         console.log('disconnected');
     })
     socket.on('userData', (id,loged) => {
-        userID = id;
+        socket.handshake.session.userID = id;
         isLoged = loged;
+        console.log('data fetch for ID: ' + id)
     })
 
     socket.on('login', (user) => {
@@ -67,9 +67,9 @@ io.on('connection', socket => {
             if(error) throw error;
             if(results.length > 0) {
                 socket.handshake.session.user = user;
-                socket.handshake.session.user.id = results[0].id;
+                socket.handshake.session.userID = results[0].id;
                 socket.handshake.session.save();
-                console.log('Logged as ' + socket.handshake.session.user.username + ' ID: ' + socket.handshake.session.user.id);
+                console.log('Logged as ' + socket.handshake.session.user.username + ' ID: ' + socket.handshake.session.userID);
                 socket.emit('success', socket.handshake.session.user.username, socket.handshake.session.user.id);
 
             } else {
@@ -84,7 +84,7 @@ io.on('connection', socket => {
     socket.on('getCurrentItems', (fn) => {
         //  ownerID = "'+socket.handshake.session.user.id+'" and
         if(isLoged) {
-        connection.query('SELECT * from hh_items where ownerID = "'+userID+'" and sold = "0" order by createdAt', function(error, results) {
+        connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.userID+'" and sold = "0" order by createdAt', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting current items from database');
