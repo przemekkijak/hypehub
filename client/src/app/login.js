@@ -27,7 +27,6 @@ class Login extends React.Component {
             localStorage.setItem('username', username);
             localStorage.setItem('logged','true')
             localStorage.setItem('id',id);
-
             this.props.handleLogin();
         })
         socket.on('failed',(res) => {

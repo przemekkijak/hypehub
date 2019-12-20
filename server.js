@@ -58,6 +58,7 @@ io.on('connection', socket => {
     })
     socket.on('userData', (id,loged) => {
         socket.handshake.session.userID = id;
+        socket.handshake.session.save();
         isLoged = loged;
         console.log('data fetch for ID: ' + id)
     })
@@ -70,7 +71,7 @@ io.on('connection', socket => {
                 socket.handshake.session.userID = results[0].id;
                 socket.handshake.session.save();
                 console.log('Logged as ' + socket.handshake.session.user.username + ' ID: ' + socket.handshake.session.userID);
-                socket.emit('success', socket.handshake.session.user.username, socket.handshake.session.user.id);
+                socket.emit('success', socket.handshake.session.user.username, socket.handshake.session.userID);
 
             } else {
                 socket.emit('failed','failed to login')
