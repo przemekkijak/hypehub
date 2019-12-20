@@ -43,10 +43,14 @@ app.use(bodyParser.json());
 app.use(session);
 io.use(sharedsession(session));
 
+app.get('/', (req,res) => {
+    res.sendFile(__dirname+'index.html');
+})
 
 // socketIO
 io.on('connection', socket => {
 
+    console.log('connected ' + socket.handshake.sessionID);
         if(socket.handshake.session.user) {
             socket.emit('loggedIn', true, socket.handshake.session.user.id);
         }

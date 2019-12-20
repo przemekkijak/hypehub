@@ -34,7 +34,7 @@ class Login extends React.Component {
         return(
 
             <div className="container">
-                <div className="loginBox" onSubmit={this.handleSubmit}>
+                <div className="loginBox" id="loginBox" onSubmit={this.handleSubmit}>
                     <form>
                     {this.state.failed && (<label>Login lub haslo nieprawidlowe</label>)}
                         <input placeholder="Login" ref={(el) => this.username = el} autoFocus={true} required/>

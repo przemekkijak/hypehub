@@ -5,6 +5,7 @@ import Bump from './app/bump';
 import Login from './app/login'
 import './app/styles/App.css';
 import socketIOClient from 'socket.io-client';
+import $ from 'jquery';
 
 import {
   BrowserRouter as Router,
@@ -31,9 +32,14 @@ class App extends Component {
         this.refreshItems();
         this.setState({isLoged: true});
         this.setState({userID: id});
-
         })
+        this.refreshItems();
   }
+    handleLogin(id) {
+      this.setState({isLoged: true});
+      this.setState({userID: id});
+      this.refreshItems();
+    }
     refreshItems = () => {
       const socket = socketIOClient('http://localhost:4001');
       socket.emit('getCurrentItems', data => {
@@ -44,11 +50,6 @@ class App extends Component {
       })
     }
 
-    handleLogin(id) {
-      this.setState({isLoged: true});
-      this.setState({userID: id});
-      this.refreshItems();
-    }
 
   render() {
     return (
@@ -62,16 +63,19 @@ class App extends Component {
                    <Link className="link naviElement" to="/bump">BUMP</Link>
                    <Link className="link naviElement" to="/account">ACCOUNT</Link>
                 </div>)}
-                {(this.state.isLoged) ?
+                {(!this.state.isLoged) ?
+                   <>
+                  <Route path="/login"><Login handleLogin={(id) => this.handleLogin(id)}/></Route>
+                  <Redirect to="/login"/>
+                  </>
+              :
+            <>
+            <Redirect to ="/"/>
             <Switch>
               <Route path="/resell"><Resell/></Route>
               <Route path="/bump"><Bump/></Route>
                <Route path="/"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()} userID={this.state.userID}/></Route>
             </Switch>
-            :
-            <>
-             <Route path="/login"><Login handleLogin={(id) => this.handleLogin(id)}/></Route>
-             <Redirect to="/login"/>
              </>
             }
 
