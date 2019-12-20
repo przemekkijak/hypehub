@@ -22,24 +22,23 @@ class App extends Component {
         soldItems: [],
         pendingItems: [],
         isLoged: false,
+        endpoint: 'localhost:4001'
       }
     }
     componentDidMount() {
-      const socket = socketIOClient('localhost:4001');
       if(localStorage.getItem('id') > 0) {
-      socket.emit('userData', localStorage.getItem('id'), localStorage.getItem('logged'));
+        socketIOClient(this.state.endpoint).emit('userData', localStorage.getItem('id'), localStorage.getItem('logged'));
       }
       console.log(localStorage.getItem('id'));
       console.log(localStorage.getItem('logged'));
         this.refreshItems();
   }
 
-    refreshItems = () => {
-      const socket = socketIOClient('http://localhost:4001');
-      socket.emit('getCurrentItems', data => {
+    refreshItems() {
+      socketIOClient(this.state.endpoint).emit('getCurrentItems', data => {
         this.setState({currentItems: data})
       })
-      socket.emit('getSoldItems', data => {
+      socketIOClient(this.state.endpoint).emit('getSoldItems', data => {
         this.setState({soldItems: data})
       })
     }
