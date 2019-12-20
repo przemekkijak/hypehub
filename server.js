@@ -38,6 +38,8 @@ app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 app.use(bodyParser.json());
 
+var userID = 0;
+var isLoged = false;
 
 // handle sesssion
 app.use(session);
@@ -51,12 +53,13 @@ app.get('/', (req,res) => {
 io.on('connection', socket => {
 
     console.log('connected ' + socket.handshake.sessionID);
-        if(socket.handshake.session.user) {
-            socket.emit('loggedIn', true, socket.handshake.session.user.id);
-        }
 
     socket.on('disconnect', function() {
-
+        console.log('disconnected');
+    })
+    socket.on('userData', (id,loged) => {
+        userID = id;
+        isLoged = loged;
     })
 
     socket.on('login', (user) => {
@@ -80,8 +83,8 @@ io.on('connection', socket => {
 
     socket.on('getCurrentItems', (fn) => {
         //  ownerID = "'+socket.handshake.session.user.id+'" and
-        if(socket.handshake.session.user) {
-        connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.user.id+'" and sold = "0" order by createdAt', function(error, results) {
+        if(isLoged) {
+        connection.query('SELECT * from hh_items where ownerID = "'+userID+'" and sold = "0" order by createdAt', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting current items from database');

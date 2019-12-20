@@ -1,5 +1,6 @@
 import React from 'react'
 import socketIOClient from 'socket.io-client'
+import {Redirect} from 'react-router-dom'
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +16,7 @@ class Login extends React.Component {
 
     handleSubmit = (e) => {
         const socket = socketIOClient('http://localhost:4001');
-        e.preventDefault();
+        // e.preventDefault();
         let user = {
             id: null,
             username: this.username.value,
@@ -23,7 +24,10 @@ class Login extends React.Component {
         }
         socket.emit('login',user)
         socket.on('success', (username,id) => {
-            this.props.handleLogin(id);
+            localStorage.setItem('username', username);
+            localStorage.setItem('logged','true')
+            localStorage.setItem('id',id);
+           return <Redirect to ="/"/>
         })
         socket.on('failed',(res) => {
             this.setState({failed: true})
