@@ -60,7 +60,6 @@ io.on('connection', socket => {
         socket.handshake.session.userID = id;
         socket.handshake.session.save();
         isLoged = loged;
-        console.log('data fetch for ID: ' + id)
     })
 
     socket.on('login', (user) => {
@@ -83,7 +82,6 @@ io.on('connection', socket => {
 
 
     socket.on('getCurrentItems', (fn) => {
-        //  ownerID = "'+socket.handshake.session.user.id+'" and
         if(isLoged) {
         connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.userID+'" and sold = "0" order by createdAt', function(error, results) {
             if(error) {

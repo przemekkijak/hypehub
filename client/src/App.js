@@ -26,12 +26,11 @@ class App extends Component {
       this.socket = socketIOClient('localhost:4001');
     }
     componentDidMount() {
+      this.refreshItems();
       if(localStorage.getItem('id') > 0) {
         this.socket.emit('userData', localStorage.getItem('id'), localStorage.getItem('logged'));
-      }
-      console.log(localStorage.getItem('id'));
-      console.log(localStorage.getItem('logged'));
         this.refreshItems();
+      }
   }
 
     refreshItems() {
@@ -42,7 +41,7 @@ class App extends Component {
         this.setState({soldItems: data})
       })
     }
-    handleLogin = () => {
+    handleLogin() {
       this.refreshItems();
       this.setState({isLoged: true});
 

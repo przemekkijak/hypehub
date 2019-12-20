@@ -1,6 +1,6 @@
 import React from 'react'
 import socketIOClient from 'socket.io-client'
-import {Redirect} from 'react-router-dom'
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
