@@ -22,12 +22,12 @@ class App extends Component {
         soldItems: [],
         pendingItems: [],
         isLoged: false,
-        endpoint: 'localhost:4001'
       }
+      this.socket = socketIOClient('localhost:4001');
     }
     componentDidMount() {
       if(localStorage.getItem('id') > 0) {
-        socketIOClient(this.state.endpoint).emit('userData', localStorage.getItem('id'), localStorage.getItem('logged'));
+        this.socket.emit('userData', localStorage.getItem('id'), localStorage.getItem('logged'));
       }
       console.log(localStorage.getItem('id'));
       console.log(localStorage.getItem('logged'));
@@ -35,10 +35,10 @@ class App extends Component {
   }
 
     refreshItems() {
-      socketIOClient(this.state.endpoint).emit('getCurrentItems', data => {
+      this.socket.emit('getCurrentItems', data => {
         this.setState({currentItems: data})
       })
-      socketIOClient(this.state.endpoint).emit('getSoldItems', data => {
+      this.socket.emit('getSoldItems', data => {
         this.setState({soldItems: data})
       })
     }
