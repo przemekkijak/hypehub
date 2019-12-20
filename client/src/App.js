@@ -33,7 +33,7 @@ class App extends Component {
       }
   }
 
-    refreshItems() {
+    refreshItems = () => {
       this.socket.emit('getCurrentItems', data => {
         this.setState({currentItems: data})
       })
@@ -41,7 +41,7 @@ class App extends Component {
         this.setState({soldItems: data})
       })
     }
-    handleLogin() {
+    handleLogin = () => {
       this.refreshItems();
       this.setState({isLoged: true});
 
