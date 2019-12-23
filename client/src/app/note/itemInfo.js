@@ -30,7 +30,7 @@ class ItemInfo extends React.Component {
                     <p>stan</p>
                     <p>rozmiar</p>
                 </div>
-                <div clasName="itemOptions">
+                <div clasName="itemOpstion">
                     <button>Skopiuj opis</button>
                     <button>Wygeneruj zdjecie z opisem</button>
                     <button>Wygeneruj zdjecie bez opisu</button>
