@@ -12,7 +12,6 @@ class AddItem extends React.Component {
             cond: this.itemCond.value,
             ownerID: this.props.userID,
         }
-        console.log('userID: ' + this.props.userID);
         this.props.socket.emit('addItem', item)
         this.props.refreshItems();
         this.formBox.reset();

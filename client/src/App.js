@@ -44,6 +44,11 @@ class App extends Component {
       this.refreshItems();
     }
 
+    logout = () => {
+      this.setState({isLoged: false});
+    }
+
+
 
   render() {
     return (
@@ -55,6 +60,7 @@ class App extends Component {
                 <div className="userInfo">
                   <p>Zalogowano jako {this.user.username}</p>
                   <p>ID: {this.user.id}</p>
+                  <p onClick={this.logout}>Wyloguj</p>
                 </div>
 
                <div className="navigation">

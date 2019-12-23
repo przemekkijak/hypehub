@@ -10,7 +10,7 @@ class NoteMenu extends React.Component{
 
             this.state = {
                 addModal: false,
-                modifyModal: false
+                modifyModal: false,
             };
         }
         handleModal = (modalType) => {

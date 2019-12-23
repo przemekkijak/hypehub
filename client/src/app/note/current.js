@@ -13,16 +13,14 @@ class Current extends React.Component{
                 currentId: 0,
             }
         }
-        handleModal = () => {
-            this.setState({sellModal: !this.state.sellModal})
-        }
-
-
         sellItem = (id) => {
         this.setState({sellModal: true})
         this.setState({currentId: id})
         }
 
+        handleModal() {
+            this.setState({sellModal: !this.state.sellModal});
+        }
 
     render() {
         return(
@@ -36,7 +34,7 @@ class Current extends React.Component{
                         <p>{item.buyPrice}</p>
                         <p><button className="noteButton"
                         onClick={() => this.sellItem(item.id)}>$</button></p>
-                        <p><button className="noteButton">i</button></p>
+                        <p><button className="noteButton" onClick={() => this.props.itemInfo(item.id)}>i</button></p>
                         <p><button className="noteButton deleteButton" id={item.id} onClick={id => this.props.deleteItem(id)}>x</button></p>
                     </div>
                 </div>

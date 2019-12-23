@@ -23,6 +23,7 @@ class Sold extends React.Component {
                       <p>{item.buyPrice}</p>
                       <p id="earnings">{item.sellPrice-item.buyPrice}</p>
                       <button className="noteButton deleteButton" id={item.id} onClick={id => this.props.deleteItem(id)}>x</button>
+                      <p><button className="noteButton" onClick={() => this.props.itemInfo(item.id)}>i</button></p>
                     </div>
 
                 </div>

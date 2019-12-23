@@ -79,7 +79,7 @@
 }
 
 .userInfo {
-  padding: 5px;
+  padding: 20px;
   opacity: 0.6;
   border: 1px solid var(--menu-color2);
   position: absolute;

@@ -8,7 +8,6 @@ class SellItem extends React.Component {
             price: this.itemPrice.value,
             soldFor: this.soldFor.value
         }
-        console.log(item)
         this.props.socket.emit('sellItem',item)
         this.props.refreshItems();
         this.formBox.reset();
