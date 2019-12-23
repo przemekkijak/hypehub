@@ -1,5 +1,4 @@
 import React from 'react';
-import socketIOClient from 'socket.io-client'
 
 
 class AddItem extends React.Component {
@@ -13,9 +12,8 @@ class AddItem extends React.Component {
             cond: this.itemCond.value,
             ownerID: this.props.userID,
         }
-        console.log('useriD: ' + this.props.userID);
-        const socket = socketIOClient('http://localhost:4001');
-        socket.emit('addItem', item)
+        console.log('userID: ' + this.props.userID);
+        this.props.socket.emit('addItem', item)
         this.props.refreshItems();
         this.formBox.reset();
         this.props.handleModal('add');

@@ -5,7 +5,6 @@ import Sold from './note/sold'
 import Pending from './note/pending'
 import NoteMenu from './note/noteMenu'
 import $ from 'jquery'
-import socketIOClient from 'socket.io-client'
 
 import {
     BrowserRouter as Router,
@@ -37,8 +36,7 @@ class Render extends React.Component {
     }
 
        deleteItem = (id) => {
-           const socket = socketIOClient('http://localhost:4001');
-           socket.emit('deleteItem', id.target.id)
+           this.props.socket.emit('deleteItem', id.target.id)
            this.props.refreshItems();
            this.toggleDelete();
        }
@@ -71,11 +69,11 @@ class Render extends React.Component {
                                 <Pending/>
                             </Route>
                             <Route path="/">
-                             <Current items={this.props.currentItems} deleteItem={this.deleteItem} refreshItems={this.props.refreshItems}/>
+                             <Current socket={this.props.socket} items={this.props.currentItems} deleteItem={this.deleteItem} refreshItems={this.props.refreshItems}/>
                             </Route>
                         </Switch>
                     </div>
-                    <NoteMenu userID={this.props.userID} deleteMode={this.toggleDelete} refreshItems={this.props.refreshItems}/>
+                    <NoteMenu socket={this.props.socket} userID={this.props.userID} deleteMode={this.toggleDelete} refreshItems={this.props.refreshItems}/>
                 </div>
             </Router>
         )

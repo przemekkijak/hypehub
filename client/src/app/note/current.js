@@ -43,7 +43,7 @@ class Current extends React.Component{
                 )}
 
             <ReactModal isOpen={this.state.sellModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => this.handleModal()}>
-                <SellItem id={this.state.currentId} items={this.props.items} handleModal={this.handleModal} refreshItems={this.props.refreshItems}/>
+                <SellItem socket={this.props.socket} id={this.state.currentId} items={this.props.items} handleModal={this.handleModal} refreshItems={this.props.refreshItems}/>
             </ReactModal>
             </div>
         )

@@ -1,27 +1,27 @@
-const app = require('express')()
-const port = process.env.PORT || 8080
-const mysql = require('mysql')
-const bodyParser = require('body-parser')
+const app = require('express')(),
+port = process.env.PORT || 8080,
+mysql = require('mysql'),
+bodyParser = require('body-parser'),
 
-const session = require('express-session')({
+session = require('express-session')({
     secret: 'hype',
     resave: true,
     saveUninitialized: true,
     maxAge: 6000000
-})
-const sharedsession = require('express-socket.io-session')
+}),
+sharedsession = require('express-socket.io-session'),
 
-const server = require('http').createServer(app)
-const io = require('socket.io')(server)
+server = require('http').createServer(app),
+io = require('socket.io')(server),
 
 
 // SQL connect
-const connection = mysql.createConnection({
+connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'hypehub'
-})
+});
 connection.connect((error) => {
     if(error) {
     console.log(error);
@@ -31,6 +31,7 @@ connection.connect((error) => {
     }
 
 });
+
 // listenings
 server.listen(4001, () => console.log(`Socketserver listening on port 4001`));
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
@@ -38,51 +39,53 @@ app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 app.use(bodyParser.json());
 
-var isLoged = false;
 
 // handle sesssion
 app.use(session);
-io.use(sharedsession(session));
+io.use(sharedsession(session, {
+    autoSave: true
+}));
 
-app.get('/', (req,res) => {
-    res.sendFile(__dirname+'index.html');
-})
 
 // socketIO
 io.on('connection', socket => {
 
     console.log('connected ' + socket.handshake.sessionID);
+    // socket.on('disconnect', function() {
+    //     console.log('disconnected');
+    // })
 
-    socket.on('disconnect', function() {
-        console.log('disconnected');
-    })
-    socket.on('userData', (id,loged) => {
-        socket.handshake.session.userID = id;
-        socket.handshake.session.save();
-        isLoged = loged;
-    })
 
     socket.on('login', (user) => {
         connection.query('SELECT * from users WHERE username = "'+user.username+'" and password = "'+user.password+'"', function(error, results)  {
-            if(error) throw error;
+            if(error) { console.log('Error while loging user')}
             if(results.length > 0) {
-                socket.handshake.session.user = user;
+                socket.handshake.session.user = {
+                    id : results[0].id,
+                    username : results[0].username,
+                    email :  results[0].email,
+                }
                 socket.handshake.session.userID = results[0].id;
                 socket.handshake.session.save();
-                console.log('Logged as ' + socket.handshake.session.user.username + ' ID: ' + socket.handshake.session.userID);
-                socket.emit('success', socket.handshake.session.user.username, socket.handshake.session.userID);
+                console.log('Logged as ' + socket.handshake.session.user.username + ' ID: ' + socket.handshake.session.user.id);
+                socket.emit('success', socket.handshake.session.user);
 
             } else {
                 socket.emit('failed','failed to login')
                 console.log('failed to login');
-                socket.handshake.session.save();
             }
+        })
+    })
+
+    socket.on('getUser', (id, fn) => {
+        connection.query('SELECT * from users where id = "' + id + '";', (error, results) => {
+            if(error) {console.log('Error while geting user id: ' + id)}
+            fn(results);
         })
     })
 
 
     socket.on('getCurrentItems', (fn) => {
-        if(isLoged) {
         connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.userID+'" and sold = "0" order by createdAt', function(error, results) {
             if(error) {
                 console.log(error)
@@ -90,12 +93,11 @@ io.on('connection', socket => {
             }
             fn(results);
             })
-        }
     })
 
     socket.on('getSoldItems', (fn) => {
         if(socket.handshake.session.user) {
-        connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.user.id+'" and sold = "1" order by soldAt', function(error, results) {
+        connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.user.id+'" and sold = "1" order by soldAt DESC', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting sold items from database');

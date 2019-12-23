@@ -1,5 +1,4 @@
 import React from 'react'
-import socketIOClient from 'socket.io-client'
 
 class Login extends React.Component {
     constructor(props) {
@@ -8,28 +7,26 @@ class Login extends React.Component {
         this.state = {
             failed: false,
         }
+        this.socket = this.props.socket;
     }
 
     componentDidMount() {
         this.setState({failed: false});
+
     }
 
     handleSubmit = (e) => {
-        const socket = socketIOClient('http://localhost:4001');
         e.preventDefault();
         let user = {
             id: null,
             username: this.username.value,
             password: this.password.value,
         }
-        socket.emit('login',user)
-        socket.on('success', (username,id) => {
-            localStorage.setItem('username', username);
-            localStorage.setItem('logged','true')
-            localStorage.setItem('id',id);
-            this.props.handleLogin();
+        this.socket.emit('login',user)
+        this.socket.on('success', (id) => {
+            this.props.handleLogin(id);
         })
-        socket.on('failed',(res) => {
+        this.socket.on('failed',(res) => {
             this.setState({failed: true})
         })
     }

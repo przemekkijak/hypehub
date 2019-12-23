@@ -24,14 +24,11 @@ class App extends Component {
         isLoged: false,
       }
       this.socket = socketIOClient('localhost:4001');
-    }
-    componentDidMount() {
-      this.refreshItems();
-      if(localStorage.getItem('id') > 0) {
-        this.socket.emit('userData', localStorage.getItem('id'), localStorage.getItem('logged'));
-        this.refreshItems();
+      const user = {};
       }
-  }
+
+    componentDidMount() {
+    }
 
     refreshItems = () => {
       this.socket.emit('getCurrentItems', data => {
@@ -41,16 +38,10 @@ class App extends Component {
         this.setState({soldItems: data})
       })
     }
-    handleLogin = () => {
-      this.refreshItems();
+    handleLogin = (user) => {
+      this.user = user;
       this.setState({isLoged: true});
-
-    }
-
-    deleteData() {
-      localStorage.removeItem('logged');
-      localStorage.removeItem('id');
-      console.log('data deleted');
+      this.refreshItems();
     }
 
 
@@ -58,10 +49,14 @@ class App extends Component {
     return (
       <Router>
       <div className="App" id="root">
-        <button onClick={this.deleteData} id="logout">LOGOUT</button>
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
-                {(localStorage.getItem('logged')) === 'true' ?
+                {this.state.isLoged ?
                <>
+                <div className="userInfo">
+                  <p>Zalogowano jako {this.user.username}</p>
+                  <p>ID: {this.user.id}</p>
+                </div>
+
                <div className="navigation">
                    <Link className="link naviElement" to="/">NOTE</Link>
                    <Link className="link naviElement" to="resell">RESELL</Link>
@@ -71,13 +66,13 @@ class App extends Component {
             <Switch>
               <Route path="/resell"><Resell/></Route>
               <Route path="/bump"><Bump/></Route>
-              <Route path="/"><Note.Render currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()}/></Route>
+              <Route path="/"><Note.Render socket={this.socket} currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()} userID={this.user.id}/></Route>
               <Redirect to="/"/>
             </Switch>
              </>
              :
              <>
-             <Route path="/login"><Login handleLogin={this.handleLogin}/></Route>
+             <Route path="/login"><Login handleLogin={(user) => this.handleLogin(user)} socket={this.socket}/></Route>
              <Redirect to="/login"/>
              </>
             }

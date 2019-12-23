@@ -29,7 +29,7 @@ class NoteMenu extends React.Component{
                     <button className="noteMenuButton">Modyfikuj</button>
 
                 <ReactModal isOpen={this.state.addModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => this.handleModal('add')}>
-                    <AddItem userID={this.props.userID} refreshItems={this.props.refreshItems} handleModal={this.handleModal}/>
+                    <AddItem socket={this.props.socket} userID={this.props.userID} refreshItems={this.props.refreshItems} handleModal={this.handleModal}/>
                 </ReactModal>
 
                 {/* <ReactModal isOpen={this.state.addModal} contentLabel={"Dodawanie przedmiotu"}
