@@ -19,7 +19,10 @@ class Sold extends React.Component {
                     <div className="itemSlot">
                       <p>{item.name}</p>
                       <p>{item.size}</p>
+                      {item.cond == 10 ?
+                      <p>DS</p> :
                       <p>{item.cond}/10</p>
+                      }
                       <p>{item.buyPrice}</p>
                       <p id="earnings">{item.sellPrice-item.buyPrice}</p>
                       <button className="noteButton deleteButton" id={item.id} onClick={id => this.props.deleteItem(id)}>x</button>

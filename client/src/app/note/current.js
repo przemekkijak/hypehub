@@ -18,7 +18,7 @@ class Current extends React.Component{
         this.setState({currentId: id})
         }
 
-        handleModal() {
+        handleModal = () => {
             this.setState({sellModal: !this.state.sellModal});
         }
 
@@ -30,7 +30,10 @@ class Current extends React.Component{
                     <div className="itemSlot" id={item.id}>
                         <p>{item.name}</p>
                         <p>{item.size}</p>
+                        {item.cond == 10 ?
+                        <p>DS</p> :
                         <p>{item.cond}/10</p>
+                        }
                         <p>{item.buyPrice}</p>
                         <p><button className="noteButton"
                         onClick={() => this.sellItem(item.id)}>$</button></p>
