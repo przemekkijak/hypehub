@@ -41,14 +41,13 @@
   left: 50%;
   top: 5%;
   transform: translate(-50%,-50%);
-  display: grid;
-  grid-template-columns:repeat(4,30%);
+  display: flex;
+  /* grid-template-columns:repeat(4,30%); */
   font-family: Assistant, sans-serif;
   font-size: 0.8em;
 }
 .naviElement {
-  display: flex;
-  justify-content: space-between;
+  margin: 5px;
 }
 .naviElement:hover{
   color: rgb(226, 226, 226);

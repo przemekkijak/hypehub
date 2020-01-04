@@ -28,6 +28,15 @@ class App extends Component {
       }
 
     componentDidMount() {
+
+      const token = localStorage.getItem('token');
+      const id = localStorage.getItem('id')
+      this.socket.emit('checkLog', token,id);
+      this.socket.on('success', (userData) => {
+        this.user = userData;
+        this.refreshItems();
+        this.setState({isLoged: true});
+      })
     }
 
     refreshItems = () => {
@@ -38,6 +47,7 @@ class App extends Component {
         this.setState({soldItems: data})
       })
     }
+
     handleLogin = (user) => {
       this.user = user;
       this.setState({isLoged: true});
@@ -46,6 +56,8 @@ class App extends Component {
 
     logout = () => {
       this.setState({isLoged: false});
+      localStorage.removeItem('id');
+      localStorage.removeItem('token');
     }
 
 
@@ -66,8 +78,6 @@ class App extends Component {
                <div className="navigation">
                    <Link className="link naviElement" to="/">NOTE</Link>
                    <Link className="link naviElement" to="resell">RESELL</Link>
-                   <Link className="link naviElement" to="bump">BUMP</Link>
-                   <Link className="link naviElement" to="account">ACCOUNT</Link>
                 </div>
             <Switch>
               <Route path="/resell"><Resell/></Route>

@@ -51,9 +51,30 @@ io.use(sharedsession(session, {
 io.on('connection', socket => {
 
     console.log('connected ' + socket.handshake.sessionID);
-    // socket.on('disconnect', function() {
-    //     console.log('disconnected');
-    // })
+    socket.on('disconnect', function() {
+        console.log('disconnected');
+    })
+
+
+    socket.on('checkLog', function(token,id){
+        connection.query('SELECT * from USERS where id = "'+id+'" and token = "'+token+'"', function(error, results) {
+            if(error) {console.log('Error while geting user by token')}
+            if(results.length>0) {
+                socket.handshake.session.user = {
+                    id : results[0].id,
+                    username : results[0].username,
+                    email :  results[0].email,
+                    token : results[0].token,
+                }
+                socket.handshake.session.userID = results[0].id;
+                socket.handshake.session.save();
+                socket.emit('success', socket.handshake.session.user);
+            } else {
+                console.log('Token not found');
+            }
+        })
+    });
+
 
 
     socket.on('login', (user) => {
@@ -64,6 +85,7 @@ io.on('connection', socket => {
                     id : results[0].id,
                     username : results[0].username,
                     email :  results[0].email,
+                    token : results[0].token,
                 }
                 socket.handshake.session.userID = results[0].id;
                 socket.handshake.session.save();
@@ -77,12 +99,12 @@ io.on('connection', socket => {
         })
     })
 
-    socket.on('getUser', (id, fn) => {
-        connection.query('SELECT * from users where id = "' + id + '";', (error, results) => {
-            if(error) {console.log('Error while geting user id: ' + id)}
-            fn(results);
-        })
-    })
+    // socket.on('getUser', (id, fn) => {
+    //     connection.query('SELECT * from users where id = "' + id + '";', (error, results) => {
+    //         if(error) {console.log('Error while geting user id: ' + id)}
+    //         fn(results);
+    //     })
+    // })
 
     socket.on('getItem', (id, fn) => {
         connection.query('SELECT * from hh_items where id = "' + id + '";', (error,results) => {
