@@ -18,7 +18,10 @@ class AddItem extends React.Component {
         this.props.handleModal('add');
 
     }
+
+
     render() {
+
         return(
         <div className="itemMenuBox">
             <label>Dodaj przedmiot</label>

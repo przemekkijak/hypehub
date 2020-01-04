@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Note from './app/note.js';
-import Resell from './app/resell';
-import Bump from './app/bump';
+import React, { Component } from 'react'
+import Note from './app/note.js'
+import Resell from './app/resell'
 import Login from './app/login'
-import './app/styles/App.css';
-import socketIOClient from 'socket.io-client';
+import Home from './app/home'
+import './app/styles/App.css'
+import socketIOClient from 'socket.io-client'
 
 import {
   BrowserRouter as Router,
@@ -13,6 +13,8 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
+
+
 
 class App extends Component {
     constructor(props) {
@@ -26,6 +28,7 @@ class App extends Component {
       this.socket = socketIOClient('localhost:4001');
       const user = {};
       }
+
 
     componentDidMount() {
 
@@ -81,15 +84,15 @@ class App extends Component {
                 </div>
             <Switch>
               <Route path="/resell"><Resell/></Route>
-              <Route path="/bump"><Bump/></Route>
               <Route path="/"><Note.Render socket={this.socket} currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()} userID={this.user.id}/></Route>
               <Redirect to="/"/>
             </Switch>
              </>
              :
              <>
-             <Route path="/login"><Login handleLogin={(user) => this.handleLogin(user)} socket={this.socket}/></Route>
-             <Redirect to="/login"/>
+             <Route path="/home"><Home/></Route>
+             <Route path="/home"><Login handleLogin={(user) => this.handleLogin(user)} socket={this.socket}/></Route>
+             <Redirect to="/home"/>
              </>
             }
 

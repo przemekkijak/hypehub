@@ -110,11 +110,7 @@ io.on('connection', socket => {
         connection.query('SELECT * from hh_items where id = "' + id + '";', (error,results) => {
             if(error) {console.log('Error while getting item id: ' + id)}
             if(results.length > 0) {
-            console.log('item found')
-            console.log(results);
             fn(results);
-            } else {
-                console.log('item not found');
             }
         })
     })

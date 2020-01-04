@@ -22,18 +22,24 @@ class Current extends React.Component{
             this.setState({sellModal: !this.state.sellModal});
         }
 
+        convertCondition = (cond) => {
+            if(cond === 10) {
+                return 'DS';
+            } else {
+                return cond+'/10';
+            }
+
+        }
+
     render() {
         return(
             <div className="currentContainer">
                 {this.props.items.map((item) =>
                 <div className="item" key={item.id}>
                     <div className="itemSlot" id={item.id}>
-                        <p>{item.name}</p>
+                        <p onClick={() => this.props.itemInfo(item.id)}>{item.name}</p>
                         <p>{item.size}</p>
-                        {item.cond == 10 ?
-                        <p>DS</p> :
-                        <p>{item.cond}/10</p>
-                        }
+                        <p>{this.convertCondition(item.cond)}</p>
                         <p>{item.buyPrice}</p>
                         <p><button className="noteButton"
                         onClick={() => this.sellItem(item.id)}>$</button></p>

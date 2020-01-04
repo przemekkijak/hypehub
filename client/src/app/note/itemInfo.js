@@ -18,6 +18,15 @@ class ItemInfo extends React.Component {
     });
 }
 
+convertCondition = (cond) => {
+    if(cond === 10) {
+        return 'DS';
+    } else {
+        return cond+'/10';
+    }
+
+}
+
     render() {
         return(
         (this.state.loaded) && (
@@ -25,20 +34,15 @@ class ItemInfo extends React.Component {
                 <div className="itemHeader">
                 <p id="itemName">{this.item.name}</p>
                 </div>
-                <div className="itemDetails">
-                    <p>cena</p>
-                    <p>stan</p>
-                    <p>rozmiar</p>
-                </div>
-                <div clasName="itemOpstion">
-                    <button>Skopiuj opis</button>
-                    <button>Wygeneruj zdjecie z opisem</button>
-                    <button>Wygeneruj zdjecie bez opisu</button>
+                <div className="itemOptions">
+                    <p><button>Skopiuj opis</button></p>
+                    <p><button>Zdjecie z opisem</button></p>
+                    <p><button>Zdjecie bez opisu</button></p>
                 </div>
                 <div className="itemPhotos">
-                    <p>fota 1</p>
-                    <p>fota 2</p>
-                    <p>fota 3</p>
+                    <span>zdjecie 1</span>
+                    <span> zdjecie2</span>
+                    <span> zdjecie3 </span>
                 </div>
             </div>
         )

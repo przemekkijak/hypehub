@@ -83,5 +83,19 @@
   border: 1px solid var(--menu-color2);
   position: absolute;
   left: 85%;
-  top: 10%;
+  top: 5%;
 }
+@media only screen and (max-width: 800px) {
+
+  .navigation {
+    top: 3%;
+  }
+ .userInfo {
+  position: relative;
+  left: 50%;
+  width: 50%;
+  height: 9%;
+  transform: translate(-50%);
+ }
+}
+
