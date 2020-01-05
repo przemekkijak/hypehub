@@ -1,60 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactModal from 'react-modal'
 import SellItem from './sellItem'
 
 ReactModal.setAppElement('#root');
 
-class Current extends React.Component{
-        constructor(props) {
-            super(props);
+function Current(props) {
+    const socket = props.socket;
+    const [sellModal, setSellModal] = useState(false);
+    var currentId = 0;
 
-            this.state = {
-                sellModal: false,
-                currentId: 0,
-            }
+        function sellItem(id) {
+        setSellModal(true);
+        currentId = id;
         }
-        sellItem = (id) => {
-        this.setState({sellModal: true})
-        this.setState({currentId: id})
-        }
-
-        handleModal = () => {
-            this.setState({sellModal: !this.state.sellModal});
+        function handleModal() {
+            setSellModal(!sellModal);
         }
 
-        convertCondition = (cond) => {
+        function convertCondition(cond) {
             if(cond === 10) {
                 return 'DS';
             } else {
                 return cond+'/10';
-            }
-
+            };
         }
 
-    render() {
         return(
             <div className="currentContainer">
-                {this.props.items.map((item) =>
+                {props.items.map((item) =>
                 <div className="item" key={item.id}>
                     <div className="itemSlot" id={item.id}>
-                        <p onClick={() => this.props.itemInfo(item.id)}>{item.name}</p>
+                        <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
                         <p>{item.size}</p>
-                        <p>{this.convertCondition(item.cond)}</p>
+                        <p>{convertCondition(item.cond)}</p>
                         <p>{item.buyPrice}</p>
                         <p><button className="noteButton"
-                        onClick={() => this.sellItem(item.id)}>$</button></p>
-                        <p><button className="noteButton" onClick={() => this.props.itemInfo(item.id)}>i</button></p>
-                        <p><button className="noteButton deleteButton" id={item.id} onClick={id => this.props.deleteItem(id)}>x</button></p>
+                        onClick={() => sellItem(item.id)}>$</button></p>
+                        <p><button className="noteButton" onClick={() => props.itemInfo(item.id)}>i</button></p>
+                        <p><button className="noteButton deleteButton" id={item.id} onClick={id => props.deleteItem(id)}>x</button></p>
                     </div>
                 </div>
                 )}
 
-            <ReactModal isOpen={this.state.sellModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => this.handleModal()}>
-                <SellItem socket={this.props.socket} id={this.state.currentId} items={this.props.items} handleModal={this.handleModal} refreshItems={this.props.refreshItems}/>
+            <ReactModal isOpen={sellModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => setSellModal(false)}>
+                <SellItem socket={socket} id={currentId} items={props.items} handleModal={() => handleModal()} refreshItems={props.refreshItems}/>
             </ReactModal>
             </div>
         )
     }
-}
 
 export default Current;
