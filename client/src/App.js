@@ -74,7 +74,7 @@ const id = localStorage.getItem('id');
                 </div>
             <Switch>
               <Route path="/resell"><Resell/></Route>
-              <Route path="/"><Note.Render socket={socket} currentItems={currentItems} soldItems={soldItems} refreshItems={() => this.refreshItems()} userID={user.id}/></Route>
+              <Route path="/"><Note.Render socket={socket} currentItems={currentItems} soldItems={soldItems} refreshItems={refreshItems} userID={user.id}/></Route>
               <Redirect to="/"/>
             </Switch>
              </>
