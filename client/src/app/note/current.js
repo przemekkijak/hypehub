@@ -34,9 +34,9 @@ function Current(props) {
                         <p>{item.size}</p>
                         <p>{convertCondition(item.cond)}</p>
                         <p>{item.buyPrice}</p>
-                        <p><button className="noteButton"
+                        <p><button className="noteButton sellButton"
                         onClick={() => sellItem(item.id)}>$</button></p>
-                        <p><button className="noteButton" onClick={() => props.itemInfo(item.id)}>i</button></p>
+                        <p><button className="noteButton sellButton" onClick={() => props.itemInfo(item.id)}>i</button></p>
                         <p><button className="noteButton deleteButton" id={item.id} onClick={id => props.deleteItem(id)}>x</button></p>
                     </div>
                 </div>

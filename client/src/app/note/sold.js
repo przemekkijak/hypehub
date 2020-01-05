@@ -22,8 +22,8 @@ function Sold(props) {
                       <p>{convertCondition(item.cond)}</p>
                       <p>{item.buyPrice}</p>
                       <p id="earnings">{item.sellPrice-item.buyPrice}</p>
-                      <button className="noteButton deleteButton" id={item.id} onClick={id => props.deleteItem(id)}>x</button>
-                      <p><button className="noteButton" onClick={() => props.itemInfo(item.id)}>i</button></p>
+                      <p><button className="noteButton sellButton" onClick={() => props.itemInfo(item.id)}>i</button></p>
+                      <p><button className="noteButton deleteButton" id={item.id} onClick={id => props.deleteItem(id)}>x</button></p>
                     </div>
 
                 </div>
