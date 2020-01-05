@@ -7,11 +7,11 @@ ReactModal.setAppElement('#root');
 function Current(props) {
     const socket = props.socket;
     const [sellModal, setSellModal] = useState(false);
-    var currentId = 0;
+    const [currentId, setCurrentId] = useState(0);
 
         function sellItem(id) {
         setSellModal(true);
-        currentId = id;
+        setCurrentId(id);
         }
         function handleModal() {
             setSellModal(!sellModal);

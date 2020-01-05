@@ -1,39 +1,41 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
-class SellItem extends React.Component {
-    handleSubmit = (e) => {
+function SellItem(props) {
+    const socket = props.socket;
+    const formBox = useRef();
+    const itemPrice = useRef();
+    const soldFor = useRef();
+
+    function handleSubmit(e) {
         e.preventDefault();
         let item = {
-            id: this.props.id,
-            price: this.itemPrice.value,
-            soldFor: this.soldFor.value
+            id: props.id,
+            price: itemPrice.current.value,
+            soldFor: soldFor.current.value,
         }
-        this.props.socket.emit('sellItem',item)
-        this.props.refreshItems();
-        this.formBox.reset();
-        this.props.handleModal();
+        socket.emit('sellItem',item);
+        props.refreshItems();
+        props.handleModal();
 
     }
 
-    render() {
-        const items = this.props.items;
+        const items = props.items;
         for(let i = 0; i<items.length;i++) {
-            if(items[i].id === this.props.id) {
+            if(items[i].id === props.id) {
                 var currentItem = items[i].name;
             }
         }
         return(
         <div className="itemMenuBox">
-            <form onSubmit={this.handleSubmit} ref={(el) => this.formBox = el}>
+            <form onSubmit={handleSubmit} ref={formBox}>
                 <label>Sprzedajesz {currentItem}</label>
-                <p><input placeholder="Cena" ref={(el) => this.itemPrice = el} autoFocus={true} required/></p>
-                <p><input placeholder="Kupujacy (opcjonalnie)" ref={(el) => this.soldFor = el}/></p>
+                <p><input placeholder="Cena" ref={itemPrice} autoFocus={true} required/></p>
+                <p><input placeholder="Kupujacy (opcjonalnie)" ref={soldFor}/></p>
                 <p><button type="submit" className="menuButton" value="Submit">Sprzedaj</button></p>
 
             </form>
         </div>
         )
     }
-}
 
 export default SellItem;
