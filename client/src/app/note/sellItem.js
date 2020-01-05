@@ -13,11 +13,14 @@ function SellItem(props) {
             price: itemPrice.current.value,
             soldFor: soldFor.current.value,
         }
-        socket.emit('sellItem',item);
+        if(!isNaN(item.price))
+        {
+            socket.emit('sellItem',item);
+        }
         props.refreshItems();
         props.handleModal();
-
     }
+
 
         const items = props.items;
         for(let i = 0; i<items.length;i++) {

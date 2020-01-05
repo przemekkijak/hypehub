@@ -117,7 +117,7 @@ io.on('connection', socket => {
 
 
     socket.on('getCurrentItems', (fn) => {
-        connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.userID+'" and sold = "0" order by createdAt', function(error, results) {
+        connection.query('SELECT * from hh_items where ownerID = "'+socket.handshake.session.userID+'" and sold = "0" order by createdAt DESC', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting current items from database');
@@ -154,7 +154,7 @@ io.on('connection', socket => {
         let year = date_ob.getFullYear();
         let fullDate = (year+'-'+month+'-'+date);
 
-        connection.query("INSERT into hh_items (name,buyPrice,size,cond,ownerID,sold,createdAt) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID + "',0,'"+fullDate+"');", function(error) {
+        connection.query("INSERT into hh_items (name,buyPrice,size,cond,ownerID,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"',0);", function(error) {
             if(error) {
                 console.log(error)
                 console.log('Error while adding item to database');
@@ -170,7 +170,7 @@ io.on('connection', socket => {
         let year = date_ob.getFullYear();
         let fullDate = (year+'-'+month+'-'+date);
 
-        connection.query("UPDATE hh_items set sold='1', sellPrice='"+item.price+"', soldAt='"+fullDate+"' where id='"+item.id+"';", function(error) {
+        connection.query("UPDATE hh_items set sold='1', sellPrice='"+item.price+"', soldAt=CURRENT_TIMESTAMP where id='"+item.id+"';", function(error) {
             if(error) {
                 console.log(error)
                 console.log('Error while selling item');
