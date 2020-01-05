@@ -70,7 +70,7 @@ io.on('connection', socket => {
                 socket.handshake.session.save();
                 socket.emit('success', socket.handshake.session.user);
             } else {
-                console.log('Token not found');
+                socket.emit('failed');
             }
         })
     });

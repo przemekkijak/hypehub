@@ -16,11 +16,23 @@ import {
 
 const socket = socketIOClient('localhost:4001');
 var user = {};
+const token = localStorage.getItem('token');
+const id = localStorage.getItem('id');
 
   function App() {
         const [currentItems, setCurrent] = useState([]);
         const [soldItems, setSold] = useState([]);
-        const [isLoged, setLoged] = useState(false)
+        const [isLoged, setLoged] = useState(() => {
+          socket.emit('checkLog', token,id);
+          socket.on('success', (userData) => {
+            user = userData;
+            refreshItems();
+            setLoged(true);
+          })
+          socket.on('failed', () => {
+            setLoged(false);
+          })
+        });
 
       function handleLogin(userData) {
         user = userData;
