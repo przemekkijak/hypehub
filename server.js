@@ -99,12 +99,12 @@ io.on('connection', socket => {
         })
     })
 
-    // socket.on('getUser', (id, fn) => {
-    //     connection.query('SELECT * from users where id = "' + id + '";', (error, results) => {
-    //         if(error) {console.log('Error while geting user id: ' + id)}
-    //         fn(results);
-    //     })
-    // })
+    socket.on('getUser', (id, fn) => {
+        connection.query('SELECT * from users where id = "' + id + '";', (error, results) => {
+            if(error) {console.log('Error while geting user id: ' + id)}
+            fn(results);
+        })
+    })
 
     socket.on('getItem', (id, fn) => {
         connection.query('SELECT * from hh_items where id = "' + id + '";', (error,results) => {

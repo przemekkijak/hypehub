@@ -1,35 +1,31 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import AddItem from './addItem'
 import ReactModal from 'react-modal'
 
 ReactModal.setAppElement('#root');
 
-class NoteMenu extends React.Component{
-        constructor(props) {
-            super(props);
+function NoteMenu(props) {
 
-            this.state = {
-                addModal: false,
-                modifyModal: false,
-            };
-        }
-        handleModal = (modalType) => {
+        const [addModal, setAddModal] = useState(false);
+        const [modifyModal, setModifyModal] = useState(false);
+        const socket = props.socket;
+
+        function handleModal(modalType) {
             if(modalType === 'add') {
-                this.setState({addModal: !this.state.addModal})
+                setAddModal(!addModal);
             } else {
-                this.setState({modifyModal: !this.state.modifyModal})
+                setModifyModal(!modifyModal);
             };
         }
-    render() {
 
         return(
                 <div className="noteMenu">
-                    <button className="noteMenuButton" onClick={() => this.handleModal('add')}>Dodaj</button>
-                    <button className="noteMenuButton" onClick={this.props.deleteMode}>Usun</button>
+                    <button className="noteMenuButton" onClick={() => handleModal('add')}>Dodaj</button>
+                    <button className="noteMenuButton" onClick={props.deleteMode}>Usun</button>
                     <button className="noteMenuButton">Modyfikuj</button>
 
-                <ReactModal isOpen={this.state.addModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => this.handleModal('add')}>
-                    <AddItem socket={this.props.socket} userID={this.props.userID} refreshItems={this.props.refreshItems} handleModal={this.handleModal}/>
+                <ReactModal isOpen={addModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => handleModal('add')}>
+                    <AddItem socket={socket} userID={props.userID} refreshItems={props.refreshItems} handleModal={handleModal}/>
                 </ReactModal>
 
                 {/* <ReactModal isOpen={this.state.addModal} contentLabel={"Dodawanie przedmiotu"}
@@ -40,6 +36,5 @@ class NoteMenu extends React.Component{
 
         )
     }
-}
 
 export default NoteMenu;
