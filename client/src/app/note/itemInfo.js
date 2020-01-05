@@ -14,7 +14,6 @@ function ItemInfo(props) {
                 })
                 )
         })
-
         return(
         (loaded) && (
             <div className="itemInfoContainer">
@@ -27,9 +26,10 @@ function ItemInfo(props) {
                     <p><button>Zdjecie bez opisu</button></p>
                 </div>
                 <div className="itemPhotos">
-                    <span>zdjecie 1</span>
-                    <span> zdjecie2</span>
-                    <span> zdjecie3 </span>
+                    <img src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/1.jpg" alt="item" className="itemPhoto"/>
+                    <img src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/2.jpg" alt="item" className="itemPhoto"/>
+                    <img src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/3.jpg" alt="item" className="itemPhoto"/>
+                    <img src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/4.jpg" alt="item" className="itemPhoto"/>
                 </div>
             </div>
         )

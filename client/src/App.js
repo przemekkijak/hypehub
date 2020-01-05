@@ -70,10 +70,10 @@ const id = localStorage.getItem('id');
 
                <div className="navigation">
                    <Link className="link naviElement" to="/">NOTE</Link>
-                   <Link className="link naviElement" to="resell">RESELL</Link>
+                   <Link className="link naviElement" to="bulk">BULK</Link>
                 </div>
             <Switch>
-              <Route path="/resell"><Resell/></Route>
+              <Route path="/bulk"><Resell/></Route>
               <Route path="/"><Note.Render socket={socket} currentItems={currentItems} soldItems={soldItems} refreshItems={refreshItems} userID={user.id}/></Route>
               <Redirect to="/"/>
             </Switch>

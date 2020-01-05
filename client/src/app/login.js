@@ -14,6 +14,7 @@ function Login(props) {
             username: username.current.value,
             password: password.current.value,
         }
+        // validation data
         var validateData = 0;
         for(var element of userData) {
             if(/^[a-zA-Z0-9 ]+$/.test(element.current.value)) {
@@ -23,6 +24,7 @@ function Login(props) {
                     }
             }
         }
+
         socket.on('success', (user) => {
             props.handleLogin(user);
             localStorage.setItem('token', user.token);
@@ -33,7 +35,6 @@ function Login(props) {
         })
     }
         return(
-
             <div className="container">
                 <div className="loginBox" id="loginBox" onSubmit={handleSubmit}>
                     <form>

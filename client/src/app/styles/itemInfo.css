@@ -1,7 +1,6 @@
 
 
 .itemInfoContainer {
-
   position: absolute;
   left: 50%;
   top: 50%;
@@ -9,20 +8,25 @@
   width: 800px;
   height: 500px;
   background-color: rgba(17, 17, 17, 0.541);
-  border: 1px solid var(--menu-color2);
+  border-top: 5px solid var(--menu-color2);
+  display: grid;
+  grid-template-rows: 12% 44% 44%;
 
 }
 
 .itemHeader {
-  margin: 30px;
   display: flex;
+  /* align-content: center; */
+  padding-top: 3%;
   justify-content: center;
-  /* margin-bottom: 30px; */
+  /* border: 1px solid blue; */
 }
 
+
 .itemOptions {
-  position: absolute;
-  top: 25%;
+  /* padding-top: 10px; */
+  position: relative;
+  /* border: 1px solid red; */
 }
 
 .itemOptions p button {
@@ -40,7 +44,15 @@
 }
 
 .itemPhotos {
-  position: absolute;
-  bottom: 0;
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4,25%);
+
+}
+.itemPhoto {
+  position: relative;
+  width: 99%;
+  height: 100%;
+  /* width: 250px; */
+  /* height: 250px; */
 }
