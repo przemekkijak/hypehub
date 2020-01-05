@@ -1,41 +1,43 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 
-class AddItem extends React.Component {
+function AddItem(props) {
+    const socket = props.socket;
+    const formBox = useRef();
+    const itemName = useRef();
+    const itemSize = useRef();
+    const itemPrice = useRef();
+    const itemCond = useRef();
 
-    handleSubmit = (e) => {
+
+    function handleSubmit(e) {
         e.preventDefault();
         let item = {
-            name: this.itemName.value,
-            price: this.itemPrice.value,
-            size: this.itemSize.value,
-            cond: this.itemCond.value,
-            ownerID: this.props.userID,
+            name: itemName.current.value,
+            price: itemPrice.current.value,
+            size: itemSize.current.value,
+            cond: itemCond.current.value,
+            ownerID: props.userID,
         }
-        this.props.socket.emit('addItem', item)
-        this.props.refreshItems();
-        this.formBox.reset();
-        this.props.handleModal('add');
+        socket.emit('addItem', item)
+        props.refreshItems();
+        props.handleModal('add');
 
     }
-
-
-    render() {
 
         return(
         <div className="itemMenuBox">
             <label>Dodaj przedmiot</label>
-            <form onSubmit={this.handleSubmit} ref={(el) => this.formBox = el}>
+            <form onSubmit={handleSubmit} ref={formBox}>
 
-                <p><input placeholder="Nazwa" ref={(el) => this.itemName = el} autoFocus={true} required/></p>
-                <p><input placeholder="Rozmiar" ref={(el) => this.itemSize = el} required/></p>
-                <p><input placeholder="Cena" ref={(el) => this.itemPrice = el} required/></p>
-                <p><input placeholder="Stan" ref={(el) => this.itemCond = el} required/></p>
+                <p><input placeholder="Nazwa" ref={itemName} autoFocus={true} required/></p>
+                <p><input placeholder="Rozmiar" ref={itemSize} required/></p>
+                <p><input placeholder="Cena" ref={itemPrice} required/></p>
+                <p><input placeholder="Stan" ref={itemCond} required/></p>
                 <p><button type="submit" className="menuButton" value="Submit">Dodaj</button></p>
             </form>
         </div>
         )
     }
-}
 
 export default AddItem;
