@@ -80,7 +80,7 @@ const id = localStorage.getItem('id');
              </>
              :
              <>
-             <Route path="/home"><Home/></Route>
+             {/* <Route path="/home"><Home/></Route> */}
              <Route path="/home"><Login handleLogin={(userData) => handleLogin(userData)} socket={socket}/></Route>
              <Redirect to="/home"/>
              </>
