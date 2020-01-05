@@ -1,52 +1,40 @@
-import React from 'react'
+import React, {useState, useRef} from 'react'
 
-class Login extends React.Component {
-    constructor(props) {
-        super(props);
+function Login(props) {
+        const [failed, setFailed] = useState(false);
+        const socket = props.socket;
+        const username = useRef();
+        const password = useRef();
 
-        this.state = {
-            failed: false,
-        }
-        this.socket = this.props.socket;
-    }
-
-    componentDidMount() {
-        this.setState({failed: false});
-
-    }
-
-    handleSubmit = (e) => {
+    function handleSubmit(e) {
         e.preventDefault();
         let user = {
             id: null,
-            username: this.username.value,
-            password: this.password.value,
+            username: username.current.value,
+            password: password.current.value,
         }
-        this.socket.emit('login',user)
-        this.socket.on('success', (user) => {
-            this.props.handleLogin(user);
+        socket.emit('login',user)
+        socket.on('success', (user) => {
+            props.handleLogin(user);
             localStorage.setItem('token', user.token);
             localStorage.setItem('id', user.id);
         })
-        this.socket.on('failed',(res) => {
-            this.setState({failed: true})
+        socket.on('failed',(res) => {
+            setFailed(true);
         })
     }
-
-    render() {
         return(
 
             <div className="container">
-                <div className="loginBox" id="loginBox" onSubmit={this.handleSubmit}>
+                <div className="loginBox" id="loginBox" onSubmit={handleSubmit}>
                     <form>
-                    {this.state.failed && (<label>Login lub haslo nieprawidlowe</label>)}
-                        <input placeholder="Login" ref={(el) => this.username = el} autoFocus={true} required/>
-                        <input type="password" placeholder="Haslo" ref={(el) => this.password = el} required/>
+                    {failed && (<label>Login lub haslo nieprawidlowe</label>)}
+                        <input placeholder="Login" ref={username} autoFocus={true} required/>
+                        <input type="password" placeholder="Haslo" ref={password} required/>
                         <button type="submit" className="menuButton" >Zaloguj</button>
                     </form>
                 </div>
             </div>
         )
     }
-}
 export default Login;
