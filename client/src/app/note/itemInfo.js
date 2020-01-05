@@ -1,38 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 
-class ItemInfo extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                loaded: false,
-            }
-            const item = {};
-        }
+function ItemInfo(props) {
+            const socket = props.socket;
+            const [loaded, setLoaded] = useState(false);
+            const [item, setItem] = useState();
 
+        useEffect(() => {
+            (!loaded &&
+                socket.emit('getItem', props.itemID, data => {
+                    setItem(data[0]);
+                    setLoaded(true);
+                })
+                )
+        })
 
-  componentDidMount() {
-    this.props.socket.emit('getItem', this.props.itemID, data => {
-        this.item = data[0];
-        this.setState({loaded: true})
-    });
-}
-
-convertCondition = (cond) => {
-    if(cond === 10) {
-        return 'DS';
-    } else {
-        return cond+'/10';
-    }
-
-}
-
-    render() {
         return(
-        (this.state.loaded) && (
+        (loaded) && (
             <div className="itemInfoContainer">
                 <div className="itemHeader">
-                <p id="itemName">{this.item.name}</p>
+                <p id="itemName">{item.name}</p>
                 </div>
                 <div className="itemOptions">
                     <p><button>Skopiuj opis</button></p>
@@ -47,7 +34,6 @@ convertCondition = (cond) => {
             </div>
         )
         )
-    }
 }
 
 export default ItemInfo;
