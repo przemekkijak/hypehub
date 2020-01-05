@@ -8,6 +8,7 @@ function AddItem(props) {
     const itemSize = useRef();
     const itemPrice = useRef();
     const itemCond = useRef();
+    const itemData = [itemName, itemSize, itemPrice, itemCond];
 
 
     function handleSubmit(e) {
@@ -19,7 +20,17 @@ function AddItem(props) {
             cond: itemCond.current.value,
             ownerID: props.userID,
         }
-        socket.emit('addItem', item)
+        var validateData = 0;
+        for(var element of itemData) {
+            if(/^[a-zA-Z0-9 ]+$/.test(element.current.value)) {
+                validateData++;
+                if(validateData === itemData.length) {
+                 if(!isNaN(item.price) && !isNaN(item.cond)) {
+                    socket.emit('addItem', item)
+                    }
+                }
+            }
+        }
         props.refreshItems();
         props.handleModal('add');
 

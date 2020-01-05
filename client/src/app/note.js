@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './styles/note.css';
 import Current from './note/current'
 import Sold from './note/sold'

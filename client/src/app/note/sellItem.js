@@ -13,6 +13,7 @@ function SellItem(props) {
             price: itemPrice.current.value,
             soldFor: soldFor.current.value,
         }
+        // Checking if price is a number
         if(!isNaN(item.price))
         {
             socket.emit('sellItem',item);
@@ -20,7 +21,6 @@ function SellItem(props) {
         props.refreshItems();
         props.handleModal();
     }
-
 
         const items = props.items;
         for(let i = 0; i<items.length;i++) {

@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 function Sold(props) {
-    const [currentId, setCurrentId] = useState(false);
 
     function convertCondition(cond) {
         if(cond === 10) {
@@ -27,9 +26,7 @@ function Sold(props) {
                     </div>
 
                 </div>
-            )
-            }
-
+            )}
             </div>
         )
     }
