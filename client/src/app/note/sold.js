@@ -1,16 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-class Sold extends React.Component {
-    constructor(props) {
-        super(props);
+function Sold(props) {
+    const [currentId, setCurrentId] = useState(false);
 
-        this.state = {
-            showDetails: false,
-            currentId: 0
-        }
-    }
-
-    convertCondition = (cond) => {
+    function convertCondition(cond) {
         if(cond === 10) {
             return 'DS';
         } else {
@@ -19,19 +12,18 @@ class Sold extends React.Component {
 
     }
 
-    render() {
         return(
             <div className="soldContainer">
-            {this.props.items.map((item) =>
+            {props.items.map((item) =>
                 <div className="item" key={item.id}>
                     <div className="itemSlot">
-                      <p onClick={() => this.props.itemInfo(item.id)}>{item.name}</p>
+                      <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
                       <p>{item.size}</p>
-                      <p>{this.convertCondition(item.cond)}</p>
+                      <p>{convertCondition(item.cond)}</p>
                       <p>{item.buyPrice}</p>
                       <p id="earnings">{item.sellPrice-item.buyPrice}</p>
-                      <button className="noteButton deleteButton" id={item.id} onClick={id => this.props.deleteItem(id)}>x</button>
-                      <p><button className="noteButton" onClick={() => this.props.itemInfo(item.id)}>i</button></p>
+                      <button className="noteButton deleteButton" id={item.id} onClick={id => props.deleteItem(id)}>x</button>
+                      <p><button className="noteButton" onClick={() => props.itemInfo(item.id)}>i</button></p>
                     </div>
 
                 </div>
@@ -41,6 +33,5 @@ class Sold extends React.Component {
             </div>
         )
     }
-}
 
 export default Sold;

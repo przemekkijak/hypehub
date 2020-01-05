@@ -1,14 +1,12 @@
 import React from 'react'
 
 
-class Pending extends React.Component {
+function Pending(props) {
 
 
-    render() {
         return(
             <p>coming soon</p>
         )
     }
-}
 
 export default Pending;
