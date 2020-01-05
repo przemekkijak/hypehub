@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
-class Resell extends React.Component{
+function Resell() {
 
-    render() {
         return(
             <div className="resellContainer">
                 <div className="tableContainer">
@@ -11,7 +10,6 @@ class Resell extends React.Component{
                 </div>
             </div>
         )
-    }
 }
 
 export default Resell;
