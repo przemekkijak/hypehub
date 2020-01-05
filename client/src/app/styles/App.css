@@ -6,20 +6,28 @@
   color: var(--font-color);
 }
 :root {
-  --background-color:rgb(24, 32, 37);
-/*
-  --menu-color: rgb(22, 119, 78);
-  --menu-color2: rgb(51, 138, 109);
-  --menu-color3: rgb(11, 109, 68); */
+  /* --background-color:rgb(24, 32, 37); */
 
-  /* beta */
+  /* v1 */
+  /* --menu-color: rgb(22, 119, 78);
+  --menu-color2: rgb(51, 138, 109);
+  --menu-color3: rgb(11, 109, 68);
+  --font-color: #C5C6C7; */
+
+  /* v2 */
   --menu-color: rgb(4, 107, 51);
   --menu-color2: rgb(34, 187, 98);
   --menu-color3: rgb(17, 94, 51);
   --font-color: #C5C6C7;
 
+  /* v3 */
+  --background-color:rgb(18, 24, 27);
+  --menu-color: rgb(86, 141, 14); /* main color */
+  --menu-color2: rgb(111, 180, 21); /* details */
+  --menu-color3: rgb(67, 105, 16); /* clicked menu button */
+  --font-color: #C5C6C7;
 
-  /* --font-color: #C5C6C7; */
+
   overflow: hidden;
 }
 .App {
@@ -79,7 +87,6 @@
 
 .userInfo {
   padding: 20px;
-  opacity: 0.6;
   border: 1px solid var(--menu-color2);
   position: absolute;
   left: 85%;

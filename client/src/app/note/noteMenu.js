@@ -20,9 +20,9 @@ function NoteMenu(props) {
 
         return(
                 <div className="noteMenu">
-                    <button className="noteMenuButton" onClick={() => handleModal('add')}>Dodaj</button>
-                    <button className="noteMenuButton" onClick={props.deleteMode}>Usun</button>
-                    <button className="noteMenuButton">Modyfikuj</button>
+                    <button className="noteButton" id="noteMenuButton" onClick={() => handleModal('add')}>Dodaj</button>
+                    <button className="noteButton" id="noteMenuButton" onClick={props.deleteMode}>Usun</button>
+                    <button className="noteButton" id="noteMenuButton">Modyfikuj</button>
 
                 <ReactModal isOpen={addModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => handleModal('add')}>
                     <AddItem socket={socket} userID={props.userID} refreshItems={props.refreshItems} handleModal={handleModal}/>

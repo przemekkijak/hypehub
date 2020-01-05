@@ -65,14 +65,13 @@
   font-size: 12px;
 }
 .item {
-  border-bottom: 1px solid rgba(69, 162, 157, 0.322);
+  border-bottom: 1px solid rgba(138, 160, 159, 0.322);
   /* height: 80px; */
 }
 .itemSlot {
   display: grid;
   grid-template-columns: 40% 10% 15% 15% 5% 5% 5%;
   height: 50px;
-  align-content: center;
 }
 .itemSlot p {
   display: flex;
@@ -92,18 +91,20 @@
   left: 50%;
   transform: translate(-50%);
 }
-/* Buttons for "Add / Remove / Modify */
-.noteMenuButton {
+.noteButton {
   cursor: pointer;
-  margin: 10px;
-  height: 4vh;
-  width: 10vw;
   background: none;
   outline: none;
   border: 1px solid var(--menu-color2);
 }
-.noteMenuButton:hover {
-  background: rgb(35, 44, 49);
+/* Buttons for "Add / Remove / Modify */
+#noteMenuButton {
+  margin: 10px;
+  height: 4vh;
+  width: 10vw;
+}
+#noteMenuButton:hover {
+  background: rgb(30, 37, 41);
 }
 /* Button inside Note  {Sell/Delete}*/
 .noteButton{
@@ -147,19 +148,6 @@
   background: none;
   border: 1px solid var(--menu-color);
 }
-.conditionBox {
-  /* width: 100%; */
-  margin-top: 15px;
-  height: 30px;
-  display: grid;
-  grid-template-columns: repeat(10,10%);
-
-}
-.conditionButton {
-  background: none;
-  border: 1px solid var(--menu-color);
-}
-
 
 /* Custom styling for active menu */
 .active {
