@@ -102,6 +102,9 @@
   outline: none;
   border: 1px solid var(--menu-color2);
 }
+.noteMenuButton:hover {
+  background: rgb(35, 44, 49);
+}
 /* Button inside Note  {Sell/Delete}*/
 .noteButton{
   background: none;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Note from './app/note.js'
 import Resell from './app/resell'
 import Login from './app/login'
@@ -14,68 +14,46 @@ import {
   Redirect,
 } from 'react-router-dom';
 
+const socket = socketIOClient('localhost:4001');
+var user = {};
 
+  function App() {
+        const [currentItems, setCurrent] = useState([]);
+        const [soldItems, setSold] = useState([]);
+        const [isLoged, setLoged] = useState(false)
 
-class App extends Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        currentItems: [],
-        soldItems: [],
-        pendingItems: [],
-        isLoged: false,
+      function handleLogin(userData) {
+        user = userData;
+        refreshItems();
+        setLoged(true);
       }
-      this.socket = socketIOClient('localhost:4001');
-      const user = {};
+
+      function logout() {
+        setLoged(false);
+        localStorage.removeItem('id');
+        localStorage.removeItem('token');
+      }
+
+      function refreshItems() {
+        socket.emit('getCurrentItems', data => {
+          setCurrent(data);
+        })
+        socket.emit('getSoldItems', data => {
+          setSold(data);
+        })
       }
 
 
-    componentDidMount() {
-
-      const token = localStorage.getItem('token');
-      const id = localStorage.getItem('id')
-      this.socket.emit('checkLog', token,id);
-      this.socket.on('success', (userData) => {
-        this.user = userData;
-        this.refreshItems();
-        this.setState({isLoged: true});
-      })
-    }
-
-    refreshItems = () => {
-      this.socket.emit('getCurrentItems', data => {
-        this.setState({currentItems: data})
-      })
-      this.socket.emit('getSoldItems', data => {
-        this.setState({soldItems: data})
-      })
-    }
-
-    handleLogin = (user) => {
-      this.user = user;
-      this.setState({isLoged: true});
-      this.refreshItems();
-    }
-
-    logout = () => {
-      this.setState({isLoged: false});
-      localStorage.removeItem('id');
-      localStorage.removeItem('token');
-    }
-
-
-
-  render() {
     return (
       <Router>
       <div className="App" id="root">
           <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet"/>
-                {this.state.isLoged ?
+                {isLoged ?
                <>
                 <div className="userInfo">
-                  <p>Zalogowano jako {this.user.username}</p>
-                  <p>ID: {this.user.id}</p>
-                  <p onClick={this.logout}>Wyloguj</p>
+                  <p>Zalogowano jako {user.username}</p>
+                  <p>ID: {user.id}</p>
+                  <p onClick={logout}>Wyloguj</p>
                 </div>
 
                <div className="navigation">
@@ -84,14 +62,14 @@ class App extends Component {
                 </div>
             <Switch>
               <Route path="/resell"><Resell/></Route>
-              <Route path="/"><Note.Render socket={this.socket} currentItems={this.state.currentItems} soldItems={this.state.soldItems} refreshItems={() => this.refreshItems()} userID={this.user.id}/></Route>
+              <Route path="/"><Note.Render socket={socket} currentItems={currentItems} soldItems={soldItems} refreshItems={() => this.refreshItems()} userID={user.id}/></Route>
               <Redirect to="/"/>
             </Switch>
              </>
              :
              <>
              <Route path="/home"><Home/></Route>
-             <Route path="/home"><Login handleLogin={(user) => this.handleLogin(user)} socket={this.socket}/></Route>
+             <Route path="/home"><Login handleLogin={(userData) => handleLogin(userData)} socket={socket}/></Route>
              <Redirect to="/home"/>
              </>
             }
@@ -100,5 +78,4 @@ class App extends Component {
       </Router>
     );
   }
-}
 export default App;
