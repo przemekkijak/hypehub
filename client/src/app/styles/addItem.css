@@ -6,6 +6,7 @@
     width: 700px;
     height: 450px;
     background-color: rgba(17, 17, 17, 0.541);
+    border: 1px solid rgba(44, 38, 38, 0.952);
     border-top: 10px solid var(--menu-color2);
     display: grid;
     grid-template-rows: 20% 60%;
@@ -13,9 +14,8 @@
   }
 .addItemForm {
     display: grid;
-    width: 100%;
     /* grid-template-columns: 50 */
-    grid-gap: 2%;
+    grid-gap: 3%;
 }
 .addItemForm input {
     padding: 3px;
@@ -32,9 +32,9 @@
 }
 .addButton {
     cursor: pointer;
-    margin-top: 25px;
+    margin: 1% 25% 0% 25%;
     height: 35px;
-    width: 100%;
+    width: 50%;
     background: none;
     border: 1px solid var(--menu-color);
 }
