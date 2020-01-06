@@ -28,9 +28,8 @@ function Current(props) {
         return(
             <div className="currentContainer">
                 {props.items.map((item) =>
-                <div className="item" key={item.id}>
-                    <div className="itemSlot" id={item.id}>
-                        <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
+                    <div className="itemSlot" id={item.id} onClick={() => props.itemInfo(item.id)}>
+                        <p>{item.name}</p>
                         <p>{item.size}</p>
                         <p>{convertCondition(item.cond)}</p>
                         <p>{item.buyPrice} zł</p>
@@ -39,7 +38,7 @@ function Current(props) {
                         <p><button className="noteButton sellButton" onClick={() => props.itemInfo(item.id)}>i</button></p>
                         <p><button className="noteButton deleteButton" id={item.id} onClick={id => props.deleteItem(id)}>x</button></p>
                     </div>
-                </div>
+
                 )}
 
             <ReactModal isOpen={sellModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => setSellModal(false)}>

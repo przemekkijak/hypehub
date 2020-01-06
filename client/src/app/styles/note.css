@@ -64,13 +64,12 @@
   opacity: 0.6;
   font-size: 12px;
 }
-.item {
-  border-bottom: 1px solid rgba(138, 160, 159, 0.322);
-}
 .itemSlot {
   display: grid;
   grid-template-columns: 40% 10% 15% 15% 5% 5% 5%;
   height: 50px;
+  border-bottom: 1px solid rgba(138, 160, 159, 0.322);
+  /* border: 1px solid pink; */
 }
 .itemSlot p {
   display: flex;
