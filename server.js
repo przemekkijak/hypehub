@@ -15,13 +15,23 @@ server = require('http').createServer(app),
 io = require('socket.io')(server),
 
 
+// mysql://be3e79e6af1d79:c2437f22@eu-cdbr-west-02.cleardb.net/heroku_93481cd35b283ab?reconnect=true
+
+// SQL connect
+// connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'hypehub'
+// });
 // SQL connect
 connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'hypehub'
+    host: 'eu-cdbr-west-02.cleardb.net',
+    user: 'be3e79e6af1d79',
+    password: 'c2437f22',
+    database: 'heroku_93481cd35b283ab'
 });
+
 connection.connect((error) => {
     if(error) {
     console.log(error);
