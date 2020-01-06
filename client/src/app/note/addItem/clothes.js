@@ -27,7 +27,7 @@ function AddClothes(props) {
                 validateData++;
                 if(validateData === itemData.length) {
                  if(!isNaN(item.price) && !isNaN(item.cond)) {
-                    // socket.emit('addItem', item)
+                    props.socket.emit('addItem', item)
                     console.log(item.type);
                     }
                 }
@@ -40,12 +40,14 @@ function AddClothes(props) {
     return(
         <>
             <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
+
                 <p><input placeholder="Nazwa" ref={itemName} autoFocus={true} required/></p>
                 <p><input placeholder="Rozmiar" ref={itemSize} required/></p>
-                <p><input placeholder="Wymiary" ref={itemWymiary} required/></p>
+                <p><input placeholder="Dlugosc" ref={itemWymiary} required/></p>
+                <p><input placeholder="Szerokosc" ref={itemWymiary} required/></p>
                 <p><input placeholder="Cena" ref={itemPrice} required/></p>
                 <p><input placeholder="Stan" ref={itemCond} required/></p>
-                <p><button type="submit" className="menuButton" value="Submit">Dodaj</button></p>
+                <p><button type="submit" className="addButton" value="Submit">Dodaj</button></p>
             </form>
         </>
     )

@@ -5,15 +5,18 @@ import React, {useRef} from 'react'
 function AddAccessories(props) {
     const formBox = useRef();
     const itemName = useRef();
+    const itemSize = useRef();
     const itemPrice = useRef();
     const itemCond = useRef();
-    const itemData = [itemName, itemPrice, itemCond];
+    const itemWymiary = useRef();
+    const itemData = [itemName, itemSize, itemPrice, itemCond, itemWymiary];
 
     function handleSubmit(e) {
         e.preventDefault();
         let item = {
             name: itemName.current.value,
             price: itemPrice.current.value,
+            size: itemSize.current.value,
             cond: itemCond.current.value,
             type: props.itemType,
             ownerID: props.userID,
@@ -24,7 +27,7 @@ function AddAccessories(props) {
                 validateData++;
                 if(validateData === itemData.length) {
                  if(!isNaN(item.price) && !isNaN(item.cond)) {
-                    // socket.emit('addItem', item)
+                    props.socket.emit('addItem', item)
                     console.log(item.type);
                     }
                 }
@@ -37,10 +40,12 @@ function AddAccessories(props) {
     return(
         <>
             <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
+
                 <p><input placeholder="Nazwa" ref={itemName} autoFocus={true} required/></p>
+                <p><input placeholder="Rozmiar" ref={itemSize} required/></p>
                 <p><input placeholder="Cena" ref={itemPrice} required/></p>
                 <p><input placeholder="Stan" ref={itemCond} required/></p>
-                <p><button type="submit" className="menuButton" value="Submit">Dodaj</button></p>
+                <p><button type="submit" className="addButton" value="Submit">Dodaj</button></p>
             </form>
         </>
     )
