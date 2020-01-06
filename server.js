@@ -38,7 +38,11 @@ app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'build')));
 
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 // handle sesssion
 app.use(session);
