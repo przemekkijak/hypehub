@@ -1,0 +1,85 @@
+.addItemContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    height: 500px;
+    background-color: rgba(17, 17, 17, 0.541);
+    border-top: 10px solid var(--menu-color2);
+    display: grid;
+    grid-template-rows: 12% 44% 44%;
+
+  }
+.addItemForm input {
+height: 42px;
+/* width: 100%; */
+background: none;
+outline: none;
+border: none;
+border-bottom: 1px solid var(--menu-color2);
+}
+
+.itemType {
+    display: grid;
+    grid-template-columns: repeat(3,33%);
+  }
+  .itemIcon {
+    width: 35px;
+    height: 35px;
+  }
+  #clothesIcon {
+    position:relative;
+    top: -25%;
+  }
+  #shoeIcon {
+    position: relative;
+    top: -35%;
+    width: 40px;
+    height: 40px;
+  }
+  #hatIcon {
+      position:relative;
+      top: -25%;
+  }
+
+  /* Hiding default radio buttons */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {display: none;}
+
+/* Custom radio buttons */
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+  margin: 5px;
+  display: block;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  height: 60%;
+  /* border: 1px solid pink; */
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  /* background: var(--menu-color3); */
+  border-bottom: 1px solid var(--menu-color2);
+  opacity: 0.6;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked)+label:after {
+  opacity: 0;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+[type="radio"]:checked+label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}

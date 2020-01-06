@@ -1,62 +1,41 @@
-import React, {useRef} from 'react';
+import React, {useState} from 'react';
+import AddShoes from './addItem/shoes'
+import AddClothes from './addItem/clothes'
+import AddAccessories from './addItem/accessories'
 
 
 function AddItem(props) {
-    const socket = props.socket;
-    const formBox = useRef();
-    const itemName = useRef();
-    const itemSize = useRef();
-    const itemPrice = useRef();
-    const itemCond = useRef();
-    const itemData = [itemName, itemSize, itemPrice, itemCond];
+    const [itemType, setType] = useState(1);
 
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        let item = {
-            name: itemName.current.value,
-            price: itemPrice.current.value,
-            size: itemSize.current.value,
-            cond: itemCond.current.value,
-            ownerID: props.userID,
+    function itemForm(itemType) {
+        switch(itemType) {
+            case 1:
+                return(<AddClothes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={() => props.refreshItems} handleModal={() => props.handleModal('add')}/>)
+            case 2:
+                return(<AddShoes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={() => props.refreshItems} handleModal={() => props.handleModal('add')}/>)
+            case 3:
+                return(<AddAccessories userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={() => props.refreshItems} handleModal={() => props.handleModal('add')}/>)
+            default:
+                return(<AddClothes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={() => props.refreshItems} handleModal={() => props.handleModal('add')}/>)
         }
-        var validateData = 0;
-        for(var element of itemData) {
-            if(/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
-                validateData++;
-                if(validateData === itemData.length) {
-                 if(!isNaN(item.price) && !isNaN(item.cond)) {
-                    socket.emit('addItem', item)
-                    }
-                }
-            }
-        }
-        props.refreshItems();
-        props.handleModal('add');
-
     }
 
         return(
-        <div className="itemMenuBox">
-            <form onSubmit={handleSubmit} ref={formBox}>
+        <div className="addItemContainer">
                 <div className="itemType">
 
-                <input type="radio"  name="itemTypeRadio" id="shoes"/>
-                <label for="shoes"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/shirt.png" alt="Item Shoe" className="itemIcon" id="clothesIcon"/></label>
+                <input type="radio"  name="itemTypeRadio" id="clothes" value="clothes" onChange={() => setType(1)} defaultChecked/>
+                <label htmlFor="clothes"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/shirt.png" alt="Item clothes" className="itemIcon" id="clothesIcon"/></label>
 
-                <input type="radio" name="itemTypeRadio" id="clothes"/>
-                <label for="clothes"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/shoe.png" alt="Item Clothes" className="itemIcon" id="shoeIcon"/></label>
+                <input type="radio" name="itemTypeRadio" id="shoes" value="shoes" onChange={() => setType(2)}/>
+                <label htmlFor="shoes"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/shoe.png" alt="Item shoes" className="itemIcon" id="shoeIcon"/></label>
 
-                <input type="radio" name="itemTypeRadio" id="accessories"/>
-                <label for="accessories"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/accessories.png" alt="Item Accessories" className="itemIcon"/></label>
-
+                <input type="radio" name="itemTypeRadio" id="accessories" value="3" onChange={() => setType(3)}/>
+                <label htmlFor="accessories"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/accessories.png" alt="Item Accessories" className="itemIcon" id="hatIcon"/></label>
                 </div>
-                <p><input placeholder="Nazwa" ref={itemName} autoFocus={true} required/></p>
-                <p><input placeholder="Rozmiar" ref={itemSize} required/></p>
-                <p><input placeholder="Cena" ref={itemPrice} required/></p>
-                <p><input placeholder="Stan" ref={itemCond} required/></p>
-                <p><button type="submit" className="menuButton" value="Submit">Dodaj</button></p>
-            </form>
+
+                {itemForm(itemType)}
         </div>
         )
     }
