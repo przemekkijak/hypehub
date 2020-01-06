@@ -33,7 +33,8 @@ connection = mysql.createConnection({
     password: 'c2437f22',
     database: 'heroku_93481cd35b283ab'
 });
-handleDisconnect() {
+
+function handleDisconnect() {
     connection.connect((error) => {
         if(error) {
         console.log(error);
@@ -60,7 +61,6 @@ connection.on('error', function(err) {
     }
   });
 
-handleDisconnect();
 
 // listenings
 server.listen(4001, () => console.log(`Socketserver listening on port 4001`));
