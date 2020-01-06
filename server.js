@@ -1,5 +1,6 @@
 const express = require('express');
-const app = epxress();
+const path = require('path');
+const app = express();
 port = process.env.PORT || 8080,
 mysql = require('mysql'),
 bodyParser = require('body-parser'),
