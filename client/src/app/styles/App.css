@@ -43,6 +43,7 @@
   text-decoration: none;
 }
 
+/* Top Menu navigation */
 .navigation {
   color: var(--font-color);
   position: absolute;
@@ -50,19 +51,21 @@
   top: 5%;
   transform: translate(-50%,-50%);
   display: flex;
-  /* grid-template-columns:repeat(4,30%); */
   font-family: Assistant, sans-serif;
   font-size: 0.8em;
 }
-.naviElement {
+/* NOTE/BULK */
+.topMenu {
   margin: 5px;
 }
+
+/* Navigation Element - NOTE/BULK * + USER INFO*/
 .naviElement:hover{
+  cursor: pointer;
   color: rgb(226, 226, 226);
 }
 
 .loginBox {
-  opacity: 1;
   width: 12vw;
   height: 25vh;
   font-size: 16px;
@@ -70,17 +73,15 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  transition: all 0.5s ease-in-out;
 }
 /* Adding item input */
 .loginBox input {
   height: 42px;
   width: 100%;
   background: none;
-  outline: none;
   border: none;
+  outline: none;
   border-bottom: 1px solid var(--menu-color2);
-  justify-items: center;
   font-size: 16px;
   letter-spacing: 1px;
 }
@@ -91,6 +92,12 @@
   position: absolute;
   left: 85%;
   top: 5%;
+  display: flex;
+  flex-direction: column;
+}
+.userInfo Link {
+  cursor: pointer;
+  border: 1px solid pink;
 }
 @media only screen and (max-width: 800px) {
 

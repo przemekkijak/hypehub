@@ -38,9 +38,19 @@ function AddItem(props) {
 
         return(
         <div className="itemMenuBox">
-            <label>Dodaj przedmiot</label>
             <form onSubmit={handleSubmit} ref={formBox}>
+                <div className="itemType">
 
+                <input type="radio"  name="itemTypeRadio" id="shoes"/>
+                <label for="shoes">ciuchy</label>
+
+                <input type="radio" name="itemTypeRadio" id="clothes"/>
+                <label for="clothes">buty</label>
+
+                <input type="radio" name="itemTypeRadio" id="accessories"/>
+                <label for="accessories">akcesoria</label>
+
+                </div>
                 <p><input placeholder="Nazwa" ref={itemName} autoFocus={true} required/></p>
                 <p><input placeholder="Rozmiar" ref={itemSize} required/></p>
                 <p><input placeholder="Cena" ref={itemPrice} required/></p>

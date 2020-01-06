@@ -64,13 +64,12 @@ const id = localStorage.getItem('id');
                <>
                 <div className="userInfo">
                   <p>Zalogowano jako {user.username}</p>
-                  <p>ID: {user.id}</p>
-                  <p onClick={logout}>Wyloguj</p>
+                  <p className="naviElement">Moje konto</p>
+                  <p className="naviElement" onClick={logout}>Wyloguj</p>
                 </div>
-
                <div className="navigation">
-                   <Link className="link naviElement" to="/">NOTE</Link>
-                   <Link className="link naviElement" to="bulk">BULK</Link>
+                   <Link className="topMenu link naviElement" to="/">NOTE</Link>
+                   <Link className="topMenu link naviElement" to="bulk">BULK</Link>
                 </div>
             <Switch>
               <Route path="/bulk"><Resell/></Route>

@@ -8,7 +8,7 @@
   width: 800px;
   height: 500px;
   background-color: rgba(17, 17, 17, 0.541);
-  border-top: 5px solid var(--menu-color2);
+  border-top: 10px solid var(--menu-color2);
   display: grid;
   grid-template-rows: 12% 44% 44%;
 
