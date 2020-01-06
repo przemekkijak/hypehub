@@ -33,7 +33,16 @@ connection = mysql.createConnection({
     password: 'c2437f22',
     database: 'heroku_93481cd35b283ab'
 });
-
+handleDisconnect() {
+    connection.connect((error) => {
+        if(error) {
+        console.log(error);
+        console.log('Error - Connecting to database failed');
+        } else {
+        console.log('Connected to database successfully');
+        }
+    });
+}
 connection.connect((error) => {
     if(error) {
     console.log(error);
@@ -41,11 +50,21 @@ connection.connect((error) => {
     } else {
     console.log('Connected to database successfully');
     }
-
 });
+connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+      handleDisconnect();                         // lost due to either server restart, or a
+    } else {                                      // connnection idle timeout (the wait_timeout
+      throw err;                                  // server variable configures this)
+    }
+  });
+
+handleDisconnect();
 
 // listenings
 server.listen(4001, () => console.log(`Socketserver listening on port 4001`));
+
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 
