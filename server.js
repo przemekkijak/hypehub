@@ -64,8 +64,7 @@ connection.on('error', function(err) {
 
 // listenings
 server.listen(port, () => console.log(`Socketserver listening on port ${port}`));
-
-app.listen(port, () => console.log(`Hypehub running on port ${port}`));
+// app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 
 app.use(bodyParser.json());
