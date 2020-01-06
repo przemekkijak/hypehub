@@ -26,7 +26,7 @@ io = require('socket.io')(server),
 //     password: '',
 //     database: 'hypehub'
 // });
-// SQL connect
+SQL connect
 connection = mysql.createConnection({
     host: 'eu-cdbr-west-02.cleardb.net',
     user: 'be3e79e6af1d79',
@@ -53,7 +53,7 @@ app.use(bodyParser.json());
 // app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    res.sendFile(path.join(__dirname+'/build/index.html'));
 });
 
 // handle sesssion
