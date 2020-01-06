@@ -63,7 +63,7 @@ connection.on('error', function(err) {
 
 
 // listenings
-server.listen(4001, () => console.log(`Socketserver listening on port 4001`));
+server.listen(port, () => console.log(`Socketserver listening on port ${port}`));
 
 app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
