@@ -49,6 +49,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow:inset -1px 0 2px 1px rgb(29, 44, 15);
 }
 /* Content of note table */
 .noteContent {
@@ -148,6 +149,7 @@
 /* Custom styling for active menu */
 .active {
   background-color: var(--menu-color3);
+  box-shadow:inset -1px 0 5px 1px rgb(29, 44, 15);
 }
 
 /* MODAL OPTIONS */
