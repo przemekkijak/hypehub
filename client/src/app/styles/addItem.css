@@ -10,11 +10,11 @@
     border-top: 10px solid var(--menu-color2);
     display: grid;
     grid-template-rows: 20% 60%;
+    box-shadow:inset -1px 0 1px 1px rgb(29, 44, 15);
 
   }
 .addItemForm {
     display: grid;
-    /* grid-template-columns: 50 */
     grid-gap: 3%;
 }
 .addItemForm input {
