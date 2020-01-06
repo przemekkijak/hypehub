@@ -56,20 +56,23 @@
   height: 90%;
 }
 /* Items navigation */
+#currentColumns {
+  grid-template-columns: 45% 10% 15% 15% 5% 3%;
+}
+#soldColumns {
+  grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
+}
 .itemsInfo {
   display: grid;
   padding-top: 2px;
-  grid-template-columns: 40% 10% 15% 15% 5% 5% 5%;
   padding-bottom: 3px;
   opacity: 0.6;
   font-size: 12px;
 }
 .itemSlot {
   display: grid;
-  grid-template-columns: 40% 10% 15% 15% 5% 5% 5%;
   height: 50px;
   border-bottom: 1px solid rgba(138, 160, 159, 0.322);
-  /* border: 1px solid pink; */
 }
 .itemSlot p {
   display: flex;
@@ -138,6 +141,7 @@
 }
 /* button for submiting input / adding item etc */
 .menuButton {
+  cursor: pointer;
   margin-top: 25px;
   width: 100%;
   height: 30px;
@@ -158,6 +162,10 @@
 .itemIcon {
   width: 30px;
   height: 30px;
+}
+#clothesIcon {
+  position:relative;
+  top: -2px;
 }
 #shoeIcon {
   position: relative;

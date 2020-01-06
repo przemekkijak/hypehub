@@ -39,7 +39,7 @@ function SellItem(props) {
         return(
         <div className="itemMenuBox">
             <form onSubmit={handleSubmit} ref={formBox}>
-                <label>Sprzedajesz {currentItem}</label>
+                <span>Sprzedajesz {currentItem}</span>
                 <p><input placeholder="Cena" ref={itemPrice} autoFocus={true} required/></p>
                 <p><input placeholder="Kupujacy (opcjonalnie)" ref={soldFor}/></p>
                 <p><button type="submit" className="menuButton" value="Submit">Sprzedaj</button></p>

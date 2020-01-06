@@ -55,16 +55,26 @@ import {
                     <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
                     <NavLink className="link naviButton"  to="/note/pending">Zamowione</NavLink>
                     </div>
-                    <div className="itemsInfo">
-                        <span>Nazwa</span>
-                        <span>Rozmiar</span>
-                        <span>Stan</span>
-                        <span>Cena kupna</span>
                         <Switch>
-                            <Route path="/note/sold"><span>Profit</span></Route>
-                            <Route path="/note/current"><span>Sprzedaj</span></Route>
+                        <Route path="/note/sold">
+                            <div className="itemsInfo" id="soldColumns">
+                            <span>Nazwa</span>
+                            <span>Rozmiar</span>
+                            <span>Stan</span>
+                            <span>Cena kupna</span>
+                            <span>Profit</span>
+                            </div>
+                            </Route>
+                            <Route path="/">
+                            <div className="itemsInfo" id="currentColumns">
+                            <span>Nazwa</span>
+                            <span>Rozmiar</span>
+                            <span>Stan</span>
+                            <span>Cena kupna</span>
+                            <span>Sprzedaj</span>
+                            </div>
+                            </Route>
                         </Switch>
-                    </div>
                     <div className="noteContent">
                         <Switch>
                             <Route path="/note/sold">

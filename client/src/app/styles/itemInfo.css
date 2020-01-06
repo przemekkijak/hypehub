@@ -56,3 +56,27 @@
   /* width: 250px; */
   /* height: 250px; */
 }
+
+
+
+/* DO USUNIECIA */
+
+/* remove origin radio buttons  */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    display: none;
+}
+
+[type="radio"]:checked + label {
+    position: relative;
+    cursor: pointer;
+    height: 30px;
+    padding: 5%;
+}
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    cursor: pointer;
+    height: 30px;
+    padding: 5%;
+}

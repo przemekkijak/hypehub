@@ -42,13 +42,13 @@ function AddItem(props) {
                 <div className="itemType">
 
                 <input type="radio"  name="itemTypeRadio" id="shoes"/>
-                <label for="shoes"><img src="img/shirt.png" className="itemIcon"/></label>
+                <label for="shoes"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/shirt.png" alt="Item Shoe" className="itemIcon" id="clothesIcon"/></label>
 
                 <input type="radio" name="itemTypeRadio" id="clothes"/>
-                <label for="clothes"><img src="img/shoe.png" className="itemIcon" id="shoeIcon"/></label>
+                <label for="clothes"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/shoe.png" alt="Item Clothes" className="itemIcon" id="shoeIcon"/></label>
 
                 <input type="radio" name="itemTypeRadio" id="accessories"/>
-                <label for="accessories"><img src="img/accessories.png" className="itemIcon"/></label>
+                <label for="accessories"><img src="https://hypehub.s3.eu-central-1.amazonaws.com/img/accessories.png" alt="Item Accessories" className="itemIcon"/></label>
 
                 </div>
                 <p><input placeholder="Nazwa" ref={itemName} autoFocus={true} required/></p>

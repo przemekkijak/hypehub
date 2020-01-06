@@ -6,7 +6,7 @@ function Resell() {
         return(
             <div className="resellContainer">
                 <div className="tableContainer">
-                    <p>test</p>
+                    <p>jeszcze nie gotowe</p>
                 </div>
             </div>
         )
