@@ -21,7 +21,6 @@ const token = localStorage.getItem('token');
 const id = localStorage.getItem('id');
 
   function App() {
-        const [refreshPage, emitRefresh] = useState(false);
         const [currentItems, setCurrent] = useState([]);
         const [soldItems, setSold] = useState([]);
         const [isLoged, setLoged] = useState(() => {
@@ -35,10 +34,6 @@ const id = localStorage.getItem('id');
             setLoged(false);
           })
         })
-        socket.on('refresh', () => {
-          emitRefresh(true);
-          console.log('emit refresh');
-        });
 
 
       function handleLogin(userData) {

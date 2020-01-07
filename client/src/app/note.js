@@ -17,10 +17,16 @@ import {
 
 
   function Render(props) {
+        const [refreshPage, emitRefresh] = useState(false);
         const [deleteMode, setDeleteMode] = useState(false);
         const [itemModal, setItemModal] = useState(false);
         const [currentItem, setCurrentItem] = useState(0);
         const socket = props.socket;
+
+        socket.on('refresh', () => {
+            emitRefresh(true);
+            console.log('emit refresh');
+          });
 
     function toggleDelete(){
         setDeleteMode(!deleteMode);

@@ -21,7 +21,7 @@ session = require('express-session')({
 sharedsession = require('express-socket.io-session'),
 
 server = require('http').createServer(app),
-io = require('socket.io')(server, { wsEngine: 'ws' }),
+io = require('socket.io')(server),
 
 
 // mysql://be3e79e6af1d79:c2437f22@eu-cdbr-west-02.cleardb.net/heroku_93481cd35b283ab?reconnect=true
