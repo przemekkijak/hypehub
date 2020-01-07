@@ -175,6 +175,7 @@ io.on('connection', socket => {
                 console.log('Error while deleting item ID: ' + id);
             }
     })
+    socket.emit('refreshItems')
 })
     socket.on('addItem', (item) => {
         switch(item.type) {
@@ -184,6 +185,7 @@ io.on('connection', socket => {
                         console.log(error)
                         console.log('Error while adding clothes to database, by User ' + item.ownerID);
                 }})
+                socket.emit('refreshItems')
                 break;
             case 2:
                 pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"','" + item.type +"',0);", function(error) {
@@ -191,6 +193,7 @@ io.on('connection', socket => {
                        console.log(error)
                        console.log('Error while adding shoes to database, by User ' + item.ownerID);
                }})
+               socket.emit('refreshItems')
                break;
             case 3:
                 pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"','" + item.type +"',0);", function(error) {
@@ -198,6 +201,7 @@ io.on('connection', socket => {
                        console.log(error)
                        console.log('Error while adding accessories to database, by User ' + item.ownerID);
                }})
+               socket.emit('refreshItems')
                break;
 
         }
@@ -211,6 +215,7 @@ io.on('connection', socket => {
                 console.log('Error while selling item');
             }
         })
+        socket.emit('refreshItems')
     })
 });
 })

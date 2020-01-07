@@ -33,7 +33,17 @@ const id = localStorage.getItem('id');
           socket.on('failed', () => {
             setLoged(false);
           })
-        });
+        })
+        socket.on('refreshItems', (() => {
+          socket.emit('getCurrentItems', data => {
+            setCurrent(data);
+          })
+          socket.emit('getSoldItems', data => {
+            setSold(data);
+          })
+          console.log('SocketON RefreshItems');
+        }));
+
       function handleLogin(userData) {
         user = userData;
         refreshItems();
