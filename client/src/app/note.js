@@ -23,10 +23,6 @@ import {
         const [currentItem, setCurrentItem] = useState(0);
         const socket = props.socket;
 
-        socket.on('refresh', () => {
-            emitRefresh(true);
-            console.log('emit refresh');
-          });
 
     function toggleDelete(){
         setDeleteMode(!deleteMode);

@@ -24,7 +24,6 @@ server = require('http').createServer(app),
 io = require('socket.io')(server),
 
 
-// mysql://be3e79e6af1d79:c2437f22@eu-cdbr-west-02.cleardb.net/heroku_93481cd35b283ab?reconnect=true
 // LOGIN TO MYSQL
 // mysql -ube3e79e6af1d79 -pc2437f22 -h eu-cdbr-west-02.cleardb.net heroku_93481cd35b283ab
 
@@ -81,7 +80,7 @@ io.on('connection', socket => {
 
     console.log('connected ' + socket.handshake.sessionID);
     socket.on('disconnect', function() {
-        console.log('disconnected');
+        console.log('disconnected ' +socket.handshake.sessionID);
     })
 
 
@@ -184,7 +183,6 @@ io.on('connection', socket => {
                         console.log(error)
                         console.log('Error while adding clothes to database, by User ' + item.ownerID);
                     }})
-                    socket.emit('refresh');
                     break;
             case 2:
                 pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"','" + item.type +"',0);", function(error) {
