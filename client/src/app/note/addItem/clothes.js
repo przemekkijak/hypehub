@@ -45,8 +45,8 @@ function AddClothes(props) {
 
                 <p><input placeholder="Nazwa" ref={itemName} autoFocus={true} required/></p>
                 <p><input placeholder="Rozmiar" ref={itemSize} required/></p>
-                <p><input placeholder="Dlugosc" ref={itemLength}/></p>
-                <p><input placeholder="Szerokosc" ref={itemWidth}/></p>
+                <p><input placeholder="Dlugosc" ref={itemLength} required/></p>
+                <p><input placeholder="Szerokosc" ref={itemWidth} required/></p>
                 <p><input placeholder="Cena" ref={itemPrice} required/></p>
                 <p><input placeholder="Stan" ref={itemCond} required/></p>
                 <p><button type="submit" className="addButton" value="Submit">Dodaj</button></p>

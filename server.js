@@ -4,7 +4,7 @@ const app = express();
 port = process.env.PORT || 8080,
 mysql = require('mysql'),
 pool = mysql.createPool({
-    connectionLimit : 10,
+    connectionLimit : 15,
     host: 'eu-cdbr-west-02.cleardb.net',
     user: 'be3e79e6af1d79',
     password: 'c2437f22',
@@ -203,13 +203,6 @@ io.on('connection', socket => {
     })
 
     socket.on('sellItem',(item) => {
-
-        let date_ob = new Date();
-        let date = ("0" + date_ob.getDate()).slice(-2);
-        let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-        let year = date_ob.getFullYear();
-        let fullDate = (year+'-'+month+'-'+date);
-
         pool.query("UPDATE items set sold='1', sellPrice='"+item.price+"', soldAt=CURRENT_TIMESTAMP where id='"+item.id+"';", function(error) {
             if(error) {
                 console.log(error)
