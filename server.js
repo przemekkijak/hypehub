@@ -4,7 +4,7 @@ const app = express();
 port = process.env.PORT || 8080,
 mysql = require('mysql'),
 pool = mysql.createPool({
-    connectionLimit : 100,
+    connectionLimit : 10,
     host: 'eu-cdbr-west-02.cleardb.net',
     user: 'be3e79e6af1d79',
     password: 'c2437f22',
