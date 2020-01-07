@@ -53,6 +53,7 @@ const id = localStorage.getItem('id');
         socket.emit('getSoldItems', data => {
           setSold(data);
         })
+        console.log('refreshed items');
       }
 
 
