@@ -84,7 +84,7 @@ io.on('connection', socket => {
 
 
     socket.on('checkLog', function(token,id){
-        connection.query('SELECT * from USERS where id = "'+id+'" and token = "'+token+'"', function(error, results) {
+        pool.query('SELECT * from USERS where id = "'+id+'" and token = "'+token+'"', function(error, results) {
             if(error) {console.log('Error while geting user by token')}
             if(results.length>0) {
                 socket.handshake.session.user = {
@@ -100,13 +100,12 @@ io.on('connection', socket => {
                 socket.emit('failed');
             }
         })
-        connection.release();
     });
 
 
 
     socket.on('login', (user) => {
-        connection.query('SELECT * from users WHERE username = "'+user.username+'" and password = "'+user.password+'"', function(error, results)  {
+        pool.query('SELECT * from users WHERE username = "'+user.username+'" and password = "'+user.password+'"', function(error, results)  {
             if(error) { console.log('Error while loging user')}
             if(results.length > 0) {
                 socket.handshake.session.user = {
@@ -129,14 +128,14 @@ io.on('connection', socket => {
     })
 
     socket.on('getUser', (id, fn) => {
-        connection.query('SELECT * from users where id = "' + id + '";', (error, results) => {
+        pool.query('SELECT * from users where id = "' + id + '";', (error, results) => {
             if(error) {console.log('Error while geting user id: ' + id)}
             fn(results);
         })
     })
 
     socket.on('getItem', (id, fn) => {
-        connection.query('SELECT * from items where id = "' + id + '";', (error,results) => {
+        pool.query('SELECT * from items where id = "' + id + '";', (error,results) => {
             if(error) {console.log('Error while getting item id: ' + id)}
             if(results.length > 0) {
             fn(results);
@@ -146,7 +145,7 @@ io.on('connection', socket => {
 
 
     socket.on('getCurrentItems', (fn) => {
-        connection.query('SELECT * from items where ownerID = "'+socket.handshake.session.userID+'" and sold = "0" order by createdAt DESC', function(error, results) {
+        pool.query('SELECT * from items where ownerID = "'+socket.handshake.session.userID+'" and sold = "0" order by createdAt DESC', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting current items from database');
@@ -157,7 +156,7 @@ io.on('connection', socket => {
 
     socket.on('getSoldItems', (fn) => {
         if(socket.handshake.session.user) {
-        connection.query('SELECT * from items where ownerID = "'+socket.handshake.session.user.id+'" and sold = "1" order by soldAt DESC', function(error, results) {
+        pool.query('SELECT * from items where ownerID = "'+socket.handshake.session.user.id+'" and sold = "1" order by soldAt DESC', function(error, results) {
             if(error) {
                 console.log(error)
                 console.log('Error while geting sold items from database');
@@ -168,7 +167,7 @@ io.on('connection', socket => {
     })
 
     socket.on('deleteItem', (id) => {
-        connection.query("DELETE from items where id='"+id+"';",
+        pool.query("DELETE from items where id='"+id+"';",
         function(error) {
             if(error) {
                 console.log(error)
@@ -177,7 +176,7 @@ io.on('connection', socket => {
     })
 })
     socket.on('addItem', (item) => {
-        connection.query("INSERT into items (name,buyPrice,size,cond,ownerID,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"',0);", function(error) {
+        pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"',0);", function(error) {
             if(error) {
                 console.log(error)
                 console.log('Error while adding item to database');
@@ -193,7 +192,7 @@ io.on('connection', socket => {
         let year = date_ob.getFullYear();
         let fullDate = (year+'-'+month+'-'+date);
 
-        connection.query("UPDATE items set sold='1', sellPrice='"+item.price+"', soldAt=CURRENT_TIMESTAMP where id='"+item.id+"';", function(error) {
+        pool.query("UPDATE items set sold='1', sellPrice='"+item.price+"', soldAt=CURRENT_TIMESTAMP where id='"+item.id+"';", function(error) {
             if(error) {
                 console.log(error)
                 console.log('Error while selling item');
