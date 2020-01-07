@@ -191,12 +191,14 @@ io.on('connection', socket => {
                        console.log(error)
                        console.log('Error while adding shoes to database, by User ' + item.ownerID);
                }})
+               break;
             case 3:
                 pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"','" + item.type +"',0);", function(error) {
                     if(error) {
                        console.log(error)
                        console.log('Error while adding accessories to database, by User ' + item.ownerID);
                }})
+               break;
 
         }
 
