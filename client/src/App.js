@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Note from './app/note.js'
 import Resell from './app/resell'
 import Login from './app/login'
-import Home from './app/home'
+// import Home from './app/home'
 import './app/styles/App.css'
 import socketIOClient from 'socket.io-client'
 
@@ -14,7 +14,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-// const socket = socketIOClient('localhost:4001');
+// const socket = socketIOClient('localhost:8080');
 const socket = socketIOClient('https://hypehub-js.herokuapp.com');
 var user = {};
 const token = localStorage.getItem('token');
@@ -27,17 +27,27 @@ const id = localStorage.getItem('id');
           socket.emit('checkLog', token,id);
           socket.on('success', (userData) => {
             user = userData;
-            refreshItems();
+            // refreshItems();
+            socket.emit('refreshItems');
             setLoged(true);
           })
           socket.on('failed', () => {
             setLoged(false);
           })
         });
+        socket.on('refreshItems', () => {
+          socket.emit('getCurrentItems', data => {
+            setCurrent(data);
+          })
+          socket.emit('getSoldItems', data => {
+            setSold(data);
+          })
+        })
 
       function handleLogin(userData) {
         user = userData;
-        refreshItems();
+        // refreshItems();
+        socket.emit('refreshItems');
         setLoged(true);
       }
 
