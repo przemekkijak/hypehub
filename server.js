@@ -184,6 +184,7 @@ io.on('connection', socket => {
                         console.log(error)
                         console.log('Error while adding clothes to database, by User ' + item.ownerID);
                     }})
+                    socket.emit('refresh');
                     break;
             case 2:
                 pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"','" + item.type +"',0);", function(error) {

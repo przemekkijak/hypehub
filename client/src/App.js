@@ -35,6 +35,10 @@ const id = localStorage.getItem('id');
             setLoged(false);
           })
         })
+        socket.on('refresh', () => {
+          emitRefresh(true);
+          console.log('emit refresh');
+        });
 
 
       function handleLogin(userData) {
@@ -56,8 +60,6 @@ const id = localStorage.getItem('id');
         socket.emit('getSoldItems', data => {
           setSold(data);
         })
-        emitRefresh(true);
-        console.log('refreshed items');
       }
 
 
