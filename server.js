@@ -124,7 +124,6 @@ io.on('connection', socket => {
                 console.log('failed to login');
             }
         })
-        connection.release();
     })
 
     socket.on('getUser', (id, fn) => {
