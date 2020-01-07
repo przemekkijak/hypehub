@@ -176,6 +176,7 @@ io.on('connection', socket => {
             }
         })
         socket.emit('refreshItems')
+        break;
     })
     socket.on('addItem', (item) => {
         switch(item.type) {
@@ -216,6 +217,7 @@ io.on('connection', socket => {
             }
         })
         socket.emit('refreshItems')
+        break;
     })
 });
 })

@@ -29,7 +29,7 @@ function AddClothes(props) {
             if(/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
                 validateData++;
                 if(validateData === itemData.length) {
-                 if(!isNaN(item.price) && !isNaN(item.cond)) {
+                 if(!isNaN(item.price) && !isNaN(item.cond) && !isNaN(item.length) && !isNaN(item.width)) {
                     props.socket.emit('addItem', item)
                     props.refreshItems();
                     console.log('Dodałem ciuch - socket poszedl')
