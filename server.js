@@ -3,6 +3,13 @@ const path = require('path');
 const app = express();
 port = process.env.PORT || 8080,
 mysql = require('mysql'),
+pool = mysql.createPool({
+    connectionLimit : 20,
+    host: 'eu-cdbr-west-02.cleardb.net',
+    user: 'be3e79e6af1d79',
+    password: 'c2437f22',
+    database: 'heroku_93481cd35b283ab'
+});
 bodyParser = require('body-parser'),
 
 session = require('express-session')({
@@ -26,40 +33,23 @@ io = require('socket.io')(server),
 //     password: '',
 //     database: 'hypehub'
 // });
-// SQL connect
-connection = mysql.createConnection({
-    host: 'eu-cdbr-west-02.cleardb.net',
-    user: 'be3e79e6af1d79',
-    password: 'c2437f22',
-    database: 'heroku_93481cd35b283ab'
-});
 
-function handleDisconnect() {
-    connection.connect((error) => {
-        if(error) {
-        console.log(error);
-        console.log('Error - Connecting to database failed');
-        } else {
-        console.log('Connected to database successfully');
-        }
-    });
-}
-connection.connect((error) => {
-    if(error) {
-    console.log(error);
-    console.log('Error - Connecting to database failed');
-    } else {
-    console.log('Connected to database successfully');
-    }
-});
-connection.on('error', function(err) {
-    console.log('db error', err);
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-      handleDisconnect();                         // lost due to either server restart, or a
-    } else {                                      // connnection idle timeout (the wait_timeout
-      throw err;                                  // server variable configures this)
-    }
-  });
+// SQL connect
+// connection = mysql.createConnection({
+//     host: 'eu-cdbr-west-02.cleardb.net',
+//     user: 'be3e79e6af1d79',
+//     password: 'c2437f22',
+//     database: 'heroku_93481cd35b283ab'
+// });
+
+// connection.connect((error) => {
+//     if(error) {
+//     console.log(error);
+//     console.log('Error - Connecting to database failed');
+//     } else {
+//     console.log('Connected to database successfully');
+//     }
+// });
 
 
 // listenings
@@ -80,6 +70,9 @@ io.use(sharedsession(session, {
     autoSave: true
 }));
 
+// mySQL POOL
+pool.getConnection(function(err, connection) {
+    if (err) throw err; // not connected!
 
 // socketIO
 io.on('connection', socket => {
@@ -107,6 +100,7 @@ io.on('connection', socket => {
                 socket.emit('failed');
             }
         })
+        connection.release();
     });
 
 
@@ -131,6 +125,8 @@ io.on('connection', socket => {
                 console.log('failed to login');
             }
         })
+        connection.release();
+
     })
 
     socket.on('getUser', (id, fn) => {
@@ -206,3 +202,4 @@ io.on('connection', socket => {
         })
     })
 });
+}
