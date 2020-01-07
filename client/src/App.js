@@ -35,12 +35,12 @@ const id = localStorage.getItem('id');
           })
         })
         socket.on('refreshItems', () => {
-          socket.emit('getCurrentItems', data => {
-            setCurrent(data);
-          })
-          socket.emit('getSoldItems', data => {
-            setSold(data);
-          })
+          // socket.emit('getCurrentItems', data => {
+          //   setCurrent(data);
+          // })
+          // socket.emit('getSoldItems', data => {
+          //   setSold(data);
+          // })
           console.log('SocketON RefreshItems');
         });
 

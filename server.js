@@ -174,9 +174,9 @@ io.on('connection', socket => {
                 console.log(error)
                 console.log('Error while deleting item ID: ' + id);
             }
+        })
+        socket.emit('refreshItems')
     })
-    socket.emit('refreshItems')
-})
     socket.on('addItem', (item) => {
         switch(item.type) {
             case 1:
