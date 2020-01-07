@@ -24,6 +24,10 @@ import {
         const socket = props.socket;
 
 
+        socket.on('refresh', () => {
+            emitRefresh(true);
+            console.log('refreshed note');
+        })
     function toggleDelete(){
         setDeleteMode(!deleteMode);
                             // eslint-disable-next-line
