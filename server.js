@@ -4,7 +4,7 @@ const app = express();
 port = process.env.PORT || 8080,
 mysql = require('mysql'),
 pool = mysql.createPool({
-    connectionLimit : 20,
+    connectionLimit : 100,
     host: 'eu-cdbr-west-02.cleardb.net',
     user: 'be3e79e6af1d79',
     password: 'c2437f22',
@@ -25,6 +25,8 @@ io = require('socket.io')(server),
 
 
 // mysql://be3e79e6af1d79:c2437f22@eu-cdbr-west-02.cleardb.net/heroku_93481cd35b283ab?reconnect=true
+// LOGIN TO MYSQL
+// mysql -ube3e79e6af1d79 -pc2437f22 -h eu-cdbr-west-02.cleardb.net heroku_93481cd35b283ab
 
 // SQL connect
 // connection = mysql.createConnection({
@@ -175,12 +177,29 @@ io.on('connection', socket => {
     })
 })
     socket.on('addItem', (item) => {
-        pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,sold) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"',0);", function(error) {
-            if(error) {
-                console.log(error)
-                console.log('Error while adding item to database');
-            }
-        })
+        switch(item.type) {
+            case 1:
+                pool.query("INSERT into items (name,buyPrice,size,length,width,cond,ownerID,sold,type) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.length + "','" + item.width + "','" + item.cond + "', '"+item.ownerID+"','" + item.type +"',0);", function(error) {
+                     if(error) {
+                        console.log(error)
+                        console.log('Error while adding clothes to database, by User ' + item.ownerID);
+                }})
+                break;
+            case 2:
+                pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,sold,type) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"','" + item.type +"',0);", function(error) {
+                    if(error) {
+                       console.log(error)
+                       console.log('Error while adding shoes to database, by User ' + item.ownerID);
+               }})
+            case 3:
+                pool.query("INSERT into items (name,buyPrice,size,cond,ownerID,sold,type) values ('" + item.name + "','" + item.price + "','" +item.size + "','" + item.cond + "', '"+item.ownerID+"','" + item.type +"',0);", function(error) {
+                    if(error) {
+                       console.log(error)
+                       console.log('Error while adding accessories to database, by User ' + item.ownerID);
+               }})
+
+        }
+
     })
 
     socket.on('sellItem',(item) => {

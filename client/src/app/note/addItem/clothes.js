@@ -8,8 +8,9 @@ function AddClothes(props) {
     const itemSize = useRef();
     const itemPrice = useRef();
     const itemCond = useRef();
-    const itemWymiary = useRef();
-    const itemData = [itemName, itemSize, itemPrice, itemCond, itemWymiary];
+    const itemLength = useRef();
+    const itemWidth = useRef();
+    const itemData = [itemName, itemSize, itemPrice, itemCond, itemLength, itemWidth];
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -17,6 +18,8 @@ function AddClothes(props) {
             name: itemName.current.value,
             price: itemPrice.current.value,
             size: itemSize.current.value,
+            length: itemLength.current.value,
+            width: itemWidth.current.value,
             cond: itemCond.current.value,
             type: props.itemType,
             ownerID: props.userID,
@@ -28,7 +31,6 @@ function AddClothes(props) {
                 if(validateData === itemData.length) {
                  if(!isNaN(item.price) && !isNaN(item.cond)) {
                     props.socket.emit('addItem', item)
-                    console.log(item.type);
                     }
                 }
             }
@@ -43,8 +45,8 @@ function AddClothes(props) {
 
                 <p><input placeholder="Nazwa" ref={itemName} autoFocus={true} required/></p>
                 <p><input placeholder="Rozmiar" ref={itemSize} required/></p>
-                <p><input placeholder="Dlugosc" ref={itemWymiary} required/></p>
-                <p><input placeholder="Szerokosc" ref={itemWymiary} required/></p>
+                <p><input placeholder="Dlugosc" ref={itemLength}/></p>
+                <p><input placeholder="Szerokosc" ref={itemWidth}/></p>
                 <p><input placeholder="Cena" ref={itemPrice} required/></p>
                 <p><input placeholder="Stan" ref={itemCond} required/></p>
                 <p><button type="submit" className="addButton" value="Submit">Dodaj</button></p>
