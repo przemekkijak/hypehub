@@ -126,7 +126,6 @@ io.on('connection', socket => {
             }
         })
         connection.release();
-
     })
 
     socket.on('getUser', (id, fn) => {
@@ -202,4 +201,4 @@ io.on('connection', socket => {
         })
     })
 });
-}
+})
