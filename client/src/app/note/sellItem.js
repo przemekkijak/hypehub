@@ -22,8 +22,7 @@ function SellItem(props) {
                 if(validateData === sellData.length) {
                  if(!isNaN(item.price)) {
                     socket.emit('sellItem',item);
-                    // props.refreshItems();
-                    socket.emit('refreshItems');
+                    props.refreshItems();
                     }
                 }
             }
