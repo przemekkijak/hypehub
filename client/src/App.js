@@ -21,6 +21,7 @@ const token = localStorage.getItem('token');
 const id = localStorage.getItem('id');
 
   function App() {
+        const [refreshPage, emitRefresh] = useState(false);
         const [currentItems, setCurrent] = useState([]);
         const [soldItems, setSold] = useState([]);
         const [isLoged, setLoged] = useState(() => {
@@ -34,15 +35,7 @@ const id = localStorage.getItem('id');
             setLoged(false);
           })
         })
-        socket.on('refreshItems', () => {
-          // socket.emit('getCurrentItems', data => {
-          //   setCurrent(data);
-          // })
-          // socket.emit('getSoldItems', data => {
-          //   setSold(data);
-          // })
-          console.log('SocketON RefreshItems');
-        });
+
 
       function handleLogin(userData) {
         user = userData;
@@ -63,6 +56,7 @@ const id = localStorage.getItem('id');
         socket.emit('getSoldItems', data => {
           setSold(data);
         })
+        emitRefresh(true);
         console.log('refreshed items');
       }
 
