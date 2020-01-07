@@ -8,8 +8,7 @@ function AddAccessories(props) {
     const itemSize = useRef();
     const itemPrice = useRef();
     const itemCond = useRef();
-    const itemWymiary = useRef();
-    const itemData = [itemName, itemSize, itemPrice, itemCond, itemWymiary];
+    const itemData = [itemName, itemSize, itemPrice, itemCond];
 
     function handleSubmit(e) {
         e.preventDefault();
