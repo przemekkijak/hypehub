@@ -27,11 +27,11 @@ function AddAccessories(props) {
                 if(validateData === itemData.length) {
                  if(!isNaN(item.price) && !isNaN(item.cond)) {
                     props.socket.emit('addItem', item)
+                    props.refreshItems();
                     }
                 }
             }
         }
-        props.refreshItems();
         props.handleModal('add');
     }
 
