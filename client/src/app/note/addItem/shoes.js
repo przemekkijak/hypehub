@@ -28,6 +28,7 @@ function AddShoes(props) {
                  if(!isNaN(item.price) && !isNaN(item.cond)) {
                     props.socket.emit('addItem', item)
                     props.refreshItems();
+                    console.log('Dodałem buta - socket poszedl')
                     }
                 }
             }

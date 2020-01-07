@@ -28,6 +28,7 @@ function AddAccessories(props) {
                  if(!isNaN(item.price) && !isNaN(item.cond)) {
                     props.socket.emit('addItem', item)
                     props.refreshItems();
+                    console.log('Dodałem akcesoria - socket poszedl')
                     }
                 }
             }
