@@ -27,27 +27,16 @@ const id = localStorage.getItem('id');
           socket.emit('checkLog', token,id);
           socket.on('success', (userData) => {
             user = userData;
-            // refreshItems();
-            socket.emit('refreshItems');
+            refreshItems();
             setLoged(true);
           })
           socket.on('failed', () => {
             setLoged(false);
           })
         });
-        socket.on('refreshItems', () => {
-          socket.emit('getCurrentItems', data => {
-            setCurrent(data);
-          })
-          socket.emit('getSoldItems', data => {
-            setSold(data);
-          })
-        })
-
       function handleLogin(userData) {
         user = userData;
-        // refreshItems();
-        socket.emit('refreshItems');
+        refreshItems();
         setLoged(true);
       }
 
