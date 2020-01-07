@@ -27,6 +27,7 @@ function AddShoes(props) {
                 if(validateData === itemData.length) {
                  if(!isNaN(item.price) && !isNaN(item.cond)) {
                     props.socket.emit('addItem', item)
+                    console.log('powinienem dodac item');
                     }
                 }
             }
