@@ -3,20 +3,20 @@ const path = require('path');
 const app = express();
 port = process.env.PORT || 8080,
 mysql = require('mysql'),
-// pool = mysql.createPool({
-//     connectionLimit : 15,
-//     host: 'eu-cdbr-west-02.cleardb.net',
-//     user: 'be3e79e6af1d79',
-//     password: 'c2437f22',
-//     database: 'heroku_93481cd35b283ab'
-// });
 pool = mysql.createPool({
     connectionLimit : 15,
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'hypehub'
+    host: 'eu-cdbr-west-02.cleardb.net',
+    user: 'be3e79e6af1d79',
+    password: 'c2437f22',
+    database: 'heroku_93481cd35b283ab'
 });
+// pool = mysql.createPool({
+//     connectionLimit : 15,
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'hypehub'
+// });
 bodyParser = require('body-parser'),
 
 session = require('express-session')({
