@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './styles/note.css';
 import Current from './note/current'
 import Sold from './note/sold'
@@ -17,10 +17,16 @@ import {
 
 
   function Render(props) {
+        const [,reload] = useState(false);
         const [deleteMode, setDeleteMode] = useState(false);
         const [itemModal, setItemModal] = useState(false);
         const [currentItem, setCurrentItem] = useState(0);
         const socket = props.socket;
+
+        useEffect(() => {
+            reload(true);
+        }
+        ,[props.update]);
 
     function toggleDelete(){
         setDeleteMode(!deleteMode);
