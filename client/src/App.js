@@ -50,10 +50,14 @@ const id = localStorage.getItem('id');
 
       function refreshItems() {
         socket.emit('getCurrentItems', data => {
-          setCurrent(data);
+          setCurrent(prevState => {
+            return data;
+          });
         })
         socket.emit('getSoldItems', data => {
-          setSold(data);
+          setSold(prevState => {
+            return data;
+          });
         })
       }
 
