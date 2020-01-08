@@ -14,20 +14,18 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-var update = 0;
+
 const socket = socketIOClient('localhost:8080');
 // const socket = socketIOClient('https://hypehub-js.herokuapp.com');
 var user = {};
 const token = localStorage.getItem('token');
 const id = localStorage.getItem('id');
 
-
 var currentItems = [];
+var soldItems = [];
 
   function App() {
-        // const [currentItems, setCurrent] = useState([]);
-        const [,reload] = useState(false);
-        const [soldItems, setSold] = useState([]);
+        const [,loadingItems] = useState(false);
         const [isLoged, setLoged] = useState(() => {
           socket.emit('checkLog', token,id);
           socket.on('success', (userData) => {
@@ -55,14 +53,15 @@ var currentItems = [];
 
       function refreshItems() {
         socket.emit('getCurrentItems', data => {
-          // setCurrent(prevState => data)
+          loadingItems(prevState => true);
           currentItems = data;
+          loadingItems(prevState => false);
           });
         socket.emit('getSoldItems', data => {
-          setSold(prevState => data)
+          loadingItems(prevState => true);
+          soldItems = data;
+          loadingItems(prevState => false);
         })
-        update++;
-        reload(true);
       }
 
 
@@ -83,7 +82,7 @@ var currentItems = [];
                 </div>
             <Switch>
               <Route path="/bulk"><Resell/></Route>
-              <Route path="/"><Note.Render update={update} socket={socket} currentItems={currentItems} soldItems={soldItems} refreshItems={refreshItems} userID={user.id}/></Route>
+              <Route path="/"><Note.Render socket={socket} currentItems={currentItems} soldItems={soldItems} refreshItems={refreshItems} userID={user.id}/></Route>
               <Redirect to="/"/>
             </Switch>
              </>
@@ -99,4 +98,5 @@ var currentItems = [];
       </Router>
     );
   }
+
 export default App;

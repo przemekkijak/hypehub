@@ -17,16 +17,16 @@ import {
 
 
   function Render(props) {
-        const [,reload] = useState(false);
+      const [,refresh] = useState(false);
         const [deleteMode, setDeleteMode] = useState(false);
         const [itemModal, setItemModal] = useState(false);
         const [currentItem, setCurrentItem] = useState(0);
         const socket = props.socket;
 
         useEffect(() => {
-            reload(true);
-        }
-        ,[props.update]);
+            refresh(prevState => true);
+            // console.log('refreshed note');
+        },[props.currentItems])
 
     function toggleDelete(){
         setDeleteMode(!deleteMode);

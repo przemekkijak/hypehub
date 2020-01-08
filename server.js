@@ -150,7 +150,6 @@ io.on('connection', socket => {
         })
     })
 
-
     socket.on('getCurrentItems', (fn) => {
         pool.query('SELECT * from items where ownerID = "'+socket.handshake.session.userID+'" and sold = "0" order by createdAt DESC', function(error, results) {
             if(error) {

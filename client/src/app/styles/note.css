@@ -71,6 +71,7 @@
   font-size: 12px;
 }
 .itemSlot {
+  cursor: pointer;
   display: grid;
   height: 50px;
   border-bottom: 1px solid rgba(138, 160, 159, 0.322);
