@@ -27,10 +27,14 @@ function Current(props) {
 
         return(
             <div className="currentContainer">
-                {props.items.map((item) =>
-                    <div className="itemSlot" id="currentColumns" key={item.id}>
+                {props.items.map((item, index) =>
+                    <div className="itemSlot currentColumns" id="currentColumns" key={index}>
                         <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
+                        {(item.type === 1) ?
+                        <p onClick={() => props.itemInfo(item.id)}>{item.size} ({item.length}x{item.width})</p>
+                        :
                         <p onClick={() => props.itemInfo(item.id)}>{item.size}</p>
+                        }
                         <p onClick={() => props.itemInfo(item.id)}>{convertCondition(item.cond)}</p>
                         <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
                         <p><button className="noteButton sellButton"

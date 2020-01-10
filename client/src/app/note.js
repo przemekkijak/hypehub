@@ -23,11 +23,6 @@ import {
         const [currentItem, setCurrentItem] = useState(0);
         const socket = props.socket;
 
-        useEffect(() => {
-            refresh(prevState => true);
-            // console.log('refreshed note');
-        },[props.currentItems])
-
     function toggleDelete(){
         setDeleteMode(!deleteMode);
                             // eslint-disable-next-line

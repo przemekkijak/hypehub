@@ -13,8 +13,8 @@ function Sold(props) {
 
         return(
             <div className="soldContainer">
-            {props.items.map((item) =>
-                    <div className="itemSlot" id="soldColumns" key={item.id}>
+            {props.items.map((item, index) =>
+                    <div className="itemSlot" id="soldColumns" key={index}>
                       <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
                       <p onClick={() => props.itemInfo(item.id)}>{item.size}</p>
                       <p onClick={() => props.itemInfo(item.id)}>{convertCondition(item.cond)}</p>
