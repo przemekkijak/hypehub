@@ -16,7 +16,11 @@ function Sold(props) {
             {props.items.map((item, index) =>
                     <div className="itemSlot" id="soldColumns" key={index}>
                       <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-                      <p onClick={() => props.itemInfo(item.id)}>{item.size}</p>
+                      {(item.type === 1) ?
+                        <p onClick={() => props.itemInfo(item.id)}>{item.size} ({item.length}x{item.width})</p>
+                        :
+                        <p onClick={() => props.itemInfo(item.id)}>{item.size}</p>
+                        }
                       <p onClick={() => props.itemInfo(item.id)}>{convertCondition(item.cond)}</p>
                       <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
                       <p id="earnings" onClick={() => props.itemInfo(item.id)}>{item.sellPrice-item.buyPrice} zł</p>
