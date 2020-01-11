@@ -22,7 +22,6 @@ function Render(props) {
 
   function deleteItem(id) {
     socket.emit("deleteItem", id.target.id);
-    $("#" + id.target.id).css("display", "none");
     props.refreshItems();
   }
   function itemInfo(id) {

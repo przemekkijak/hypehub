@@ -54,7 +54,10 @@ function Current(props) {
             <button
               className="noteButton deleteButton"
               id={item.id}
-              onClick={id => props.deleteItem(id)}
+              onClick={id => {
+                if(window.confirm("Napewno usunac przedmiot?"))
+                props.deleteItem(id)
+              }}
             >
               x
             </button>

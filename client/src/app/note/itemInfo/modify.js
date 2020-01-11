@@ -6,11 +6,11 @@ function Modify(props) {
     const formBox = useRef();
     const itemName = useRef();
     const itemSize = useRef();
-    const itemBuyPrice = useRef();
-    const itemSellPrice = useRef();
-    const itemCond = useRef();
-    const itemLength = useRef();
-    const itemWidth = useRef();
+    const itemBuyPrice = useRef(0);
+    const itemSellPrice = useRef(0);
+    const itemCond = useRef(0);
+    const itemLength = useRef(0);
+    const itemWidth = useRef(0);
     const data = [
       itemName,
       itemSize,
@@ -19,7 +19,6 @@ function Modify(props) {
       itemLength,
       itemWidth
     ];
-
 
     function handleSubmit(e) {
       e.preventDefault();

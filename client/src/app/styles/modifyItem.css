@@ -42,6 +42,15 @@
 
 @media only screen and (max-width: 1300px) {
     .modify {
-        padding-top: 5%;
+        padding-top: 4%;
+    }
+    .modifyForm{
+        grid-gap: 1%;
+    }
+    .modifyForm span {
+        font-size: 10px;
+        position: relative;
+        left: 13%;
+        color: rgba(177, 172, 172, 0.664);
     }
   }
