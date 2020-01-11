@@ -16,7 +16,7 @@ function Sold(props) {
           <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
           {item.type === 1 ? (
             <p onClick={() => props.itemInfo(item.id)}>
-              {item.size} ({item.length}x{item.width})
+              {item.size} ({item.length} x {item.width})
             </p>
           ) : (
             <p onClick={() => props.itemInfo(item.id)}>{item.size}</p>

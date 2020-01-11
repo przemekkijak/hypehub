@@ -310,5 +310,20 @@ pool.getConnection(function(err, connection) {
         }
       );
     });
+    socket.on("updateItem", item => {
+      pool.query(
+        "UPDATE items set name='"+item.name+"', buyPrice='"+
+        item.buyPrice+"', sellPrice='"+item.sellPrice+"', size='"+
+        item.size+"', length='"+item.length+"', width='"+item.width+"', cond='"+
+        item.cond+"' where id='"+item.id+"';",
+        function(error) {
+          if(error) {
+            console.log(error);
+            console.log("Error while updating item");
+          }
+        }
+
+      )
+    })
   });
 });

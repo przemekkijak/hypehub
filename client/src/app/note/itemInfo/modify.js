@@ -6,24 +6,27 @@ function Modify(props) {
     const formBox = useRef();
     const itemName = useRef();
     const itemSize = useRef();
-    const itemPrice = useRef();
+    const itemBuyPrice = useRef();
+    const itemSellPrice = useRef();
     const itemCond = useRef();
     const itemLength = useRef();
     const itemWidth = useRef();
-    const itemData = [
+    const data = [
       itemName,
       itemSize,
-      itemPrice,
+      itemBuyPrice,
       itemCond,
       itemLength,
       itemWidth
     ];
 
+
     function handleSubmit(e) {
       e.preventDefault();
-      let item = {
+      let itemData = {
+        id: item.id,
         name: itemName.current.value,
-        price: itemPrice.current.value,
+        buyPrice: itemBuyPrice.current.value,
         size: itemSize.current.value,
         length: itemLength.current.value,
         width: itemWidth.current.value,
@@ -31,18 +34,21 @@ function Modify(props) {
         type: props.itemType,
         ownerID: props.userID
       };
+
       var validateData = 0;
-      for (var element of itemData) {
+      for (var element of data) {
         if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
           validateData++;
-          if (validateData === itemData.length) {
+          console.log("Item: " + item.name + " ID: " + item.id);
+          if (validateData === data.length) {
             if (
-              !isNaN(item.price) &&
+              !isNaN(item.buyPrice) &&
+              !isNaN(item.sellPrice) &&
               !isNaN(item.cond) &&
               !isNaN(item.length) &&
               !isNaN(item.width)
             ) {
-            //   props.socket.emit("addItem", item);
+              props.socket.emit("updateItem", itemData);
               props.refreshItems();
               props.handleModal();
             }
@@ -57,46 +63,59 @@ function Modify(props) {
         <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
         <p>
          <input
-          placeholder="Nazwa"
           ref={itemName}
           autoFocus={true}
           required
           defaultValue={item.name} />
+          <span>Nazwa</span>
         </p>
         <p>
           <input
-          placeholder="Rozmiar"
           ref={itemSize}
           required
           defaultValue={item.size} />
+          <span>Rozmiar</span>
         </p>
+        {item.type === 1 && (
+        <>
         <p>
           <input
-          placeholder="Dlugosc"
           ref={itemLength}
           required
           defaultValue={item.length} />
+          <span>Dlugosc</span>
         </p>
         <p>
           <input
-          placeholder="Szerokosc"
           ref={itemWidth}
           required
           defaultValue={item.width} />
+          <span>Szerokosc</span>
         </p>
+        </>
+        )}
         <p>
           <input
-          placeholder="Cena"
-          ref={itemPrice}
+          ref={itemBuyPrice}
           required
           defaultValue={item.buyPrice} />
+          <span>Cena kupna</span>
         </p>
+        {item.sold === 1 && (
+        <p>
+            <input
+            ref={itemSellPrice}
+            required
+            defaultValue={item.sellPrice} />
+            <span>Cena sprzedazy</span>
+        </p>
+        )}
         <p>
           <input
-          placeholder="Stan"
           ref={itemCond}
           required
           defaultValue={item.cond} />
+          <span>Stan</span>
         </p>
         <p>
           <button type="submit" className="addButton" value="Submit">
