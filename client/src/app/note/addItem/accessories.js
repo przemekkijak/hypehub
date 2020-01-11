@@ -20,18 +20,19 @@ function AddAccessories(props) {
     };
     var validateData = 0;
     for (var element of itemData) {
-      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
+      if (/^$[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
         validateData++;
         if (validateData === itemData.length) {
           if (!isNaN(item.price) && !isNaN(item.cond)) {
             props.socket.emit("addItem", item);
             props.refreshItems();
-            console.log("Dodałem akcesoria - socket poszedl");
+            props.handleModal("add");
           }
         }
+        } else {
+          alert('Cos poszlo nie tak');
+        }
       }
-    }
-    props.handleModal("add");
   }
 
   return (
@@ -41,7 +42,7 @@ function AddAccessories(props) {
           <input placeholder="Nazwa" ref={itemName} autoFocus={true} required />
         </p>
         <p>
-          <input placeholder="Rozmiar" ref={itemSize} required />
+          <input placeholder="Rozmiar" ref={itemSize} />
         </p>
         <p>
           <input placeholder="Cena" ref={itemPrice} required />
