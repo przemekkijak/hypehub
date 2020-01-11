@@ -16,7 +16,7 @@ function NoteMenu(props) {
     <div className="noteMenu">
       <button
         className="noteButton"
-        id="noteMenuButton"
+        id="addButton"
         onClick={() => handleModal()}
       >Dodaj</button>
 

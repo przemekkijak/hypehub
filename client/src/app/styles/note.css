@@ -99,10 +99,10 @@ grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
   justify-items: center;
 }
 /* Buttons for "Add / Remove / Modify */
-#noteMenuButton {
-  margin: 5px;
+#addButton {
+  margin-top: 3%;
   height: 4vh;
-  width: 10vw;
+  width: 12vw;
 }
 #noteMenuButton:hover {
   background: rgb(30, 37, 41);

@@ -42,7 +42,6 @@ function AddClothes(props) {
           ) {
             props.socket.emit("addItem", item);
             props.refreshItems();
-            console.log("Dodałem ciuch - socket poszedl");
           }
         }
       }
