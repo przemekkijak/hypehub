@@ -52,6 +52,7 @@ function Modify(props) {
           if (validateData === data.length) {
             if (
               !isNaN(itemData.buyPrice) &&
+              !isNaN(itemData.sellPrice) &&
               !isNaN(itemData.cond) &&
               !isNaN(itemData.length) &&
               !isNaN(itemData.width)
