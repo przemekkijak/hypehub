@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-
+import $ from 'jquery'
 
 function Modify(props) {
     const item = props.item;
@@ -21,7 +21,9 @@ function Modify(props) {
       itemWidth
     ];
 
-    function handleSubmit(e) {
+
+
+  function handleSubmit(e) {
       e.preventDefault();
       let itemData = {
         id: item.id,
@@ -33,11 +35,19 @@ function Modify(props) {
         width: itemWidth.current.value,
         cond: itemCond.current.value,
         type: props.itemType,
-        ownerID: props.userID
+        ownerID: props.userID,
       };
+      if(item.sold===0) {
+        itemData.sellPrice = 0;
+      }
+      if(item.type != 1) {
+        itemData.length = 0;
+        itemData.width = 0;
+      }
+
       var validateData = 0;
-      for (var element of data) {
-        if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
+      for (var element in itemData) {
+        if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
           validateData++;
           if (validateData === data.length) {
             if (
@@ -101,7 +111,7 @@ function Modify(props) {
           <span>Cena kupna</span>
         </p>
         {item.sold === 1 && (
-        <p>
+        <p id={item.id}>
             <input
             ref={itemSellPrice}
             required
