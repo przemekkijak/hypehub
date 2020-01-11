@@ -104,7 +104,6 @@ function App() {
           </>
         ) : (
           <>
-            {/* <Route path="/home"><Home/></Route> */}
             <Route path="/home">
               <Login
                 handleLogin={userData => handleLogin(userData)}

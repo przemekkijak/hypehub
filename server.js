@@ -17,6 +17,8 @@ const app = express();
     password: "",
     database: "hypehub"
   }));
+    // LOGIN TO MYSQL
+  // mysql -ube3e79e6af1d79 -pc2437f22 -h eu-cdbr-west-02.cleardb.net heroku_93481cd35b283ab
 (bodyParser = require("body-parser")),
   (session = require("express-session")({
     secret: "hype",
@@ -27,33 +29,8 @@ const app = express();
   (sharedsession = require("express-socket.io-session")),
   (server = require("http").createServer(app)),
   (io = require("socket.io")(server)),
-  // LOGIN TO MYSQL
-  // mysql -ube3e79e6af1d79 -pc2437f22 -h eu-cdbr-west-02.cleardb.net heroku_93481cd35b283ab
 
-  // SQL connect
-  // connection = mysql.createConnection({
-  //     host: 'localhost',
-  //     user: 'root',
-  //     password: '',
-  //     database: 'hypehub'
-  // });
 
-  // SQL connect
-  // connection = mysql.createConnection({
-  //     host: 'eu-cdbr-west-02.cleardb.net',
-  //     user: 'be3e79e6af1d79',
-  //     password: 'c2437f22',
-  //     database: 'heroku_93481cd35b283ab'
-  // });
-
-  // connection.connect((error) => {
-  //     if(error) {
-  //     console.log(error);
-  //     console.log('Error - Connecting to database failed');
-  //     } else {
-  //     console.log('Connected to database successfully');
-  //     }
-  // });
 
   // listenings
   server.listen(port, () =>
