@@ -102,6 +102,7 @@ function Render(props) {
             socket={socket}
             handleModal={handleModal}
             itemID={currentItem}
+            refreshItems={props.refreshItems}
           />
         </ReactModal>
       </div>

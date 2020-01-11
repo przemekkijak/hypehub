@@ -47,23 +47,6 @@
   background-color: rgba(90,90,90,0.200);
 }
 
-.itemPhotos {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4,25%);
-}
-.itemPhoto {
-  border: 2px solid var(--menu-color4);
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-
 
 
   /* Hiding default radio buttons */
@@ -92,7 +75,6 @@
 
   }
 
-
   .detailsRadio:checked+label:after,
   .detailsRadio:not(:checked)+label:after {
     content: '';
@@ -117,6 +99,7 @@
     /* -webkit-transform: scale(1);
     transform: scale(1); */
   }
+
 
 
 @media only screen and (max-width: 1300px) {

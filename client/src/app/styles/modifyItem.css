@@ -1,0 +1,48 @@
+.modify {
+    position: relative;
+    left: -15%;
+    height: 100%;
+    width: 123%;
+    padding-top: 10%;
+  }
+.modifyForm {
+    display: grid;
+    grid-gap: 3%;
+}
+.modifyForm input {
+    padding: 1%;
+    height: 42px;
+    width: 50%;
+    font-size: 12px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    background: none;
+    outline: none;
+    border: none;
+    background-color: rgba(75, 62, 62, 0.26);
+    box-shadow:inset 0 0 2px 1px rgb(51, 53, 49);
+    border-radius: 2%;
+}
+.modifyForm input::placeholder {
+    padding: 45%;
+    transition: all 0.3s ease;
+}
+.modifyForm input:focus::placeholder {
+    padding: 1%;
+}
+
+.addButton {
+    cursor: pointer;
+    margin: 1% 25% 0% 25%;
+    height: 35px;
+    width: 50%;
+    background: none;
+    border: 1px solid var(--menu-color);
+}
+
+@media only screen and (max-width: 1300px) {
+    .modify {
+        padding-top: 5%;
+    }
+  }

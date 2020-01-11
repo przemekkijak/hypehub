@@ -1,4 +1,10 @@
  import React, { useState, useEffect } from "react";
+ import Info from './itemInfo/info'
+ import Tools from './itemInfo/tools'
+ import Modify from './itemInfo/modify'
+
+
+
 
 function ItemInfo(props) {
   const socket = props.socket;
@@ -13,6 +19,20 @@ function ItemInfo(props) {
         setLoaded(true);
       });
   });
+
+
+  function itemMenu(menu) {
+    switch(menu) {
+      case 1:
+        break;
+      case 2:
+        return <Modify item={item} refreshItems={props.refreshItems} handleModal={props.handleModal}/>
+        break;
+      case 3:
+        return <p> test narzedzia </p>
+    }
+  }
+
   return (
     loaded && (
       <div className="itemInfoContainer">
@@ -34,7 +54,7 @@ function ItemInfo(props) {
           name="itemMenu"
           id="edit"
           className="detailsRadio"
-          onChange={() => setMenu(3)}
+          onChange={() => setMenu(2)}
         />
         <label htmlFor="edit">
           Edytuj
@@ -45,7 +65,7 @@ function ItemInfo(props) {
           name="itemMenu"
           id="tools"
           className="detailsRadio"
-          onChange={() => setMenu(2)}
+          onChange={() => setMenu(3)}
         />
         <label htmlFor="tools">
           Narzedzia
@@ -94,24 +114,6 @@ function ItemInfo(props) {
     )
   );
 }
-
-function info() {
-  return <p> test info funkcja </p>
-}
-
-function itemMenu(menu) {
-  switch(menu) {
-    case 1:
-      info();
-      break;
-    case 2:
-      return <p> test edycja </p>
-    case 3:
-      return <p> test narzedzia </p>
-  }
-}
-
-
 
 
 export default ItemInfo;
