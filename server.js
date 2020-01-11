@@ -3,20 +3,20 @@ const path = require("path");
 const app = express();
 (port = process.env.PORT || 8080),
   (mysql = require("mysql")),
-//   pool = mysql.createPool({
-//       connectionLimit : 15,
-//       host: 'eu-cdbr-west-02.cleardb.net',
-//       user: 'be3e79e6af1d79',
-//       password: 'c2437f22',
-//       database: 'heroku_93481cd35b283ab'
-//   });
-  (pool = mysql.createPool({
-    connectionLimit: 15,
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "hypehub"
-  }));
+  pool = mysql.createPool({
+      connectionLimit : 15,
+      host: 'eu-cdbr-west-02.cleardb.net',
+      user: 'be3e79e6af1d79',
+      password: 'c2437f22',
+      database: 'heroku_93481cd35b283ab'
+  });
+  // (pool = mysql.createPool({
+  //   connectionLimit: 15,
+  //   host: "localhost",
+  //   user: "root",
+  //   password: "",
+  //   database: "hypehub"
+  // }));
     // LOGIN TO MYSQL
   // mysql -ube3e79e6af1d79 -pc2437f22 -h eu-cdbr-west-02.cleardb.net heroku_93481cd35b283ab
 (bodyParser = require("body-parser")),
@@ -189,11 +189,11 @@ pool.getConnection(function(err, connection) {
       switch (item.type) {
         case 1:
           pool.query(
-            "INSERT into items (name,buyPrice,size,length,width,cond,ownerID,type,sold) values ('" +
+            "INSERT into items (name,buyPrice,sellPrice,size,length,width,cond,ownerID,type,sold) values ('" +
               item.name +
               "','" +
               item.price +
-              "','" +
+              "',0,'" +
               item.size +
               "','" +
               item.length +
@@ -245,11 +245,11 @@ pool.getConnection(function(err, connection) {
           break;
         case 3:
           pool.query(
-            "INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" +
+            "INSERT into items (name,buyPrice,sellPrice,size,cond,ownerID,type,sold) values ('" +
               item.name +
               "','" +
               item.price +
-              "','" +
+              "',0 +'" +
               item.size +
               "','" +
               item.cond +
