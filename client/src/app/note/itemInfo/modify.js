@@ -26,6 +26,7 @@ function Modify(props) {
         id: item.id,
         name: itemName.current.value,
         buyPrice: itemBuyPrice.current.value,
+        sellPrice: itemSellPrice.current.value,
         size: itemSize.current.value,
         length: itemLength.current.value,
         width: itemWidth.current.value,
