@@ -42,11 +42,13 @@ function AddClothes(props) {
           ) {
             props.socket.emit("addItem", item);
             props.refreshItems();
+            props.handleModal();
           }
         }
+      } else {
+        alert('Cos poszlo nie tak');
       }
     }
-    props.handleModal("add");
   }
 
   return (

@@ -26,12 +26,13 @@ function AddShoes(props) {
           if (!isNaN(item.price) && !isNaN(item.cond)) {
             props.socket.emit("addItem", item);
             props.refreshItems();
-            console.log("Dodałem buta - socket poszedl");
+            props.handleModal();
           }
         }
+      } else {
+        alert('Cos poszlo nie tak');
       }
     }
-    props.handleModal("add");
   }
 
   return (
