@@ -24,7 +24,7 @@ function NoteMenu(props) {
         isOpen={addModal}
         className={"modalContent"}
         overlayClassName={"modalOverlay"}
-        onRequestClose={() => handleModal("add")}
+        onRequestClose={() => handleModal()}
       >
         <AddItem
           socket={socket}
