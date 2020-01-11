@@ -4,8 +4,8 @@ import React, {useRef} from 'react'
 function Modify(props) {
     const item = props.item;
     const formBox = useRef();
-    const itemName = useRef();
-    const itemSize = useRef();
+    const itemName = useRef(0);
+    const itemSize = useRef(0);
     const itemBuyPrice = useRef(0);
     const itemSellPrice = useRef(0);
     const itemCond = useRef(0);
@@ -15,6 +15,7 @@ function Modify(props) {
       itemName,
       itemSize,
       itemBuyPrice,
+      itemSellPrice,
       itemCond,
       itemLength,
       itemWidth
@@ -34,7 +35,6 @@ function Modify(props) {
         type: props.itemType,
         ownerID: props.userID
       };
-
       var validateData = 0;
       for (var element of data) {
         if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
@@ -42,7 +42,6 @@ function Modify(props) {
           if (validateData === data.length) {
             if (
               !isNaN(itemData.buyPrice) &&
-              !isNaN(itemData.sellPrice) &&
               !isNaN(itemData.cond) &&
               !isNaN(itemData.length) &&
               !isNaN(itemData.width)
@@ -50,7 +49,8 @@ function Modify(props) {
               props.socket.emit("updateItem", itemData);
               props.refreshItems();
               props.handleModal();
-            }
+              console.log('shuold update');
+            } else {alert("Ktores z pol nie jest liczba")}
           }
         } else {
           alert('Cos poszlo nie tak');
