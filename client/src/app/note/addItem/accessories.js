@@ -20,7 +20,7 @@ function AddAccessories(props) {
     };
     var validateData = 0;
     for (var element of itemData) {
-      if (/^$[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
+      if (/(^$)|^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
         validateData++;
         if (validateData === itemData.length) {
           if (!isNaN(item.price) && !isNaN(item.cond)) {
