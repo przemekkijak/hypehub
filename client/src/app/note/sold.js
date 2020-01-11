@@ -14,7 +14,7 @@ function Sold(props) {
         return(
             <div className="soldContainer">
             {props.items.map((item, index) =>
-                    <div className="itemSlot" id="soldColumns" key={index}>
+                    <div className="itemSlot soldColumns" id="" key={index}>
                       <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
                       {(item.type === 1) ?
                         <p onClick={() => props.itemInfo(item.id)}>{item.size} ({item.length}x{item.width})</p>

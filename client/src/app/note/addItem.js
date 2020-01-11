@@ -11,13 +11,13 @@ function AddItem(props) {
     function itemForm(itemType) {
         switch(itemType) {
             case 1:
-                return(<AddClothes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={props.refreshItems} handleModal={() => props.handleModal('add')}/>)
+                return(<AddClothes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={props.refreshItems} handleModal={() => props.handleModal()}/>)
             case 2:
-                return(<AddShoes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={props.refreshItems} handleModal={() => props.handleModal('add')}/>)
+                return(<AddShoes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={props.refreshItems} handleModal={() => props.handleModal()}/>)
             case 3:
-                return(<AddAccessories userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={props.refreshItems} handleModal={() => props.handleModal('add')}/>)
+                return(<AddAccessories userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={props.refreshItems} handleModal={() => props.handleModal()}/>)
             default:
-                return(<AddClothes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={props.refreshItems} handleModal={() => props.handleModal('add')}/>)
+                return(<AddClothes userID={props.userID} itemType={itemType} socket={props.socket} refreshItems={props.refreshItems} handleModal={() => props.handleModal()}/>)
         }
     }
 

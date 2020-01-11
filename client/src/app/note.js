@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './styles/note.css';
 import Current from './note/current'
 import Sold from './note/sold'
@@ -17,28 +17,26 @@ import {
 
 
   function Render(props) {
-      const [,refresh] = useState(false);
-        const [deleteMode, setDeleteMode] = useState(false);
         const [itemModal, setItemModal] = useState(false);
         const [currentItem, setCurrentItem] = useState(0);
         const socket = props.socket;
 
-    function toggleDelete(){
-        setDeleteMode(!deleteMode);
-                            // eslint-disable-next-line
-                            if($(".deleteButton").css('opacity') == 0) {
-                                $(".deleteButton").css('opacity', 1);
-                                $(".deleteButton").css('visibility','visible');
-                        } else {
-                                $(".deleteButton").css('opacity', 0);
-                                $("deleteButton").css('visibility','hidden');
-                            }
-    }
+    // function toggleDelete(){
+    //     setDeleteMode(!deleteMode);
+    //                         // eslint-disable-next-line
+    //                         if($(".deleteButton").css('opacity') == 0) {
+    //                             $(".deleteButton").css('opacity', 1);
+    //                             $(".deleteButton").css('visibility','visible');
+    //                     } else {
+    //                             $(".deleteButton").css('opacity', 0);
+    //                             $("deleteButton").css('visibility','hidden');
+    //                         }
+    // }
 
        function deleteItem(id) {
            socket.emit('deleteItem', id.target.id)
+            $("#"+id.target.id).css('display', 'none');
            props.refreshItems();
-           toggleDelete();
        }
        function itemInfo(id) {
             setCurrentItem(id);
@@ -58,7 +56,7 @@ import {
                     </div>
                         <Switch>
                         <Route path="/note/sold">
-                            <div className="itemsInfo" id="soldColumns">
+                            <div className="itemsInfo soldColumns">
                             <span>Nazwa</span>
                             <span>Rozmiar</span>
                             <span>Stan</span>
@@ -67,7 +65,7 @@ import {
                             </div>
                             </Route>
                             <Route path="/">
-                            <div className="itemsInfo" id="currentColumns">
+                            <div className="itemsInfo currentColumns">
                             <span>Nazwa</span>
                             <span>Rozmiar</span>
                             <span>Stan</span>
@@ -89,7 +87,7 @@ import {
                             </Route>
                         </Switch>
                     </div>
-                    <NoteMenu socket={socket} userID={props.userID} deleteMode={toggleDelete} refreshItems={props.refreshItems}/>
+                    <NoteMenu socket={socket} userID={props.userID} refreshItems={props.refreshItems}/>
 
                     <ReactModal isOpen={itemModal} className={"modalContent"} overlayClassName={"modalOverlay"} onRequestClose={() => setItemModal(false)}>
                     <ItemInfo socket={socket} handleModal={handleModal} itemID={currentItem}/>

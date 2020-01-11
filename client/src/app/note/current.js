@@ -28,7 +28,7 @@ function Current(props) {
         return(
             <div className="currentContainer">
                 {props.items.map((item, index) =>
-                    <div className="itemSlot currentColumns" id="currentColumns" key={index}>
+                    <div className="itemSlot currentColumns" id={item.id} key={index}>
                         <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
                         {(item.type === 1) ?
                         <p onClick={() => props.itemInfo(item.id)}>{item.size} ({item.length}x{item.width})</p>

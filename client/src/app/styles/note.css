@@ -57,12 +57,6 @@
   height: 90%;
 }
 /* Items navigation */
-#currentColumns {
-  grid-template-columns: 45% 10% 15% 15% 5% 3%;
-}
-#soldColumns {
-  grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
-}
 .itemsInfo {
   display: grid;
   padding-top: 2px;
@@ -75,6 +69,12 @@
   display: grid;
   height: 50px;
   border-bottom: 1px solid rgba(138, 160, 159, 0.322);
+}
+.currentColumns {
+grid-template-columns: 45% 10% 15% 15% 5% 3%;
+}
+.soldColumns {
+grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
 }
 .itemSlot p {
   display: flex;
@@ -100,7 +100,7 @@
 }
 /* Buttons for "Add / Remove / Modify */
 #noteMenuButton {
-  margin: 10px;
+  margin: 5px;
   height: 4vh;
   width: 10vw;
 }
@@ -116,11 +116,11 @@
 /* Specific color for delete button */
 .deleteButton {
   border: 1px solid rgb(145, 4, 4);
-  opacity: 0;
+  /* opacity: 1; */
   height: 23px;
   width: 25px;
-  visibility: hidden;
-  transition: all 0.2s ease-in-out;
+  /* visibility: hidden; */
+  /* transition: all 0.2s ease-in-out; */
 }
 /* NoteMenu element container eg. Add Item/Sell Item */
 .itemMenuBox {
