@@ -39,14 +39,13 @@ function Modify(props) {
       for (var element of data) {
         if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
           validateData++;
-          console.log("Item: " + item.name + " ID: " + item.id);
           if (validateData === data.length) {
             if (
-              !isNaN(item.buyPrice) &&
-              !isNaN(item.sellPrice) &&
-              !isNaN(item.cond) &&
-              !isNaN(item.length) &&
-              !isNaN(item.width)
+              !isNaN(itemData.buyPrice) &&
+              !isNaN(itemData.sellPrice) &&
+              !isNaN(itemData.cond) &&
+              !isNaN(itemData.length) &&
+              !isNaN(itemData.width)
             ) {
               props.socket.emit("updateItem", itemData);
               props.refreshItems();
