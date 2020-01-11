@@ -48,8 +48,7 @@ function AddAccessories(props) {
         <p>
           <input
           placeholder="Rozmiar"
-          ref={itemSize}
-          title="Rozmiar (opcjonalnie)" />
+          ref={itemSize} />
         </p>
         <p>
           <input

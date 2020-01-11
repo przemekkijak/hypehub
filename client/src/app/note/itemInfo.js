@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+ import React, { useState, useEffect } from "react";
 
 function ItemInfo(props) {
   const socket = props.socket;
   const [loaded, setLoaded] = useState(false);
   const [item, setItem] = useState();
+  const [menu, setMenu] = useState(1);
 
   useEffect(() => {
     !loaded &&
@@ -15,9 +16,47 @@ function ItemInfo(props) {
   return (
     loaded && (
       <div className="itemInfoContainer">
-        <div className="itemHeader">
-          <p id="itemName">{item.name}</p>
+        <div className="itemMenu">
+        <input
+          type="radio"
+          name="itemMenu"
+          id="info"
+          className="detailsRadio"
+          onChange={() => setMenu(1)}
+          defaultChecked
+        />
+        <label htmlFor="info">
+          Informacje
+        </label>
+
+        <input
+          type="radio"
+          name="itemMenu"
+          id="edit"
+          className="detailsRadio"
+          onChange={() => setMenu(3)}
+        />
+        <label htmlFor="edit">
+          Edytuj
+        </label>
+
+        <input
+          type="radio"
+          name="itemMenu"
+          id="tools"
+          className="detailsRadio"
+          onChange={() => setMenu(2)}
+        />
+        <label htmlFor="tools">
+          Narzedzia
+        </label>
+
+
         </div>
+        <div className="itemContent">
+          {itemMenu(menu)}
+        </div>
+        {/*
         <div className="itemOptions">
           <p>
             <button>Skopiuj opis</button>
@@ -50,10 +89,29 @@ function ItemInfo(props) {
             alt="item"
             className="itemPhoto"
           />
-        </div>
+        </div> */}
       </div>
     )
   );
 }
+
+function info() {
+  return <p> test info funkcja </p>
+}
+
+function itemMenu(menu) {
+  switch(menu) {
+    case 1:
+      info();
+      break;
+    case 2:
+      return <p> test edycja </p>
+    case 3:
+      return <p> test narzedzia </p>
+  }
+}
+
+
+
 
 export default ItemInfo;

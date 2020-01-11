@@ -59,6 +59,7 @@ function AddItem(props) {
           name="itemTypeRadio"
           id="clothes"
           value="clothes"
+          className="addRadio"
           onChange={() => setType(1)}
           defaultChecked
         />
@@ -76,6 +77,7 @@ function AddItem(props) {
           name="itemTypeRadio"
           id="shoes"
           value="shoes"
+          className="addRadio"
           onChange={() => setType(2)}
         />
         <label htmlFor="shoes">
@@ -92,6 +94,7 @@ function AddItem(props) {
           name="itemTypeRadio"
           id="accessories"
           value="3"
+          className="addRadio"
           onChange={() => setType(3)}
         />
         <label htmlFor="accessories">
