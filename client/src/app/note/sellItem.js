@@ -24,7 +24,7 @@ function SellItem(props) {
     // validate data
     var validateData = 0;
     for (var element of sellData) {
-      if (/^[a-zA-Z0-9 ]+$/.test(element.current.value)) {
+      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
         validateData++;
         if (validateData === sellData.length) {
           if (!isNaN(item.price)) {

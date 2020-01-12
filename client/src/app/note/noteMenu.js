@@ -6,7 +6,6 @@ ReactModal.setAppElement("#root");
 
 function NoteMenu(props) {
   const [addModal, setAddModal] = useState(false);
-  const socket = props.socket;
 
   function handleModal() {
     setAddModal(!addModal);
@@ -27,7 +26,7 @@ function NoteMenu(props) {
         onRequestClose={() => handleModal()}
       >
         <AddItem
-          socket={socket}
+          socket={props.socket}
           userID={props.userID}
           refreshItems={props.refreshItems}
           handleModal={handleModal}
