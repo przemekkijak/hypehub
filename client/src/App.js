@@ -69,7 +69,7 @@ function App() {
         soldItems = data;
         loadingItems(prevState => false);
       });
-    },600);
+    },700);
   }
 
   return (
