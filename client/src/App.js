@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Note from "./app/note.js";
 import Resell from "./app/resell";
 import Login from "./app/login";
@@ -53,13 +53,23 @@ function App() {
     socket.emit("getCurrentItems", data => {
       loadingItems(prevState => true);
       currentItems = data;
-      loadingItems(prevState => false);
     });
     socket.emit("getSoldItems", data => {
-      loadingItems(prevState => true);
       soldItems = data;
       loadingItems(prevState => false);
     });
+    setTimeout(function() {
+      socket.emit("getCurrentItems", data => {
+        loadingItems(prevState => true);
+        currentItems = data;
+        loadingItems(prevState => false);
+      });
+      socket.emit("getSoldItems", data => {
+        loadingItems(prevState => true);
+        soldItems = data;
+        loadingItems(prevState => false);
+      });
+    },600);
   }
 
   return (

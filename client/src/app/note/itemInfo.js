@@ -29,6 +29,8 @@ function ItemInfo(props) {
         return <Modify item={item} refreshItems={props.refreshItems} handleModal={props.handleModal} socket={socket}/>
       case 3:
         return <p> test narzedzia </p>
+      default:
+       break;
     }
   }
 

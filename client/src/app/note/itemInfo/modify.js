@@ -40,7 +40,7 @@ function Modify(props) {
       if(item.sold===0) {
         itemData.sellPrice = 0;
       }
-      if(item.type != 1) {
+      if(item.type !== 1) {
         itemData.length = 0;
         itemData.width = 0;
       }

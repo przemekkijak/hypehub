@@ -3,7 +3,7 @@
     left: -15%;
     height: 100%;
     width: 123%;
-    padding-top: 10%;
+    margin-top: 10%;
   }
 .modifyForm {
     display: grid;
@@ -42,15 +42,12 @@
 
 @media only screen and (max-width: 1300px) {
     .modify {
-        padding-top: 4%;
+        margin-top: 5%;
     }
     .modifyForm{
         grid-gap: 1%;
     }
     .modifyForm span {
-        font-size: 10px;
-        position: relative;
         left: 13%;
-        color: rgba(177, 172, 172, 0.664);
     }
   }
