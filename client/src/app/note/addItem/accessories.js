@@ -43,24 +43,25 @@ function AddAccessories(props) {
           placeholder="Nazwa"
           ref={itemName}
           autoFocus={true}
-          required />
+          required
+          spellCheck="false"/>
         </p>
         <p>
           <input
           placeholder="Rozmiar"
-          ref={itemSize} />
+          ref={itemSize}/>
         </p>
         <p>
           <input
           placeholder="Cena"
           ref={itemPrice}
-          required />
+          required/>
         </p>
         <p>
           <input
           placeholder="Stan"
           ref={itemCond}
-          required />
+          required/>
         </p>
         <p>
           <button

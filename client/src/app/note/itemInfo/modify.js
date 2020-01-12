@@ -76,14 +76,15 @@ function Modify(props) {
           ref={itemName}
           autoFocus={true}
           required
-          defaultValue={item.name} />
+          defaultValue={item.name}
+          spellCheck="false" />
           <span>Nazwa</span>
         </p>
         <p>
           <input
           ref={itemSize}
           required
-          defaultValue={item.size} />
+          defaultValue={item.size}/>
           <span>Rozmiar</span>
         </p>
         {item.type === 1 && (

@@ -59,7 +59,8 @@ function AddClothes(props) {
           placeholder="Nazwa"
           ref={itemName}
           autoFocus={true}
-          required />
+          required
+          spellCheck="false"  />
         </p>
         <p>
           <input
