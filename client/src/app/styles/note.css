@@ -1,6 +1,7 @@
 @import url('App.css');
 @import url('itemInfo.css');
 @import url('addItem.css');
+@import url('modifyItem.css');
 
 
 /* width */
@@ -23,15 +24,18 @@
   background: rgba(41, 40, 40, 0.336);
 }
 
+.note {
+height: 100%;
+width: 100%;
+}
 .tableContainer {
-    position: absolute;
-    width: 60vw;
-    height: 60vh;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 0.9em;
-    cursor: pointer;
+position: absolute;
+width: 60vw;
+height: 60vh;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+font-size: 0.9em;
   }
   /* Table navi */
 .noteTableNavi {
@@ -58,12 +62,6 @@
   height: 90%;
 }
 /* Items navigation */
-#currentColumns {
-  grid-template-columns: 45% 10% 15% 15% 5% 3%;
-}
-#soldColumns {
-  grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
-}
 .itemsInfo {
   display: grid;
   padding-top: 2px;
@@ -72,9 +70,16 @@
   font-size: 12px;
 }
 .itemSlot {
+  cursor: pointer;
   display: grid;
   height: 50px;
   border-bottom: 1px solid rgba(138, 160, 159, 0.322);
+}
+.currentColumns {
+grid-template-columns: 45% 10% 15% 15% 5% 3%;
+}
+.soldColumns {
+grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
 }
 .itemSlot p {
   display: flex;
@@ -99,10 +104,10 @@
   justify-items: center;
 }
 /* Buttons for "Add / Remove / Modify */
-#noteMenuButton {
-  margin: 10px;
+#addButton {
+  margin-top: 2%;
   height: 4vh;
-  width: 10vw;
+  width: 12vw;
 }
 #noteMenuButton:hover {
   background: rgb(30, 37, 41);
@@ -116,11 +121,8 @@
 /* Specific color for delete button */
 .deleteButton {
   border: 1px solid rgb(145, 4, 4);
-  opacity: 0;
   height: 23px;
   width: 25px;
-  visibility: hidden;
-  transition: all 0.2s ease-in-out;
 }
 /* NoteMenu element container eg. Add Item/Sell Item */
 .itemMenuBox {
@@ -189,5 +191,10 @@
   }
   .noteMenuButton {
     width: 30vw;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  #addButton {
+    height: 5vh;
   }
 }
