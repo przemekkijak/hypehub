@@ -31,83 +31,73 @@ function Render(props) {
     setItemModal(!itemModal);
   }
 
-  return (
-    <Router>
-      <div className="tableContainer">
-        <div className="noteTableNavi">
-          <NavLink
-            className="link naviButton"
-            activeClassName="active"
-            to="/note/current">Aktualne</NavLink>
-          <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
-          <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
-        </div>
+return (
+  <Router>
+    <div className="tableContainer">
+      <div className="noteTableNavi">
+        <NavLink
+          className="link naviButton"
+          activeClassName="active"
+          to="/note/current">Aktualne</NavLink>
+        <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
+        <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
+      </div>
+      <Switch>
+        <Route path="/note/sold">
+          <div className="itemsInfo soldColumns">
+            <span>Nazwa</span>
+            <span>Rozmiar</span>
+            <span>Stan</span>
+            <span>Cena kupna</span>
+            <span>Profit</span>
+          </div>
+        </Route>
+        <Route path="/">
+          <div className="itemsInfo currentColumns">
+            <span>Nazwa</span>
+            <span>Rozmiar</span>
+            <span>Stan</span>
+            <span>Cena kupna</span>
+            <span>Sprzedaj</span>
+          </div>
+        </Route>
+      </Switch>
+      <div className="noteContent">
         <Switch>
           <Route path="/note/sold">
-            <div className="itemsInfo soldColumns">
-              <span>Nazwa</span>
-              <span>Rozmiar</span>
-              <span>Stan</span>
-              <span>Cena kupna</span>
-              <span>Profit</span>
-            </div>
+            <Sold
+              items={props.soldItems}
+              deleteItem={deleteItem}
+              itemInfo={id => itemInfo(id)}/>
           </Route>
+          <Route path="/note/pending"><Pending/></Route>
           <Route path="/">
-            <div className="itemsInfo currentColumns">
-              <span>Nazwa</span>
-              <span>Rozmiar</span>
-              <span>Stan</span>
-              <span>Cena kupna</span>
-              <span>Sprzedaj</span>
-            </div>
+            <Current
+              socket={socket}
+              itemInfo={id => itemInfo(id)}
+              items={props.currentItems}
+              deleteItem={deleteItem}
+              refreshItems={props.refreshItems}/>
           </Route>
         </Switch>
-        <div className="noteContent">
-          <Switch>
-            <Route path="/note/sold">
-              <Sold
-                items={props.soldItems}
-                deleteItem={deleteItem}
-                itemInfo={id => itemInfo(id)}
-              />
-            </Route>
-            <Route path="/note/pending">
-              <Pending />
-            </Route>
-            <Route path="/">
-              <Current
-                socket={socket}
-                itemInfo={id => itemInfo(id)}
-                items={props.currentItems}
-                deleteItem={deleteItem}
-                refreshItems={props.refreshItems}
-              />
-            </Route>
-          </Switch>
-        </div>
-        <NoteMenu
-          socket={socket}
-          userID={props.userID}
-          refreshItems={props.refreshItems}
-        />
-        <ReactModal
-          isOpen={itemModal}
-          className={"modalContent"}
-          overlayClassName={"modalOverlay"}
-          onRequestClose={() => setItemModal(false)}
-        >
-          <ItemInfo
-            socket={socket}
-            handleModal={handleModal}
-            itemID={currentItem}
-            refreshItems={props.refreshItems}
-          />
-        </ReactModal>
       </div>
-    </Router>
-  );
+      <NoteMenu
+        socket={socket}
+        userID={props.userID}
+        refreshItems={props.refreshItems}/>
+      <ReactModal
+        isOpen={itemModal}
+        className={"modalContent"}
+        overlayClassName={"modalOverlay"}
+        onRequestClose={() => setItemModal(false)}>
+        <ItemInfo
+          socket={socket}
+          handleModal={handleModal}
+          itemID={currentItem}
+          refreshItems={props.refreshItems}/>
+      </ReactModal>
+      </div>
+  </Router>
+);
 }
-
-export default {
-  Render
-};
+export default {Render};

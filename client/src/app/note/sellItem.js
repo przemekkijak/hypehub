@@ -5,7 +5,6 @@ function SellItem(props) {
   const formBox = useRef();
   const itemPrice = useRef();
   const soldFor = useRef();
-  const sellData = [itemPrice, soldFor];
   const [itemName, setItemName] = useState();
 
   useEffect(() => {
@@ -21,22 +20,14 @@ function SellItem(props) {
       price: itemPrice.current.value,
       soldFor: soldFor.current.value
     };
-    // validate data
-    var validateData = 0;
-    for (var element of sellData) {
-      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
-        validateData++;
-        if (validateData === sellData.length) {
-          if (!isNaN(item.price)) {
-            socket.emit("sellItem", item);
-            props.refreshItems();
-          }
-        }
+    if (/^&|^[a-zA-Z0-9 / ,.-]+$/.test(soldFor.value)) {
+      if (!isNaN(item.price)) {
+        socket.emit("sellItem", item);
+        props.refreshItems();
+        props.handleModal();
       }
     }
-    props.handleModal();
   }
-
   return (
     <div className="itemMenuBox">
       <form onSubmit={handleSubmit} ref={formBox}>

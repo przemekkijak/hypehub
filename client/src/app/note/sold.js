@@ -8,7 +8,6 @@ function Sold(props) {
       return cond + "/10";
     }
   }
-
   return (
     <div className="soldContainer">
       {props.items.map((item, index) => (
