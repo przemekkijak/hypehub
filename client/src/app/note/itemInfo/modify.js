@@ -2,24 +2,25 @@ import React, {useRef} from 'react'
 import $ from 'jquery'
 
 function Modify(props) {
-  const item = props.item;
-  const formBox = useRef();
-  const itemName = useRef();
-  const itemSize = useRef();
-  const itemBuyPrice = useRef(0);
-  const itemSellPrice = useRef(0)
-  const itemCond = useRef(0);
-  const itemLength = useRef(0);
-  const itemWidth = useRef(0);
-  const data = [
-    itemName,
-    itemSize,
-    itemBuyPrice,
-    itemSellPrice,
-    itemCond,
-    itemLength,
-    itemWidth
-  ];
+    const item = props.item;
+    const formBox = useRef();
+    const itemName = useRef(0);
+    const itemSize = useRef(0);
+    const itemBuyPrice = useRef(0);
+    const itemSellPrice = useRef(0);
+    const itemCond = useRef(0);
+    const itemLength = useRef(0);
+    const itemWidth = useRef(0);
+    const data = [
+      itemName,
+      itemSize,
+      itemBuyPrice,
+      itemSellPrice,
+      itemCond,
+      itemLength,
+      itemWidth
+    ];
+
 
 
   function handleSubmit(e) {
@@ -50,16 +51,17 @@ function Modify(props) {
           validateData++;
           if (validateData === data.length) {
             if (
-              !isNaN(item.buyPrice) &&
-              !isNaN(item.sellPrice) &&
-              !isNaN(item.cond) &&
-              !isNaN(item.length) &&
-              !isNaN(item.width)
+              !isNaN(itemData.buyPrice) &&
+              !isNaN(itemData.sellPrice) &&
+              !isNaN(itemData.cond) &&
+              !isNaN(itemData.length) &&
+              !isNaN(itemData.width)
             ) {
               props.socket.emit("updateItem", itemData);
               props.refreshItems();
               props.handleModal();
-            }
+              console.log('shuold update');
+            } else {alert("Ktores z pol nie jest liczba")}
           }
         } else {
           alert('Cos poszlo nie tak');

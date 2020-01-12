@@ -189,11 +189,11 @@ pool.getConnection(function(err, connection) {
       switch (item.type) {
         case 1:
           pool.query(
-            "INSERT into items (name,buyPrice,sellPrice,size,length,width,cond,ownerID,type,sold) values ('" +
+            "INSERT into items (name,buyPrice,size,length,width,cond,ownerID,type,sold) values ('" +
               item.name +
               "','" +
               item.price +
-              "',0,'" +
+              "','" +
               item.size +
               "','" +
               item.length +
@@ -245,11 +245,11 @@ pool.getConnection(function(err, connection) {
           break;
         case 3:
           pool.query(
-            "INSERT into items (name,buyPrice,sellPrice,size,cond,ownerID,type,sold) values ('" +
+            "INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" +
               item.name +
               "','" +
               item.price +
-              "',0 +'" +
+              "','" +
               item.size +
               "','" +
               item.cond +

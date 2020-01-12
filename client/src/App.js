@@ -14,8 +14,8 @@ import {
   Redirect
 } from "react-router-dom";
 
-// const socket = socketIOClient('https://hypehub-js.herokuapp.com');
-const socket = socketIOClient("localhost:8080");
+const socket = socketIOClient('https://hypehub-js.herokuapp.com');
+// const socket = socketIOClient("localhost:8080");
 var user = {};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
@@ -69,7 +69,7 @@ function App() {
         soldItems = data;
         loadingItems(prevState => false);
       });
-    },600);
+    },700);
   }
 
   return (
