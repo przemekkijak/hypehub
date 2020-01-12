@@ -24,7 +24,6 @@ var currentItems = [];
 var soldItems = [];
 
 function App() {
-  // const [currentItems, setCurrent] = useState([]);
   const [, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
     socket.emit("checkLog", token, id);
