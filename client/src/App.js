@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Note from "./app/note.js";
 import Resell from "./app/resell";
 import Login from "./app/login";
@@ -24,6 +24,7 @@ var currentItems = [];
 var soldItems = [];
 
 function App() {
+  // const [currentItems, setCurrent] = useState([]);
   const [, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
     socket.emit("checkLog", token, id);

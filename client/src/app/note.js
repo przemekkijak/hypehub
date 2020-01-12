@@ -5,7 +5,6 @@ import Sold from "./note/sold";
 import Pending from "./note/pending";
 import NoteMenu from "./note/noteMenu";
 import ItemInfo from "./note/itemInfo";
-import $ from "jquery";
 import ReactModal from "react-modal";
 
 import {

@@ -39,7 +39,7 @@ function Modify(props) {
       if(item.sold===0) {
         itemData.sellPrice = 0;
       }
-      if(item.type != 1) {
+      if(item.type !== 1) {
         itemData.length = 0;
         itemData.width = 0;
       }
@@ -51,7 +51,7 @@ function Modify(props) {
           if (validateData === data.length) {
             if (
               !isNaN(item.buyPrice) &&
-              // !isNaN(item.sellPrice) &&
+              !isNaN(item.sellPrice) &&
               !isNaN(item.cond) &&
               !isNaN(item.length) &&
               !isNaN(item.width)
