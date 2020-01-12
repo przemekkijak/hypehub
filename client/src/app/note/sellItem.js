@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 function SellItem(props) {
   const socket = props.socket;
@@ -6,6 +6,13 @@ function SellItem(props) {
   const itemPrice = useRef();
   const soldFor = useRef();
   const sellData = [itemPrice, soldFor];
+  const [itemName, setItemName] = useState();
+
+  useEffect(() => {
+    socket.emit('getItem', props.id, item => {
+      setItemName(item[0].name);
+    })
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,16 +37,10 @@ function SellItem(props) {
     props.handleModal();
   }
 
-  const items = props.items;
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].id === props.id) {
-      var currentItem = items[i].name;
-    }
-  }
   return (
     <div className="itemMenuBox">
       <form onSubmit={handleSubmit} ref={formBox}>
-        <span>Sprzedajesz {currentItem}</span>
+        <span>Sprzedajesz {itemName}</span>
         <p>
           <input placeholder="Cena" ref={itemPrice} autoFocus={true} required />
         </p>
@@ -53,7 +54,7 @@ function SellItem(props) {
         </p>
       </form>
     </div>
-  );
+    )
 }
 
 export default SellItem;
