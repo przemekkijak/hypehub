@@ -56,6 +56,7 @@ io.use(
 // mySQL POOL
 pool.getConnection(function(err, connection) {
   if (err) throw err;
+  console.log('Connected to database');
 
   // socketIO
   io.on("connection", socket => {

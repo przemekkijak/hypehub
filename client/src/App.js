@@ -51,25 +51,23 @@ function App() {
 
   function refreshItems() {
     socket.emit("getCurrentItems", data => {
-      loadingItems(prevState => true);
+      loadingItems(true);
       currentItems = data;
     });
     socket.emit("getSoldItems", data => {
       soldItems = data;
-      loadingItems(prevState => false);
+      loadingItems(false);
     });
     setTimeout(function() {
       socket.emit("getCurrentItems", data => {
-        loadingItems(prevState => true);
+        loadingItems(true);
         currentItems = data;
-        loadingItems(prevState => false);
       });
       socket.emit("getSoldItems", data => {
-        loadingItems(prevState => true);
         soldItems = data;
-        loadingItems(prevState => false);
+        loadingItems(false);
       });
-    },700);
+    },800);
   }
 
   return (
