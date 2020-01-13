@@ -14,7 +14,8 @@ import {
   Redirect
 } from "react-router-dom";
 
-const socket = socketIOClient("www.hypehub.pl");
+const socket = socketIOClient('https://hypehub-js.herokuapp.com');
+// const socket = socketIOClient("localhost:8080");
 var user = {};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
@@ -100,11 +101,11 @@ return (
         </>
         ) : (
         <>
-          <Route path="/home">
+          <Route path="/">
             <Login
               handleLogin={userData => handleLogin(userData)}
               socket={socket}/>
-          </Route><Redirect to="/home" />
+          </Route><Redirect to="/"/>
         </>
         )}
     </div>

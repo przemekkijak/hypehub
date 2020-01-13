@@ -3,22 +3,20 @@ const path = require("path");
 const app = express();
 (port = process.env.PORT || 8080),
   (mysql = require("mysql")),
+  // pool = mysql.createPool({
+  //     connectionLimit : 15,
+  //     host: 'sharkmen.mysql.dhosting.pl',
+  //     user: 'sharkmen',
+  //     password: 'Hypehub1',
+  //     database: 'ohy9sa_hypehubp'
+  // });
   pool = mysql.createPool({
-      connectionLimit : 15,
-      host: 'sharkmen.mysql.dhosting.pl',
-      user: 'sharkmen',
-      password: 'Hypehub1',
-      database: 'ohy9sa_hypehubp'
-  });
-  // (pool = mysql.createPool({
-  //   connectionLimit: 15,
-  //   host: "localhost",
-  //   user: "root",
-  //   password: "",
-  //   database: "hypehub"
-  // }));
-    // LOGIN TO MYSQL
-  // mysql -ube3e79e6af1d79 -pc2437f22 -h eu-cdbr-west-02.cleardb.net heroku_93481cd35b283ab
+    connectionLimit : 15,
+    host: 'eu-cdbr-west-02.cleardb.net',
+    user: 'be3e79e6af1d79',
+    password: 'c2437f22',
+    database: 'heroku_93481cd35b283ab'
+});
 (bodyParser = require("body-parser")),
   (session = require("express-session")({
     secret: "hype",
@@ -36,7 +34,6 @@ const app = express();
   server.listen(port, () =>
     console.log(`Socketserver listening on port ${port}`)
   );
-// app.listen(port, () => console.log(`Hypehub running on port ${port}`));
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "/build/")));
@@ -52,6 +49,14 @@ io.use(
     autoSave: true
   })
 );
+
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://hypehub.pl');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 // mySQL POOL
 pool.getConnection(function(err, connection) {
