@@ -14,8 +14,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-const socket = socketIOClient('https://hypehub-js.herokuapp.com');
-// const socket = socketIOClient("localhost:8080");
+const socket = socketIOClient("www.hypehub.pl");
 var user = {};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");

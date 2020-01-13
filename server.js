@@ -5,10 +5,10 @@ const app = express();
   (mysql = require("mysql")),
   pool = mysql.createPool({
       connectionLimit : 15,
-      host: 'eu-cdbr-west-02.cleardb.net',
-      user: 'be3e79e6af1d79',
-      password: 'c2437f22',
-      database: 'heroku_93481cd35b283ab'
+      host: 'sharkmen.mysql.dhosting.pl',
+      user: 'sharkmen',
+      password: 'Hypehub1',
+      database: 'ohy9sa_hypehubp'
   });
   // (pool = mysql.createPool({
   //   connectionLimit: 15,
@@ -67,7 +67,7 @@ pool.getConnection(function(err, connection) {
 
     socket.on("checkLog", function(token, id) {
       pool.query(
-        'SELECT * from USERS where id = "' +id+'" and token = "' +token+'"',
+        'SELECT * FROM users where id = "' +id+'" and token = "' +token+'"',
         function(error, results) {
           if (error) {
             console.log("Error while geting user by token");
