@@ -1,45 +1,44 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-(port = process.env.PORT || 8080),
-  (mysql = require("mysql")),
-  // pool = mysql.createPool({
-  //     connectionLimit : 15,
-  //     host: 'sharkmen.mysql.dhosting.pl',
-  //     user: 'sharkmen',
-  //     password: 'Hypehub1',
-  //     database: 'ohy9sa_hypehubp'
-  // });
-  pool = mysql.createPool({
-    connectionLimit : 15,
-    host: 'eu-cdbr-west-02.cleardb.net',
-    user: 'be3e79e6af1d79',
-    password: 'c2437f22',
-    database: 'heroku_93481cd35b283ab'
+const port = process.env.PORT || 8930
+const mysql = require("mysql")
+// pool = mysql.createPool({
+//   connectionLimit : 15,
+//   host: 'mysql43.mydevil.net',
+//   user: 'm1231_admin',
+//   password: 'Hypehub1',
+//   database: 'm1231_hypehub'
+// });
+pool = mysql.createPool({
+  connectionLimit: 15,
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'hypehub'
 });
-(bodyParser = require("body-parser")),
-  (session = require("express-session")({
-    secret: "hype",
-    resave: true,
-    saveUninitialized: true,
+const bodyParser = require("body-parser")
+const session = require("express-session")({
+  secret: "hype",
+  resave: true,
+  saveUninitialized: true,
     maxAge: 6000000
-  })),
-  (sharedsession = require("express-socket.io-session")),
-  (server = require("http").createServer(app)),
-  (io = require("socket.io")(server)),
-
+})
+const sharedsession = require("express-socket.io-session")
+const server = require("http").createServer(app)
+const io = require("socket.io")(server)
 
 
   // listenings
   server.listen(port, () =>
-    console.log(`Socketserver listening on port ${port}`)
+  console.log(`Socketserver listening on port ${port}`)
   );
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "/build/")));
+app.use(express.static(path.join(__dirname, "/public/")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/build/index.html"));
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 // handle sesssion

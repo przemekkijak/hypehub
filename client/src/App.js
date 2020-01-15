@@ -5,7 +5,6 @@ import Login from "./app/login";
 // import Home from './app/home'
 import "./app/styles/App.css";
 import socketIOClient from "socket.io-client";
-
 import {
   BrowserRouter as Router,
   Route,
@@ -14,8 +13,8 @@ import {
   Redirect
 } from "react-router-dom";
 
-const socket = socketIOClient('https://hypehub-js.herokuapp.com');
-// const socket = socketIOClient("localhost:8080");
+const socket = socketIOClient("http://localhost:8930");
+// const socket = socketIOClient("https://hypehub.pl:8930");
 var user = {};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
