@@ -13,8 +13,8 @@ import {
   Redirect
 } from "react-router-dom";
 
-const socket = socketIOClient("http://localhost:8930");
-// const socket = socketIOClient("https://hypehub.pl:8930");
+// const socket = socketIOClient("http://localhost:8930");
+const socket = socketIOClient("//hypehub.pl:9998");
 var user = {};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
