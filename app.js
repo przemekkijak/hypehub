@@ -1,24 +1,22 @@
 const express = require("express");
 const app = express();
-
-app.listen(9999, () => {
-  console.log('App started on 9999');
-});
-
 const server = require("http").createServer(app)
 const io = require("socket.io")(server)
+server.listen(8443, () =>
+console.log(`Socketserver listening on port 5555`)
+);
+
 const path = require("path");
 const mysql = require("mysql")
 pool = mysql.createPool({
   connectionLimit : 15,
   host: 'mysql43.mydevil.net',
-  user:
-  password:
-  database:
+  user: 'm1231_admin',
+  password: 'Hypehub1',
+  database: 'm1231_hypehub'
 });
 
 
-const bodyParser = require("body-parser")
 const session = require("express-session")({
   secret: "hype",
   resave: true,
@@ -26,20 +24,9 @@ const session = require("express-session")({
     maxAge: 6000000
 })
 const sharedsession = require("express-socket.io-session")
-server.listen(9998, () =>
-console.log(`Socketserver listening on port 9998`)
-);
 
-
-
+const bodyParser = require("body-parser")
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "/public/")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/public/index.html"));
-});
-
-// handle sesssion
 app.use(session);
 io.use(
   sharedsession(session, {
@@ -47,11 +34,18 @@ io.use(
   })
 );
 
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://hypehub.pl');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
+app.use(express.static(path.join(__dirname, "/public/")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/public/index.html"));
+});
+
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
   next();
 });
 
