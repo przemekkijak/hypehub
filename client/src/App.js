@@ -13,7 +13,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-const socket = socketIOClient("//hypehub.pl:5555");
+const socket = socketIOClient("//hypehub.pl");
 var user = {};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
