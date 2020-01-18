@@ -7,24 +7,17 @@ function Login(props) {
   const password = useRef();
   const userData = [username, password];
 
-  function handleSubmit(e) {
+function handleSubmit(e) {
     e.preventDefault();
     let user = {
-      id: null,
       username: username.current.value,
       password: password.current.value
     };
-    // validation data
-    var validateData = 0;
-    for (var element of userData) {
-      if (/^[a-zA-Z0-9 ]+$/.test(element.current.value)) {
-        validateData++;
-        if (validateData === userData.length) {
-          socket.emit("login", user);
-        }
+    for (var element in user) {
+      if (/^[a-zA-Z0-9 /,.-]+$/.test(element.value)) {
+        socket.emit("login", user);
       }
-    }
-
+      }
     socket.on("success", user => {
       props.handleLogin(user);
       localStorage.setItem("token", user.token);

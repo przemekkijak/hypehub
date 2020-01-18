@@ -24,7 +24,6 @@ function Current(props) {
       return cond + "/10";
     }
   }
-
   return (
     <div className="currentContainer">
       {props.items.map((item, index) => (
@@ -74,7 +73,6 @@ function Current(props) {
         <SellItem
           socket={socket}
           id={currentId}
-          items={props.items}
           handleModal={() => handleModal()}
           refreshItems={props.refreshItems}
         />
