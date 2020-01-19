@@ -1,5 +1,4 @@
 import React, {useRef} from 'react'
-import $ from 'jquery'
 
 function Modify(props) {
     const item = props.item;
@@ -11,6 +10,7 @@ function Modify(props) {
     const itemCond = useRef(0);
     const itemLength = useRef(0);
     const itemWidth = useRef(0);
+    const itemInsert = useRef(0);
     const data = [
       itemName,
       itemSize,
@@ -18,7 +18,8 @@ function Modify(props) {
       itemSellPrice,
       itemCond,
       itemLength,
-      itemWidth
+      itemWidth,
+      itemInsert
     ];
 
 
@@ -33,6 +34,7 @@ function Modify(props) {
         size: itemSize.current.value,
         length: itemLength.current.value,
         width: itemWidth.current.value,
+        insert: itemInsert.current.value,
         cond: itemCond.current.value,
         type: props.itemType,
         ownerID: props.userID,
@@ -55,12 +57,14 @@ function Modify(props) {
               !isNaN(itemData.sellPrice) &&
               !isNaN(itemData.cond) &&
               !isNaN(itemData.length) &&
-              !isNaN(itemData.width)
+              !isNaN(itemData.width) &&
+              !isNaN(itemData.insert)
             ) {
               props.socket.emit("updateItem", itemData);
               props.refreshItems();
               props.handleModal();
-              console.log('shuold update');
+              console.log(item.insert)
+              console.log(itemInsert.current.value);
             } else {alert("Ktores z pol nie jest liczba")}
           }
         } else {
@@ -104,6 +108,17 @@ function Modify(props) {
           <span>Szerokosc</span>
         </p>
         </>
+        )}
+        {item.type === 2 && (
+          <>
+          <p>
+          <input
+          ref={itemInsert}
+          required
+          defaultValue={item.insert} />
+          <span>Długość wkładki</span>
+          </p>
+          </>
         )}
         <p>
           <input

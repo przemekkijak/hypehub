@@ -9,10 +9,21 @@ function Sold(props) {
     }
   }
   function itemSize(item) {
-    if(item.insert == null) {
-      return item.size;
-    } else {
-      return `${item.size} (${item.insert}cm)`
+    switch(item.type) {
+      case 1:
+        if(item.width === 0 || item.length === 0) {
+        return item.size;
+        } else {
+        return `${item.size} (${item.length} x ${item.width})`;
+        }
+      case 2:
+        if(item.insert === 0) {
+        return item.size;
+        } else {
+        return `${item.size} (${item.insert})`
+        }
+      case 3:
+        return item.size;
     }
   }
   return (
@@ -20,10 +31,7 @@ function Sold(props) {
       {props.items.map((item, index) => (
         <div className="itemSlot soldColumns" id="" key={index}>
           <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-          {item.type === 1 ?
-          (<p>{item.size} ({item.length} x {item.width})</p>)
-            :
-          (<p>{itemSize(item)}</p>)}
+          <p>{itemSize(item)}</p>
           <p>{convertCondition(item.cond)}</p>
           <p>{item.buyPrice} zł</p>
           <p id="earnings">{item.sellPrice - item.buyPrice} zł</p>
