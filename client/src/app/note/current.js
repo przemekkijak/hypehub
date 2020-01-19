@@ -33,10 +33,10 @@ function itemSize(item) {
       return `${item.size} (${item.length} x ${item.width})`;
       }
     case 2:
-      if(item.insert === 0) {
+      if(item.shoeInsert === "0") {
       return item.size;
       } else {
-      return `${item.size} (${item.insert})`
+      return `${item.size} (${item.shoeInsert}cm)`
       }
     case 3:
       return item.size;

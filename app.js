@@ -2,20 +2,20 @@ const express = require("express");
 const app = express();
 const server = require("http").createServer(app)
 const io = require("socket.io")(server)
-server.listen(8443, () =>
+server.listen(5555, () =>
 console.log(`Socketserver listening on port 5555`)
 );
 
 const path = require("path");
 const mysql = require("mysql")
 
-  // pool = mysql.createPool({
-  //   connectionLimit : 15,
-  //   host: 'mysql43.mydevil.net',
-  //   user: 'm1231_admin',
-  //   password: 'Hypehub1',
-  //   database: 'm1231_hypehub'
-  // });
+  pool = mysql.createPool({
+    connectionLimit : 15,
+    host: 'mysql43.mydevil.net',
+    user: 'm1231_admin',
+    password: 'Hypehub1',
+    database: 'm1231_hypehub'
+  });
   pool = mysql.createPool({
   connectinoLimit: 15,
   host: 'localhost',
@@ -294,11 +294,11 @@ pool.getConnection(function(err, connection) {
         }
       );
     });
-    socket.on("updateItem", item => {;
+    socket.on("updateItem", item => {
       pool.query(
         "UPDATE items set name='"+item.name+"', buyPrice='"+
         item.buyPrice+"', sellPrice='"+item.sellPrice+"', size='"+
-        item.size+"', length='"+item.length+"', width='"+item.width+"', insert='"+item.insert+"', cond='"+
+        item.size+"', length='"+item.length+"', width='"+item.width+"', shoeInsert='"+item.insert+"', cond='"+
         item.cond+"' where id='"+item.id+"';",
         function(error) {
           if(error) {
