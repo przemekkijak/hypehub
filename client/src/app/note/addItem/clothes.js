@@ -8,14 +8,7 @@ function AddClothes(props) {
   const itemCond = useRef();
   const itemLength = useRef();
   const itemWidth = useRef();
-  const itemData = [
-    itemName,
-    itemSize,
-    itemPrice,
-    itemCond,
-    itemLength,
-    itemWidth
-  ];
+  const itemData = [itemName,itemSize,itemPrice,itemCond,itemLength,itemWidth];
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,15 +23,13 @@ function AddClothes(props) {
       ownerID: props.userID
     };
     var validateData = 0;
-    for (var element of itemData) {
-      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
+    for (var element in itemData) {
+      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
         validateData++;
         if (validateData === itemData.length) {
           if (
             !isNaN(item.price) &&
-            !isNaN(item.cond) &&
-            !isNaN(item.length) &&
-            !isNaN(item.width)
+            !isNaN(item.cond)
           ) {
             props.socket.emit("addItem", item);
             props.refreshItems();
@@ -50,7 +41,6 @@ function AddClothes(props) {
       }
     }
   }
-
   return (
     <>
       <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
@@ -72,13 +62,13 @@ function AddClothes(props) {
           <input
           placeholder="Dlugosc"
           ref={itemLength}
-          required />
+          />
         </p>
         <p>
           <input
           placeholder="Szerokosc"
           ref={itemWidth}
-          required />
+          />
         </p>
         <p>
           <input

@@ -17,7 +17,7 @@ function handleModal() {
   setSellModal(!sellModal);
 }
 
-function convertCondition(cond) {
+function itemCondition(cond) {
   if (cond === 10) {
     return "DS";
   } else {
@@ -25,10 +25,21 @@ function convertCondition(cond) {
   }
 }
 function itemSize(item) {
-  if(item.insert == null) {
-    return item.size;
-  } else {
-    return `${item.size} (${item.insert}cm)`
+  switch(item.type) {
+    case 1:
+      if(item.width === 0 || item.length === 0) {
+      return item.size;
+      } else {
+      return `${item.size} (${item.length} x ${item.width})`;
+      }
+    case 2:
+      if(item.insert === 0) {
+      return item.size;
+      } else {
+      return `${item.size} (${item.insert})`
+      }
+    case 3:
+      return item.size;
   }
 }
 
@@ -38,16 +49,8 @@ function itemSize(item) {
       {props.items.map((item, index) => (
         <div className="itemSlot currentColumns" id={item.id} key={index}>
           <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-          {item.type === 1 ? (
-            <p>
-              {item.size}  ({item.length} x {item.width})
-            </p>
-          ) : (
-            <p>{itemSize(item)}</p>
-          )}
-          <p>
-            {convertCondition(item.cond)}
-          </p>
+          <p>{itemSize(item)}</p>
+          <p>{itemCondition(item.cond)}</p>
           <p>{item.buyPrice} zł</p>
           <p><button
               className="noteButton sellButton"
