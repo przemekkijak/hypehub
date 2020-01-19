@@ -114,7 +114,6 @@ function Modify(props) {
           <p>
           <input
           ref={itemInsert}
-          required
           defaultValue={item.shoeInsert} />
           <span>Długość wkładki</span>
           </p>
