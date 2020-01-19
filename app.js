@@ -297,19 +297,19 @@ pool.getConnection(function(err, connection) {
       pool.query(
         "UPDATE items set name='"+
         item.name+
-        "', buyPrice='"+
+        "',buyPrice='"+
         item.buyPrice+
-        "', sellPrice='"+
+        "',sellPrice='"+
         item.sellPrice+
-        "', size='"+
+        "',size='"+
         item.size+
-        "', length='"+
+        "',length='"+
         item.length+
-        "', width='"
+        "',width='"
         +item.width+
-        "', shoeInsert='"
+        "',shoeInsert='"
         +item.insert+
-        "', cond='"+
+        "',cond='"+
         item.cond+
         "' where id='"+
         item.id+"';",

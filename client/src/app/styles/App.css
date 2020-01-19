@@ -1,3 +1,11 @@
+@import url('note.css');
+@import url('itemInfo.css');
+@import url('addItem.css');
+@import url('modifyItem.css');
+@import url('tools.css');
+@import url('responsive.css');
+
+
 *{
   margin: 0;
   padding: 0;
@@ -102,21 +110,19 @@
   border: 1px solid pink;
 }
 @media only screen and (max-width: 800px) {
-
   .navigation {
-    top: 3%;
+      top: 3%;
   }
- .userInfo {
-  position: relative;
-  left: 50%;
-  width: 50%;
-  height: 9%;
-  transform: translate(-50%);
- }
-}
-@media only screen and (max-width: 1300px) {
+  .userInfo {
+      position: relative;
+      left: 50%;
+      width: 50%;
+      height: 9%;
+      transform: translate(-50%);
+  }
+  }
+  @media only screen and (max-width: 1300px) {
   * {
-    font-size: 13px;
+  font-size: 13px;
   }
-
-}
+  }
