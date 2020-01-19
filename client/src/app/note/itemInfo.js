@@ -28,7 +28,8 @@ function ItemInfo(props) {
       case 2:
         return <Modify item={item} refreshItems={props.refreshItems} handleModal={props.handleModal} socket={socket}/>
       case 3:
-        return <p> test narzedzia </p>
+        return <Tools item={item} handleModal={props.handleModal}/>
+        break;
       default:
        break;
     }
@@ -77,40 +78,7 @@ function ItemInfo(props) {
         <div className="itemContent">
           {itemMenu(menu)}
         </div>
-        {/*
-        <div className="itemOptions">
-          <p>
-            <button>Skopiuj opis</button>
-          </p>
-          <p>
-            <button>Zdjecie z opisem</button>
-          </p>
-          <p>
-            <button>Zdjecie bez opisu</button>
-          </p>
-        </div>
-        <div className="itemPhotos">
-          <img
-            src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/1.jpg"
-            alt="item"
-            className="itemPhoto"
-          />
-          <img
-            src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/2.jpg"
-            alt="item"
-            className="itemPhoto"
-          />
-          <img
-            src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/3.jpg"
-            alt="item"
-            className="itemPhoto"
-          />
-          <img
-            src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/4.jpg"
-            alt="item"
-            className="itemPhoto"
-          />
-        </div> */}
+
       </div>
     )
   );

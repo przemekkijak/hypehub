@@ -86,7 +86,7 @@ return (
             <Link className="topMenu link naviElement" to="bulk">BULK</Link>
           </div>
           <Switch>
-            <Route path="/bulk"><Resell/></Route>
+            <Route exact path="/bulk"><Resell/></Route>
             <Route path="/">
               <Note.Render
                 socket={socket}

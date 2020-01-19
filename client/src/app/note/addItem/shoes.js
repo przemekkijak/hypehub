@@ -4,9 +4,10 @@ function AddShoes(props) {
   const formBox = useRef();
   const itemName = useRef();
   const itemSize = useRef();
+  const itemInsert = useRef();
   const itemPrice = useRef();
   const itemCond = useRef();
-  const itemData = [itemName, itemSize, itemPrice, itemCond];
+  const itemData = [itemName, itemSize, itemInsert, itemPrice, itemCond];
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,6 +15,7 @@ function AddShoes(props) {
       name: itemName.current.value,
       price: itemPrice.current.value,
       size: itemSize.current.value,
+      insert: itemInsert.current.value,
       cond: itemCond.current.value,
       type: props.itemType,
       ownerID: props.userID
@@ -51,6 +53,11 @@ function AddShoes(props) {
           placeholder="Rozmiar"
           ref={itemSize}
           required/>
+        </p>
+        <p>
+          <input
+          placeholder="Dlugosc wkladki"
+          ref={itemInsert}/>
         </p>
         <p>
           <input placeholder="Cena"

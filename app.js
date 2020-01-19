@@ -8,13 +8,21 @@ console.log(`Socketserver listening on port 5555`)
 
 const path = require("path");
 const mysql = require("mysql")
-pool = mysql.createPool({
-  connectionLimit : 15,
-  host: 'mysql43.mydevil.net',
-  user: 'm1231_admin',
-  password: 'Hypehub1',
-  database: 'm1231_hypehub'
-});
+
+  // pool = mysql.createPool({
+  //   connectionLimit : 15,
+  //   host: 'mysql43.mydevil.net',
+  //   user: 'm1231_admin',
+  //   password: 'Hypehub1',
+  //   database: 'm1231_hypehub'
+  // });
+  pool = mysql.createPool({
+  connectinoLimit: 15,
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'hypehub'
+  })
 
 
 const session = require("express-session")({
@@ -216,12 +224,14 @@ pool.getConnection(function(err, connection) {
           break;
         case 2:
           pool.query(
-            "INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" +
+            "INSERT into items (name,buyPrice,size,insert,cond,ownerID,type,sold) values ('" +
               item.name +
               "','" +
               item.price +
               "','" +
               item.size +
+              "','" +
+              item.insert +
               "','" +
               item.cond +
               "', '" +

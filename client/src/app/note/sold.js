@@ -8,32 +8,31 @@ function Sold(props) {
       return cond + "/10";
     }
   }
+  function itemSize(item) {
+    if(item.insert == null) {
+      return item.size;
+    } else {
+      return `${item.size} (${item.insert}cm)`
+    }
+  }
   return (
     <div className="soldContainer">
       {props.items.map((item, index) => (
         <div className="itemSlot soldColumns" id="" key={index}>
           <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-          {item.type === 1 ? (
-            <p onClick={() => props.itemInfo(item.id)}>
-              {item.size} ({item.length} x {item.width})
-            </p>
-          ) : (
-            <p onClick={() => props.itemInfo(item.id)}>{item.size}</p>
-          )}
-          <p onClick={() => props.itemInfo(item.id)}>
-            {convertCondition(item.cond)}
-          </p>
-          <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
-          <p id="earnings" onClick={() => props.itemInfo(item.id)}>
-            {item.sellPrice - item.buyPrice} zł
-          </p>
+          {item.type === 1 ?
+          (<p>{item.size} ({item.length} x {item.width})</p>)
+            :
+          (<p>{itemSize(item)}</p>)}
+          <p>{convertCondition(item.cond)}</p>
+          <p>{item.buyPrice} zł</p>
+          <p id="earnings">{item.sellPrice - item.buyPrice} zł</p>
             <p><button
               className="noteButton deleteButton"
               id={item.id}
-              onClick={id => {
-                if(window.confirm("Napewno usunac przedmiot?"))
-                props.deleteItem(id)
-              }}>x</button></p>
+              onClick={id => {if(window.confirm("Napewno usunac przedmiot?"))
+                props.deleteItem(id)}}>x
+            </button></p>
         </div>
       ))}
     </div>
