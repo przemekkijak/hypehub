@@ -58,7 +58,9 @@ return (
             <span>Rozmiar</span>
             <span>Stan</span>
             <span>Cena kupna</span>
+            <span>Potencjalna sprzedaz</span>
             <span>Sprzedaj</span>
+            <span>Usun</span>
           </div>
         </Route>
       </Switch>

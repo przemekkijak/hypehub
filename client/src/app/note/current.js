@@ -52,6 +52,7 @@ function itemSize(item) {
           <p>{itemSize(item)}</p>
           <p>{itemCondition(item.cond)}</p>
           <p>{item.buyPrice} zł</p>
+          <p>{item.estimatedPrice} zł</p>
           <p><button
               className="noteButton sellButton"
               onClick={() => sellItem(item.id)}>$

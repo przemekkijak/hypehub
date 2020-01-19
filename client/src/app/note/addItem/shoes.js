@@ -6,14 +6,16 @@ function AddShoes(props) {
   const itemSize = useRef();
   const itemInsert = useRef();
   const itemPrice = useRef();
+  const estimatedPrice = useRef();
   const itemCond = useRef();
-  const itemData = [itemName, itemSize, itemInsert, itemPrice, itemCond];
+  const itemData = [itemName, itemSize, itemInsert, itemPrice, itemCond, estimatedPrice];
 
   function handleSubmit(e) {
     e.preventDefault();
     let item = {
       name: itemName.current.value,
       price: itemPrice.current.value,
+      estimatedPrice: estimatedPrice.current.value,
       size: itemSize.current.value,
       insert: itemInsert.current.value,
       cond: itemCond.current.value,
@@ -22,7 +24,7 @@ function AddShoes(props) {
     };
     var validateData = 0;
     for (var element in item) {
-      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
+      if (/(^$)|^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
         validateData++;
         if (validateData === itemData.length) {
           if (!isNaN(item.price) && !isNaN(item.cond)) {
@@ -63,6 +65,11 @@ function AddShoes(props) {
           <input placeholder="Cena"
           ref={itemPrice}
           required/>
+        </p>
+        <p>
+          <input
+          placeholder="Potencjalna sprzedaż"
+          ref={estimatedPrice}/>
         </p>
         <p>
           <input placeholder="Stan"
