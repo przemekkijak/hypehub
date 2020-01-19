@@ -17,7 +17,7 @@ function Sold(props) {
         return `${item.size} (${item.length} x ${item.width})`;
         }
       case 2:
-        if(item.insert === 0) {
+        if(item.shoeInsert === "0" || item.shoeInsert === "") {
         return item.size;
         } else {
         return `${item.size} (${item.shoeInsert}cm)`
