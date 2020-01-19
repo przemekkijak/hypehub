@@ -21,8 +21,8 @@ function AddShoes(props) {
       ownerID: props.userID
     };
     var validateData = 0;
-    for (var element of itemData) {
-      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
+    for (var element in item) {
+      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
         validateData++;
         if (validateData === itemData.length) {
           if (!isNaN(item.price) && !isNaN(item.cond)) {

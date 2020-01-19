@@ -23,7 +23,7 @@ function AddClothes(props) {
       ownerID: props.userID
     };
     var validateData = 0;
-    for (var element in itemData) {
+    for (var element in item) {
       if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
         validateData++;
         if (validateData === itemData.length) {
