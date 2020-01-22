@@ -319,8 +319,19 @@ pool.getConnection(function(err, connection) {
             console.log("Error while updating item");
           }
         }
-
       )
     })
-  });
-});
+    socket.on("unSold", item => {
+      pool.query(
+        "UPDATE items SET sold=0 WHERE id='"+item.id+"';", function(error) {
+          if(error) {
+            console.log(error);
+            console.log("Error while unSold item");
+          }
+        }
+      )
+    })
+
+
+  }); //socket connection on
+}); //pool getConnection

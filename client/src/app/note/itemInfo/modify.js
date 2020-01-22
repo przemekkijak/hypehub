@@ -47,6 +47,9 @@ function Modify(props) {
         itemData.length = 0;
         itemData.width = 0;
       }
+      if(item.type === 1) {
+        itemData.insert = 0;
+      }
 
       var validateData = 0;
       for (var element in itemData) {
@@ -64,8 +67,6 @@ function Modify(props) {
               props.socket.emit("updateItem", itemData);
               props.refreshItems();
               props.handleModal();
-              console.log(item.insert)
-              console.log(itemInsert.current.value);
             } else {alert("Ktores z pol nie jest liczba")}
           }
         } else {

@@ -29,7 +29,7 @@ function ItemInfo(props) {
       case 2:
         return <Modify item={item} refreshItems={props.refreshItems} handleModal={props.handleModal} socket={socket}/>
       case 3:
-        return <Tools item={item} handleModal={props.handleModal}/>
+        return <Tools item={item} handleModal={props.handleModal} socket={socket}  refreshItems={props.refreshItems}/>
         break;
       default:
        break;

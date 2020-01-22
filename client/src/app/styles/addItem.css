@@ -56,7 +56,11 @@
   height: 35px;
   width: 50%;
   background: none;
+  outline: none;
   border: 1px solid #568d0e;
+}
+.addButton:active {
+  background-color: rgba(46, 42, 42, 0.322);
 }
 
 .itemType {

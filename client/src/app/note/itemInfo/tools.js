@@ -3,6 +3,7 @@ import '../../styles/tools.css';
 
 function Tools(props) {
     const item = props.item;
+    const socket = props.socket;
 
 function copyDesc() {
     let description;
@@ -21,13 +22,19 @@ function copyDesc() {
     document.execCommand('copy');
     document.body.removeChild(area);
 }
+function unSold() {
+    socket.emit("unSold", item);
+    props.refreshItems();
+    props.handleModal();
+}
 
 return(
 
     <div className="itemOptions">
-        <p><button onClick={() => copyDesc()}>Skopiuj opis</button></p>
-        <p><button>Zdjecie z opisem</button></p>
-        <p><button>Zdjecie bez opisu</button></p>
+        <p><button className="toolsButton" onClick={() => copyDesc()}>Skopiuj opis</button></p>
+        <p><button className="toolsButton">Zdjecie z opisem</button></p>
+        <p><button className="toolsButton">Zdjecie bez opisu</button></p>
+        <p><button className="toolsButton"onClick={() => unSold() }>Wycofaj ze sprzedanych</button></p>
     </div>
     // <div className="itemPhotos">
     //     <img
