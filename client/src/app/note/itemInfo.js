@@ -2,6 +2,7 @@
  import Info from './itemInfo/info'
  import Tools from './itemInfo/tools'
  import Modify from './itemInfo/modify'
+ import '../styles/itemInfo.css';
 
 
 

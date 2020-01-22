@@ -1,4 +1,5 @@
 import React, {useRef} from 'react'
+import '../../styles/modifyitem.css';
 
 function Modify(props) {
     const item = props.item;
@@ -144,7 +145,7 @@ function Modify(props) {
         </p>
         <p>
           <button type="submit" className="addButton" value="Submit">
-            Zapisz zmiany
+            Zapisz
           </button>
         </p>
       </form>

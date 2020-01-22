@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/tools.css';
 
 function Tools(props) {
     const item = props.item;

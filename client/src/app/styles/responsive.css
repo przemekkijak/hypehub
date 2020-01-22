@@ -1,44 +1,28 @@
 /* APP .CSS */
 @media only screen and (max-width: 800px) {
-.navigation {
+  .navigation {
     top: 3%;
-}
-.userInfo {
+  }
+
+  .userInfo {
     position: relative;
     left: 50%;
     width: 50%;
     height: 9%;
     transform: translate(-50%);
-}
-}
-@media only screen and (max-width: 1300px) {
-* {
-font-size: 13px;
-}
-}
-
-
-
-/* NOTE .CSS  */
-/* @media only screen and (max-width: 800px) {
-.tableContainer {
-    top: 45%;
-    width: 100%;
-}
-.noteMenuButton {
-    width: 30vw;
-}
   }
-@media only screen and (max-width: 1300px) {
-#addButton {
-    height: 5vh;
 }
-  } */
+@media only screen and (max-width: 1300px) {
+  * {
+    font-size: 13px;
+  }
+}
 @media only screen and (max-width: 1024px) and (max-width: 1366) {
-    .tableContainer {
-        position: absolute;
-        width: 100%;
-        top: 50%;
-    }
+  .tableContainer {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+  }
 }
 
+/*# sourceMappingURL=responsive.css.map */
