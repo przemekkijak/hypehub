@@ -101,7 +101,14 @@
   grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
 }
 
-/* note navi */
+/* Menu options container "Add/remove/Modify */
+.noteMenu {
+  left: 50%;
+  transform: translate(-50%);
+  border: 50px solid pink;
+}
+
+/* main button specs */
 .noteButton {
   cursor: pointer;
   background: none;
@@ -110,22 +117,15 @@
   justify-items: center;
 }
 
-/* Menu options container [additem]*/
-.noteMenu {
-  display: inline;
-  left: 50%;
-  transform: translate(-50%);
-}
-
-#noteMenuButton:hover {
-  background: #1e2529;
-}
-
 /* Buttons for "Add / Remove / Modify */
 #addButton {
   margin-top: 2%;
   height: 4vh;
   width: 12vw;
+}
+
+#noteMenuButton:hover {
+  background: #1e2529;
 }
 
 /* Info/Sell specific buton */

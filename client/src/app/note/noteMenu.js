@@ -12,6 +12,7 @@ function NoteMenu(props) {
   }
 
   return (
+    <>
     <div className="noteMenu">
       <button
         className="noteButton"
@@ -33,6 +34,7 @@ function NoteMenu(props) {
         />
       </ReactModal>
     </div>
+    </>
   );
 }
 

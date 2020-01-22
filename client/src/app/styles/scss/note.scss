@@ -1,0 +1,188 @@
+@import "master";
+
+// width
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #69686857;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $menu-color;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(41, 40, 40, 0.336);
+  }
+  .note {
+  height: 100%;
+  width: 100%;
+  }
+  .tableContainer {
+  position: absolute;
+  width: 60vw;
+  height: 60vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 0.9em;
+    }
+/* Table navi */
+.noteTableNavi {
+    display: flex;
+  }
+  /* Table Navi Buttons (Current|Sold|Pending */
+.naviButton {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: $menu-color;
+    outline: none;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:inset -1px 0 2px 1px rgb(29, 44, 15);
+  }
+  /* Content of note table */
+  .noteContent {
+    position: relative;
+    overflow-y: auto;
+    height: 90%;
+  }
+  /* Items navigation */
+  .itemsInfo {
+    display: grid;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    opacity: 0.6;
+    font-size: 12px;
+  }
+  .itemSlot {
+    cursor: pointer;
+    display: grid;
+    height: 50px;
+    border-bottom: 1px solid rgba(138, 160, 159, 0.322);
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    :hover {
+        background-color: hsla(0,0%,18%,0.250);
+    }
+  }
+  .currentColumns {
+  grid-template-columns: 40% 10% 10% 10% 10% 6% 3%;
+  }
+  .soldColumns {
+  grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
+  }
+/* note navi */
+.noteButton {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: 1px solid $menu-color2;
+  justify-items: center;
+}
+
+/* Menu options container [additem]*/
+.noteMenu {
+  display: inline;
+  left: 50%;
+  transform: translate(-50%);
+}
+#noteMenuButton:hover {
+  background: rgb(30, 37, 41);
+}
+/* Buttons for "Add / Remove / Modify */
+#addButton {
+  margin-top: 2%;
+  height: 4vh;
+  width: 12vw;
+}
+  /* Info/Sell specific buton */
+  .sellButton {
+    height: 23px;
+    width: 25px;
+  }
+  /* Specific color for delete button */
+  .deleteButton {
+    border: 1px solid rgb(145, 4, 4);
+    height: 23px;
+    width: 25px;
+  }
+  /* NoteMenu element container eg. Add Item/Sell Item */
+  .itemMenuBox {
+    width: 17vw;
+    height: 25vh;
+    font-size: 16px;
+    border-top: 5px solid $menu-color2;
+    input {
+        height: 42px;
+        width: 100%;
+        background: none;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $menu-color2;
+    }
+  }
+  /* button for submiting input / adding item etc */
+  .menuButton {
+    cursor: pointer;
+    margin-top: 25px;
+    width: 100%;
+    height: 30px;
+    background: none;
+    border: 1px solid $menu-color;
+  }
+  /* Custom styling for active menu */
+  .active {
+    background-color: $menu-color3;
+    box-shadow:inset -1px 0 5px 1px rgb(29, 44, 15);
+  }
+
+  /* MODAL OPTIONS */
+  .modalOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(3, 14, 20, 0.904);
+    width: 100%;
+    height: 100%;
+  }
+  .modalContent{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    outline: none;
+  }
+  .ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+  }
+  .ReactModal__Overlay--after-open{
+    opacity: 1;
+  }
+  .ReactModal__Overlay--before-close{
+    opacity: 0;
+  }
+
+  @media only screen and (max-width: 1024px) and (max-height: 1366px) {
+    .tableContainer {
+        top: 45%;
+        width: 100%;
+      }
+    }
+    @media only screen and (max-width: 1300px) {
+    #addButton {
+        height: 5vh;
+    }
+      }
