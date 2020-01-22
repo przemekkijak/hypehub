@@ -84,13 +84,13 @@
   height: 50px;
   border-bottom: 1px solid rgba(138, 160, 159, 0.322);
 }
+.itemSlot:hover {
+  background-color: rgba(46, 46, 46, 0.25);
+}
 .itemSlot p {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.itemSlot :hover {
-  background-color: rgba(46, 46, 46, 0.25);
 }
 
 .currentColumns {
@@ -117,15 +117,14 @@
   transform: translate(-50%);
 }
 
-#noteMenuButton:hover {
-  background: #1e2529;
-}
-
 /* Buttons for "Add / Remove / Modify */
 #addButton {
   margin-top: 2%;
   height: 4vh;
   width: 12vw;
+}
+#addButton:hover {
+  background-color: rgba(87, 81, 81, 0.25);
 }
 
 /* Info/Sell specific buton */
@@ -141,7 +140,7 @@
   width: 25px;
 }
 
-/* NoteMenu element container eg. Add Item/Sell Item */
+/* Container for "Sell Item */
 .itemMenuBox {
   width: 17vw;
   height: 25vh;
