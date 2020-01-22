@@ -34,8 +34,8 @@
 
 .tableContainer {
   position: absolute;
-  width: 60vw;
-  height: 60vh;
+  width: 66vw;
+  height: 66vh;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);

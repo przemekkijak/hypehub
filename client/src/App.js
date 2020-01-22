@@ -78,8 +78,10 @@ return (
         <>
           <div className="userInfo">
             <p>Zalogowano jako {user.username}</p>
-            <p className="naviElement">Moje konto</p>
-            <p className="naviElement" onClick={logout}>Wyloguj</p>
+            <p>
+            <span className="naviElement">Moje konto </span>
+            <span className="naviElement" onClick={logout}>Wyloguj</span>
+            </p>
           </div>
           <div className="navigation">
             <Link className="topMenu link naviElement" to="/">NOTE</Link>

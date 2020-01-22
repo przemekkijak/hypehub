@@ -7,9 +7,9 @@ function Tools(props) {
 function copyDesc() {
     let description;
     if(item.type === 1) {
-        description = `${item.name}\n${item.cond}/10 \n${item.size} (${item.length}/${item.width})\n${item.buyPrice}PLN`;
+        description = `${item.name}\n${item.cond}/10 \n${item.size} (${item.length}/${item.width})\n${item.estimatedPrice}PLN`;
     } else {
-        description = `${item.name}\n${item.cond}/10 \n${item.size}\n${item.buyPrice}PLN`;
+        description = `${item.name}\n${item.cond}/10 \n${item.size}\n${item.estimatedPrice}PLN`;
     }
     const area = document.createElement('textarea');
     area.value = description;
