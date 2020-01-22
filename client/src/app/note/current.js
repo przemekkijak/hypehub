@@ -49,10 +49,10 @@ function itemSize(item) {
       {props.items.map((item, index) => (
         <div className="itemSlot currentColumns" id={item.id} key={index}>
           <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-          <p>{itemSize(item)}</p>
-          <p>{itemCondition(item.cond)}</p>
-          <p>{item.buyPrice} zł</p>
-          <p>{item.estimatedPrice} zł</p>
+          <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>
+          <p onClick={() => props.itemInfo(item.id)}>{itemCondition(item.cond)}</p>
+          <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
+          <p onClick={() => props.itemInfo(item.id)}>{item.estimatedPrice} zł</p>
           <p><button
               className="noteButton sellButton"
               onClick={() => sellItem(item.id)}>$

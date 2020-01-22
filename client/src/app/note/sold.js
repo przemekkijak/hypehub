@@ -31,10 +31,10 @@ function Sold(props) {
       {props.items.map((item, index) => (
         <div className="itemSlot soldColumns" id="" key={index}>
           <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-          <p>{itemSize(item)}</p>
-          <p>{convertCondition(item.cond)}</p>
-          <p>{item.buyPrice} zł</p>
-          <p id="earnings">{item.sellPrice - item.buyPrice} zł</p>
+          <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>
+          <p onClick={() => props.itemInfo(item.id)}>{convertCondition(item.cond)}</p>
+          <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
+          <p onClick={() => props.itemInfo(item.id)} id="earnings">{item.sellPrice - item.buyPrice} zł</p>
             <p><button
               className="noteButton deleteButton"
               id={item.id}
