@@ -90,26 +90,23 @@
   position: relative;
   cursor: pointer;
   height: 60%;
-  :after {
+  &:after {
     content: '';
-    width: 100%;
+    width: 35%;
     height: 100%;
-    border-bottom: 1px solid $menu-color2;
+    border-bottom: 3px solid $menu-color2;
     opacity: 0.6;
     position: absolute;
-    left: 0px;
+    left: 50%;
+    transform: translate(-50%);
     top: 0px;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
   }
 }
 .addRadio:not(:checked)+label:after {
   opacity: 0;
-  /* -webkit-transform: scale(0);
-  transform: scale(0); */
 }
 .addRadio:checked+label:after {
   opacity: 1;
-  /* -webkit-transform: scale(1);
-  transform: scale(1); */
 }
