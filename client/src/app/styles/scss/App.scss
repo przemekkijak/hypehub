@@ -1,0 +1,123 @@
+@import url('note.css');
+@import url('itemInfo.css');
+@import url('addItem.css');
+@import url('modifyItem.css');
+@import url('tools.css');
+@import url('responsive.css');
+
+    /* v1 */
+    /* --menu-color: rgb(22, 119, 78);
+    --menu-color2: rgb(51, 138, 109);
+    --menu-color3: rgb(11, 109, 68);
+    --font-color: #C5C6C7; */
+
+    /* v2 */
+    // $menu-color: rgb(4, 107, 51);
+    // $menu-color2: rgb(34, 187, 98);
+    // $menu-color3: rgb(17, 94, 51);
+    // $font-color: #C5C6C7;
+
+    /* v3 */
+    $background-color:rgb(18, 24, 27);
+    $menu-color: rgb(86, 141, 14); /* main color */
+    $menu-color2: rgb(111, 180, 21); /* details */
+    $menu-color3: rgba(83, 138, 11, 0.808); /* clicked menu button */
+    $menu-color4: rgba(83, 83, 83, 0.952); /*bordes */
+    $font-color: #C5C6C7;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Assistant, sans-serif;
+  overflow: hidden;
+  color: $font-color;
+}
+
+.App {
+  text-align: center;
+  background-color: $background-color;
+  height: 100vh;
+  width: 100vw;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+
+.link {
+  text-decoration: none;
+}
+
+/* Top Menu navigation */
+.navigation {
+  color: $font-color;
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  font-family: Assistant, sans-serif;
+  font-size: 0.8em;
+}
+/* NOTE/BULK */
+.topMenu {
+  margin: 5px;
+}
+
+/* Navigation Element - NOTE/BULK * + USER INFO*/
+.naviElement:hover{
+  cursor: pointer;
+  color: rgb(226, 226, 226);
+}
+
+.loginBox {
+  width: 12vw;
+  height: 25vh;
+  font-size: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+//   Adding item input? -- to check
+  input {
+    height: 42px;
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $menu-color2;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+.userInfo {
+  padding: 15px;
+  border: 1px dashed $menu-color2;
+  position: absolute;
+  left: 85%;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  Link {
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .navigation {
+      top: 3%;
+  }
+  .userInfo {
+      position: relative;
+      left: 50%;
+      width: 50%;
+      height: 9%;
+      transform: translate(-50%);
+  }
+  }
+  @media only screen and (max-width: 1300px) {
+  * {
+  font-size: 13px;
+  }
+  }
