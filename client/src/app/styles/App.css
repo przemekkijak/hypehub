@@ -18,38 +18,40 @@
 
 .App {
   text-align: center;
-  background-color: #12181b;
+  background-color: #1e2529;
   height: 100vh;
   width: 100vw;
   font-size: 17px;
-  overflow-x: hidden;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 7% 93%;
 }
 
 .link {
   text-decoration: none;
 }
 
-/* Top Menu navigation */
-.navigation {
-  color: #C5C6C7;
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  transform: translate(-50%, -50%);
-  display: flex;
+.navigationContainer {
   font-family: Assistant, sans-serif;
   font-size: 0.8em;
+  background-color: #12171a;
 }
-
-/* NOTE/BULK */
-.topMenu {
-  margin: 5px;
+.navigationContainer .naviElement {
+  color: #51585c;
 }
-
-/* Navigation Element - NOTE/BULK * + USER INFO*/
-.naviElement:hover {
+.navigationContainer .naviElement:hover {
   cursor: pointer;
-  color: #e2e2e2;
+}
+.navigationContainer p {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 30%;
+}
+.navigationContainer .navActive {
+  font-weight: bold;
+  color: #568d0e;
 }
 
 .loginBox {

@@ -10,7 +10,8 @@ import {
   Route,
   Link,
   Switch,
-  Redirect
+  Redirect,
+  NavLink
 } from "react-router-dom";
 
 const socket = socketIOClient("//hypehub.pl");
@@ -71,32 +72,37 @@ function refreshItems() {
 return (
   <Router>
     <div className="App" id="root">
-      <link
+      {/* <link
       href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap"
-      rel="stylesheet"/>
+      rel="stylesheet"/> */}
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet"/>
+
         {isLoged ? (
         <>
-          <div className="userInfo">
+          {/* <div className="userInfo">
             <p>Zalogowano jako {user.username}</p>
             <p>
             <span className="naviElement">Moje konto </span>
             <span className="naviElement" onClick={logout}>Wyloguj</span>
             </p>
-          </div>
-          <div className="navigation">
-            <Link className="topMenu link naviElement" to="/">NOTE</Link>
-            <Link className="topMenu link naviElement" to="bulk">BULK</Link>
+          </div> */}
+          <div className="navigationContainer">
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="/note">Note</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="bulk">Bulk</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="stats">Statystyki</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="account">Moje konto</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>Wyloguj</NavLink></p>
           </div>
           <Switch>
             <Route exact path="/bulk"><Resell/></Route>
-            <Route path="/">
+            <Route path="/note">
               <Note.Render
                 socket={socket}
                 currentItems={currentItems}
                 soldItems={soldItems}
                 refreshItems={refreshItems}
                 userID={user.id}/>
-            </Route><Redirect to="/" />
+            </Route><Redirect to="/note" />
           </Switch>
         </>
         ) : (
