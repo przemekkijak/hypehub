@@ -34,7 +34,8 @@ return(
         <p><button className="toolsButton" onClick={() => copyDesc()}>Skopiuj opis</button></p>
         <p><button className="toolsButton">Zdjecie z opisem</button></p>
         <p><button className="toolsButton">Zdjecie bez opisu</button></p>
-        <p><button className="toolsButton"onClick={() => unSold() }>Wycofaj ze sprzedanych</button></p>
+        {item.sold === 1 && (
+        <p><button className="toolsButton"onClick={() => unSold() }>Wycofaj ze sprzedanych</button></p>)}
     </div>
     // <div className="itemPhotos">
     //     <img
