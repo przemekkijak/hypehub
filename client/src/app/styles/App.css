@@ -45,7 +45,7 @@
 }
 .navigationContainer p {
   position: relative;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%);
   margin-top: 30%;
@@ -61,7 +61,7 @@
 }
 .navigationContainer #logoutNav {
   position: relative;
-  top: 35%;
+  top: 45%;
 }
 .navigationContainer #logoutIcon {
   width: 20px;
