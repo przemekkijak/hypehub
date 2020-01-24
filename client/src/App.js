@@ -99,7 +99,9 @@ return (
             <p><NavLink className="link naviElement" activeClassName="navActive" to="account">
               <img src="img/user.png" className="navIcon"/><br/>
               Moje konto</NavLink></p>
-            <p id="logoutNav"><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout} >Wyloguj</NavLink></p>
+            <p id="logoutNav"><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>
+              <img src="img/logout.png" className="navIcon" id="logoutIcon"/><br/>
+              Wyloguj</NavLink></p>
           </div>
           <Switch>
             <Route exact path="/stats"><Resell/></Route>

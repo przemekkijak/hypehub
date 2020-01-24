@@ -61,7 +61,11 @@
 }
 .navigationContainer #logoutNav {
   position: relative;
-  top: 60%;
+  top: 35%;
+}
+.navigationContainer #logoutIcon {
+  width: 20px;
+  height: 20px;
 }
 
 .loginBox {
