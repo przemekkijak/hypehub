@@ -66,7 +66,7 @@ function AddItem(props) {
         />
         <label htmlFor="clothes">
           <img
-            src="https://hypehub.s3.eu-central-1.amazonaws.com/img/shirt.png"
+            src="img/shirt.png"
             alt="Item clothes"
             className="itemIcon"
             id="clothesIcon"
@@ -83,7 +83,7 @@ function AddItem(props) {
         />
         <label htmlFor="shoes">
           <img
-            src="https://hypehub.s3.eu-central-1.amazonaws.com/img/shoe.png"
+            src="img/shoe.png"
             alt="Item shoes"
             className="itemIcon"
             id="shoeIcon"
@@ -100,7 +100,7 @@ function AddItem(props) {
         />
         <label htmlFor="accessories">
           <img
-            src="https://hypehub.s3.eu-central-1.amazonaws.com/img/accessories.png"
+            src="img/accessories.png"
             alt="Item Accessories"
             className="itemIcon"
             id="hatIcon"

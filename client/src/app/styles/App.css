@@ -38,6 +38,7 @@
 }
 .navigationContainer .naviElement {
   color: #51585c;
+  font-weight: bold;
 }
 .navigationContainer .naviElement:hover {
   cursor: pointer;
@@ -52,6 +53,15 @@
 .navigationContainer .navActive {
   font-weight: bold;
   color: #568d0e;
+}
+.navigationContainer .navIcon {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 7px;
+}
+.navigationContainer #logoutNav {
+  position: relative;
+  top: 60%;
 }
 
 .loginBox {

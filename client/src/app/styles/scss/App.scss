@@ -29,6 +29,7 @@
   background-color: $background-second;
   .naviElement {
     color: rgb(81, 88, 92);
+    font-weight: bold;
     &:hover {
       cursor: pointer;
     }
@@ -44,7 +45,16 @@
       font-weight: bold;
       color: $menu-color;
     }
+  .navIcon {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 7px;
   }
+  #logoutNav {
+    position: relative;
+    top: 60%;
+  }
+}
 
 
 .loginBox {

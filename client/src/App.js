@@ -87,15 +87,25 @@ return (
             </p>
           </div> */}
           <div className="navigationContainer">
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="/note">Note</NavLink></p>
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="bulk">Bulk</NavLink></p>
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="stats">Statystyki</NavLink></p>
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="account">Moje konto</NavLink></p>
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>Wyloguj</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="note">
+              <img src="img/shirt.png" className="navIcon"/><br/>
+              Itemy</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="bulk">
+              <img src="img/bulk.png" className="navIcon"/><br/>
+              Bulk</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="stats">
+              <img src="img/stats.png" className="navIcon"/><br/>
+              Statystyki</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="account">
+              <img src="img/user.png" className="navIcon"/><br/>
+              Moje konto</NavLink></p>
+            <p id="logoutNav"><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout} >Wyloguj</NavLink></p>
           </div>
           <Switch>
+            <Route exact path="/stats"><Resell/></Route>
+            <Route exact path="/account"><Resell/></Route>
             <Route exact path="/bulk"><Resell/></Route>
-            <Route path="/note">
+            <Route exact path="/note">
               <Note.Render
                 socket={socket}
                 currentItems={currentItems}
