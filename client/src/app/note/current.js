@@ -9,6 +9,8 @@ const socket = props.socket;
 const [sellModal, setSellModal] = useState(false);
 const [currentId, setCurrentId] = useState(0);
 
+
+
 function sellItem(id) {
   setSellModal(true);
   setCurrentId(id);

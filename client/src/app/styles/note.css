@@ -48,8 +48,16 @@
 .noteTableNavi span {
   position: relative;
   top: 7%;
-  left: 5%;
-  font-size: 1.7em;
+  left: 60%;
+  font-size: 0.8em;
+  height: 25px;
+  cursor: pointer;
+}
+.noteTableNavi img {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 /* Table Navi Buttons (Current|Sold|Pending */
