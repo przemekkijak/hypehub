@@ -15,9 +15,8 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 500px;
-  background-color: rgba(17, 17, 17, 0.541);
+  background-color: #12171a;
   border: 1px solid rgba(83, 83, 83, 0.952);
-  border-top: 10px solid #6fb415;
   display: grid;
   grid-template-columns: 15% 75%;
   box-shadow: inset -1px 0 1px 1px #1d2c0f;
@@ -25,6 +24,7 @@
 
 .itemMenu {
   border: 1px solid rgba(83, 83, 83, 0.952);
+  background-color: #12171a;
   border-right: 1px solid rgba(17, 17, 17, 0.541);
   height: 35%;
   position: relative;
