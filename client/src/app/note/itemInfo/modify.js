@@ -8,6 +8,7 @@ function Modify(props) {
     const itemSize = useRef(0);
     const itemBuyPrice = useRef(0);
     const itemSellPrice = useRef(0);
+    const itemEstimatedPrice = useRef(0);
     const itemCond = useRef(0);
     const itemLength = useRef(0);
     const itemWidth = useRef(0);
@@ -17,6 +18,7 @@ function Modify(props) {
       itemSize,
       itemBuyPrice,
       itemSellPrice,
+      itemEstimatedPrice,
       itemCond,
       itemLength,
       itemWidth,
@@ -32,6 +34,7 @@ function Modify(props) {
         name: itemName.current.value,
         buyPrice: itemBuyPrice.current.value,
         sellPrice: itemSellPrice.current.value,
+        estimatedPrice: itemEstimatedPrice.current.value,
         size: itemSize.current.value,
         length: itemLength.current.value,
         width: itemWidth.current.value,
@@ -94,7 +97,7 @@ function Modify(props) {
           <span>Rozmiar</span>
         </p>
         {item.type === 1 && (
-        <>
+          <>
         <p>
           <input
           ref={itemLength}
@@ -112,14 +115,12 @@ function Modify(props) {
         </>
         )}
         {item.type === 2 && (
-          <>
           <p>
           <input
           ref={itemInsert}
           defaultValue={item.shoeInsert} />
           <span>Długość wkładki</span>
           </p>
-          </>
         )}
         <p>
           <input
@@ -129,13 +130,24 @@ function Modify(props) {
           <span>Cena kupna</span>
         </p>
         {item.sold === 1 && (
-        <p id={item.id}>
+        <p>
             <input
             ref={itemSellPrice}
             required
             defaultValue={item.sellPrice} />
             <span>Cena sprzedazy</span>
         </p>
+        )}
+        {item.sold === 0 && (
+          <>
+          <p>
+            <input
+            ref={itemEstimatedPrice}
+            required
+            defaultValue={item.estimatedPrice} />
+            <span>Przewidywana sprzedaz</span>
+          </p>
+          </>
         )}
         <p>
           <input

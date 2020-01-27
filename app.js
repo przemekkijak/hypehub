@@ -303,6 +303,8 @@ pool.getConnection(function(err, connection) {
         item.sellPrice+
         "',size='"+
         item.size+
+        "',estimatedPrice='"+
+        item.estimatedPrice+
         "',length='"+
         item.length+
         "',width='"
