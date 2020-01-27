@@ -57,7 +57,7 @@
   position: relative;
   left: 10%;
   top: 6%;
-  width: 5%;
+  width: 6%;
   height: 50px;
   border: none;
   outline: none;
@@ -82,7 +82,7 @@
 .itemsInfo {
   display: grid;
   padding-top: 2px;
-  padding-bottom: 3px;
+  margin-bottom: 5px;
   opacity: 0.6;
   font-size: 12px;
 }
@@ -107,7 +107,7 @@
 }
 
 .soldColumns {
-  grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
+  grid-template-columns: 40% 10% 10% 15% 5% 5% 5%;
 }
 
 /* Add bUtton */

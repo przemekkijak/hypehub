@@ -11,7 +11,8 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Switch
+  Switch,
+  Redirect
 } from "react-router-dom";
 
 function Render(props) {
@@ -34,7 +35,6 @@ function Render(props) {
 return (
   <Router>
     <div className="noteTableNavi">
-      <span>ITEMY</span>
       <NavLink
         className="link naviButton"
         activeClassName="active"
@@ -61,21 +61,19 @@ return (
             <span>Stan</span>
             <span>Cena kupna</span>
             <span>Potencjalna sprzedaz</span>
-            <span>Sprzedaj</span>
-            <span>Usun</span>
           </div>
         </Route>
       </Switch>
       <div className="noteContent">
         <Switch>
-          <Route path="/note/sold">
+          <Route exact path="/note/sold">
             <Sold
               items={props.soldItems}
               deleteItem={deleteItem}
               itemInfo={id => itemInfo(id)}/>
           </Route>
-          <Route path="/note/pending"><Pending/></Route>
-          <Route path="/">
+          <Route exact path="/note/pending"><Pending/></Route>
+          <Route exact path="/note/current">
             <Current
               socket={socket}
               itemInfo={id => itemInfo(id)}
@@ -83,6 +81,7 @@ return (
               deleteItem={deleteItem}
               refreshItems={props.refreshItems}/>
           </Route>
+          <Redirect to="/note/current" />
         </Switch>
       </div>
       <NoteMenu
