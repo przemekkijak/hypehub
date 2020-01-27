@@ -44,8 +44,6 @@ function itemSize(item) {
       return item.size;
   }
 }
-
-
   return (
     <div className="currentContainer">
       {props.items.map((item, index) => (
@@ -72,6 +70,7 @@ function itemSize(item) {
           </p>
         </div>
       ))}
+
 
       <ReactModal
         isOpen={sellModal}

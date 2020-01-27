@@ -34,7 +34,7 @@
     span {
       position: relative;
       top: 7%;
-      left: 60%;
+      left: 69%;
       font-size: 0.8em;
       height: 25px;
       cursor: pointer;
@@ -44,6 +44,16 @@
       width: 20px;
       margin-left: 5px;
       cursor: pointer;
+    }
+    input {
+      height: 30px;
+      position: relative;
+      top: 7%;
+      left: 55%;
+      background: none;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid $menu-color;
     }
   }
   /* Table Navi Buttons (Current|Sold|Pending */

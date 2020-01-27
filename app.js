@@ -142,6 +142,17 @@ pool.getConnection(function(err, connection) {
         }
       );
     });
+    socket.on("getItemByName", (name, fn) => {
+      pool.query(
+        'SELECT * from items where name = "' + name + '" and ownerID = "' +
+        socket.handshake.session.userID, function(error, results) {
+          if(error) {
+            throw error;
+          }
+          fn(results);
+        }
+      )
+    })
 
     socket.on("getCurrentItems", fn => {
       pool.query(

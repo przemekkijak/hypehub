@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./styles/note.css";
 import Current from "./note/current";
 import Sold from "./note/sold";
@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 
 function Render(props) {
+  const searchBar = useRef();
   const [itemModal, setItemModal] = useState(false);
   const [currentItem, setCurrentItem] = useState(0);
   const socket = props.socket;
@@ -41,7 +42,8 @@ return (
         to="/note/current">Aktualne</NavLink>
       <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
       <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
-      <span>Filtruj<img src="/img/filtr.png" alt="filtr"/></span>
+      <span>Filtruj<img src="/img/filtr.png" alt="filtr" onClick={() => props.filterItems()}/></span>
+      <input type="text" placeholder="Szukaj..." ref={searchBar} onChange={() => props.searchItem(searchBar.current.value)}/>
     </div>
 
     <div className="tableContainer">

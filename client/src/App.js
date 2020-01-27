@@ -23,7 +23,7 @@ var currentItems = [];
 var soldItems = [];
 
 function App() {
-  const [, loadingItems] = useState(false);
+  const [loaded, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
     socket.emit("checkLog", token, id);
     socket.on("success", userData => {
@@ -68,6 +68,28 @@ function refreshItems() {
     });
   },750);
 }
+function searchItem(itemName) {
+  if(itemName === "") {
+    refreshItems();
+  }
+  if(window.location.pathname === "/note/current") {
+    var item = currentItems.filter(item => item.name.toLowerCase().includes(itemName));
+    if(item.length > 0) {
+      currentItems = item;
+    }
+  } else {
+    var item = soldItems.filter(item => item.name.toLowerCase().includes(itemName));
+    if(item.length > 0) {
+      soldItems = item;
+    }
+  }
+  loadingItems(!loaded)
+}
+
+function unfilter() {
+  refreshItems();
+  console.log('unfilter');
+}
 
 return (
   <Router>
@@ -103,7 +125,9 @@ return (
                 currentItems={currentItems}
                 soldItems={soldItems}
                 refreshItems={refreshItems}
-                userID={user.id}/>
+                userID={user.id}
+                searchItem={searchItem}
+                unfilter={unfilter}/>
             </Route><Redirect to="/note" />
           </Switch>
         </>
