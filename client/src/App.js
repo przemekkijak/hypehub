@@ -83,7 +83,6 @@ function searchItem(itemName) {
       soldItems = item;
     }
   }
-  loadingItems(!loaded)
 }
 
 function unfilter() {
