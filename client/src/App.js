@@ -8,7 +8,6 @@ import socketIOClient from "socket.io-client";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
   Redirect,
   NavLink
@@ -69,8 +68,9 @@ function refreshItems() {
   },750);
 }
 function searchItem(itemName) {
-  if(itemName.length <2 || itemName === null) {
+  if(itemName.length <2) {
     refreshItems();
+    loadingItems(!loaded);
   }
   if(window.location.pathname === "/note/current") {
     var item = currentItems.filter(item => item.name.toLowerCase().includes(itemName));
@@ -78,7 +78,7 @@ function searchItem(itemName) {
       currentItems = item;
     }
   } else {
-    var item = soldItems.filter(item => item.name.toLowerCase().includes(itemName));
+    item = soldItems.filter(item => item.name.toLowerCase().includes(itemName));
     if(item.length > 0) {
       soldItems = item;
     }
@@ -100,19 +100,19 @@ return (
         <>
           <div className="navigationContainer">
             <p><NavLink className="link naviElement" activeClassName="navActive" to="note">
-              <img src="img/shirt.png" className="navIcon"/><br/>
+              <img src="img/shirt.png" alt="Items" className="navIcon"/><br/>
               Itemy</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="bulk">
-              <img src="img/bulk.png" className="navIcon"/><br/>
+              <img src="img/bulk.png" alt="Bulk" className="navIcon"/><br/>
               Bulk</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="stats">
-              <img src="img/stats.png" className="navIcon"/><br/>
+              <img src="img/stats.png" alt="Stats" className="navIcon"/><br/>
               Statystyki</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="account">
-              <img src="img/user.png" className="navIcon"/><br/>
+              <img src="img/user.png" alt="Account" className="navIcon"/><br/>
               Moje konto</NavLink></p>
             <p id="logoutNav"><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>
-              <img src="img/logout.png" className="navIcon" id="logoutIcon"/><br/>
+              <img src="img/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/><br/>
               Wyloguj</NavLink></p>
           </div>
           <Switch>
