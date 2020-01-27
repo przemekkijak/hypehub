@@ -51,25 +51,25 @@ function logout() {
 function refreshItems() {
   socket.emit("getCurrentItems", data => {
     currentItems = data;
-    loadingItems(true);
+    loadingItems(!loaded);
   });
   socket.emit("getSoldItems", data => {
     soldItems = data;
-    loadingItems(false);
+    loadingItems(!loaded);
   });
   setTimeout(function() {
     socket.emit("getCurrentItems", data => {
       currentItems = data;
-      loadingItems(true);
+      loadingItems(!loaded);
     });
     socket.emit("getSoldItems", data => {
       soldItems = data;
-      loadingItems(false);
+      loadingItems(!loaded);
     });
   },750);
 }
 function searchItem(itemName) {
-  if(itemName === "") {
+  if(itemName.length <=1 || itemName === "") {
     refreshItems();
   }
   if(window.location.pathname === "/note/current") {
@@ -83,6 +83,7 @@ function searchItem(itemName) {
       soldItems = item;
     }
   }
+  loadingItems(!loaded);
 }
 
 function unfilter() {
