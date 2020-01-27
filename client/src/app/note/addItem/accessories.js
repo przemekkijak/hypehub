@@ -42,33 +42,33 @@ function AddAccessories(props) {
       <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
         <p>
           <input
-          placeholder="Nazwa"
           ref={itemName}
           autoFocus={true}
           required
           spellCheck="false"/>
+          <span>Nazwa</span>
         </p>
         <p>
           <input
-          placeholder="Rozmiar"
           ref={itemSize}/>
+          <span>Rozmiar</span>
         </p>
         <p>
           <input
-          placeholder="Cena"
           ref={itemPrice}
           required/>
+          <span>Cena</span>
         </p>
         <p>
           <input
-          placeholder="Potencjalna sprzedaż"
           ref={estimatedPrice}/>
+          <span>Potencjalna sprzedaż</span>
         </p>
         <p>
           <input
-          placeholder="Stan"
           ref={itemCond}
           required/>
+          <span>Stan</span>
         </p>
         <p>
           <button

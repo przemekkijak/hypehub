@@ -44,37 +44,39 @@ function AddShoes(props) {
       <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
         <p>
           <input
-          placeholder="Nazwa"
           ref={itemName}
           autoFocus={true}
           required
           spellCheck="false"/>
+          <span>Nazwa</span>
         </p>
         <p>
           <input
-          placeholder="Rozmiar"
           ref={itemSize}
           required/>
+          <span>Rozmiar</span>
         </p>
         <p>
           <input
-          placeholder="Dlugosc wkladki"
           ref={itemInsert}/>
+          <span>Dlugosc wkladki (cm)</span>
         </p>
         <p>
-          <input placeholder="Cena"
+          <input
           ref={itemPrice}
           required/>
+          <span>Cena</span>
         </p>
         <p>
           <input
-          placeholder="Potencjalna sprzedaż"
           ref={estimatedPrice}/>
+          <span>Potencjalna sprzedaz</span>
         </p>
         <p>
-          <input placeholder="Stan"
+          <input
           ref={itemCond}
           required/>
+          <span>Stan</span>
         </p>
         <p>
           <button type="submit" className="addButton" value="Submit">

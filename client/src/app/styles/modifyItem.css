@@ -38,7 +38,8 @@
 .modifyForm span {
   font-size: 10px;
   position: relative;
-  left: 15%;
+  left: 9%;
+  opacity: 0.6;
   color: rgba(177, 172, 172, 0.664);
 }
 

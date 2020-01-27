@@ -103,14 +103,14 @@ function Modify(props) {
           ref={itemLength}
           required
           defaultValue={item.length} />
-          <span>Dlugosc</span>
+          <span>Dlugosc (cm)</span>
         </p>
         <p>
           <input
           ref={itemWidth}
           required
           defaultValue={item.width} />
-          <span>Szerokosc</span>
+          <span>Szerokosc (cm)</span>
         </p>
         </>
         )}
@@ -119,7 +119,7 @@ function Modify(props) {
           <input
           ref={itemInsert}
           defaultValue={item.shoeInsert} />
-          <span>Długość wkładki</span>
+          <span>Długość wkładki (cm)</span>
           </p>
         )}
         <p>
