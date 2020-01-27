@@ -69,7 +69,7 @@ function refreshItems() {
   },750);
 }
 function searchItem(itemName) {
-  if(itemName.length <=1 || itemName === "") {
+  if(itemName.length <2 || itemName === null) {
     refreshItems();
   }
   if(window.location.pathname === "/note/current") {
