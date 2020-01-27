@@ -37,24 +37,6 @@ return(
         {item.sold === 1 && (
         <p><button className="toolsButton"onClick={() => unSold() }>Wycofaj ze sprzedanych</button></p>)}
     </div>
-    // <div className="itemPhotos">
-    //     <img
-    //     src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/1.jpg"
-    //     alt="item"
-    //     className="itemPhoto"/>
-    //     <img
-    //     src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/2.jpg"
-    //     alt="item"
-    //     className="itemPhoto"/>
-    //     <img
-    //     src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/3.jpg"
-    //     alt="item"
-    //     className="itemPhoto"/>
-    //     <img
-    //     src="https://hypehub.s3.eu-central-1.amazonaws.com/items_img/252/4.jpg"
-    //     alt="item"
-    //     className="itemPhoto"/>
-    // </div>
 )
 }
 

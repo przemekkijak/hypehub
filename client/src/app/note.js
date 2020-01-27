@@ -33,15 +33,17 @@ function Render(props) {
 
 return (
   <Router>
+    <div className="noteTableNavi">
+      <span>ITEMY</span>
+      <NavLink
+        className="link naviButton"
+        activeClassName="active"
+        to="/note/current">Aktualne</NavLink>
+      <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
+      <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
+    </div>
+
     <div className="tableContainer">
-      <div className="noteTableNavi">
-        <NavLink
-          className="link naviButton"
-          activeClassName="active"
-          to="/note/current">Aktualne</NavLink>
-        <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
-        <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
-      </div>
       <Switch>
         <Route path="/note/sold">
           <div className="itemsInfo soldColumns">

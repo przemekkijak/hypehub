@@ -89,11 +89,9 @@ function AddClothes(props) {
           ref={itemCond}
           required />
         </p>
-        <p>
-          <button type="submit" className="addButton" value="Submit">
+          <button type="submit" className="addButton">
             Dodaj
           </button>
-        </p>
       </form>
     </>
   );

@@ -107,7 +107,6 @@ function AddItem(props) {
           />
         </label>
       </div>
-
       {itemForm(itemType)}
     </div>
   );

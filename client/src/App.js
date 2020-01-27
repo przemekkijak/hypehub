@@ -72,20 +72,10 @@ function refreshItems() {
 return (
   <Router>
     <div className="App" id="root">
-      {/* <link
-      href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap"
-      rel="stylesheet"/> */}
       <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet"/>
 
         {isLoged ? (
         <>
-          {/* <div className="userInfo">
-            <p>Zalogowano jako {user.username}</p>
-            <p>
-            <span className="naviElement">Moje konto </span>
-            <span className="naviElement" onClick={logout}>Wyloguj</span>
-            </p>
-          </div> */}
           <div className="navigationContainer">
             <p><NavLink className="link naviElement" activeClassName="navActive" to="note">
               <img src="img/shirt.png" className="navIcon"/><br/>
