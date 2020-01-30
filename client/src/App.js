@@ -24,7 +24,7 @@ var currentItems = [];
 var soldItems = [];
 
 function App() {
-  const [loaded, loadingItems] = useState(false);
+  const [loaded, loadingItems] = useState(0);
   const [isLoged, setLoged] = useState(() => {
     socket.emit("checkLog", token, id);
     socket.on("success", userData => {
@@ -53,14 +53,14 @@ function refreshItems() {
     items = data;
     currentItems = items.filter(item => item.sold === 0)
     soldItems = items.filter(item => item.sold === 1);
-    loadingItems(true);
+    loadingItems(loaded + 1);
   });
   setTimeout(() => {
     socket.emit("getUserItems", data => {
       items = data;
       currentItems = items.filter(item => item.sold === 0)
       soldItems = items.filter(item => item.sold === 1);
-      loadingItems(false);
+      loadingItems(loaded + 1);
     });
   }, 700)
 }
@@ -68,7 +68,7 @@ function refreshItems() {
 function searchItem(itemName) {
   if(itemName.length <2) {
     refreshItems();
-    loadingItems(!loaded);
+    loadingItems(loaded + 1);
   }
   if(window.location.pathname === "/note/current") {
     var item = currentItems.filter(item => item.name.toLowerCase().includes(itemName));
@@ -81,7 +81,7 @@ function searchItem(itemName) {
       soldItems = item;
     }
   }
-  loadingItems(!loaded);
+  loadingItems(loaded + 1);
 }
 
 function unfilter() {

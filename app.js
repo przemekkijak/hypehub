@@ -155,38 +155,6 @@ pool.getConnection(function(err, connection) {
       )
     })
 
-    socket.on("getCurrentItems", fn => {
-      pool.query(
-        'SELECT * from items where ownerID = "' +
-          socket.handshake.session.userID +
-          '" and sold = "0" order by createdAt DESC',
-        function(error, results) {
-          if (error) {
-            console.log(error);
-            console.log("Error while geting current items from database");
-          }
-          fn(results);
-        }
-      );
-    });
-
-    socket.on("getSoldItems", fn => {
-      if (socket.handshake.session.user) {
-        pool.query(
-          'SELECT * from items where ownerID = "' +
-            socket.handshake.session.user.id +
-            '" and sold = "1" order by soldAt DESC',
-          function(error, results) {
-            if (error) {
-              console.log(error);
-              console.log("Error while geting sold items from database");
-            }
-            fn(results);
-          }
-        );
-      }
-    });
-
     socket.on("deleteItem", id => {
       pool.query("DELETE from items where id='" + id + "';", function(error) {
         if (error) {
