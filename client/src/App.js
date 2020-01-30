@@ -19,12 +19,11 @@ var user = {};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
 
-var items = [];
 var currentItems = [];
 var soldItems = [];
 
 function App() {
-  const [loaded, loadingItems] = useState(0);
+  const [loaded, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
     socket.emit("checkLog", token, id);
     socket.on("success", userData => {
@@ -42,27 +41,26 @@ function handleLogin(userData) {
   refreshItems();
   setLoged(true);
 }
-
 function logout() {
   setLoged(false);
   localStorage.removeItem("id");
   localStorage.removeItem("token");
 }
-function refreshItems() {
-  socket.emit("getUserItems", data => {
-    items = data;
-    currentItems = items.filter(item => item.sold === 0)
-    soldItems = items.filter(item => item.sold === 1);
-    loadingItems(loaded + 1);
+function getCurrentItems() {
+  socket.emit("getCurrentItems", items => {
+    currentItems = items;
+    loadingItems(true);
   });
-  setTimeout(() => {
-    socket.emit("getUserItems", data => {
-      items = data;
-      currentItems = items.filter(item => item.sold === 0)
-      soldItems = items.filter(item => item.sold === 1);
-      loadingItems(loaded + 1);
-    });
-  }, 700)
+}
+function getSoldItems() {
+  socket.emit("getSoldItems", items => {
+    soldItems = items;
+    loadingItems(false);
+  })
+}
+function refreshItems() {
+  getCurrentItems();
+  getSoldItems();
 }
 
 function searchItem(itemName) {
