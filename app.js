@@ -150,6 +150,7 @@ pool.getConnection(function(err, connection) {
           if(error) {
             console.log(error);
           }
+
           fn(results);
         }
       )
