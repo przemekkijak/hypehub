@@ -46,21 +46,19 @@ function logout() {
   localStorage.removeItem("id");
   localStorage.removeItem("token");
 }
-function getCurrentItems() {
+function refreshItems() {
   socket.emit("getCurrentItems", items => {
     currentItems = items;
     loadingItems(true);
   });
-}
-function getSoldItems() {
   socket.emit("getSoldItems", items => {
     soldItems = items;
     loadingItems(false);
   })
-}
-function refreshItems() {
-  getCurrentItems();
-  getSoldItems();
+  setTimeout(() => {
+      loadingItems(true);
+      loadingItems(false);
+  },700);
 }
 
 function searchItem(itemName) {
