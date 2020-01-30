@@ -143,6 +143,18 @@ pool.getConnection(function(err, connection) {
       );
     });
 
+    socket.on("getUserItems", fn => {
+      pool.query(
+        'SELECT * from items where ownerID = "' + socket.handshake.session.userID + '" order by createdAt DESC',
+        (error, results) => {
+          if(error) {
+            console.log(error);
+          }
+          fn(results);
+        }
+      )
+    })
+
     socket.on("getCurrentItems", fn => {
       pool.query(
         'SELECT * from items where ownerID = "' +

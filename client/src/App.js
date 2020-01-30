@@ -13,11 +13,13 @@ import {
   NavLink
 } from "react-router-dom";
 
-const socket = socketIOClient("//hypehub.pl");
+// const socket = socketIOClient("//hypehub.pl");
+const socket = socketIOClient("localhost:5555");
 var user = {};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
 
+var items = [];
 var currentItems = [];
 var soldItems = [];
 
@@ -46,27 +48,23 @@ function logout() {
   localStorage.removeItem("id");
   localStorage.removeItem("token");
 }
-
 function refreshItems() {
-  socket.emit("getCurrentItems", data => {
-    currentItems = data;
+  socket.emit("getUserItems", data => {
+    items = data;
+    currentItems = items.filter(item => item.sold === 0)
+    soldItems = items.filter(item => item.sold === 1);
     loadingItems(true);
   });
-  socket.emit("getSoldItems", data => {
-    soldItems = data;
-    loadingItems(false);
-  });
-  setTimeout(function() {
-    socket.emit("getCurrentItems", data => {
-      currentItems = data;
-      loadingItems(!loaded);
+  setTimeout(() => {
+    socket.emit("getUserItems", data => {
+      items = data;
+      currentItems = items.filter(item => item.sold === 0)
+      soldItems = items.filter(item => item.sold === 1);
+      loadingItems(false);
     });
-    socket.emit("getSoldItems", data => {
-      soldItems = data;
-      loadingItems(!loaded);
-    });
-  },750);
+  }, 700)
 }
+
 function searchItem(itemName) {
   if(itemName.length <2) {
     refreshItems();
