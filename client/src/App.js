@@ -50,11 +50,11 @@ function logout() {
 function refreshItems() {
   socket.emit("getCurrentItems", data => {
     currentItems = data;
-    loadingItems(!loaded);
+    loadingItems(true);
   });
   socket.emit("getSoldItems", data => {
     soldItems = data;
-    loadingItems(!loaded);
+    loadingItems(false);
   });
   setTimeout(function() {
     socket.emit("getCurrentItems", data => {
