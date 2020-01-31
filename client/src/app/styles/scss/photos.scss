@@ -1,0 +1,30 @@
+@import "master";
+
+.photoContainer {
+    position: relative;
+    left: -20%;
+    top: 25%;
+    display: grid;
+    grid-template-rows: 30% 90%;
+    .header {
+        height: 100%;
+        width: 100%;
+    }
+    .photosBox {
+        position: relative;
+        top: 30%;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        .photo {
+            margin: 4px;
+            width: 25%;
+            height: 100%;
+            img {
+                width: 190px;
+                height: 190px;
+                cursor: pointer;
+            }
+        }
+    }
+}

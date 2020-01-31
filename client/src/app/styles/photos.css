@@ -1,0 +1,40 @@
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+/* v1 */
+/* --menu-color: rgb(22, 119, 78);
+--menu-color2: rgb(51, 138, 109);
+--menu-color3: rgb(11, 109, 68);
+--font-color: #C5C6C7; */
+/* v2 */
+.photoContainer {
+  position: relative;
+  left: -20%;
+  top: 25%;
+  display: grid;
+  grid-template-rows: 30% 90%;
+}
+.photoContainer .header {
+  height: 100%;
+  width: 100%;
+}
+.photoContainer .photosBox {
+  position: relative;
+  top: 30%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.photoContainer .photosBox .photo {
+  margin: 4px;
+  width: 25%;
+  height: 100%;
+}
+.photoContainer .photosBox .photo img {
+  width: 190px;
+  height: 190px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=photos.css.map */
