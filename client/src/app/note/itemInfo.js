@@ -2,6 +2,7 @@
  import Info from './itemInfo/info'
  import Tools from './itemInfo/tools'
  import Modify from './itemInfo/modify'
+ import Photos from './itemInfo/photos'
  import '../styles/itemInfo.css';
 
 
@@ -27,22 +28,22 @@ function ItemInfo(props) {
       case 1:
         break;
       case 2:
-        return <Modify item={item} refreshItems={props.refreshItems} handleModal={props.handleModal} socket={socket}/>
+        return <Modify item={item} handleModal={props.handleModal} socket={socket} refreshItems={props.refreshItems}/>
       case 3:
+        return <Photos item={item} handleModal={props.handleModal} socket={socket} refreshItems={props.refreshItems}/>
+      case 4:
         return <Tools item={item} handleModal={props.handleModal} socket={socket}  refreshItems={props.refreshItems}/>
-        break;
-      default:
-       break;
+
     }
   }
 
   return (
     loaded && (
       <div className="itemInfoContainer">
-        <div className="itemMenu">
+      <div className="itemMenu">
         <input
           type="radio"
-          name="itemMenu"
+          name="itemoption"
           id="info"
           className="detailsRadio"
           onChange={() => setMenu(1)}
@@ -54,7 +55,7 @@ function ItemInfo(props) {
 
         <input
           type="radio"
-          name="itemMenu"
+          name="itemoption"
           id="edit"
           className="detailsRadio"
           onChange={() => setMenu(2)}
@@ -65,17 +66,28 @@ function ItemInfo(props) {
 
         <input
           type="radio"
-          name="itemMenu"
-          id="tools"
+          name="itemoption"
+          id="photos"
           className="detailsRadio"
           onChange={() => setMenu(3)}
+        />
+        <label htmlFor="photos">
+          Zdjecia
+        </label>
+
+        <input
+          type="radio"
+          name="itemoption"
+          id="tools"
+          className="detailsRadio"
+          onChange={() => setMenu(4)}
         />
         <label htmlFor="tools">
           Narzedzia
         </label>
 
 
-        </div>
+      </div>
         <div className="itemContent">
           {itemMenu(menu)}
         </div>

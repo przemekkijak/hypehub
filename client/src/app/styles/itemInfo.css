@@ -19,13 +19,10 @@
   border: 1px solid rgba(83, 83, 83, 0.952);
   display: grid;
   grid-template-columns: 15% 75%;
-  box-shadow: inset -1px 0 1px 1px #1d2c0f;
+  box-shadow: inset -1px 0 2px 1px #1f2e11;
 }
 
 .itemMenu {
-  border: 1px solid rgba(83, 83, 83, 0.952);
-  background-color: #12171a;
-  border-right: 1px solid rgba(17, 17, 17, 0.541);
   height: 35%;
   position: relative;
   left: -100%;
@@ -42,13 +39,14 @@
 /* Custom radio buttons */
 .detailsRadio:checked + label,
 .detailsRadio:not(:checked) + label {
+  border: 1px solid rgba(53, 51, 51, 0.781);
+  background-color: #12171a;
   display: block;
   position: relative;
   cursor: pointer;
   height: 33.3%;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  border-bottom: 1px solid rgba(49, 48, 48, 0.788);
 }
 
 .detailsRadio:checked + label {
@@ -59,20 +57,6 @@
 
 .detailsRadio:not(:checked) + label {
   padding: 15% 0% 0% 5%;
-}
-
-@media only screen and (max-width: 1300px) {
-  .itemInfoContainer {
-    width: 650px;
-    height: 400px;
-  }
-
-  .itemPhoto {
-    margin-top: 10%;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-  }
 }
 
 /*# sourceMappingURL=itemInfo.css.map */
