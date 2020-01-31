@@ -64,7 +64,6 @@ function refreshItems() {
 function searchItem(itemName) {
   if(itemName.length <2) {
     refreshItems();
-    loadingItems(loaded + 1);
   }
   if(window.location.pathname === "/note/current") {
     var item = currentItems.filter(item => item.name.toLowerCase().includes(itemName));
@@ -77,7 +76,7 @@ function searchItem(itemName) {
       soldItems = item;
     }
   }
-  loadingItems(loaded + 1);
+  loadingItems(true);
 }
 
 function unfilter() {
