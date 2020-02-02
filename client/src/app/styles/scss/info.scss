@@ -1,0 +1,39 @@
+@import "master";
+
+.infoContainer {
+    height: 100%;
+    position: relative;
+    left: -5%;
+
+    #itemName{
+        top: 10%;
+    }
+    #itemFlaws{
+        top: 32%;
+    }
+    p {
+        position: relative;
+        text-align: center;
+        font-size: 1.1em;
+    }
+    .itemDetails {
+    position: relative;
+    font-size: 12px;
+    display: grid;
+    top: 22%;
+    background-color: rgba(90, 94, 92, 0.212);
+    border-radius: 7px;
+    span {
+        margin: 10px;
+        text-align: center;
+    }
+    }
+    .itemFlaws {
+        position: relative;
+        background-color: rgba(90,94,92,0.212);
+        height: 80px;
+        top: 35%;
+        border-radius: 7px;
+    }
+
+}

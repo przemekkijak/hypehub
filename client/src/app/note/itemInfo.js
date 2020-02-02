@@ -26,7 +26,7 @@ function ItemInfo(props) {
   function itemMenu(menu) {
     switch(menu) {
       case 1:
-        break;
+        return <Info item={item}/>
       case 2:
         return <Modify item={item} handleModal={props.handleModal} socket={socket} refreshItems={props.refreshItems}/>
       case 3:

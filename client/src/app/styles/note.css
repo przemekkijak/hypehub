@@ -121,7 +121,7 @@
 }
 
 .currentColumns {
-  grid-template-columns: 40% 10% 10% 10% 10% 6% 3%;
+  grid-template-columns: 40% 10% 10% 10% 10% 3% 3%;
 }
 
 .soldColumns {
@@ -146,6 +146,11 @@
   border: 1px solid #6fb415;
 }
 
+.noteIcon {
+  width: 22px;
+  height: 22px;
+}
+
 /* Menu options container [additem]*/
 .noteMenu {
   display: inline;
@@ -165,10 +170,11 @@
 .sellButton {
   height: 23px;
   width: 25px;
+  border: none;
 }
 
 .deleteButton {
-  border: 1px solid #910404;
+  border: none;
   height: 23px;
   width: 25px;
 }

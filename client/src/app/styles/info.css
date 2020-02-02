@@ -1,0 +1,47 @@
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+/* v1 */
+/* --menu-color: rgb(22, 119, 78);
+--menu-color2: rgb(51, 138, 109);
+--menu-color3: rgb(11, 109, 68);
+--font-color: #C5C6C7; */
+/* v2 */
+.infoContainer {
+  height: 100%;
+  position: relative;
+  left: -5%;
+}
+.infoContainer #itemName {
+  top: 10%;
+}
+.infoContainer #itemFlaws {
+  top: 32%;
+}
+.infoContainer p {
+  position: relative;
+  text-align: center;
+  font-size: 1.1em;
+}
+.infoContainer .itemDetails {
+  position: relative;
+  font-size: 12px;
+  display: grid;
+  top: 22%;
+  background-color: rgba(90, 94, 92, 0.212);
+  border-radius: 7px;
+}
+.infoContainer .itemDetails span {
+  margin: 10px;
+  text-align: center;
+}
+.infoContainer .itemFlaws {
+  position: relative;
+  background-color: rgba(90, 94, 92, 0.212);
+  height: 80px;
+  top: 35%;
+  border-radius: 7px;
+}
+
+/*# sourceMappingURL=info.css.map */

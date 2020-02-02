@@ -39,7 +39,8 @@ function Sold(props) {
               className="noteButton deleteButton"
               id={item.id}
               onClick={id => {if(window.confirm("Napewno usunac przedmiot?"))
-                props.deleteItem(id)}}>x
+                props.deleteItem(id)}}>
+              <img src="/img/delete.png" alt="delete" className="noteIcon"/>
             </button></p>
         </div>
       ))}
