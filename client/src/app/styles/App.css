@@ -19,6 +19,7 @@
 .App {
   text-align: center;
   background-color: #1e2529;
+  background: linear-gradient(45deg, #1e2529 10%, #141414 100%);
   height: 100vh;
   width: 100vw;
   font-size: 17px;
