@@ -1,5 +1,6 @@
 const express = require("express");
-const app = express();
+const siofu = require('socketio-file-upload');
+const app = express().use(siofu.router);
 const server = require("http").createServer(app)
 const io = require("socket.io")(server)
 const fs = require('fs');
@@ -334,8 +335,9 @@ pool.getConnection(function(err, connection) {
         }
       )
     })
+    // PHOTOS
     socket.on("checkPhoto", (item,photo,fn) => {
-      let pathToFile = (path.join(__dirname, `/client/public/img/items/${item}/${photo}.jpg`));
+      let pathToFile = (path.join(__dirname, `/client/public/img/items/${item}_${photo}.jpg`));
         fs.access(pathToFile,fs.F_OK, (error) => {
           if(error) {
             fn(false);
@@ -344,6 +346,12 @@ pool.getConnection(function(err, connection) {
           }
         })
       });
+      // Uploading photos
+      var uploader = new siofu()
+      uploader.dir = path.join(__dirname, '/client/public/img/items/');
+      uploader.listen(socket);
+
+      // socket.on('uploadPhoto', itemID
 
 
   }); //socket connection on

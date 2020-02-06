@@ -19,6 +19,9 @@
   height: 100%;
   width: 100%;
 }
+.photoContainer input {
+  display: none;
+}
 .photoContainer .photosBox {
   position: relative;
   top: 30%;
