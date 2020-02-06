@@ -54,14 +54,14 @@ function itemSize(item) {
           <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
           <p onClick={() => props.itemInfo(item.id)}>{item.estimatedPrice} zł</p>
           <p><button
-              className="noteButton sellButton"
+              className="actionButton"
               onClick={() => sellItem(item.id)}>
                 <img src="/img/coin.png" alt="coin" className="noteIcon"/>
               </button>
           </p>
           <p>
             <button
-              className="noteButton deleteButton"
+              className="actionButton"
               id={item.id}
               onClick={id => {
                 if(window.confirm("Napewno usunac przedmiot?"))

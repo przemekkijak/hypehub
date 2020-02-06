@@ -126,10 +126,7 @@
   background: none;
   border: 1px solid $menu-color2;
 }
-.noteIcon {
-  width: 22px;
-  height: 22px;
-}
+
 
 /* Menu options container [additem]*/
 .noteMenu {
@@ -145,16 +142,18 @@
     background-color: rgba(87, 81, 81, 0.25);
   }
 }
-.sellButton {
-    height: 23px;
-    width: 25px;
-    border: none;
-  }
-.deleteButton {
-    border: none;
-    height: 23px;
-    width: 25px;
-  }
+.noteIcon {
+  width: 22px;
+  height: 22px;
+}
+.actionButton {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
   /* Container for "Sell Item */
   .itemMenuBox {
     width: 17vw;
