@@ -121,7 +121,7 @@
 }
 
 .currentColumns {
-  grid-template-columns: 40% 10% 10% 10% 10% 3% 3%;
+  grid-template-columns: 40% 10% 10% 10% 10% 3% 3% 3%;
 }
 
 .soldColumns {

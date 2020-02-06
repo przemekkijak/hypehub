@@ -5,10 +5,20 @@ function Photos(props) {
 
     useEffect(() => {
         for(let i = 1; i<=4; i++ ) {
-            document.getElementById(i).setAttribute("src", `/img/items/${props.item.id}/${i}.jpg`)
+            let checkIf = document.getElementById(5);
+            console.log(checkIf)
+            if(document.getElementById(i) !== null) {
+                props.socket.emit("checkPhoto", props.item.id, i, found => {
+                    if(found) {
+                        document.getElementById(i).setAttribute("src", `/img/items/${props.item.id}/${i}.jpg`)
+                    } else {
+                        document.getElementById(i).setAttribute("src", `/img/items/nophoto.jpg`);
+                    }
+                });
+            }
         }
 
-    });
+    }, [props.item.id]);
 return (
     <div className="photoContainer">
 

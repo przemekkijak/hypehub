@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const server = require("http").createServer(app)
 const io = require("socket.io")(server)
+const fs = require('fs');
 server.listen(5555, () =>
 console.log(`Socketserver listening on port 5555`)
 );
@@ -333,6 +334,16 @@ pool.getConnection(function(err, connection) {
         }
       )
     })
+    socket.on("checkPhoto", (item,photo,fn) => {
+      let pathToFile = (path.join(__dirname, `/client/public/img/items/${item}/${photo}.jpg`));
+        fs.access(pathToFile,fs.F_OK, (error) => {
+          if(error) {
+            fn(false);
+          } else {
+          fn(true);
+          }
+        })
+      });
 
 
   }); //socket connection on

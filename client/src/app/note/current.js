@@ -62,6 +62,13 @@ function itemSize(item) {
           <p>
             <button
               className="actionButton"
+              onClick={() => props.itemInfo(item.id)}>
+                <img src="/img/note/info.png" alt="info" className="noteIcon"/>
+              </button>
+          </p>
+          <p>
+            <button
+              className="actionButton"
               id={item.id}
               onClick={id => {
                 if(window.confirm("Napewno usunac przedmiot?"))

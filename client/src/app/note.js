@@ -42,7 +42,7 @@ return (
         to="/note/current">Aktualne</NavLink>
       <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
       <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
-      <span>Filtruj<img src="/img/filtr.png" alt="filtr" onClick={() => props.filterItems()}/></span>
+      <span>Filtruj<img src="/img/note/filtr.png" alt="filtr" onClick={() => props.filterItems()}/></span>
       <input type="text" placeholder="Szukaj..." onChange={(e) => props.searchItem(e.target.value)}/>
     </div>
 
