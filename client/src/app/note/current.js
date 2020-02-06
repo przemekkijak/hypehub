@@ -56,7 +56,7 @@ function itemSize(item) {
           <p><button
               className="actionButton"
               onClick={() => sellItem(item.id)}>
-                <img src="/img/coin.png" alt="coin" className="noteIcon"/>
+                <img src="/img/note/coin.png" alt="coin" className="noteIcon"/>
               </button>
           </p>
           <p>
@@ -67,7 +67,7 @@ function itemSize(item) {
                 if(window.confirm("Napewno usunac przedmiot?"))
                 props.deleteItem(id)
               }}>
-                <img src="/img/delete.png" alt="delete" className="noteIcon"/>
+                <img src="/img/note/delete.png" alt="delete" className="noteIcon"/>
             </button>
           </p>
         </div>

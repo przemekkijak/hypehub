@@ -93,19 +93,19 @@ return (
         <>
           <div className="navigationContainer">
             <p><NavLink className="link naviElement" activeClassName="navActive" to="note">
-              <img src="img/shirt.png" alt="Items" className="navIcon"/><br/>
+              <img src="img/menu/shirt.png" alt="Items" className="navIcon"/><br/>
               Itemy</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="bulk">
-              <img src="img/bulk.png" alt="Bulk" className="navIcon"/><br/>
+              <img src="img/menu/bulk.png" alt="Bulk" className="navIcon"/><br/>
               Bulk</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="stats">
-              <img src="img/stats.png" alt="Stats" className="navIcon"/><br/>
+              <img src="img/menu/stats.png" alt="Stats" className="navIcon"/><br/>
               Statystyki</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="account">
-              <img src="img/user.png" alt="Account" className="navIcon"/><br/>
+              <img src="img/menu/user.png" alt="Account" className="navIcon"/><br/>
               Moje konto</NavLink></p>
             <p id="logoutNav"><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>
-              <img src="img/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/><br/>
+              <img src="img/menu/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/><br/>
               Wyloguj</NavLink></p>
           </div>
           <Switch>
