@@ -347,11 +347,21 @@ pool.getConnection(function(err, connection) {
         })
       });
       // Uploading photos
+      let itemsImg = path.join(__dirname, '/client/public/img/items/');
       var uploader = new siofu()
-      uploader.dir = path.join(__dirname, '/client/public/img/items/');
+      uploader.dir = itemsImg;
       uploader.listen(socket);
 
-      // socket.on('uploadPhoto', itemID
+      socket.on('uploadPhoto', (itemID, fileName, order, fn) => {
+
+        uploader.on('saved', (event) => {
+          console.log('File uploaded successfully ' + event.file.name);
+          fs.rename((path.join(itemsImg, fileName)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
+            if(error) throw error;
+            fn(true);
+        })
+        })
+      });
 
 
   }); //socket connection on
