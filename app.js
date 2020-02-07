@@ -356,10 +356,19 @@ pool.getConnection(function(err, connection) {
 
         uploader.on('saved', (event) => {
           console.log('File uploaded successfully ' + event.file.name);
-          fs.rename((path.join(itemsImg, fileName)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
-            if(error) throw error;
-            fn(true);
-        })
+          fs.access((path.join(itemsImg, fileName)), fs.F_OK, (error) => {
+            if(error) {
+              console.log('Something wrong with file');
+            } else {
+              fs.rename((path.join(itemsImg, fileName)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
+                if(error) {
+                  console.log(error);
+                } else {
+                fn(true);
+                }
+              })
+            }
+          })
         })
       });
 

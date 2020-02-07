@@ -26,7 +26,6 @@ function Photos(props) {
     }, [reload]);
 
 function upload() {
-    console.log('Click from ' + order);
     var fileInput = document.getElementById('photoFile');
         if(fileInput.files.length > 0) {
             props.socket.emit('uploadPhoto', props.item.id, fileInput.files[0].name, order, response => {
