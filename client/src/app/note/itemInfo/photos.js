@@ -25,13 +25,16 @@ function Photos(props) {
         }
     }, [reload]);
 
-function upload() {
-    var fileInput = document.getElementById('photoFile');
+
+
+
+function uploadPhoto() {
+    const fileInput = document.getElementById('photoFile');
         if(fileInput.files.length > 0) {
             props.socket.emit('uploadPhoto', props.item.id, fileInput.files[0].name, order, response => {
                 if(response) {
-                    reloadPhotos(true);
                     fileInput.value = "";
+                    reloadPhotos(true);
 
                 } else {
                     console.log('something went wrong');
@@ -47,7 +50,7 @@ return (
             <form>
             <input type="file" id="photoFile"/>
             </form>
-            <button id="uploadPhoto" onClick={() => upload()}>Upload</button>
+            <button id="uploadPhoto" onClick={() => uploadPhoto()}>Upload</button>
         </div>
 
         <div className="photosBox">
