@@ -352,22 +352,21 @@ pool.getConnection(function(err, connection) {
       uploader.dir = itemsImg;
       uploader.listen(socket);
 
-      socket.once('uploadPhoto', (itemID, fileName, order, fn) => {
+      socket.on('uploadPhoto', (itemID, order) => {
 
-        uploader.on('saved', (event) => {
-          console.log('File uploaded successfully ' + event.file.name);
+        uploader.once('saved', (event) => {
+          // Check if can access uploaded file
+          console.log('File uploaded ' + event.file.name);
           fs.access((path.join(itemsImg, event.file.name)), fs.F_OK, (error) => {
             if(error) {
-              console.log('Something wrong with file');
-              fn(false);
+              console.log(error);
             } else {
-              console.log('Should change: ' + event.file.name + ' to: ID: '+itemID + ' ' + order);
+              // Rename uploaded file to -> itemID + order (1/2/3/4)
               fs.rename((path.join(itemsImg, event.file.name)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
                 if(error) {
                   console.log(error);
                 } else {
-                  console.log('Name changed successfully');
-                fn(true);
+                  socket.emit('photoComplete');
                 }
               })
             }

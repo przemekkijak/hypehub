@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import '../../styles/photos.css';
 import SocketIOFileUpload from 'socketio-file-upload'
 
 function Photos(props) {
     const uploader = new SocketIOFileUpload(props.socket);
-    const [reload,reloadPhotos] = useState(false);
-    var order = 0;
+    const [reload,setReload] = useState(false);
+    const order = useRef(1);
 
 
     useEffect(() => {
@@ -17,7 +17,7 @@ function Photos(props) {
                     } else {
                         document.getElementById(i).setAttribute("src", `/img/items/nophoto.jpg`);
                         document.getElementById(i).onclick = () => {
-                            order = i;
+                            order.current = i;
                             document.getElementById('photoFile').click();
                         }
                     }
@@ -29,17 +29,14 @@ function Photos(props) {
 
 
 function uploadPhoto() {
+    console.log(order.current);
     const fileInput = document.getElementById('photoFile');
         if(fileInput.files.length > 0) {
-            props.socket.emit('uploadPhoto', props.item.id, fileInput.files[0].name, order, response => {
-                if(response) {
-                    uploader.destroy();
-                    reloadPhotos(!reload);
-
-                } else {
-                    console.log('something went wrong');
-                }
-            });
+            props.socket.emit('uploadPhoto', props.item.id, order.current);
+            props.socket.on('photoComplete', () => {
+                uploader.destroy();
+                setReload(!reload);
+            })
     }
 }
 return (
