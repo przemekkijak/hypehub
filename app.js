@@ -353,7 +353,13 @@ pool.getConnection(function(err, connection) {
       uploader.dir = itemsImg;
       uploader.listen(socket);
 
+      uploader.on('error', (event) => {
+        console.log('Error while uploading ' + event.message);
+        console.log(event.code);
+      })
+
       socket.on('uploadPhoto', (itemID, order) => {
+
 
         uploader.once('saved', (event) => {
           // Check if can access uploaded file
@@ -391,7 +397,9 @@ pool.getConnection(function(err, connection) {
           }
         })
       }, 500);
-      });
+
+
+    });
 
   }); //socket connection on
 }); //pool getConnection
