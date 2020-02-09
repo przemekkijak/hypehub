@@ -23,7 +23,7 @@ function Photos(props) {
                     }
                 });
         }
-    }, [reload]);
+    },[reload]);
 
 
 
@@ -33,8 +33,8 @@ function uploadPhoto() {
         if(fileInput.files.length > 0) {
             props.socket.emit('uploadPhoto', props.item.id, fileInput.files[0].name, order, response => {
                 if(response) {
-                    fileInput.value = "";
-                    reloadPhotos(true);
+                    uploader.destroy();
+                    reloadPhotos(!reload);
 
                 } else {
                     console.log('something went wrong');

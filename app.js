@@ -361,10 +361,12 @@ pool.getConnection(function(err, connection) {
               console.log('Something wrong with file');
               fn(false);
             } else {
-              fs.rename((path.join(itemsImg, fileName)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
+              console.log('Should change: ' + event.file.name + ' to: ID: '+itemID + ' ' + order);
+              fs.rename((path.join(itemsImg, event.file.name)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
                 if(error) {
                   console.log(error);
                 } else {
+                  console.log('Name changed successfully');
                 fn(true);
                 }
               })
