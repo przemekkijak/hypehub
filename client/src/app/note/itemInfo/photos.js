@@ -23,7 +23,7 @@ function Photos(props) {
                     }
                 });
         }
-    },[reload]);
+    },[uploader]);
 
 
 
@@ -37,6 +37,9 @@ function uploadPhoto() {
                 uploader.destroy();
                 setReload(!reload);
             })
+            fileInput.value = '';
+    } else {
+        console.log('File empty');
     }
 }
 return (

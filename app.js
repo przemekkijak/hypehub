@@ -361,11 +361,13 @@ pool.getConnection(function(err, connection) {
             if(error) {
               console.log(error);
             } else {
+              console.log('Starting to rename ' + event.file.name);
               // Rename uploaded file to -> itemID + order (1/2/3/4)
               fs.rename((path.join(itemsImg, event.file.name)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
                 if(error) {
                   console.log(error);
                 } else {
+                  console.log('Photo complete');
                   socket.emit('photoComplete');
                 }
               })
