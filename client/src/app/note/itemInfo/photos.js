@@ -23,7 +23,7 @@ function Photos(props) {
                     }
                 });
         }
-    },[uploader]);
+    },[reload]);
 
 
 

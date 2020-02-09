@@ -4,6 +4,7 @@ const app = express().use(siofu.router);
 const server = require("http").createServer(app)
 const io = require("socket.io")(server)
 const fs = require('fs');
+const glob = require('glob');
 server.listen(5555, () =>
 console.log(`Socketserver listening on port 5555`)
 );
@@ -356,24 +357,40 @@ pool.getConnection(function(err, connection) {
 
         uploader.once('saved', (event) => {
           // Check if can access uploaded file
-          console.log('File uploaded ' + event.file.name);
           fs.access((path.join(itemsImg, event.file.name)), fs.F_OK, (error) => {
             if(error) {
               console.log(error);
             } else {
-              console.log('Starting to rename ' + event.file.name);
               // Rename uploaded file to -> itemID + order (1/2/3/4)
               fs.rename((path.join(itemsImg, event.file.name)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
                 if(error) {
                   console.log(error);
                 } else {
-                  console.log('Photo complete');
                   socket.emit('photoComplete');
                 }
               })
             }
           })
         })
+        // There was some error after uploading 4 photos in row, creating 4-0.jpg and 4-1.jpg, problem with updating state after upload, so there is solution to delete these 2 files
+        setTimeout(() => {
+        glob(`${itemsImg}**-*.jpg`, (error, files) => {
+          if(error) {
+            console.log(error);
+          }
+          if(files.length > 0) {
+          console.log(files);
+          files.forEach(element => {
+            fs.unlink(element, (error) => {
+              if(error) {
+                throw error;
+              }
+              console.log(element + ' deleted');
+            })
+          });
+          }
+        })
+      }, 500);
       });
 
   }); //socket connection on
