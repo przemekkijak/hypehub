@@ -374,7 +374,6 @@ pool.getConnection(function(err, connection) {
                   console.log(error);
                 } else {
                   socket.emit('photoComplete');
-                  console.log('File saved');
                 }
               })
             }
