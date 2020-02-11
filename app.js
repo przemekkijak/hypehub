@@ -337,20 +337,21 @@ pool.getConnection(function(err, connection) {
       )
     })
     // PHOTOS
-    socket.on("checkPhoto", (item,photo,fn) => {
-      let pathToFile = (path.join(__dirname, `/public/img/items/${item}_${photo}.jpg`));
-        fs.access(pathToFile,fs.F_OK, (error) => {
+    let itemsPath = path.join(__dirname, `public/img/items/`);
+    socket.on("checkPhoto", (item,order,fn) => {
+      // Try to access file without opening it
+        fs.access(path.join(itemsPath, `${item}_${order}.jpg`),fs.F_OK, (error) => {
           if(error) {
-            fn(false);
+            fn(false); //File not found -> set nophoto.jpg for element
           } else {
-          fn(true);
+          fn(true); // File found -> set photo for element
           }
         })
       });
+
       // Uploading photos
-      let itemsImg = path.join(__dirname, '/public/img/items/');
       var uploader = new siofu()
-      uploader.dir = itemsImg;
+      uploader.dir = itemsPath;
       uploader.listen(socket);
 
       uploader.on('error', (event) => {
@@ -363,12 +364,12 @@ pool.getConnection(function(err, connection) {
 
         uploader.once('saved', (event) => {
           // Check if can access uploaded file
-          fs.access((path.join(itemsImg, event.file.name)), fs.F_OK, (error) => {
+          fs.access((path.join(itemsPath, event.file.name)), fs.F_OK, (error) => {
             if(error) {
               console.log(error);
             } else {
               // Rename uploaded file to -> itemID + order (1/2/3/4)
-              fs.rename((path.join(itemsImg, event.file.name)), (path.join(itemsImg, `${itemID}_${order}.jpg`)), (error) => {
+              fs.rename((path.join(itemsPath, event.file.name)), (path.join(itemsPath, `${itemID}_${order}.jpg`)), (error) => {
                 if(error) {
                   console.log(error);
                 } else {
@@ -381,23 +382,22 @@ pool.getConnection(function(err, connection) {
         })
         // There was some error after uploading 4 photos in row, creating 4-0.jpg and 4-1.jpg, problem with updating state after upload, so there is solution to delete these 2 files
         setTimeout(() => {
-        glob(`${itemsImg}**-*.jpg`, (error, files) => {
+        glob(`${itemsPath}**-*.jpg`, (error, files) => {
           if(error) {
             console.log(error);
           }
           if(files.length > 0) {
-          console.log(files);
           files.forEach(element => {
             fs.unlink(element, (error) => {
               if(error) {
+                console.log(`Error while deleting ` + element);
                 throw error;
               }
-              console.log(element + ' deleted');
             })
           });
           }
         })
-      }, 500);
+      }, 1000);
 
 
     });
