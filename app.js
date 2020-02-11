@@ -338,7 +338,7 @@ pool.getConnection(function(err, connection) {
     })
     // PHOTOS
     socket.on("checkPhoto", (item,photo,fn) => {
-      let pathToFile = (path.join(__dirname, `/client/public/img/items/${item}_${photo}.jpg`));
+      let pathToFile = (path.join(__dirname, `/public/img/items/${item}_${photo}.jpg`));
         fs.access(pathToFile,fs.F_OK, (error) => {
           if(error) {
             fn(false);
@@ -348,18 +348,18 @@ pool.getConnection(function(err, connection) {
         })
       });
       // Uploading photos
-      let itemsImg = path.join(__dirname, '/client/public/img/items/');
+      let itemsImg = path.join(__dirname, '/public/img/items/');
       var uploader = new siofu()
       uploader.dir = itemsImg;
       uploader.listen(socket);
 
       uploader.on('error', (event) => {
-        console.log('Error while uploading ' + event.message);
-        console.log(event.code);
+        console.log(`Error while uploading ${event.file.name}`);
+        console.log(event.error)
       })
 
-      socket.on('uploadPhoto', (itemID, order) => {
 
+      socket.on('uploadPhoto', (itemID, order) => {
 
         uploader.once('saved', (event) => {
           // Check if can access uploaded file
@@ -373,6 +373,7 @@ pool.getConnection(function(err, connection) {
                   console.log(error);
                 } else {
                   socket.emit('photoComplete');
+                  console.log('File saved');
                 }
               })
             }
