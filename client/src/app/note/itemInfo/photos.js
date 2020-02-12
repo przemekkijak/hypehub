@@ -9,7 +9,9 @@ function Photos(props) {
 
 
     useEffect(() => {
-        uploader.listenOnSubmit(document.getElementById('uploadPhoto'), document.getElementById('photoFile'));
+        uploader.listenOnInput(document.getElementById('photoFile'));
+
+        // uploader.listenOnSubmit(document.getElementById('uploadPhoto'), document.getElementById('photoFile'));
         for(let i = 1; i<=4; i++ ) {
                 props.socket.emit('checkPhoto', props.item.id, i, found => {
                     if(found) {
@@ -25,22 +27,19 @@ function Photos(props) {
         }
     },[reload]);
 
+    props.socket.on('file_saved', fn => {
+        let itemData = {
+            id: props.item.id,
+            order: order.current
+        }
+        fn(itemData);
+    })
 
+    props.socket.on('photoComplete', () => {
+        uploader.destroy();
+        setReload(!reload);
+    })
 
-
-function uploadPhoto() {
-    const fileInput = document.getElementById('photoFile');
-        if(fileInput.files.length > 0) {
-            props.socket.emit('uploadPhoto', props.item.id, order.current);
-            props.socket.on('photoComplete', () => {
-                uploader.destroy();
-                setReload(!reload);
-            })
-            fileInput.value = '';
-    } else {
-        console.log('File empty');
-    }
-}
 return (
     <div className="photoContainer">
 
@@ -49,7 +48,7 @@ return (
             <form>
             <input type="file" id="photoFile"/>
             </form>
-            <button id="uploadPhoto" onClick={() => uploadPhoto()}>Upload</button>
+            {/* <button id="uploadPhoto" onClick={() => uploadPhoto()}>Upload</button> */}
         </div>
 
         <div className="photosBox">

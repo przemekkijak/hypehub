@@ -359,47 +359,45 @@ pool.getConnection(function(err, connection) {
         console.log(event.error)
       })
 
-
-      socket.on('uploadPhoto', (itemID, order) => {
-
-        uploader.once('saved', (event) => {
-          // Check if can access uploaded file
+      uploader.on('saved', (event) => {
+        socket.emit('file_saved', itemData => {
           fs.access((path.join(itemsPath, event.file.name)), fs.F_OK, (error) => {
             if(error) {
               console.log(error);
             } else {
               // Rename uploaded file to -> itemID + order (1/2/3/4)
-              fs.rename((path.join(itemsPath, event.file.name)), (path.join(itemsPath, `${itemID}_${order}.jpg`)), (error) => {
+              fs.rename((path.join(itemsPath, event.file.name)), (path.join(itemsPath, `${itemData.id}_${itemData.order}.jpg`)), (error) => {
                 if(error) {
                   console.log(error);
-                } else {
-                  socket.emit('photoComplete');
-                }
-              })
+                  } else {
+                    socket.emit('photoComplete');
+                  }
+              }) //fs.rename
             }
-          })
-        })
-        // There was some error after uploading 4 photos in row, creating 4-0.jpg and 4-1.jpg, problem with updating state after upload, so there is solution to delete these 2 files
-        setTimeout(() => {
-        glob(`${itemsPath}**-*.jpg`, (error, files) => {
-          if(error) {
-            console.log(error);
-          }
-          if(files.length > 0) {
-          files.forEach(element => {
-            fs.unlink(element, (error) => {
+          }) //fs.access
+          // There was some error after uploading 4 photos in row, creating 4-0.jpg and 4-1.jpg, problem with updating state after upload, so there is solution to delete these 2 files
+          setTimeout(() => {
+            glob(`${itemsPath}**-*.jpg`, (error, files) => {
               if(error) {
-                console.log(`Error while deleting ` + element);
-                throw error;
+                console.log(error);
               }
-            })
-          });
-          }
-        })
-      }, 1000);
+              if(files.length > 0) {
+                files.forEach(element => {
+                  fs.unlink(element, (error) => {
+                    if(error) {
+                      console.log(`Error while deleting ` + element);
+                      throw error;
+                    }
+                  }) //fs.unlink
+                }); //forEach
+              }
+            }) //glob
+        }, 1000);
+        }) // socket.emit file_Saved
+      }); // uploader.on 'saved'
 
 
-    });
+
 
   }); //socket connection on
 }); //pool getConnection
