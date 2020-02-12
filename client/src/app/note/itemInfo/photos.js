@@ -9,9 +9,8 @@ function Photos(props) {
 
 
     useEffect(() => {
+        console.log('Mountend with item: ' + props.item.name);
         uploader.listenOnInput(document.getElementById('photoFile'));
-
-        // uploader.listenOnSubmit(document.getElementById('uploadPhoto'), document.getElementById('photoFile'));
         for(let i = 1; i<=4; i++ ) {
                 props.socket.emit('checkPhoto', props.item.id, i, found => {
                     if(found) {
@@ -25,9 +24,12 @@ function Photos(props) {
                     }
                 });
         }
-    },[reload]);
+        return () => {
+            console.log('unmount');
+        }
+    }, [reload]);
 
-    props.socket.on('file_saved', fn => {
+    props.socket.once('file_saved', fn => {
         let itemData = {
             id: props.item.id,
             order: order.current
@@ -35,7 +37,7 @@ function Photos(props) {
         fn(itemData);
     })
 
-    props.socket.on('photoComplete', () => {
+    props.socket.once('photoComplete', () => {
         uploader.destroy();
         setReload(!reload);
     })

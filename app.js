@@ -361,6 +361,7 @@ pool.getConnection(function(err, connection) {
 
       uploader.on('saved', (event) => {
         socket.emit('file_saved', itemData => {
+          console.log('File Data: ' + itemData.id, itemData.order);
           fs.access((path.join(itemsPath, event.file.name)), fs.F_OK, (error) => {
             if(error) {
               console.log(error);
