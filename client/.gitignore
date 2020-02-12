@@ -5,6 +5,7 @@
 /node_modules/
 node_modules
 node_modules/
+/client/public/img/items/
 /.pnp
 .pnp.js
 
