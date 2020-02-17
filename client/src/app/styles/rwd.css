@@ -1,17 +1,26 @@
 @media only screen and (max-width: 768px) {
+  .navigationContainer {
+    display: none;
+  }
+
+  * {
+    font-size: 0.9em;
+  }
+
   .tableContainer {
     width: 100vw;
   }
 
   .noteTableNavi .link {
+    left: 35%;
     margin: 10px;
+    font-size: 0.7em;
   }
   .noteTableNavi input {
-    left: 25%;
-    width: 15%;
+    display: none;
   }
   .noteTableNavi span {
-    left: 50%;
+    display: none;
   }
 }
 @media only screen and (max-width: 759px) {

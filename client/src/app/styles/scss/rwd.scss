@@ -1,6 +1,13 @@
 
 // Ipad
 @media only screen and (max-width: 768px) {
+    // app -> main navi on left
+    .navigationContainer {
+        display: none;
+    }
+    * {
+        font-size: 0.9em;
+    }
 
     // note.scss
     .tableContainer {
@@ -9,14 +16,15 @@
     // Nawigacja w Note
     .noteTableNavi {
         .link {
+            left: 35%;
             margin: 10px;
+            font-size: 0.7em;
         }
         input {
-            left: 25%;
-            width: 15%;
+            display: none;
         }
         span {
-            left: 50%;
+            display: none;
         }
     }
 }
