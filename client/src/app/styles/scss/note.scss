@@ -22,7 +22,7 @@
   }
   .tableContainer {
   position: absolute;
-  width: 80vw;
+  width: 60vw;
   height: 66vh;
   left: 50%;
   top: 50%;
@@ -31,10 +31,13 @@
     }
 .noteTableNavi {
     display: flex;
+    // border: 1px solid pink;
+    width: 100vw;
+    height: 15vh;
     span {
       position: relative;
-      top: 7%;
-      left: 69%;
+      top: 35%;
+      left: 59%;
       font-size: 0.8em;
       height: 25px;
       cursor: pointer;
@@ -48,8 +51,8 @@
     input {
       height: 30px;
       position: relative;
-      top: 7%;
-      left: 55%;
+      top: 35%;
+      left: 46%;
       background: none;
       outline: none;
       border: none;
@@ -59,8 +62,8 @@
   /* Table Navi Buttons (Current|Sold|Pending */
 .naviButton {
     position: relative;
-    left: 10%;
-    top: 6%;
+    left: 5%;
+    top: 35%;
     width: 6%;
     height: 50px;
     border: none;
@@ -104,7 +107,7 @@
     }
   }
   .currentColumns {
-  grid-template-columns: 25% 10% 10% 10% 10% 3% 3% 3%;
+  grid-template-columns: 30% 12% 12% 10% 10% 5% 5% 5%;
   }
   .soldColumns {
   grid-template-columns: 40% 10% 10% 15% 5% 5% 5%;
@@ -199,14 +202,3 @@
     opacity: 0;
   }
 
-  @media only screen and (max-width: 1024px) and (max-height: 1366px) {
-    .tableContainer {
-        top: 45%;
-        width: 100%;
-      }
-    }
-    @media only screen and (max-width: 1300px) {
-    #addButton {
-        height: 5vh;
-    }
-      }
