@@ -1,10 +1,10 @@
 @media only screen and (max-width: 768px) {
-  .navigationContainer {
-    display: none;
-  }
-
   * {
     font-size: 0.9em;
+  }
+
+  .navigationContainer {
+    display: none;
   }
 
   .tableContainer {
@@ -24,12 +24,12 @@
   }
 }
 @media only screen and (max-width: 759px) {
-  .navigationContainer {
-    display: none;
-  }
-
   * {
     font-size: 0.9em;
+  }
+
+  .navigationContainer {
+    display: none;
   }
 
   .tableContainer {
@@ -37,15 +37,21 @@
   }
 
   .noteTableNavi .link {
-    left: 25%;
     margin: 15px;
     font-size: 0.6em;
+    top: 5%;
+    left: 25%;
   }
   .noteTableNavi input {
     display: none;
   }
   .noteTableNavi span {
     display: none;
+  }
+
+  .currentContainer .noteIcon {
+    width: 12px;
+    height: 12px;
   }
 }
 

@@ -1,14 +1,14 @@
 
 // Ipad
 @media only screen and (max-width: 768px) {
-    // app -> main navi on left
-    .navigationContainer {
-        display: none;
-    }
     * {
         font-size: 0.9em;
     }
 
+    // app -> main navi on left
+    .navigationContainer {
+        display: none;
+    }
     // note.scss
     .tableContainer {
          width: 100vw;
@@ -30,30 +30,41 @@
 }
 // Phone - Large
 @media only screen and (max-width: 759px) {
+    * {
+        font-size: 0.9em;
+    }
 
     // app -> main navi on left
     .navigationContainer {
         display: none;
     }
-    * {
-        font-size: 0.9em;
-    }
     // note.scss
     .tableContainer {
         width: 100vw;
    }
+
    // Nawigacja w Note
    .noteTableNavi {
        .link {
-           left: 25%;
            margin: 15px;
            font-size: 0.6em;
+           top: 5%;
+           left: 25%;
        }
        input {
            display: none;
        }
        span {
            display: none;
+       }
+   } //noteTable navi
+
+//    Current
+
+   .currentContainer {
+       .noteIcon {
+           width: 12px;
+           height: 12px;
        }
    }
 
