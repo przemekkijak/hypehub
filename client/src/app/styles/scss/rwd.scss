@@ -1,0 +1,52 @@
+
+// Ipad
+@media only screen and (max-width: 768px) {
+
+    // note.scss
+    .tableContainer {
+         width: 100vw;
+    }
+    // Nawigacja w Note
+    .noteTableNavi {
+        .link {
+            margin: 10px;
+        }
+        input {
+            left: 25%;
+            width: 15%;
+        }
+        span {
+            left: 50%;
+        }
+    }
+}
+// Phone - Large
+@media only screen and (max-width: 759px) {
+
+    // app -> main navi on left
+    .navigationContainer {
+        display: none;
+    }
+    * {
+        font-size: 0.9em;
+    }
+    // note.scss
+    .tableContainer {
+        width: 100vw;
+   }
+   // Nawigacja w Note
+   .noteTableNavi {
+       .link {
+           left: 25%;
+           margin: 15px;
+           font-size: 0.6em;
+       }
+       input {
+           display: none;
+       }
+       span {
+           display: none;
+       }
+   }
+
+}

@@ -1,0 +1,43 @@
+@media only screen and (max-width: 768px) {
+  .tableContainer {
+    width: 100vw;
+  }
+
+  .noteTableNavi .link {
+    margin: 10px;
+  }
+  .noteTableNavi input {
+    left: 25%;
+    width: 15%;
+  }
+  .noteTableNavi span {
+    left: 50%;
+  }
+}
+@media only screen and (max-width: 759px) {
+  .navigationContainer {
+    display: none;
+  }
+
+  * {
+    font-size: 0.9em;
+  }
+
+  .tableContainer {
+    width: 100vw;
+  }
+
+  .noteTableNavi .link {
+    left: 25%;
+    margin: 15px;
+    font-size: 0.6em;
+  }
+  .noteTableNavi input {
+    display: none;
+  }
+  .noteTableNavi span {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=rwd.css.map */
