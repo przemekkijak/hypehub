@@ -56,6 +56,7 @@ return (
             <span>Cena kupna</span>
             <span>Profit</span>
             <span>Tracking</span>
+            <span>Kupujacy</span>
           </div>
         </Route>
         <Route path="/">

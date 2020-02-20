@@ -127,7 +127,7 @@
 }
 
 .soldColumns {
-  grid-template-columns: 30% 10% 7% 10% 5% 20% 5%;
+  grid-template-columns: 30% 10% 7% 10% 5% 20% 10% 5%;
 }
 
 /* Add bUtton */

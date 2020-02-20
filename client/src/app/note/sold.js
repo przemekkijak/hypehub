@@ -45,7 +45,8 @@ function Sold(props) {
           <p onClick={() => props.itemInfo(item.id)}>{convertCondition(item.cond)}</p>
           <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
           <p onClick={() => props.itemInfo(item.id)} id="earnings">{item.sellPrice - item.buyPrice} zł</p>
-          <p onClick={() => props.itemInfo(item.id)}><a>{getTracking(item)}</a></p>
+          <p onClick={() => props.itemInfo(item.id)}>{getTracking(item)}</p>
+          <p onClick={() => props.itemInfo(item.id)}>{item.soldFor}</p>
           <p><button
             className="actionButton"
             id={item.id}
