@@ -55,6 +55,7 @@ return (
             <span>Stan</span>
             <span>Cena kupna</span>
             <span>Profit</span>
+            <span>Tracking</span>
           </div>
         </Route>
         <Route path="/">
@@ -73,7 +74,8 @@ return (
             <Sold
               items={props.soldItems}
               deleteItem={deleteItem}
-              itemInfo={id => itemInfo(id)}/>
+              itemInfo={id => itemInfo(id)}
+              socket={socket}/>
           </Route>
           <Route exact path="/note/pending"><Pending/></Route>
           <Route exact path="/note/current">

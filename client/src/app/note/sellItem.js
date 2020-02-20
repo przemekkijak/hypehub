@@ -6,7 +6,8 @@ function SellItem(props) {
   const formBox = useRef();
   const itemPrice = useRef();
   const soldFor = useRef();
-  const tracking = useRef();
+  const shipCompany = useRef();
+  const trackingNumber = useRef();
   const [trackingInput, enableTracking] = useState(false);
   const [item, setItem] = useState();
   const [loading, setLoaded] = useState(false);
@@ -28,9 +29,11 @@ function SellItem(props) {
     let item = {
       id: props.id,
       price: itemPrice.current.value,
-      soldFor: soldFor.current.value
+      soldFor: soldFor.current.value,
+      shipCompany: shipCompany.current.value,
+      trackingNumber: trackingNumber.current.value
     };
-    if (/^&|^[a-zA-Z0-9 / ,.-]+$/.test(soldFor.value)) {
+    if (/^&|^[a-zA-Z0-9 / ,.-]+$/.test(soldFor.value) && /^&|^[a-zA-Z0-9 / ,.-]+$/.test(trackingNumber.value)) {
       if (!isNaN(item.price)) {
         socket.emit("sellItem", item);
         props.refreshItems();
@@ -40,7 +43,7 @@ function SellItem(props) {
   }
 
   function checkTracking() {
-    if(tracking.current.value.length > 0 ) {
+    if(shipCompany.current.value !== "") {
       enableTracking(true);
     } else {
       enableTracking(false);
@@ -50,20 +53,26 @@ function SellItem(props) {
     loading && (
     <div className="sellContainer">
       <form onSubmit={handleSubmit} ref={formBox}>
-        <span>Sprzedajesz {item.name}</span>
+        <div>{item.name}</div>
 
         <p><input placeholder="Cena" ref={itemPrice} autoFocus={true} required/></p>
         <p><input placeholder="Kupujacy (opcjonalnie)" ref={soldFor} /></p>
-        <p><input placeholder="Tracking" ref={tracking} onChange={() => checkTracking()} /></p>
+        <p><select ref={shipCompany} onChange={() => checkTracking()}>
+              <option value="">Wybierz przewoźnika</option>
+              <option value="dpd">DPD</option>
+              <option value="dhl">DHL</option>
+              <option value="pp">Poczta Polska</option>
+              <option value="ups">UPS</option>
+              <option value="inpost">InPost</option>
+          </select></p>
+          {trackingInput && (
+            <p><input placeholder="Numer paczki" ref={trackingNumber}/></p>
+          )}
 
 
-        {trackingInput && (
-          <p>tracking input</p>
-        )}
-
-          <button type="submit" className="menuButton" value="Submit">
+          <p><button type="submit" className="menuButton" value="Submit">
             Sprzedaj
-          </button>
+          </button></p>
       </form>
     </div>
     ))

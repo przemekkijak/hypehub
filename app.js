@@ -176,7 +176,7 @@ pool.getConnection(function(err, connection) {
           }
         );
       }
-    });
+    }); //getSoldItems
 
     socket.on("deleteItem", id => {
       pool.query("DELETE from items where id='" + id + "';", function(error) {
@@ -184,31 +184,15 @@ pool.getConnection(function(err, connection) {
           console.log(error);
           console.log("Error while deleting item ID: " + id);
         }
-      });
-    });
+      }); //poolQuery
+    }); //deleteItem
+
     socket.on("addItem", item => {
       switch (item.type) {
         case 1:
           pool.query(
             "INSERT into items (name,buyPrice,estimatedPrice,size,length,width,cond,ownerID,type,sold) values ('" +
-              item.name +
-              "','" +
-              item.price +
-              "','" +
-              item.estimatedPrice +
-              "','" +
-              item.size +
-              "','" +
-              item.length +
-              "','" +
-              item.width +
-              "','" +
-              item.cond +
-              "', '" +
-              item.ownerID +
-              "','" +
-              item.type +
-              "',0);",
+              item.name + "','" + item.price + "','" + item.estimatedPrice + "','" + item.size + "','" + item.length + "','" + item.width + "','" + item.cond + "', '" + item.ownerID +"','" + item.type + "',0);",
             function(error) {
               if (error) {
                 console.log(error);
@@ -223,22 +207,7 @@ pool.getConnection(function(err, connection) {
         case 2:
           pool.query(
             "INSERT into items (name,buyPrice,estimatedPrice,size,shoeInsert,cond,ownerID,type,sold) values ('" +
-              item.name +
-              "','" +
-              item.price +
-              "','" +
-              item.estimatedPrice +
-              "','" +
-              item.size +
-              "','" +
-              item.insert +
-              "','" +
-              item.cond +
-              "','" +
-              item.ownerID +
-              "','" +
-              item.type +
-              "',0);",
+              item.name + "','" + item.price + "','" + item.estimatedPrice + "','" + item.size + "','" + item.insert + "','" + item.cond + "','" + item.ownerID +"','" + item.type + "',0);",
             function(error) {
               if (error) {
                 console.log(error);
@@ -253,20 +222,7 @@ pool.getConnection(function(err, connection) {
         case 3:
           pool.query(
             "INSERT into items (name,buyPrice,estimatedPrice,size,cond,ownerID,type,sold) values ('" +
-              item.name +
-              "','" +
-              item.price +
-              "','" +
-              item.estimatedPrice +
-              "','" +
-              item.size +
-              "','" +
-              item.cond +
-              "', '" +
-              item.ownerID +
-              "','" +
-              item.type +
-              "',0);",
+              item.name + "','" +item.price + "','" +item.estimatedPrice +"','" +item.size +"','" +item.cond +"', '" +item.ownerID +"','" +item.type +"',0);",
             function(error) {
               if (error) {
                 console.log(error);
@@ -284,7 +240,8 @@ pool.getConnection(function(err, connection) {
     socket.on("sellItem", item => {
       pool.query(
         "UPDATE items set sold='1', sellPrice='" +
-          item.price +
+          item.price + "', soldFor='" + item.soldFor +
+          "', shipCompany ='" + item.shipCompany + "', trackingNumber='"+item.trackingNumber+
           "', soldAt=CURRENT_TIMESTAMP where id='" +
           item.id +
           "';",
@@ -296,6 +253,7 @@ pool.getConnection(function(err, connection) {
         }
       );
     });
+
     socket.on("updateItem", item => {
       pool.query(
         "UPDATE items set name='"+
@@ -328,7 +286,7 @@ pool.getConnection(function(err, connection) {
     })
     socket.on("unSold", item => {
       pool.query(
-        "UPDATE items SET sold=0 WHERE id='"+item.id+"';", function(error) {
+        "UPDATE items SET soldFor='', shipCompany='', trackingNumber='', sold=0 WHERE id='"+item.id+"';", function(error) {
           if(error) {
             console.log(error);
             console.log("Error while unSold item");
@@ -336,6 +294,7 @@ pool.getConnection(function(err, connection) {
         }
       )
     })
+
 
 
 

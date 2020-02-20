@@ -18,18 +18,26 @@
 .sellContainer form {
   height: 100%;
   width: 100%;
-  border: 1px solid pink;
 }
-.sellContainer form span {
+.sellContainer form div {
+  top: 5%;
   position: relative;
-  left: 25%;
+  text-align: center;
   font-size: 0.8em;
 }
-.sellContainer form p:first-of-type {
-  margin-top: 10px;
+.sellContainer form p {
+  position: relative;
+  top: 15%;
+  margin: 3px;
+}
+.sellContainer form p button {
+  width: 8vw;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 .sellContainer form input {
-  height: 42px;
+  height: 35px;
   width: 15vw;
   position: relative;
   transform: translate(-50%);
@@ -42,11 +50,20 @@
   background-color: rgba(90, 94, 92, 0.212);
   border-radius: 2%;
 }
-.sellContainer form button {
-  width: 8vw;
+.sellContainer form select {
+  background-color: rgba(90, 94, 92, 0.212);
+  outline: none;
+  border: none;
+  width: 15vw;
+  height: 35px;
   position: relative;
-  transform: translate(-50%);
+  margin: 3px;
   left: 50%;
+  top: 70%;
+  transform: translate(-50%);
+}
+.sellContainer form select option {
+  background-color: #5a5e5c;
 }
 
 /*# sourceMappingURL=sellitem.css.map */
