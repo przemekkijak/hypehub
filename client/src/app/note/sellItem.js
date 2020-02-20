@@ -1,17 +1,27 @@
 import React, { useRef, useState, useEffect } from "react";
+import "../styles/sellItem.css";
 
 function SellItem(props) {
   const socket = props.socket;
   const formBox = useRef();
   const itemPrice = useRef();
   const soldFor = useRef();
-  const [itemName, setItemName] = useState();
+  const tracking = useRef();
+  const [trackingInput, enableTracking] = useState(false);
+  const [item, setItem] = useState();
+  const [loading, setLoaded] = useState(false);
 
   useEffect(() => {
+    let unmounted = false;
     socket.emit('getItem', props.id, item => {
-      setItemName(item[0].name);
+      setItem(item[0]);
+      setLoaded(true);
     })
-  });
+
+    return () => {
+       unmounted = true;
+    };
+  }, [props.id]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,24 +38,35 @@ function SellItem(props) {
       }
     }
   }
+
+  function checkTracking() {
+    if(tracking.current.value.length > 0 ) {
+      enableTracking(true);
+    } else {
+      enableTracking(false);
+    }
+  }
   return (
-    <div className="itemMenuBox">
+    loading && (
+    <div className="sellContainer">
       <form onSubmit={handleSubmit} ref={formBox}>
-        <span>Sprzedajesz {itemName}</span>
-        <p>
-          <input placeholder="Cena" ref={itemPrice} autoFocus={true} required />
-        </p>
-        <p>
-          <input placeholder="Kupujacy (opcjonalnie)" ref={soldFor} />
-        </p>
-        <p>
+        <span>Sprzedajesz {item.name}</span>
+
+        <p><input placeholder="Cena" ref={itemPrice} autoFocus={true} required/></p>
+        <p><input placeholder="Kupujacy (opcjonalnie)" ref={soldFor} /></p>
+        <p><input placeholder="Tracking" ref={tracking} onChange={() => checkTracking()} /></p>
+
+
+        {trackingInput && (
+          <p>tracking input</p>
+        )}
+
           <button type="submit" className="menuButton" value="Submit">
             Sprzedaj
           </button>
-        </p>
       </form>
     </div>
-    )
+    ))
 }
 
 export default SellItem;

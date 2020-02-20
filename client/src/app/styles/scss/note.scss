@@ -96,7 +96,8 @@
     cursor: pointer;
     display: grid;
     height: 50px;
-    border-bottom: 1px solid rgba(138, 160, 159, 0.322);
+    // border-bottom: 1px solid rgba(138, 160, 159, 0.322);
+    border-bottom: 1px solid rgba(90, 114, 77, 0.356);
     &:hover {
       background-color: hsla(0,0%,18%,0.250);
     }
