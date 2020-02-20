@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 function AddClothes(props) {
+  const [loaded, setLoading] = useState(false);
   const formBox = useRef();
   const itemName = useRef();
   const itemSize = useRef();
@@ -10,6 +11,14 @@ function AddClothes(props) {
   const itemLength = useRef();
   const itemWidth = useRef();
   const itemData = [itemName,itemSize,itemPrice,itemCond,itemLength,itemWidth, estimatedPrice];
+
+  useEffect(() => {
+    let unmounted = false;
+    setLoading(true);
+
+    return() => {unmounted = true;}
+  });
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -38,11 +47,24 @@ function AddClothes(props) {
             props.handleModal();
           }
         }
+      } else {
+        console.log(`Something wrong with ${element.value}`);
       }
     }
   }
+
+  function validateInput(input) {
+    var element = document.getElementById(input.current.id)
+    
+        if(/^[0-9cm]*$/.test(input.current.value)) {
+          element.style.border = "none";
+        } else {
+          element.style.border = "1px solid darkred";
+        }
+  }
+
   return (
-    <>
+    loaded &&
       <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
         <p>
           <input
@@ -55,35 +77,47 @@ function AddClothes(props) {
         <p>
           <input
           ref={itemSize}
-          required />
+          required/>
           <span>Rozmiar</span>
         </p>
         <p>
           <input
           ref={itemLength}
+          id="itemLength"
+          spellCheck="false"
+          onChange={() => validateInput(itemLength)}
           />
           <span>Dlugosc (cm)</span>
         </p>
         <p>
           <input
           ref={itemWidth}
+          spellCheck="false"
+          onChange={() => validateInput(itemWidth)}
           />
           <span>Szerokosc (cm)</span>
         </p>
         <p>
           <input
           ref={itemPrice}
+          spellCheck="false"
+          onChange={() => validateInput(itemPrice)}
           required />
           <span>Cena</span>
         </p>
         <p>
           <input
-          ref={estimatedPrice}/>
+          ref={estimatedPrice}
+          spellCheck="false"
+          onChange={() => validateInput(estimatedPrice)}
+          />
           <span>Potencjalna sprzedaz</span>
         </p>
         <p>
           <input
           ref={itemCond}
+          spellCheck="false"
+          onChange={() => validateInput(itemCond)}
           required />
           <span>Stan</span>
         </p>
@@ -91,7 +125,6 @@ function AddClothes(props) {
             Dodaj
           </button>
       </form>
-    </>
   );
 }
 

@@ -3,7 +3,7 @@ import React, {useEffect, useState } from "react";
 function Sold(props) {
 
   function deleteItem(id) {
-    socket.emit('deleteItem', id);
+    props.socket.emit('deleteItem', id);
     props.refreshItems();
   }
 
