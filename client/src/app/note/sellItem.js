@@ -49,6 +49,7 @@ function SellItem(props) {
       enableTracking(false);
     }
   }
+
   return (
     loading && (
     <div className="sellContainer">

@@ -13,8 +13,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  height: 500px;
+  width: 40vw;
+  height: 50vh;
   background-color: #12171a;
   border: 1px solid rgba(83, 83, 83, 0.952);
   display: grid;
@@ -27,7 +27,6 @@
   position: relative;
   left: -100%;
   top: 25%;
-  font-size: 13px;
 }
 
 /* Hiding default radio buttons */

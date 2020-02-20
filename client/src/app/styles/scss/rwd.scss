@@ -59,13 +59,64 @@
        }
    } //noteTable navi
 
-//    Current
-
-   .currentContainer {
        .noteIcon {
            width: 12px;
            height: 12px;
        }
-   }
 
+}
+
+
+// Laptops
+@media only screen and(max-height: 900px){
+
+    // note table
+    .currentColumns {
+        grid-template-columns: 30% 12% 12% 10% 10% 5% 5% 5%;
+        }
+        .soldColumns {
+        grid-template-columns: 30% 15% 7% 10% 7% 20% 5%;
+        }
+        #addButton {
+            height: 25px;
+            width: 150px;
+        }
+        .noteIcon {
+            width: 19px;
+            height: 19px;
+        }
+
+    // sell item
+    .sellContainer {
+        width: 35vw;
+        height: 55vh;
+        form {
+            div {
+                font-size: 1.0em;
+            }
+            input {
+                height: 25px;
+                font-size: 0.7em;
+            }
+            select {
+                font-size: 0.7em;
+            }
+            button {
+                font-size: 0.7em;
+                width: 6vw;
+                height: 25px;
+                top: 90%;
+            }
+        }
+    }
+
+    //  item info
+    .itemInfoContainer {
+        height: 70vh;
+        width: 55vw;
+        font-size: 0.7em;
+    }
+    .itemMenu {
+        height: 40%;
+    }
 }
