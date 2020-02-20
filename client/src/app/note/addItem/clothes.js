@@ -12,13 +12,6 @@ function AddClothes(props) {
   const itemWidth = useRef();
   const itemData = [itemName,itemSize,itemPrice,itemCond,itemLength,itemWidth, estimatedPrice];
 
-  useEffect(() => {
-    let unmounted = false;
-    setLoading(true);
-
-    return() => {unmounted = true;}
-  });
-
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,42 +26,38 @@ function AddClothes(props) {
       type: props.itemType,
       ownerID: props.userID
     };
+
     var validateData = 0;
-    for (var element in item) {
-      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
-        validateData++;
-        if (validateData === itemData.length) {
-          if (
-            !isNaN(item.price) &&
-            !isNaN(item.cond)
-          ) {
-            props.socket.emit("addItem", item);
-            props.refreshItems();
-            props.handleModal();
-          }
-        }
-      } else {
-        console.log(`Something wrong with ${element.value}`);
+    for(let element of itemData) {
+      let count = validateInput(element);
+      validateData += count;
+      if(validateData === itemData.length) {
+        props.socket.emit('addItem', item);
+        props.refreshItems();
+        props.handleModal();
       }
     }
+
   }
 
   function validateInput(input) {
-    var element = document.getElementById(input.current.id)
-    
+    var element = document.getElementById(input.current.id);
+
         if(/^[0-9cm]*$/.test(input.current.value)) {
           element.style.border = "none";
+          return 1;
         } else {
           element.style.border = "1px solid darkred";
+          return null;
         }
   }
 
   return (
-    loaded &&
       <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
         <p>
           <input
           ref={itemName}
+          id="itemName"
           autoFocus={true}
           required
           spellCheck="false"  />
@@ -76,6 +65,7 @@ function AddClothes(props) {
         </p>
         <p>
           <input
+          id="itemSize"
           ref={itemSize}
           required/>
           <span>Rozmiar</span>
@@ -85,7 +75,7 @@ function AddClothes(props) {
           ref={itemLength}
           id="itemLength"
           spellCheck="false"
-          onChange={() => validateInput(itemLength)}
+          // onChange={() => validateInput(itemLength)}
           />
           <span>Dlugosc (cm)</span>
         </p>
@@ -93,7 +83,8 @@ function AddClothes(props) {
           <input
           ref={itemWidth}
           spellCheck="false"
-          onChange={() => validateInput(itemWidth)}
+          id="itemWidth"
+          // onChange={() => validateInput(itemWidth)}
           />
           <span>Szerokosc (cm)</span>
         </p>
@@ -101,7 +92,8 @@ function AddClothes(props) {
           <input
           ref={itemPrice}
           spellCheck="false"
-          onChange={() => validateInput(itemPrice)}
+          id="itemPrice"
+          // onChange={() => validateInput(itemPrice)}
           required />
           <span>Cena</span>
         </p>
@@ -109,7 +101,8 @@ function AddClothes(props) {
           <input
           ref={estimatedPrice}
           spellCheck="false"
-          onChange={() => validateInput(estimatedPrice)}
+          id="estimatedPrice"
+          // onChange={() => validateInput(estimatedPrice)}
           />
           <span>Potencjalna sprzedaz</span>
         </p>
@@ -117,7 +110,8 @@ function AddClothes(props) {
           <input
           ref={itemCond}
           spellCheck="false"
-          onChange={() => validateInput(itemCond)}
+          id="itemCond"
+          // onChange={() => validateInput(itemCond)}
           required />
           <span>Stan</span>
         </p>
