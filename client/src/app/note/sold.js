@@ -2,6 +2,10 @@ import React, {useEffect, useState } from "react";
 
 function Sold(props) {
 
+  function deleteItem(id) {
+    socket.emit('deleteItem', id);
+    props.refreshItems();
+  }
 
   function convertCondition(cond) {
     if (cond === 10) {
@@ -49,9 +53,10 @@ function Sold(props) {
           <p onClick={() => props.itemInfo(item.id)}>{item.soldFor}</p>
           <p><button
             className="actionButton"
-            id={item.id}
-            onClick={id => {if(window.confirm("Napewno usunac przedmiot?"))
-              props.deleteItem(id)}}>
+            onClick={() => {
+              if(window.confirm(`Czy napewno usunąć ${item.name}?`))
+              deleteItem(item.id);
+            }}>
               <img src="/img/note/delete.png" alt="delete" className="noteIcon"/>
             </button></p>
         </div>

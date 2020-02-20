@@ -19,6 +19,11 @@ function handleModal() {
   setSellModal(!sellModal);
 }
 
+function deleteItem(id) {
+  socket.emit('deleteItem', id);
+  props.refreshItems();
+}
+
 function itemCondition(cond) {
   if (cond === 10) {
     return "DS";
@@ -69,10 +74,9 @@ function itemSize(item) {
           <p>
             <button
               className="actionButton"
-              id={item.id}
-              onClick={id => {
-                if(window.confirm("Napewno usunac przedmiot?"))
-                props.deleteItem(id)
+              onClick={() => {
+                if(window.confirm(`Czy napewno usunąć ${item.name}?`))
+                deleteItem(item.id);
               }}>
                 <img src="/img/note/delete.png" alt="delete" className="noteIcon"/>
             </button>

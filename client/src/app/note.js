@@ -21,10 +21,6 @@ function Render(props) {
   const [currentItem, setCurrentItem] = useState(0);
   const socket = props.socket;
 
-  function deleteItem(id) {
-    socket.emit("deleteItem", id.target.id);
-    props.refreshItems();
-  }
   function itemInfo(id) {
     setCurrentItem(id);
     setItemModal(true);
@@ -74,7 +70,6 @@ return (
           <Route exact path="/note/sold">
             <Sold
               items={props.soldItems}
-              deleteItem={deleteItem}
               itemInfo={id => itemInfo(id)}
               socket={socket}/>
           </Route>
@@ -84,7 +79,6 @@ return (
               socket={socket}
               itemInfo={id => itemInfo(id)}
               items={props.currentItems}
-              deleteItem={deleteItem}
               refreshItems={props.refreshItems}/>
           </Route>
           <Redirect to="/note/current" />

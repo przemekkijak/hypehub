@@ -38,8 +38,6 @@ function AddClothes(props) {
             props.handleModal();
           }
         }
-      } else {
-        alert('Cos poszlo nie tak');
       }
     }
   }

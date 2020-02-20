@@ -23,6 +23,7 @@
 }
 
 .itemMenu {
+  font-size: 0.8em;
   height: 35%;
   position: relative;
   left: -100%;
