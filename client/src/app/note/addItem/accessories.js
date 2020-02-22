@@ -21,53 +21,86 @@ function AddAccessories(props) {
       ownerID: props.userID
     };
     var validateData = 0;
-    for (var element in item) {
-      if (/(^$)|^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
-        validateData++;
-        if (validateData === itemData.length) {
-          if (!isNaN(item.price) && !isNaN(item.cond)) {
-            props.socket.emit("addItem", item);
-            props.refreshItems();
-            props.handleModal("add");
-          }
-        }
-        } else {
-          alert('Cos poszlo nie tak');
-        }
+    for(let element of itemData) {
+      let count = validateInput(element);
+      validateData += count;
+      if(validateData === itemData.length) {
+        props.socket.emit('addItem', item);
+        props.refreshItems();
+        props.handleModal();
       }
+    }
   }
+
+  function validateInput(input) {
+    var element = document.getElementById(input.current.id);
+    function success() {
+      element.style.border = "none";
+    }
+    function failed() {
+      element.style.border = "1px solid darkred";
+    }
+
+      switch(input.current.id) {
+        // Check each item field, if not passed test -> add red border
+        case "itemName":
+        case "itemSize":
+          if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
+            success();
+            return 1;
+          } else {
+            failed();
+            return 0;
+          }
+        case "itemPrice":
+        case "estimatedPrice":
+        case "itemCond":
+          if(/^[0-9]*$/.test(input.current.value)) {
+            success();
+            return 1;
+          } else {
+            failed();
+            return 0;
+          }
+}
+}
 
   return (
     <>
-      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
+      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" autoComplete="off">
         <p>
           <input
           ref={itemName}
           autoFocus={true}
           required
+          id="itemName"
           spellCheck="false"/>
           <span>Nazwa</span>
         </p>
         <p>
           <input
-          ref={itemSize}/>
+          ref={itemSize}
+          id="itemSize"/>
           <span>Rozmiar</span>
         </p>
         <p>
           <input
           ref={itemPrice}
-          required/>
+          required
+          id="itemPrice"/>
           <span>Cena</span>
         </p>
         <p>
           <input
-          ref={estimatedPrice}/>
+          ref={estimatedPrice}
+          id="estimatedPrice"/>
           <span>Potencjalna sprzedaż</span>
         </p>
         <p>
           <input
           ref={itemCond}
-          required/>
+          required
+          id="itemCond"/>
           <span>Stan</span>
         </p>
         <p>

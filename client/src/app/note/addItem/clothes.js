@@ -41,19 +41,42 @@ function AddClothes(props) {
   }
 
   function validateInput(input) {
-    var element = document.getElementById(input.current.id);
+      var element = document.getElementById(input.current.id);
+      function success() {
+        element.style.border = "none";
+      }
+      function failed() {
+        element.style.border = "1px solid darkred";
+      }
 
-        if(/^[0-9cm]*$/.test(input.current.value)) {
-          element.style.border = "none";
-          return 1;
-        } else {
-          element.style.border = "1px solid darkred";
-          return null;
-        }
+        switch(input.current.id) {
+          // Check each item field, if not passed test -> add red border
+          case "itemName":
+          case "itemSize":
+            if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
+              success();
+              return 1;
+            } else {
+              failed();
+              return 0;
+            }
+          case "itemLength":
+          case "itemWidth":
+          case "itemPrice":
+          case "estimatedPrice":
+          case "itemCond":
+            if(/^[0-9]*$/.test(input.current.value)) {
+              success();
+              return 1;
+            } else {
+              failed();
+              return 0;
+            }
   }
+}
 
   return (
-      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
+      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" autoComplete="off">
         <p>
           <input
           ref={itemName}
@@ -75,7 +98,6 @@ function AddClothes(props) {
           ref={itemLength}
           id="itemLength"
           spellCheck="false"
-          // onChange={() => validateInput(itemLength)}
           />
           <span>Dlugosc (cm)</span>
         </p>
@@ -84,7 +106,6 @@ function AddClothes(props) {
           ref={itemWidth}
           spellCheck="false"
           id="itemWidth"
-          // onChange={() => validateInput(itemWidth)}
           />
           <span>Szerokosc (cm)</span>
         </p>
@@ -93,7 +114,6 @@ function AddClothes(props) {
           ref={itemPrice}
           spellCheck="false"
           id="itemPrice"
-          // onChange={() => validateInput(itemPrice)}
           required />
           <span>Cena</span>
         </p>
@@ -102,7 +122,6 @@ function AddClothes(props) {
           ref={estimatedPrice}
           spellCheck="false"
           id="estimatedPrice"
-          // onChange={() => validateInput(estimatedPrice)}
           />
           <span>Potencjalna sprzedaz</span>
         </p>
@@ -111,7 +130,6 @@ function AddClothes(props) {
           ref={itemCond}
           spellCheck="false"
           id="itemCond"
-          // onChange={() => validateInput(itemCond)}
           required />
           <span>Stan</span>
         </p>
