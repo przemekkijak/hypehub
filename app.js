@@ -295,6 +295,65 @@ pool.getConnection(function(err, connection) {
       )
     })
 
+        // PHOTOS
+        let itemsPath = path.join(__dirname, `/client/public/img/items/`);
+        socket.on("checkPhoto", (item,order,fn) => {
+          // Try to access file without opening it
+            fs.access(path.join(itemsPath, `${item}_${order}.jpg`),fs.F_OK, (error) => {
+              if(error) {
+                fn(false); //File not found -> set nophoto.jpg for element
+              } else {
+              fn(true); // File found -> set photo for element
+              }
+            })
+          });
+
+          // Uploading photos
+          var uploader = new siofu()
+          uploader.dir = itemsPath;
+          uploader.listen(socket);
+
+          uploader.on('error', (event) => {
+            console.log(`Error while uploading ${event.file.name}`);
+            console.log(event.error)
+          })
+
+          uploader.on('saved', (event) => {
+            socket.emit('file_saved', itemData => {
+              fs.access((path.join(itemsPath, event.file.name)), fs.F_OK, (error) => {
+                if(error) {
+                  console.log(error);
+                } else {
+                  // Rename uploaded file to -> itemID + order (1/2/3/4)
+                  fs.rename((path.join(itemsPath, event.file.name)), (path.join(itemsPath, `${itemData.id}_${itemData.order}.jpg`)), (error) => {
+                    if(error) {
+                      console.log(error);
+                      } else {
+                        socket.emit('photoComplete');
+                      }
+                  }) //fs.rename
+                }
+              }) //fs.access
+              // There was some error after uploading 4 photos in row, creating 4-0.jpg and 4-1.jpg, problem with updating state after upload, so there is solution to delete these 2 files
+              setTimeout(() => {
+                glob(`${itemsPath}**-*.jpg`, (error, files) => {
+                  if(error) {
+                    console.log(error);
+                  }
+                  if(files.length > 0) {
+                    files.forEach(element => {
+                      fs.unlink(element, (error) => {
+                        if(error) {
+                          console.log(`Error while deleting ` + element);
+                          throw error;
+                        }
+                      }) //fs.unlink
+                    }); //forEach
+                  }
+                }) //glob
+            }, 1000);
+            }) // socket.emit file_Saved
+          }); // uploader.on 'saved'
 
 
 
