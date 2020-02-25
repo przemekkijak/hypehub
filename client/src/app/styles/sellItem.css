@@ -37,6 +37,7 @@
   transform: translate(-50%);
 }
 .sellContainer form input {
+  padding: 5px;
   height: 35px;
   width: 15vw;
   position: relative;
@@ -65,4 +66,4 @@
   background-color: #5a5e5c;
 }
 
-/*# sourceMappingURL=sellitem.css.map */
+/*# sourceMappingURL=sellItem.css.map */

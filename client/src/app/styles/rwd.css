@@ -54,7 +54,7 @@
     height: 12px;
   }
 }
-@media only screen and (max-height: 900px) {
+@media only screen and (max-width: 900px) {
   .currentColumns {
     grid-template-columns: 30% 12% 12% 10% 10% 5% 5% 5%;
   }
@@ -102,6 +102,15 @@
 
   .itemMenu {
     height: 35%;
+  }
+
+  .photosBox .photo {
+    width: 50%;
+    height: 50%;
+  }
+  .photosBox img {
+    width: 120px;
+    height: 150px;
   }
 }
 

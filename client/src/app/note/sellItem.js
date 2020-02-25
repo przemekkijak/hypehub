@@ -8,6 +8,7 @@ function SellItem(props) {
   const soldFor = useRef();
   const shipCompany = useRef();
   const trackingNumber = useRef();
+  const itemData = [itemPrice, soldFor, shipCompany, trackingNumber]
   const [trackingInput, enableTracking] = useState(false);
   const [item, setItem] = useState();
   const [loading, setLoaded] = useState(false);
@@ -33,14 +34,50 @@ function SellItem(props) {
       shipCompany: shipCompany.current.value,
       trackingNumber: trackingNumber.current.value
     };
-    if (/^&|^[a-zA-Z0-9 / ,.-]+$/.test(soldFor.value) && /^&|^[a-zA-Z0-9 / ,.-]+$/.test(trackingNumber.value)) {
-      if (!isNaN(item.price)) {
-        socket.emit("sellItem", item);
+    var validateData = 0;
+    for(let element of itemData) {
+      let count = validateInput(element);
+      validateData += count;
+      console.log(validateData);
+      if(validateData === itemData.length) {
+        props.socket.emit('sellItem', item);
         props.refreshItems();
         props.handleModal();
       }
     }
   }
+
+  function validateInput(input) {
+    var element = document.getElementById(input.current.id);
+    function success() {
+      element.style.border = "none";
+    }
+    function failed() {
+      element.style.border = "1px solid darkred";
+    }
+
+      switch(input.current.id) {
+        // Check each item field, if not passed test -> add red border
+        case "soldFor":
+        case "shipCompany":
+        case "trackingNumber":
+          if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
+            success();
+            return 1;
+          } else {
+            failed();
+            return 0;
+          }
+        case "itemPrice":
+          if(/^[0-9]*$/.test(input.current.value)) {
+            success();
+            return 1;
+          } else {
+            failed();
+            return 0;
+          }
+}
+}
 
   function checkTracking() {
     if(shipCompany.current.value !== "") {
@@ -56,9 +93,9 @@ function SellItem(props) {
       <form onSubmit={handleSubmit} ref={formBox}>
         <div>{item.name}</div>
 
-        <p><input placeholder="Cena" ref={itemPrice} autoFocus={true} required/></p>
-        <p><input placeholder="Kupujacy (opcjonalnie)" ref={soldFor} /></p>
-        <p><select ref={shipCompany} onChange={() => checkTracking()}>
+        <p><input placeholder="Cena" id="itemPrice" ref={itemPrice} autoFocus={true} required/></p>
+        <p><input placeholder="Kupujacy (opcjonalnie)" id="soldFor" ref={soldFor} /></p>
+        <p><select ref={shipCompany} id="shipCompany" onChange={() => checkTracking()}>
               <option value="">Wybierz przewoźnika</option>
               <option value="dpd">DPD</option>
               <option value="dhl">DHL</option>
@@ -67,7 +104,7 @@ function SellItem(props) {
               <option value="inpost">InPost</option>
           </select></p>
           {trackingInput && (
-            <p><input placeholder="Numer paczki" ref={trackingNumber}/></p>
+            <p><input placeholder="Numer paczki" id="trackingNumber" ref={trackingNumber}/></p>
           )}
 
 
