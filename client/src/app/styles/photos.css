@@ -42,4 +42,15 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width: 900px) {
+  .photosBox .photo {
+    width: 50%;
+    height: 50%;
+  }
+  .photosBox img {
+    width: 120px;
+    height: 150px;
+  }
+}
+
 /*# sourceMappingURL=photos.css.map */

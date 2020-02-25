@@ -57,3 +57,37 @@
         }
   }
 }
+
+
+// RWD
+// RWD
+// RWD
+
+
+// Laptops
+@media only screen and(max-width: 900px){
+
+
+    .sellContainer {
+        width: 35vw;
+        height: 55vh;
+        form {
+            div {
+                font-size: 1.0em;
+            }
+            input {
+                height: 25px;
+                font-size: 0.7em;
+            }
+            select {
+                font-size: 0.7em;
+            }
+            button {
+                font-size: 0.7em;
+                width: 6vw;
+                height: 25px;
+                top: 90%;
+            }
+        }
+    }
+}

@@ -203,3 +203,100 @@
     opacity: 0;
   }
 
+
+
+  // RWD
+
+  // Phone - Large
+@media only screen and (max-width: 450px) {
+
+  .tableContainer {
+      width: 100vw;
+ }
+ .noteTableNavi {
+     .link {
+         margin: 15px;
+         font-size: 0.6em;
+         top: 5%;
+         left: 25%;
+     }
+     input {
+         display: none;
+     }
+     span {
+         display: none;
+     }
+ }
+     .noteIcon {
+         width: 12px;
+         height: 12px;
+     }
+}
+
+  // Ipad
+  @media only screen and (max-width: 800px) {
+
+    .tableContainer {
+         width: 85vw;
+    }
+    .noteTableNavi {
+        .link {
+          margin: 15px;
+          font-size: 0.6em;
+          top: 5%;
+          left: 25%;
+        }
+        input {
+            display: none;
+        }
+        span {
+            display: none;
+        }
+    }
+}
+
+// Laptops
+@media only screen and(max-width: 1100px) {
+  .tableContainer {
+    font-size: 14px;
+    width: 76vw;
+  }
+}
+
+// big laptop
+@media only screen and(max-width: 1440px){
+    .currentColumns {
+      grid-template-columns: 30% 12% 12% 10% 10% 5% 5% 5%;
+      }
+      .soldColumns {
+      grid-template-columns: 25% 15% 7% 10% 7% 20% 10% 5%;
+      }
+      #addButton {
+          height: 25px;
+          width: 150px;
+      }
+      .noteIcon {
+          width: 19px;
+          height: 19px;
+      }
+        .noteTableNavi {
+        .link {
+          margin: 15px;
+          font-size: 0.6em;
+          top: 5%;
+          left: 25%;
+        }
+        input {
+          left: 35%;
+          width: 12vw;
+          font-size: 10px;
+        }
+        span {
+          display: none;
+        }
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+}

@@ -3,7 +3,6 @@ import Note from "./app/note.js";
 import Resell from "./app/resell.js";
 import Login from "./app/login.js";
 import "./app/styles/App.css";
-import "./app/styles/rwd.css";
 import socketIOClient from "socket.io-client";
 
 import {

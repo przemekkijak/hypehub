@@ -100,20 +100,52 @@ body {
   }
 }
 
-@media only screen and (max-width: 800px) {
-  .navigation {
-      top: 3%;
-  }
-  .userInfo {
-      position: relative;
-      left: 50%;
-      width: 50%;
-      height: 9%;
-      transform: translate(-50%);
-  }
-  }
-  @media only screen and (max-width: 1300px) {
+
+
+  // RWD
+
+  // Phone - Large
+@media only screen and (max-width: 450px) {
   * {
-  font-size: 13px;
+      font-size: 0.8em;
   }
+
+  .navigationContainer {
+      display: none;
   }
+}
+  // Ipad
+@media only screen and (max-width: 800px) {
+  * {
+      font-size: 0.9em;
+  }
+
+  .navigationContainer {
+    font-size: 8px;
+    .navIcon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+}
+
+// Laptops
+@media only screen and(max-width: 1100px) {
+  * {
+    font-size: 0.9em;
+}
+  .tableContainer {
+    font-size: 14px;
+    width: 76vw;
+  }
+}
+
+
+//big laptops
+
+@media only screen and(max-width: 1440px){
+  * {
+    font-size: 0.9em;
+}
+}
