@@ -44,7 +44,6 @@ return (
     <div className="photoContainer">
 
         <div className="header">
-            <p>Zdjecia od {props.item.name} ID: {props.item.id}</p>
             <form>
             <input type="file" id="photoFile"/>
             </form>

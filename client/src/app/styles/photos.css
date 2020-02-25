@@ -10,8 +10,8 @@
 /* v2 */
 .photoContainer {
   position: relative;
-  left: -20%;
-  top: 25%;
+  left: -5%;
+  height: 100%;
   display: grid;
   grid-template-rows: 30% 90%;
 }
@@ -24,19 +24,21 @@
 }
 .photoContainer .photosBox {
   position: relative;
-  top: 30%;
+  left: -9%;
   height: 100%;
   width: 100%;
   display: flex;
 }
 .photoContainer .photosBox .photo {
-  margin: 2px;
+  margin: 5px;
   width: 100%;
   height: 100%;
 }
 .photoContainer .photosBox .photo img {
-  width: 195px;
-  height: 220px;
+  border: 2px solid rgba(83, 83, 83, 0.952);
+  padding: 2px;
+  width: 170px;
+  height: 190px;
   cursor: pointer;
 }
 

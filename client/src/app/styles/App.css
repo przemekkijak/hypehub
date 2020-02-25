@@ -16,6 +16,11 @@
   color: #C5C6C7;
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .App {
   text-align: center;
   background-color: #1e2529;
@@ -23,7 +28,6 @@
   height: 100vh;
   width: 100vw;
   font-size: 17px;
-  overflow: hidden;
   display: grid;
   grid-template-columns: 7% 93%;
 }
