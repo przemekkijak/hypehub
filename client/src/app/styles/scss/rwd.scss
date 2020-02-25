@@ -68,7 +68,7 @@
 
 
 // Laptops
-@media only screen and(max-height: 900px){
+@media only screen and(max-width: 900px){
 
     // note table
     .currentColumns {
@@ -118,5 +118,18 @@
     }
     .itemMenu {
         height: 35%;
+    }
+
+    // Photos
+    .photosBox {
+
+        .photo {
+        width: 50%;
+        height: 50%;
+        }
+        img {
+            width: 120px;
+            height: 150px;
+        }
     }
 }

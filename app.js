@@ -295,7 +295,7 @@ pool.getConnection(function(err, connection) {
     })
 
     // PHOTOS
-    let itemsPath = path.join(__dirname, `/client/public/img/items/`);
+    let itemsPath = path.join(__dirname, `/public/img/items/`);
 
     var uploader = new siofu();
     uploader.dir = itemsPath;
