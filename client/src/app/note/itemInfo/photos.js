@@ -1,47 +1,44 @@
 import React, {useEffect, useState, useRef} from 'react'
 import '../../styles/photos.css';
-import SocketIOFileUpload from 'socketio-file-upload'
+import SocketIOFileUpload from 'socketio-file-upload';
+
+
 
 function Photos(props) {
-    const uploader = new SocketIOFileUpload(props.socket);
-    const [reload,setReload] = useState(false);
     const order = useRef(1);
+    var uploader = new SocketIOFileUpload(props.socket);
 
+uploader.addEventListener('start', (event) => {
+    event.file.meta.id = props.item.id;
+    event.file.meta.order = order.current;
+});
 
     useEffect(() => {
-        let unmounted = false;
         uploader.listenOnInput(document.getElementById('photoFile'));
+        refreshPhotos();
+    });
 
-        // uploader.listenOnSubmit(document.getElementById('uploadPhoto'), document.getElementById('photoFile'));
+    function refreshPhotos() {
         for(let i = 1; i<=4; i++ ) {
-                props.socket.emit('checkPhoto', props.item.id, i, found => {
-                    if(found) {
-                        document.getElementById(i).setAttribute("src", `/img/items/${props.item.id}_${i}.jpg`)
-                    } else {
-                        document.getElementById(i).setAttribute("src", `/img/items/nophoto.jpg`);
-                        document.getElementById(i).onclick = () => {
-                            order.current = i;
-                            document.getElementById('photoFile').click();
-                        }
+            let photo = document.getElementById(i);
+            props.socket.emit('checkPhoto', props.item.id, i, foundFile => {
+                if(foundFile) {
+                    photo.setAttribute('src', `/img/items/${props.item.id}_${i}.jpg`);
+                } else {
+                    photo.setAttribute('src', '/img/items/nophoto.jpg');
+                    photo.onclick = () => {
+                        document.getElementById('photoFile').click();
+                        order.current = i;
                     }
-                });
+                }
+             })
         }
+    }
 
-        return () => { unmounted = true;};
-    },[reload]);
+    props.socket.on('uploadSuccess', () => {
+        refreshPhotos();
+    });
 
-    props.socket.on('file_saved', fn => {
-        let itemData = {
-            id: props.item.id,
-            order: order.current
-        }
-        fn(itemData);
-    })
-
-    props.socket.on('photoComplete', () => {
-        uploader.destroy();
-        setReload(!reload);
-    })
 
 return (
     <div className="photoContainer">
@@ -51,7 +48,6 @@ return (
             <form>
             <input type="file" id="photoFile"/>
             </form>
-            {/* <button id="uploadPhoto" onClick={() => uploadPhoto()}>Upload</button> */}
         </div>
 
         <div className="photosBox">

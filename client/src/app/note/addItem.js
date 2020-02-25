@@ -66,7 +66,7 @@ function AddItem(props) {
         />
         <label htmlFor="clothes">
           <img
-            src="./img/addItem/shirt.png"
+            src="../img/addItem/shirt.png"
             alt="Item clothes"
             className="itemIcon"
             id="clothesIcon"
@@ -83,7 +83,7 @@ function AddItem(props) {
         />
         <label htmlFor="shoes">
           <img
-            src="./img/addItem/shoe.png"
+            src="../img/addItem/shoe.png"
             alt="Item shoes"
             className="itemIcon"
             id="shoeIcon"
@@ -100,7 +100,7 @@ function AddItem(props) {
         />
         <label htmlFor="accessories">
           <img
-            src="./img/addItem/accessories.png"
+            src="../img/addItem/accessories.png"
             alt="Item Accessories"
             className="itemIcon"
             id="hatIcon"
