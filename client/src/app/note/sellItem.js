@@ -90,7 +90,7 @@ function SellItem(props) {
   return (
     loading && (
     <div className="sellContainer">
-      <form onSubmit={handleSubmit} ref={formBox}>
+      <form onSubmit={handleSubmit} ref={formBox} autoComplete="off">
         <div>{item.name}</div>
 
         <p><input placeholder="Cena" id="itemPrice" ref={itemPrice} autoFocus={true} required/></p>

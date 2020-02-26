@@ -13,8 +13,8 @@ import {
   NavLink
 } from "react-router-dom";
 
-// const socket = socketIOClient("//hypehub.pl");
-const socket = socketIOClient("localhost:5555");
+const socket = socketIOClient("//hypehub.pl");
+// const socket = socketIOClient("localhost:5555");
 
 var user = {};
 const token = localStorage.getItem("token");
