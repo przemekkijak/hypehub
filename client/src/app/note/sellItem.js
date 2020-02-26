@@ -7,22 +7,18 @@ function SellItem(props) {
   const itemPrice = useRef();
   const soldFor = useRef();
   const shipCompany = useRef();
-  const trackingNumber = useRef();
+  const trackingNumber = useRef(0);
   const itemData = [itemPrice, soldFor, shipCompany, trackingNumber]
   const [trackingInput, enableTracking] = useState(false);
   const [item, setItem] = useState();
   const [loading, setLoaded] = useState(false);
 
   useEffect(() => {
-    let unmounted = false;
     socket.emit('getItem', props.id, item => {
       setItem(item[0]);
       setLoaded(true);
     })
 
-    return () => {
-       unmounted = true;
-    };
   }, [props.id]);
 
   function handleSubmit(e) {
@@ -38,7 +34,6 @@ function SellItem(props) {
     for(let element of itemData) {
       let count = validateInput(element);
       validateData += count;
-      console.log(validateData);
       if(validateData === itemData.length) {
         props.socket.emit('sellItem', item);
         props.refreshItems();
@@ -50,14 +45,19 @@ function SellItem(props) {
   function validateInput(input) {
     var element = document.getElementById(input.current.id);
     function success() {
+      if(element) {
       element.style.border = "none";
+      }
     }
     function failed() {
+      if(element) {
       element.style.border = "1px solid darkred";
+      }
     }
 
       switch(input.current.id) {
         // Check each item field, if not passed test -> add red border
+        default:
         case "soldFor":
         case "shipCompany":
         case "trackingNumber":

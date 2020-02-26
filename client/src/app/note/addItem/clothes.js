@@ -1,7 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 
 function AddClothes(props) {
-  const [loaded, setLoading] = useState(false);
   const formBox = useRef();
   const itemName = useRef();
   const itemSize = useRef();

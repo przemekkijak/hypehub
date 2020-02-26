@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React from "react";
 
 function Sold(props) {
 
@@ -30,12 +30,17 @@ function Sold(props) {
         }
       case 3:
         return item.size;
+      default:
+        return item.size;
     }
   }
 
   function getTracking(item) {
-    if(item.trackingNumber) {
-    return `${item.shipCompany.toUpperCase()}: ${item.trackingNumber}`;
+
+    if(item.trackingNumber !== "undefined") {
+      return `${item.shipCompany.toUpperCase()} : ${item.trackingNumber}`;
+    } else {
+      return `Brak`;
     }
   }
 
