@@ -43,6 +43,7 @@ function AddAccessories(props) {
 
       switch(input.current.id) {
         // Check each item field, if not passed test -> add red border
+        default:
         case "itemName":
         case "itemSize":
           if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {

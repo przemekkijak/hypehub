@@ -13,11 +13,16 @@ function SellItem(props) {
   const [item, setItem] = useState();
   const [loading, setLoaded] = useState(false);
 
+
+
   useEffect(() => {
-    socket.emit('getItem', props.id, item => {
-      setItem(item[0]);
-      setLoaded(true);
-    })
+    const getItem = () => {
+      socket.emit('getItem', props.id, item => {
+        setItem(item[0]);
+        setLoaded(true);
+      })
+    }
+    getItem();
 
   }, [props.id]);
 

@@ -33,6 +33,7 @@ function itemCondition(cond) {
 }
 function itemSize(item) {
   switch(item.type) {
+    default:
     case 1:
       if(item.width === 0 || item.length === 0) {
       return item.size;

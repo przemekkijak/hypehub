@@ -16,6 +16,7 @@ function Sold(props) {
   }
   function itemSize(item) {
     switch(item.type) {
+      default:
       case 1:
         if(item.width === 0 || item.length === 0) {
         return item.size;
@@ -29,8 +30,6 @@ function Sold(props) {
         return `${item.size} (${item.shoeInsert}cm)`
         }
       case 3:
-        return item.size;
-      default:
         return item.size;
     }
   }

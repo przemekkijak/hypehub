@@ -5,7 +5,6 @@ function Login(props) {
   const socket = props.socket;
   const username = useRef();
   const password = useRef();
-  const userData = [username, password];
 
 function handleSubmit(e) {
     e.preventDefault();
