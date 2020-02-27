@@ -1,6 +1,5 @@
 import React from 'react'
 import '../../styles/info.css'
-import '../../styles/tools.css';
 
 function Info(props) {
 
@@ -46,9 +45,9 @@ function Info(props) {
             <div className="itemFlaws"></div>
 
             <div className="itemOptions">
-                <p><button className="toolsButton" onClick={() => copyDesc()}>Skopiuj opis</button></p>
+                <button onClick={() => copyDesc()}>Skopiuj opis</button>
             {props.item.sold === 1 && (
-                <p><button className="toolsButton"onClick={() => unSold() }>Wycofaj ze sprzedanych</button></p>)}
+                <button onClick={() => unSold() }>Wycofaj ze sprzedanych</button>)}
     </div>
 
         </div>

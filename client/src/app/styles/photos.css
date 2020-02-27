@@ -15,16 +15,13 @@
   display: grid;
   grid-template-rows: 30% 90%;
 }
-.photoContainer .header {
-  height: 100%;
-  width: 100%;
-}
 .photoContainer input {
   display: none;
 }
 .photoContainer .photosBox {
   position: relative;
   left: -9%;
+  top: 20%;
   height: 100%;
   width: 100%;
   display: flex;
@@ -40,6 +37,39 @@
   width: 170px;
   height: 190px;
   cursor: pointer;
+}
+.photoContainer .photosOptions {
+  position: relative;
+  left: -9%;
+  height: 50%;
+  top: 25%;
+}
+.photoContainer .photosOptions p {
+  text-align: center;
+  font-size: 12px;
+  padding: 3%;
+  color: #666565;
+  white-space: pre-line;
+}
+.photoContainer .photosOptions button {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 25vw;
+  height: 5vh;
+  margin: 3px;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: 1px solid rgba(56, 55, 55, 0.568);
+  background-color: rgba(71, 70, 70, 0.2);
+}
+.photoContainer .photosOptions button:hover {
+  background-color: rgba(90, 90, 90, 0.2);
+}
+.photoContainer .photosOptions button:active {
+  background-color: rgba(46, 42, 42, 0.322);
 }
 
 @media only screen and (max-width: 900px) {

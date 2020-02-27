@@ -1,6 +1,5 @@
  import React, { useState, useEffect } from "react";
  import Info from './itemInfo/info'
- import Tools from './itemInfo/tools'
  import Modify from './itemInfo/modify'
  import Photos from './itemInfo/photos'
  import '../styles/itemInfo.css';
@@ -32,9 +31,6 @@ function ItemInfo(props) {
         return <Modify item={item} handleModal={props.handleModal} socket={socket} refreshItems={props.refreshItems}/>
       case 3:
         return <Photos item={item} handleModal={props.handleModal} socket={socket} refreshItems={props.refreshItems}/>
-      case 4:
-        return <Tools item={item} handleModal={props.handleModal} socket={socket}  refreshItems={props.refreshItems}/>
-
     }
   }
 
@@ -74,17 +70,6 @@ function ItemInfo(props) {
         />
         <label htmlFor="photos">
           Zdjecia
-        </label>
-
-        <input
-          type="radio"
-          name="itemoption"
-          id="tools"
-          className="detailsRadio"
-          onChange={() => setMenu(4)}
-        />
-        <label htmlFor="tools">
-          Narzedzia
         </label>
 
 
