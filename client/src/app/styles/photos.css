@@ -71,6 +71,14 @@
 .photoContainer .photosOptions button:active {
   background-color: rgba(46, 42, 42, 0.322);
 }
+.photoContainer .photosOptions #testuje {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 10%;
+  height: 200px;
+  width: 200px;
+}
 
 @media only screen and (max-width: 900px) {
   .photosBox .photo {
