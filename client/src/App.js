@@ -33,7 +33,10 @@ function App() {
       url: `http://localhost:3000/getCurrentItems/${user.id}`,
       method: 'get'
     })
-    .then(res => console.log(res.data));
+    .then(res => {
+      currentItems = res.data;
+      loadingItems(true);
+    });
   });
 
 function handleLogin(userData) {
