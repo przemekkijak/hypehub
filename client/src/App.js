@@ -15,7 +15,9 @@ import {
 
 const socket = {};
 
-var user = {};
+var user = {
+  id: 1
+};
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
 
@@ -28,10 +30,10 @@ function App() {
 
   useEffect(() => {
     axios({
-      url: 'http://localhost:3000/rest',
+      url: `http://localhost:3000/getCurrentItems/${user.id}`,
       method: 'get'
     })
-    .then(res => console.log(res.data.msg));
+    .then(res => console.log(res.data));
   });
 
 function handleLogin(userData) {

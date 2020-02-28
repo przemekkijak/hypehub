@@ -35,9 +35,15 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/rest', (req,res) => {
-  res.json({msg: 'REST API'});
-})
+app.get('/getCurrentItems/:id', (req,res) => {
+  pool.query(`SELECT * from items where ownerID = "${req.params.id}"`, (error, results) => {
+    if(error) {
+      console.log(error);
+    }
+    console.log(req.params.id);
+    res.send(results);
+  });
+});
 
 // mySQL POOL
 pool.getConnection(function(err, connection) {
