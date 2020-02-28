@@ -1,9 +1,9 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import Note from "./app/note.js";
 import Resell from "./app/resell.js";
 import Login from "./app/login.js";
 import "./app/styles/App.css";
-import socketIOClient from "socket.io-client";
+import axios from 'axios';
 
 import {
   BrowserRouter as Router,
@@ -13,8 +13,7 @@ import {
   NavLink
 } from "react-router-dom";
 
-const socket = socketIOClient("//hypehub.pl");
-// const socket = socketIOClient("localhost:5555");
+const socket = {};
 
 var user = {};
 const token = localStorage.getItem("token");
@@ -25,16 +24,14 @@ var soldItems = [];
 
 function App() {
   const [, loadingItems] = useState(false);
-  const [isLoged, setLoged] = useState(() => {
-    socket.emit("checkLog", token, id);
-    socket.on("success", userData => {
-      user = userData;
-      refreshItems();
-      setLoged(true);
-    });
-    socket.on("failed", () => {
-      setLoged(false);
-    });
+  const [isLoged, setLoged] = useState(true);
+
+  useEffect(() => {
+    axios({
+      url: 'http://localhost:3000/rest',
+      method: 'get'
+    })
+    .then(res => console.log(res.data.msg));
   });
 
 function handleLogin(userData) {
@@ -94,19 +91,19 @@ return (
         <>
           <div className="navigationContainer">
             <p><NavLink className="link naviElement" activeClassName="navActive" to="note">
-              <img src="img/menu/shirt.png" alt="Items" className="navIcon"/><br/>
+              <img src="../img/menu/shirt.png" alt="Items" className="navIcon"/><br/>
               Itemy</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="bulk">
-              <img src="img/menu/bulk.png" alt="Bulk" className="navIcon"/><br/>
+              <img src="../img/menu/bulk.png" alt="Bulk" className="navIcon"/><br/>
               Bulk</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="stats">
-              <img src="img/menu/stats.png" alt="Stats" className="navIcon"/><br/>
+              <img src="../img/menu/stats.png" alt="Stats" className="navIcon"/><br/>
               Statystyki</NavLink></p>
             <p><NavLink className="link naviElement" activeClassName="navActive" to="account">
-              <img src="img/menu/user.png" alt="Account" className="navIcon"/><br/>
+              <img src="../img/menu/user.png" alt="Account" className="navIcon"/><br/>
               Moje konto</NavLink></p>
             <p id="logoutNav"><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>
-              <img src="img/menu/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/><br/>
+              <img src="../img/menu/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/><br/>
               Wyloguj</NavLink></p>
           </div>
           <Switch>
