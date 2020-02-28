@@ -36,14 +36,23 @@ app.use(function(req, res, next) {
 });
 
 app.get('/getCurrentItems/:id', (req,res) => {
-  pool.query(`SELECT * from items where ownerID = "${req.params.id}"`, (error, results) => {
+  pool.query(`SELECT * from items where ownerID = "${req.params.id}" and sold = "0"`, (error, results) => {
     if(error) {
       console.log(error);
     }
-    console.log(req.params.id);
     res.send(results);
   });
 });
+
+app.get('/getSoldItems/:id', (req,res) => {
+  pool.query(`SELECT * from items where ownerID = "${req.params.id}" and sold = "1"`, (error, results) => {
+    if(error) {
+      console.log(error);
+    }
+    res.send(results);
+  });
+});
+
 
 // mySQL POOL
 pool.getConnection(function(err, connection) {

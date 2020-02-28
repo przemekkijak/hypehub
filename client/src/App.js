@@ -29,14 +29,7 @@ function App() {
   const [isLoged, setLoged] = useState(true);
 
   useEffect(() => {
-    axios({
-      url: `http://localhost:3000/getCurrentItems/${user.id}`,
-      method: 'get'
-    })
-    .then(res => {
-      currentItems = res.data;
-      loadingItems(true);
-    });
+    refreshItems();
   });
 
 function handleLogin(userData) {
@@ -50,18 +43,24 @@ function logout() {
   localStorage.removeItem("token");
 }
 function refreshItems() {
-  socket.emit("getCurrentItems", items => {
-    currentItems = items;
+  //current items
+  axios({
+    url: `http://localhost:3000/getCurrentItems/${user.id}`,
+    method: 'get'
+  })
+  .then(res => {
+    currentItems = res.data;
     loadingItems(true);
   });
-  socket.emit("getSoldItems", items => {
-    soldItems = items;
+  //sold items
+  axios({
+    url: `http://localhost:3000/getSoldItems/${user.id}`,
+    method: 'get'
+  })
+  .then( res => {
+    soldItems = res.data;
     loadingItems(false);
   })
-  setTimeout(() => {
-      loadingItems(true);
-      loadingItems(false);
-  },700);
 }
 
 function searchItem(itemName) {
