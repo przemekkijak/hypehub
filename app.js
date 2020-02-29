@@ -3,6 +3,8 @@ const app = express();
 const axios = require('axios');
 const path = require("path");
 const mysql = require("mysql")
+require('dotenv').config();
+
 
 const server = app.listen(5555, () => {
   console.log(`Listening on port ${server.address().port}`);
@@ -10,10 +12,10 @@ const server = app.listen(5555, () => {
 
   pool = mysql.createPool({
     connectionLimit : 15,
-    host: 'mysql43.mydevil.net',
-    user: 'm1231_admin',
-    password: 'Hypehub1',
-    database: 'm1231_hypehub'
+    host: process.env.DB_HOST,
+    user: processs.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
   });
 
 const bodyParser = require("body-parser")
