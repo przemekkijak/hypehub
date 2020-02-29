@@ -54,13 +54,14 @@ pool.getConnection(function(err, connection) {
   });
 
   app.post('/login', (req,res) => {
-    console.log(req.body);
     const {username, password} = req.body;
     pool.query('SELECT * from users where username = "'+username+'" and password = "'+password+'"', (error, results) => {
       if(error) {
         throw error;
       } if(results.length > 0) {
         res.send({id: results[0].id});
+      } else {
+        res.send({status: 'failed'});
       }
     });
   });

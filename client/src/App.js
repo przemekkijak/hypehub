@@ -14,12 +14,9 @@ import {
 } from "react-router-dom";
 
 const socket = {};
-
-var user = {
+const user = {
   id: 0
 };
-const token = localStorage.getItem("token");
-const id = localStorage.getItem("id");
 
 var currentItems = [];
 var soldItems = [];

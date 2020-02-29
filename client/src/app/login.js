@@ -14,7 +14,11 @@ async function handleSubmit(e) {
       password: password.current.value,
     })
     .then(res => {
+      if(res.data.status === 'failed') {
+        setFailed(true);
+      } else {
       props.handleLogin(res.data);
+      }
     });
   }
 
