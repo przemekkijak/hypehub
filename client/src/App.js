@@ -16,7 +16,7 @@ import {
 const socket = {};
 
 var user = {
-  id: 1
+  id: 0
 };
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
@@ -26,14 +26,16 @@ var soldItems = [];
 
 function App() {
   const [, loadingItems] = useState(false);
-  const [isLoged, setLoged] = useState(true);
+  const [isLoged, setLoged] = useState(false);
 
   useEffect(() => {
-    refreshItems();
-  });
+    if(user.id !== 0) {
+      refreshItems();
+    }
+  }, []);
 
 function handleLogin(userData) {
-  user = userData;
+  user.id = userData.id;
   refreshItems();
   setLoged(true);
 }
@@ -130,8 +132,7 @@ return (
         <>
           <Route path="/">
             <Login
-              handleLogin={userData => handleLogin(userData)}
-              socket={socket}/>
+              handleLogin={(userData) => handleLogin(userData)}/>
           </Route><Redirect to="/"/>
         </>
         )}

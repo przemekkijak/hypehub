@@ -1,31 +1,23 @@
 import React, { useState, useRef } from "react";
+import axios from 'axios';
 
 function Login(props) {
   const [failed, setFailed] = useState(false);
-  const socket = props.socket;
   const username = useRef();
   const password = useRef();
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
-    let user = {
+
+    const loginResponse = await axios.post('http://localhost:3000/login', {
       username: username.current.value,
-      password: password.current.value
-    };
-    for (var element in user) {
-      if (/^[a-zA-Z0-9 /,.-]+$/.test(element.value)) {
-        socket.emit("login", user);
-      }
-      }
-    socket.on("success", user => {
-      props.handleLogin(user);
-      localStorage.setItem("token", user.token);
-      localStorage.setItem("id", user.id);
-    });
-    socket.on("failed", res => {
-      setFailed(true);
+      password: password.current.value,
+    })
+    .then(res => {
+      props.handleLogin(res.data);
     });
   }
+
   return (
     <div className="container">
       <div className="loginBox" id="loginBox" onSubmit={handleSubmit}>

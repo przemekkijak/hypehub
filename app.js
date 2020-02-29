@@ -4,7 +4,7 @@ const axios = require('axios');
 const path = require("path");
 const mysql = require("mysql")
 
-const server = app.listen(3001, () => {
+const server = app.listen(5555, () => {
   console.log(`Listening on port ${server.address().port}`);
 })
 
@@ -16,16 +16,9 @@ const server = app.listen(3001, () => {
     database: 'm1231_hypehub'
   });
 
-const session = require("express-session")({
-  secret: "hype",
-  resave: true,
-  saveUninitialized: true,
-    maxAge: 6000000
-})
-const sharedsession = require("express-socket.io-session")
 const bodyParser = require("body-parser")
 app.use(bodyParser.json());
-app.use(session);
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname, "/public/")));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -35,28 +28,41 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/getCurrentItems/:id', (req,res) => {
-  pool.query(`SELECT * from items where ownerID = "${req.params.id}" and sold = "0"`, (error, results) => {
-    if(error) {
-      console.log(error);
-    }
-    res.send(results);
-  });
-});
-
-app.get('/getSoldItems/:id', (req,res) => {
-  pool.query(`SELECT * from items where ownerID = "${req.params.id}" and sold = "1"`, (error, results) => {
-    if(error) {
-      console.log(error);
-    }
-    res.send(results);
-  });
-});
 
 
 // mySQL POOL
 pool.getConnection(function(err, connection) {
   if (err) throw err;
   console.log('Connected to database');
+
+  app.get('/getCurrentItems/:id', (req,res) => {
+    pool.query(`SELECT * from items where ownerID = "${req.params.id}" and sold = "0"`, (error, results) => {
+      if(error) {
+        console.log(error);
+      }
+      res.send(results);
+    });
+  });
+
+  app.get('/getSoldItems/:id', (req,res) => {
+    pool.query(`SELECT * from items where ownerID = "${req.params.id}" and sold = "1"`, (error, results) => {
+      if(error) {
+        console.log(error);
+      }
+      res.send(results);
+    });
+  });
+
+  app.post('/login', (req,res) => {
+    console.log(req.body);
+    const {username, password} = req.body;
+    pool.query('SELECT * from users where username = "'+username+'" and password = "'+password+'"', (error, results) => {
+      if(error) {
+        throw error;
+      } if(results.length > 0) {
+        res.send({id: results[0].id});
+      }
+    });
+  });
 
 }); //pool getConnection
