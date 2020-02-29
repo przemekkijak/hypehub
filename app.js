@@ -10,13 +10,13 @@ const server = app.listen(5555, () => {
   console.log(`Listening on port ${server.address().port}`);
 })
 
-  pool = mysql.createPool({
-    connectionLimit : 15,
-    host: process.env.DB_HOST,
-    user: processs.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-  });
+pool = mysql.createPool({
+  connectionLimit : 15,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
+});
 
 const bodyParser = require("body-parser")
 app.use(bodyParser.json());
