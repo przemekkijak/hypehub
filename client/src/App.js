@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer} from "react";
+import React, { useState, useEffect} from "react";
 import Note from "./app/note.js";
 import Resell from "./app/resell.js";
 import Login from "./app/login.js";
@@ -18,6 +18,8 @@ const user = {
   id: 0
 };
 
+var env = 'http://localhost:3000'
+
 var currentItems = [];
 var soldItems = [];
 
@@ -26,7 +28,7 @@ function App() {
   const [isLoged, setLoged] = useState(() => {
     let token = localStorage.getItem('hhtkn');
     if(token !== null) {
-      axios.post(`http://localhost:3000/checkToken/`, {
+      axios.post(`${env}/checkToken`, {
         token: token
       })
       .then(res => {
@@ -55,19 +57,17 @@ function logout() {
   localStorage.removeItem("token");
 }
 function refreshItems() {
-  //current items
-  axios({
-    url: `http://localhost:3000/getCurrentItems/${user.id}`,
-    method: 'get'
+
+  axios.post(`${env}/getCurrentItems`, {
+    id: user.id
   })
   .then(res => {
     currentItems = res.data;
     loadingItems(true);
   });
-  //sold items
-  axios({
-    url: `http://localhost:3000/getSoldItems/${user.id}`,
-    method: 'get'
+
+  axios.post(`${env}/getSoldItems`, {
+    id: user.id
   })
   .then( res => {
     soldItems = res.data;

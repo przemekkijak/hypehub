@@ -40,8 +40,8 @@ pool.getConnection(function(err, connection) {
   if (err) throw err;
   console.log('Connected to database');
 
-  app.get('/getCurrentItems/:id', (req,res) => {
-    pool.query(`SELECT * from items where ownerID = "${req.params.id}" and sold = "0"`, (error, results) => {
+  app.post('/getCurrentItems', (req,res) => {
+    pool.query(`SELECT * from items where ownerID = "${req.body.id}" and sold = "0"`, (error, results) => {
       if(error) {
         console.log(error);
       }
@@ -49,8 +49,8 @@ pool.getConnection(function(err, connection) {
     });
   });
 
-  app.get('/getSoldItems/:id', (req,res) => {
-    pool.query(`SELECT * from items where ownerID = "${req.params.id}" and sold = "1"`, (error, results) => {
+  app.post('/getSoldItems', (req,res) => {
+    pool.query(`SELECT * from items where ownerID = "${req.body.id}" and sold = "1"`, (error, results) => {
       if(error) {
         console.log(error);
       }
@@ -68,8 +68,8 @@ pool.getConnection(function(err, connection) {
       } else {
         res.send({status: 'failed'});
       }
-    });
-  });
+    }); //query
+  }); //post
 
   app.post('/register', (req,res) => {
     const {username, password, email} = req.body;
@@ -98,6 +98,8 @@ pool.getConnection(function(err, connection) {
       } if(results.length > 0 ) {
         res.send({userID: results[0].id});
       }
-    })
-  })
+    }) //query
+  }) //post
+
+
 }); //pool getConnection
