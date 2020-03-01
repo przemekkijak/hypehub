@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useReducer} from "react";
 import Note from "./app/note.js";
 import Resell from "./app/resell.js";
 import Login from "./app/login.js";
@@ -23,7 +23,19 @@ var soldItems = [];
 
 function App() {
   const [, loadingItems] = useState(false);
-  const [isLoged, setLoged] = useState(false);
+  const [isLoged, setLoged] = useState(() => {
+    let token = localStorage.getItem('hhtkn');
+    if(token !== null) {
+      axios.post(`http://localhost:3000/checkToken/`, {
+        token: token
+      })
+      .then(res => {
+        user.id = res.data.userID;
+        refreshItems();
+        setLoged(true);
+      });
+    }
+  });
 
   useEffect(() => {
     if(user.id !== 0) {
@@ -33,6 +45,7 @@ function App() {
 
 function handleLogin(userData) {
   user.id = userData.id;
+  localStorage.setItem('hhtkn', userData.token);
   refreshItems();
   setLoged(true);
 }
@@ -109,6 +122,7 @@ return (
               <img src="../img/menu/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/><br/>
               Wyloguj</NavLink></p>
           </div>
+
           <Switch>
             <Route exact path="/stats"><Resell/></Route>
             <Route exact path="/account"><Resell/></Route>

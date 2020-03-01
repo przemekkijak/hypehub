@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import axios from 'axios';
+import Register from './register';
 
 function Login(props) {
   const [failed, setFailed] = useState(false);
@@ -19,7 +20,10 @@ async function handleSubmit(e) {
       } else {
       props.handleLogin(res.data);
       }
-    });
+    })
+    .catch(error => {
+      console.log(error.message);
+    })
   }
 
   return (
@@ -34,6 +38,7 @@ async function handleSubmit(e) {
           </button>
         </form>
       </div>
+      <Register/>
     </div>
   );
 }

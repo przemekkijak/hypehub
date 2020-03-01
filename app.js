@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
-const axios = require('axios');
+const randomToken = require('random-token');
 const path = require("path");
 const mysql = require("mysql")
 require('dotenv').config();
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 
 const server = app.listen(5555, () => {
@@ -61,11 +64,40 @@ pool.getConnection(function(err, connection) {
       if(error) {
         throw error;
       } if(results.length > 0) {
-        res.send({id: results[0].id});
+        res.send({id: results[0].id, token: results[0].token});
       } else {
         res.send({status: 'failed'});
       }
     });
   });
 
+  app.post('/register', (req,res) => {
+    const {username, password, email} = req.body;
+    let token = `${username}+${randomToken(20)}`;
+    bcrypt.hash(password, saltRounds, (err, hash) => {
+      if(err) {
+        throw err;
+      } else {
+        pool.query(`INSERT into users (username, password, email, token) VALUES ("${username}", "${hash}", "${email}", "${token}")`, (error, results) => {
+          if(error) {
+            res.send({status: 'failed'});
+            throw error;
+          } else {
+            res.send({status: 'success', token: token});
+          }
+        });
+      }
+    }) //hash
+  }); //post
+
+  app.post('/checkToken', (req, res) => {
+    const {token} = req.body;
+    pool.query('SELECT * from users where token = "'+token+'"', (error, results) => {
+      if(error) {
+        throw error;
+      } if(results.length > 0 ) {
+        res.send({userID: results[0].id});
+      }
+    })
+  })
 }); //pool getConnection
