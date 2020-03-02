@@ -13,6 +13,7 @@ function Modify(props) {
     const itemLength = useRef(0);
     const itemWidth = useRef(0);
     const itemInsert = useRef(0);
+    const itemTrackingNumber = useRef(0);
     const data = [
       itemName,
       itemSize,
@@ -22,7 +23,8 @@ function Modify(props) {
       itemCond,
       itemLength,
       itemWidth,
-      itemInsert
+      itemInsert,
+      itemTrackingNumber
     ];
 
 
@@ -40,6 +42,7 @@ function Modify(props) {
         width: itemWidth.current.value,
         insert: itemInsert.current.value,
         cond: itemCond.current.value,
+        trackingNumber: itemTrackingNumber.current.value,
         type: props.itemType,
         ownerID: props.userID,
       };
@@ -130,6 +133,7 @@ function Modify(props) {
           <span>Cena kupna</span>
         </p>
         {item.sold === 1 && (
+          <>
         <p>
             <input
             ref={itemSellPrice}
@@ -137,6 +141,13 @@ function Modify(props) {
             defaultValue={item.sellPrice} />
             <span>Cena sprzedazy</span>
         </p>
+        <p>
+            <input
+            ref={itemTrackingNumber}
+            defaultValue={item.trackingNumber}/>
+            <span>Numer paczki</span>
+        </p>
+        </>
         )}
         {item.sold === 0 && (
           <>
