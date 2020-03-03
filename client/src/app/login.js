@@ -38,7 +38,7 @@ async function handleSubmit(e) {
           </button>
         </form>
       </div>
-      <Register/>
+      {/* <Register/> */}
     </div>
   );
 }
