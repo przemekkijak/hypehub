@@ -52,11 +52,13 @@ function handleLogin(userData) {
   refreshItems();
   setLoged(true);
 }
-function logout() {
-  cookies.remove('hhtkn')
-  .then(setLoged(false));
 
+
+async function logout() {
+    cookies.remove('hhtkn');
+    setLoged(false);
 }
+
 function refreshItems() {
   axios.post(`${env}/getCurrentItems`, {
     id: user.id
