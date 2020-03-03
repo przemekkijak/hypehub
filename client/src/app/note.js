@@ -124,11 +124,12 @@ return (
         </Switch>
       </div>
       <div className="statBox">
+        <br/>
         <p>Łączny zysk:</p>
-        <p>{profitStats("all")}</p>
-
+        <p>{profitStats("all")} zł</p>
+        <br/>
         <p>Dzisiejszy zysk:</p>
-        <p>{profitStats("today")}</p>
+        <p>{profitStats("today")} zł</p>
 
       </div>
       <NoteMenu
