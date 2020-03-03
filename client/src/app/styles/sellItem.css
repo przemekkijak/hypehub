@@ -1,0 +1,92 @@
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+/* v1 */
+/* --menu-color: rgb(22, 119, 78);
+--menu-color2: rgb(51, 138, 109);
+--menu-color3: rgb(11, 109, 68);
+--font-color: #C5C6C7; */
+/* v2 */
+/* Sell Item */
+.sellContainer {
+  width: 25vw;
+  height: 35vh;
+  background: #12171a;
+  border: 1px solid rgba(83, 83, 83, 0.952);
+}
+.sellContainer form {
+  height: 100%;
+  width: 100%;
+}
+.sellContainer form div {
+  top: 5%;
+  position: relative;
+  text-align: center;
+  font-size: 0.8em;
+}
+.sellContainer form p {
+  position: relative;
+  top: 15%;
+  margin: 3px;
+}
+.sellContainer form p button {
+  width: 8vw;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+.sellContainer form input {
+  padding: 5px;
+  height: 35px;
+  width: 15vw;
+  position: relative;
+  transform: translate(-50%);
+  margin: 3px;
+  left: 50%;
+  outline: none;
+  border: none;
+  border: 1px solid #1e2529;
+  background-color: rgba(90, 94, 92, 0.212);
+  border-radius: 2%;
+}
+.sellContainer form select {
+  background-color: rgba(90, 94, 92, 0.212);
+  outline: none;
+  border: none;
+  width: 15vw;
+  height: 35px;
+  position: relative;
+  margin: 3px;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%);
+}
+.sellContainer form select option {
+  background-color: #5a5e5c;
+}
+
+@media only screen and (max-width: 900px) {
+  .sellContainer {
+    width: 35vw;
+    height: 55vh;
+  }
+  .sellContainer form div {
+    font-size: 1em;
+  }
+  .sellContainer form input {
+    height: 25px;
+    font-size: 0.7em;
+  }
+  .sellContainer form select {
+    font-size: 0.7em;
+  }
+  .sellContainer form button {
+    font-size: 0.7em;
+    width: 6vw;
+    height: 25px;
+    top: 90%;
+  }
+}
+
+/*# sourceMappingURL=sellItem.css.map */

@@ -1,112 +1,156 @@
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+/* v1 */
+/* --menu-color: rgb(22, 119, 78);
+--menu-color2: rgb(51, 138, 109);
+--menu-color3: rgb(11, 109, 68);
+--font-color: #C5C6C7; */
+/* v2 */
 .addItemContainer {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 650px;
-    height: 450px;
-    background-color: rgba(17, 17, 17, 0.541);
-    border: 1px solid var(--menu-color4);
-    border-top: 10px solid var(--menu-color2);
-    display: grid;
-    grid-template-rows: 20% 60%;
-    box-shadow:inset -1px 0 1px 1px rgb(29, 44, 15);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 35vw;
+  height: 55vh;
+  background-color: #12171a;
+  display: grid;
+  grid-template-rows: 20% 60%;
+  border: 1px solid #1e2529;
+  box-shadow: inset 0px 0 1px 1px #1d2c0f;
+}
 
-  }
 .addItemForm {
-    display: grid;
-    grid-gap: 3%;
+  display: grid;
+  grid-gap: 2%;
 }
 .addItemForm input {
-    padding: 1%;
-    height: 42px;
-    width: 50%;
-    font-size: 12px;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    background: none;
-    outline: none;
-    border: none;
-    background-color: rgba(75, 62, 62, 0.26);
-    box-shadow:inset 0 0 2px 1px rgb(51, 53, 49);
-    border-radius: 2%;
+  padding: 1%;
+  height: 42px;
+  width: 50%;
+  font-size: 12px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  background: none;
+  outline: none;
+  border: none;
+  border: 1px solid #1e2529;
+  background-color: rgba(90, 94, 92, 0.212);
+  border-radius: 2%;
 }
-.addItemForm input::placeholder {
-    padding: 45%;
-    transition: all 0.3s ease;
+.addItemForm span {
+  font-size: 10px;
+  position: relative;
+  left: 9%;
+  opacity: 0.8;
+  color: rgba(177, 172, 172, 0.664);
 }
-.addItemForm input:focus::placeholder {
-    padding: 1%;
-}
+
 .addButton {
-    cursor: pointer;
-    margin: 1% 25% 0% 25%;
-    height: 35px;
-    width: 50%;
-    background: none;
-    border: 1px solid var(--menu-color);
+  cursor: pointer;
+  margin: 1% 25% 0% 25%;
+  height: 35px;
+  width: 50%;
+  background: none;
+  outline: none;
+  border: 1px solid #568d0e;
+}
+.addButton:active {
+  background-color: rgba(46, 42, 42, 0.322);
 }
 
 .itemType {
-    display: grid;
-    grid-template-columns: repeat(3,33%);
-  }
-  .itemIcon {
-    width: 35px;
-    height: 35px;
-  }
-  #clothesIcon {
-    position:relative;
-    top: 10%;
-  }
-  #shoeIcon {
-    position: relative;
-    /* top: -35%; */
-    width: 40px;
-    height: 40px;
-  }
-  #hatIcon {
-      position:relative;
-      top: 10%;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+}
 
-  /* Hiding default radio buttons */
+.itemIcon {
+  width: 35px;
+  height: 35px;
+}
+
+#clothesIcon {
+  position: relative;
+  top: 10%;
+}
+
+#shoeIcon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+#hatIcon {
+  position: relative;
+  top: 10%;
+}
+
+/* Hiding default radio buttons */
 .addRadio:checked,
-.addRadio:not(:checked) {display: none;}
+.addRadio:not(:checked) {
+  display: none;
+}
 
 /* Custom radio buttons */
-.addRadio:checked+label,
-.addRadio:not(:checked)+label {
+.addRadio:checked + label,
+.addRadio:not(:checked) + label {
   margin: 5px;
   display: block;
   text-align: center;
   position: relative;
   cursor: pointer;
   height: 60%;
-  /* border: 1px solid pink; */
 }
-
-.addRadio:checked+label:after,
-.addRadio:not(:checked)+label:after {
-  content: '';
-  width: 100%;
+.addRadio:checked + label:after,
+.addRadio:not(:checked) + label:after {
+  content: "";
+  width: 35%;
   height: 100%;
-  border-bottom: 1px solid var(--menu-color2);
+  border-bottom: 3px solid #6fb415;
   opacity: 0.6;
   position: absolute;
-  left: 0px;
+  left: 50%;
+  transform: translate(-50%);
   top: 0px;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
-.addRadio:not(:checked)+label:after {
+
+.addRadio:not(:checked) + label:after {
   opacity: 0;
-  /* -webkit-transform: scale(0);
-  transform: scale(0); */
 }
-.addRadio:checked+label:after {
+
+.addRadio:checked + label:after {
   opacity: 1;
-  /* -webkit-transform: scale(1);
-  transform: scale(1); */
 }
+
+@media only screen and (max-width: 800px) {
+  .addItemContainer {
+    width: 60vw;
+    height: 55vh;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .itemInfoContainer {
+    height: 35vh;
+    width: 60vw;
+    font-size: 0.7em;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .itemMenu {
+    font-size: 11px;
+    height: 35%;
+  }
+
+  .itemInfoContainer {
+    height: 50vh;
+    width: 40vw;
+    font-size: 0.7em;
+  }
+}
+
+/*# sourceMappingURL=addItem.css.map */

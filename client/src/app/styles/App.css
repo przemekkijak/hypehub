@@ -1,69 +1,76 @@
-*{
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+/* v1 */
+/* --menu-color: rgb(22, 119, 78);
+--menu-color2: rgb(51, 138, 109);
+--menu-color3: rgb(11, 109, 68);
+--font-color: #C5C6C7; */
+/* v2 */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Assistant, sans-serif;
-  color: var(--font-color);
+  color: #C5C6C7;
 }
-:root {
-  /* --background-color:rgb(24, 32, 37); */
 
-  /* v1 */
-  /* --menu-color: rgb(22, 119, 78);
-  --menu-color2: rgb(51, 138, 109);
-  --menu-color3: rgb(11, 109, 68);
-  --font-color: #C5C6C7; */
-
-  /* v2 */
-  --menu-color: rgb(4, 107, 51);
-  --menu-color2: rgb(34, 187, 98);
-  --menu-color3: rgb(17, 94, 51);
-  --font-color: #C5C6C7;
-
-  /* v3 */
-  --background-color:rgb(18, 24, 27);
-  --menu-color: rgb(86, 141, 14); /* main color */
-  --menu-color2: rgb(111, 180, 21); /* details */
-  --menu-color3: rgba(83, 138, 11, 0.808); /* clicked menu button */
-  --menu-color4: rgba(83, 83, 83, 0.952); /*bordes */
-  --font-color: #C5C6C7;
-
-
-  overflow: hidden;
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
+
 .App {
   text-align: center;
-  background-color: var(--background-color);
+  background-color: #1e2529;
+  background: linear-gradient(45deg, #1e2529 0%, #141414 100%);
   height: 100vh;
   width: 100vw;
   font-size: 17px;
-  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 7% 93%;
 }
 
 .link {
   text-decoration: none;
 }
 
-/* Top Menu navigation */
-.navigation {
-  color: var(--font-color);
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  transform: translate(-50%,-50%);
-  display: flex;
+.navigationContainer {
   font-family: Assistant, sans-serif;
   font-size: 0.8em;
+  background-color: #12171a;
 }
-/* NOTE/BULK */
-.topMenu {
-  margin: 5px;
+.navigationContainer .naviElement {
+  color: #51585c;
+  font-weight: bold;
 }
-
-/* Navigation Element - NOTE/BULK * + USER INFO*/
-.naviElement:hover{
+.navigationContainer .naviElement:hover {
   cursor: pointer;
-  color: rgb(226, 226, 226);
+}
+.navigationContainer p {
+  position: relative;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 30%;
+}
+.navigationContainer .navActive {
+  font-weight: bold;
+  color: #568d0e;
+}
+.navigationContainer .navIcon {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 7px;
+}
+.navigationContainer #logoutNav {
+  position: relative;
+  top: 45%;
+}
+.navigationContainer #logoutIcon {
+  width: 20px;
+  height: 20px;
 }
 
 .loginBox {
@@ -73,23 +80,22 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
-/* Adding item input */
 .loginBox input {
   height: 42px;
   width: 100%;
   background: none;
   border: none;
   outline: none;
-  border-bottom: 1px solid var(--menu-color2);
+  border-bottom: 1px solid #6fb415;
   font-size: 16px;
   letter-spacing: 1px;
 }
 
 .userInfo {
   padding: 15px;
-  border: 1px dashed var(--menu-color2);
+  border: 1px dashed #6fb415;
   position: absolute;
   left: 85%;
   top: 5%;
@@ -99,24 +105,44 @@
 }
 .userInfo Link {
   cursor: pointer;
-  border: 1px solid pink;
+}
+
+@media only screen and (max-width: 450px) {
+  * {
+    font-size: 0.8em;
+  }
+
+  .navigationContainer {
+    display: none;
+  }
 }
 @media only screen and (max-width: 800px) {
-
-  .navigation {
-    top: 3%;
-  }
- .userInfo {
-  position: relative;
-  left: 50%;
-  width: 50%;
-  height: 9%;
-  transform: translate(-50%);
- }
-}
-@media only screen and (max-width: 1300px) {
   * {
-    font-size: 13px;
+    font-size: 0.9em;
   }
 
+  .navigationContainer {
+    font-size: 8px;
+  }
+  .navigationContainer .navIcon {
+    width: 20px;
+    height: 20px;
+  }
 }
+@media only screen and (max-width: 1100px) {
+  * {
+    font-size: 0.9em;
+  }
+
+  .tableContainer {
+    font-size: 14px;
+    width: 76vw;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  * {
+    font-size: 0.9em;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

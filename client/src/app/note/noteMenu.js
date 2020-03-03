@@ -12,6 +12,7 @@ function NoteMenu(props) {
   }
 
   return (
+    <>
     <div className="noteMenu">
       <button
         className="noteButton"
@@ -26,13 +27,13 @@ function NoteMenu(props) {
         onRequestClose={() => handleModal()}
       >
         <AddItem
-          socket={props.socket}
           userID={props.userID}
           refreshItems={props.refreshItems}
           handleModal={handleModal}
         />
       </ReactModal>
     </div>
+    </>
   );
 }
 

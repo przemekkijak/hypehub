@@ -11,18 +11,14 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Switch
+  Switch,
+  Redirect
 } from "react-router-dom";
 
 function Render(props) {
   const [itemModal, setItemModal] = useState(false);
   const [currentItem, setCurrentItem] = useState(0);
-  const socket = props.socket;
 
-  function deleteItem(id) {
-    socket.emit("deleteItem", id.target.id);
-    props.refreshItems();
-  }
   function itemInfo(id) {
     setCurrentItem(id);
     setItemModal(true);
@@ -33,15 +29,18 @@ function Render(props) {
 
 return (
   <Router>
+    <div className="noteTableNavi">
+      <NavLink
+        className="link naviButton"
+        activeClassName="active"
+        to="/note/current">Aktualne</NavLink>
+      <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
+      <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
+      <span>Filtruj<img src="/img/note/filtr.png" alt="filtr" onClick={() => props.filterItems()}/></span>
+      <input type="text" placeholder="Szukaj..." onChange={(e) => props.searchItem(e.target.value)}/>
+    </div>
+
     <div className="tableContainer">
-      <div className="noteTableNavi">
-        <NavLink
-          className="link naviButton"
-          activeClassName="active"
-          to="/note/current">Aktualne</NavLink>
-        <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
-        <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
-      </div>
       <Switch>
         <Route path="/note/sold">
           <div className="itemsInfo soldColumns">
@@ -50,6 +49,8 @@ return (
             <span>Stan</span>
             <span>Cena kupna</span>
             <span>Profit</span>
+            <span>Tracking</span>
+            <span>Kupujacy</span>
           </div>
         </Route>
         <Route path="/">
@@ -58,31 +59,35 @@ return (
             <span>Rozmiar</span>
             <span>Stan</span>
             <span>Cena kupna</span>
-            <span>Sprzedaj</span>
+            <span>Potencjalna sprzedaz</span>
           </div>
         </Route>
       </Switch>
       <div className="noteContent">
         <Switch>
-          <Route path="/note/sold">
+
+          <Route exact path="/note/sold">
             <Sold
               items={props.soldItems}
-              deleteItem={deleteItem}
-              itemInfo={id => itemInfo(id)}/>
-          </Route>
-          <Route path="/note/pending"><Pending/></Route>
-          <Route path="/">
-            <Current
-              socket={socket}
               itemInfo={id => itemInfo(id)}
-              items={props.currentItems}
-              deleteItem={deleteItem}
               refreshItems={props.refreshItems}/>
           </Route>
+
+          <Route exact path="/note/pending">
+            <Pending/>
+          </Route>
+
+          <Route exact path="/note/current">
+            <Current
+              itemInfo={id => itemInfo(id)}
+              items={props.currentItems}
+              refreshItems={props.refreshItems}/>
+          </Route>
+
+          <Redirect to="/note/current" />
         </Switch>
       </div>
       <NoteMenu
-        socket={socket}
         userID={props.userID}
         refreshItems={props.refreshItems}/>
       <ReactModal
@@ -91,7 +96,6 @@ return (
         overlayClassName={"modalOverlay"}
         onRequestClose={() => setItemModal(false)}>
         <ItemInfo
-          socket={socket}
           handleModal={handleModal}
           itemID={currentItem}
           refreshItems={props.refreshItems}/>

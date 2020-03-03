@@ -1,22 +1,25 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import Note from "./app/note.js";
-import Resell from "./app/resell";
-import Login from "./app/login";
-// import Home from './app/home'
+import Resell from "./app/resell.js";
+import Login from "./app/login.js";
 import "./app/styles/App.css";
-import socketIOClient from "socket.io-client";
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
-  Redirect
+  Redirect,
+  NavLink
 } from "react-router-dom";
 
-const socket = socketIOClient("//hypehub.pl");
-var user = {};
-const token = localStorage.getItem("token");
-const id = localStorage.getItem("id");
+const cookies = new Cookies();
+const socket = {};
+const user = {
+  id: 0
+};
+
+var env = 'https://hypehub.pl'
 
 var currentItems = [];
 var soldItems = [];
@@ -24,85 +27,125 @@ var soldItems = [];
 function App() {
   const [, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
-    socket.emit("checkLog", token, id);
-    socket.on("success", userData => {
-      user = userData;
-      refreshItems();
-      setLoged(true);
-    });
-    socket.on("failed", () => {
-      setLoged(false);
-    });
+    let token = cookies.get('hhtkn');
+    if(token !== null) {
+      axios.post(`${env}/checkToken`, {
+        token: token
+      })
+      .then(res => {
+        user.id = res.data.uid;
+        refreshItems();
+        setLoged(true);
+      });
+    }
   });
 
+  useEffect(() => {
+    if(user.id !== 0) {
+      refreshItems();
+    }
+  }, []);
+
 function handleLogin(userData) {
-  user = userData;
+  user.id = userData.uid;
+  cookies.set('hhtkn', userData.token);
   refreshItems();
   setLoged(true);
 }
 
-function logout() {
-  setLoged(false);
-  localStorage.removeItem("id");
-  localStorage.removeItem("token");
+
+async function logout() {
+    cookies.remove('hhtkn');
+    setLoged(false);
 }
 
 function refreshItems() {
-  socket.emit("getCurrentItems", data => {
-    currentItems = data;
+  axios.post(`${env}/getCurrentItems`, {
+    id: user.id
+  })
+  .then(res => {
+    currentItems = res.data;
     loadingItems(true);
   });
-  socket.emit("getSoldItems", data => {
-    soldItems = data;
+
+  axios.post(`${env}/getSoldItems`, {
+    id: user.id
+  })
+  .then( res => {
+    soldItems = res.data;
     loadingItems(false);
-  });
-  setTimeout(function() {
-    socket.emit("getCurrentItems", data => {
-      currentItems = data;
-      loadingItems(true);
-    });
-    socket.emit("getSoldItems", data => {
-      soldItems = data;
-      loadingItems(false);
-    });
-  },750);
+  })
+}
+
+function searchItem(itemName) {
+  if(itemName.length <2) {
+    refreshItems();
+  }
+  if(window.location.pathname === "/note/current") {
+    var item = currentItems.filter(item => item.name.toLowerCase().includes(itemName));
+    if(item.length > 0) {
+      currentItems = item;
+    }
+  } else {
+    item = soldItems.filter(item => item.name.toLowerCase().includes(itemName));
+    if(item.length > 0) {
+      soldItems = item;
+    }
+  }
+  loadingItems(true);
+}
+
+function unfilter() {
+  refreshItems();
+  console.log('unfilter');
 }
 
 return (
   <Router>
     <div className="App" id="root">
-      <link
-      href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap"
-      rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet"/>
+
         {isLoged ? (
         <>
-          <div className="userInfo">
-            <p>Zalogowano jako {user.username}</p>
-            <p className="naviElement">Moje konto</p>
-            <p className="naviElement" onClick={logout}>Wyloguj</p>
+          <div className="navigationContainer">
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="note">
+              <img src="../img/menu/shirt.png" alt="Items" className="navIcon"/><br/>
+              Itemy</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="bulk">
+              <img src="../img/menu/bulk.png" alt="Bulk" className="navIcon"/><br/>
+              Bulk</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="stats">
+              <img src="../img/menu/stats.png" alt="Stats" className="navIcon"/><br/>
+              Statystyki</NavLink></p>
+            <p><NavLink className="link naviElement" activeClassName="navActive" to="account">
+              <img src="../img/menu/user.png" alt="Account" className="navIcon"/><br/>
+              Moje konto</NavLink></p>
+            <p id="logoutNav"><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>
+              <img src="../img/menu/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/><br/>
+              Wyloguj</NavLink></p>
           </div>
-          <div className="navigation">
-            <Link className="topMenu link naviElement" to="/">NOTE</Link>
-            <Link className="topMenu link naviElement" to="bulk">BULK</Link>
-          </div>
+
           <Switch>
-            <Route path="/bulk"><Resell/></Route>
-            <Route path="/">
+            <Route exact path="/stats"><Resell/></Route>
+            <Route exact path="/account"><Resell/></Route>
+            <Route exact path="/bulk"><Resell/></Route>
+            <Route exact path="/note">
               <Note.Render
                 socket={socket}
                 currentItems={currentItems}
                 soldItems={soldItems}
                 refreshItems={refreshItems}
-                userID={user.id}/>
-            </Route><Redirect to="/" />
+                userID={user.id}
+                searchItem={searchItem}
+                unfilter={unfilter}/>
+            </Route><Redirect to="/note" />
           </Switch>
         </>
         ) : (
         <>
           <Route path="/">
             <Login
-              handleLogin={userData => handleLogin(userData)}
-              socket={socket}/>
+              handleLogin={(userData) => handleLogin(userData)}/>
           </Route><Redirect to="/"/>
         </>
         )}

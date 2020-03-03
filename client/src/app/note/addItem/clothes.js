@@ -1,27 +1,24 @@
 import React, { useRef } from "react";
+import axios from 'axios';
 
 function AddClothes(props) {
   const formBox = useRef();
   const itemName = useRef();
   const itemSize = useRef();
   const itemPrice = useRef();
+  const estimatedPrice = useRef();
   const itemCond = useRef();
   const itemLength = useRef();
   const itemWidth = useRef();
-  const itemData = [
-    itemName,
-    itemSize,
-    itemPrice,
-    itemCond,
-    itemLength,
-    itemWidth
-  ];
+  const itemData = [itemName,itemSize,itemPrice,itemCond,itemLength,itemWidth, estimatedPrice];
+
 
   function handleSubmit(e) {
     e.preventDefault();
     let item = {
       name: itemName.current.value,
       price: itemPrice.current.value,
+      estimatedPrice: estimatedPrice.current.value,
       size: itemSize.current.value,
       length: itemLength.current.value,
       width: itemWidth.current.value,
@@ -29,89 +26,121 @@ function AddClothes(props) {
       type: props.itemType,
       ownerID: props.userID
     };
+
     var validateData = 0;
-    for (var element of itemData) {
-      if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
-        validateData++;
-        if (validateData === itemData.length) {
-          if (
-            !isNaN(item.price) &&
-            !isNaN(item.cond) &&
-            !isNaN(item.length) &&
-            !isNaN(item.width)
-          ) {
-            props.socket.emit("addItem", item);
-            props.refreshItems();
-            props.handleModal();
-          }
-        }
-        var validateData = 0;
-        for(var element of itemData) {
-            if(/^[a-zA-Z0-9 / ,.-]+$/.test(element.current.value)) {
-                validateData++;
-                if(validateData === itemData.length) {
-                 if(!isNaN(item.price) && !isNaN(item.cond)) {
-                    props.socket.emit('addItem', item)
-                    }
-                }
-            }
-        }
+    for(let element of itemData) {
+      let count = validateInput(element);
+      validateData += count;
+      if(validateData === itemData.length) {
+        axios.post('https://hypehub.pl/addItem', {
+          item: item
+        });
         props.refreshItems();
-        props.handleModal('add');
-      } else {
-        alert('Cos poszlo nie tak');
+        props.handleModal();
       }
     }
+
   }
 
+  function validateInput(input) {
+      var element = document.getElementById(input.current.id);
+      function success() {
+        element.style.border = "none";
+      }
+      function failed() {
+        element.style.border = "1px solid darkred";
+      }
+
+        switch(input.current.id) {
+          // Check each item field, if not passed test -> add red border
+          default:
+          case "itemName":
+          case "itemSize":
+            if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
+              success();
+              return 1;
+            } else {
+              failed();
+              return 0;
+            }
+          case "itemLength":
+          case "itemWidth":
+          case "itemPrice":
+          case "estimatedPrice":
+          case "itemCond":
+            if(/^[0-9]*$/.test(input.current.value)) {
+              success();
+              return 1;
+            } else {
+              failed();
+              return 0;
+            }
+  }
+}
+
   return (
-    <>
-      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
+      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" autoComplete="off">
         <p>
           <input
-          placeholder="Nazwa"
           ref={itemName}
+          id="itemName"
           autoFocus={true}
           required
           spellCheck="false"  />
+          <span>Nazwa</span>
         </p>
         <p>
           <input
-          placeholder="Rozmiar"
+          id="itemSize"
           ref={itemSize}
-          required />
+          required
+          spellCheck="false"/>
+          <span>Rozmiar</span>
         </p>
         <p>
           <input
-          placeholder="Dlugosc"
           ref={itemLength}
-          required />
+          id="itemLength"
+          spellCheck="false"
+          />
+          <span>Dlugosc (cm)</span>
         </p>
         <p>
           <input
-          placeholder="Szerokosc"
           ref={itemWidth}
-          required />
+          spellCheck="false"
+          id="itemWidth"
+          />
+          <span>Szerokosc (cm)</span>
         </p>
         <p>
           <input
-          placeholder="Cena"
           ref={itemPrice}
+          spellCheck="false"
+          id="itemPrice"
           required />
+          <span>Cena</span>
         </p>
         <p>
           <input
-          placeholder="Stan"
-          ref={itemCond}
-          required />
+          ref={estimatedPrice}
+          spellCheck="false"
+          id="estimatedPrice"
+          />
+          <span>Potencjalna sprzedaz</span>
         </p>
         <p>
-          <button type="submit" className="addButton" value="Submit">
+          <input
+          ref={itemCond}
+          spellCheck="false"
+          id="itemCond"
+          required />
+          <span>Stan</span>
+        </p>
+          <button type="submit" className="addButton">
             Dodaj
           </button>
-        </p>
       </form>
-    </>
   );
 }
 

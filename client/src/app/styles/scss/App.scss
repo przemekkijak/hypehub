@@ -1,0 +1,151 @@
+@import "master";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Assistant, sans-serif;
+  color: $font-color;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.App {
+  text-align: center;
+  background-color: $background-color;
+  background: linear-gradient(45deg, $background-color 0%, rgb(20, 20, 20) 100%);
+  height: 100vh;
+  width: 100vw;
+  font-size: 17px;
+  display: grid;
+  grid-template-columns: 7% 93%;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.navigationContainer {
+  font-family: Assistant, sans-serif;
+  font-size: 0.8em;
+  background-color: $background-second;
+  .naviElement {
+    color: rgb(81, 88, 92);
+    font-weight: bold;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  p {
+    position: relative;
+    top:20%;
+    left: 50%;
+    transform:translate(-50%);
+    margin-top: 30%;
+  }
+  .navActive {
+      font-weight: bold;
+      color: $menu-color;
+    }
+  .navIcon {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 7px;
+  }
+  #logoutNav {
+    position: relative;
+    top: 45%;
+  }
+  #logoutIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+.loginBox {
+  width: 12vw;
+  height: 25vh;
+  font-size: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+//   Adding item input? -- to check
+  input {
+    height: 42px;
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $menu-color2;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+.userInfo {
+  padding: 15px;
+  border: 1px dashed $menu-color2;
+  position: absolute;
+  left: 85%;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  Link {
+    cursor: pointer;
+  }
+}
+
+
+
+  // RWD
+
+  // Phone - Large
+@media only screen and (max-width: 450px) {
+  * {
+      font-size: 0.8em;
+  }
+
+  .navigationContainer {
+      display: none;
+  }
+}
+  // Ipad
+@media only screen and (max-width: 800px) {
+  * {
+      font-size: 0.9em;
+  }
+
+  .navigationContainer {
+    font-size: 8px;
+    .navIcon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+}
+
+// Laptops
+@media only screen and(max-width: 1100px) {
+  * {
+    font-size: 0.9em;
+}
+  .tableContainer {
+    font-size: 14px;
+    width: 76vw;
+  }
+}
+
+
+//big laptops
+
+@media only screen and(max-width: 1440px){
+  * {
+    font-size: 0.9em;
+}
+}

@@ -1,0 +1,93 @@
+@import "master";
+
+.photoContainer {
+    position: relative;
+    left: -5%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 30% 90%;
+    input {
+        display: none;
+    }
+    .photosBox {
+        position: relative;
+        left: -9%;
+        top: 20%;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        .photo {
+            margin: 5px;
+            width: 100%;
+            height: 100%;
+            img {
+                border: 2px solid $menu-color4;
+                padding: 2px;
+                width: 170px;
+                height: 190px;
+                cursor: pointer;
+            }
+        }
+    }
+    .photosOptions {
+        position: relative;
+        left: -9%;
+        height: 50%;
+        top: 25%;
+        p {
+            text-align: center;
+            font-size: 12px;
+            padding: 3%;
+            color: rgb(102, 101, 101);
+            white-space: pre-line;
+        }
+        button {
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%);
+            width: 25vw;
+            height: 5vh;
+            margin: 3px;
+            position: relative;
+            cursor: pointer;
+            background: none;
+            outline: none;
+            border: 1px solid rgba(56, 55, 55, 0.568);
+            background-color: rgba(71,70,70, 0.200);
+            &:hover {
+                background-color: rgba(90,90,90,0.200);
+            }
+            &:active {
+                background-color: rgba(46, 42, 42, 0.322);
+            }
+        }
+            #testuje {
+                // display: none;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%);
+                top: 10%;
+                height: 200px;
+                width: 200px;
+            }
+    }
+}
+
+// RWD
+
+
+// Laptops
+@media only screen and(max-width: 900px){
+
+    .photosBox {
+
+        .photo {
+        width: 50%;
+        height: 50%;
+        }
+        img {
+            width: 120px;
+            height: 150px;
+        }
+    }
+}

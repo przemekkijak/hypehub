@@ -1,10 +1,13 @@
-@import url('App.css');
-@import url('itemInfo.css');
-@import url('addItem.css');
-@import url('modifyItem.css');
-
-
-/* width */
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+/* v1 */
+/* --menu-color: rgb(22, 119, 78);
+--menu-color2: rgb(51, 138, 109);
+--menu-color3: rgb(11, 109, 68);
+--font-color: #C5C6C7; */
+/* v2 */
 ::-webkit-scrollbar {
   width: 7px;
 }
@@ -16,7 +19,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--menu-color);
+  background: #568d0e;
 }
 
 /* Handle on hover */
@@ -25,111 +28,162 @@
 }
 
 .note {
-height: 100%;
-width: 100%;
+  height: 100%;
+  width: 100%;
 }
+
 .tableContainer {
-position: absolute;
-width: 60vw;
-height: 60vh;
-left: 50%;
-top: 50%;
-transform: translate(-50%,-50%);
-font-size: 0.9em;
-  }
-  /* Table navi */
+  position: absolute;
+  width: 65vw;
+  height: 66vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.9em;
+}
+
 .noteTableNavi {
   display: flex;
+  width: 100vw;
+  height: 15vh;
 }
+.noteTableNavi span {
+  position: relative;
+  top: 35%;
+  left: 59%;
+  font-size: 0.8em;
+  height: 25px;
+  cursor: pointer;
+}
+.noteTableNavi img {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.noteTableNavi input {
+  height: 30px;
+  position: relative;
+  top: 35%;
+  left: 46%;
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #568d0e;
+}
+
 /* Table Navi Buttons (Current|Sold|Pending */
 .naviButton {
-  width: 100%;
+  position: relative;
+  left: 5%;
+  top: 35%;
+  width: 6%;
   height: 50px;
   border: none;
-  background-color: var(--menu-color);
   outline: none;
   font-size: 0.9em;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:inset -1px 0 2px 1px rgb(29, 44, 15);
 }
-/* Content of note table */
+
+.active {
+  border-bottom: 3px solid rgba(83, 138, 11, 0.808);
+}
+
 .noteContent {
   position: relative;
   overflow-y: auto;
   height: 90%;
 }
+
 /* Items navigation */
 .itemsInfo {
   display: grid;
   padding-top: 2px;
-  padding-bottom: 3px;
+  margin-bottom: 5px;
   opacity: 0.6;
   font-size: 12px;
 }
+
 .itemSlot {
   cursor: pointer;
   display: grid;
   height: 50px;
-  border-bottom: 1px solid rgba(138, 160, 159, 0.322);
+  border-bottom: 1px solid rgba(90, 114, 77, 0.356);
 }
-.currentColumns {
-grid-template-columns: 45% 10% 15% 15% 5% 3%;
-}
-.soldColumns {
-grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
+.itemSlot:hover {
+  background-color: rgba(46, 46, 46, 0.25);
 }
 .itemSlot p {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.itemSlot:hover{
-  background-color: hsla(0,0%,18%,0.250);
+
+.currentColumns {
+  grid-template-columns: 30% 12% 12% 10% 10% 5% 5% 5%;
 }
-/* Menu options container "Add/remove/Modify */
+
+.soldColumns {
+  grid-template-columns: 30% 10% 7% 10% 5% 20% 10% 5%;
+}
+
+/* Add bUtton */
+.noteButton {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: 1px solid #6fb415;
+  justify-items: center;
+}
+
+.menuButton {
+  cursor: pointer;
+  margin-top: 25px;
+  width: 100%;
+  height: 30px;
+  background: none;
+  border: 1px solid #6fb415;
+}
+
+/* Menu options container [additem]*/
 .noteMenu {
   display: inline;
   left: 50%;
   transform: translate(-50%);
 }
-/* main button specs */
-.noteButton {
-  cursor: pointer;
-  background: none;
-  outline: none;
-  border: 1px solid var(--menu-color2);
-  justify-items: center;
-}
-/* Buttons for "Add / Remove / Modify */
+
 #addButton {
   margin-top: 2%;
   height: 4vh;
   width: 12vw;
 }
-#noteMenuButton:hover {
-  background: rgb(30, 37, 41);
+#addButton:hover {
+  background-color: rgba(87, 81, 81, 0.25);
 }
 
-/* Info/Sell specific buton */
-.sellButton {
-  height: 23px;
+.noteIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.actionButton {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  height: 25px;
   width: 25px;
 }
-/* Specific color for delete button */
-.deleteButton {
-  border: 1px solid rgb(145, 4, 4);
-  height: 23px;
-  width: 25px;
-}
-/* NoteMenu element container eg. Add Item/Sell Item */
+
+/* Container for "Sell Item */
 .itemMenuBox {
   width: 17vw;
   height: 25vh;
   font-size: 16px;
-  border-top: 5px solid var(--menu-color2);
+  border-top: 5px solid #6fb415;
 }
 .itemMenuBox input {
   height: 42px;
@@ -137,21 +191,7 @@ grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
   background: none;
   outline: none;
   border: none;
-  border-bottom: 1px solid var(--menu-color2);
-}
-/* button for submiting input / adding item etc */
-.menuButton {
-  cursor: pointer;
-  margin-top: 25px;
-  width: 100%;
-  height: 30px;
-  background: none;
-  border: 1px solid var(--menu-color);
-}
-/* Custom styling for active menu */
-.active {
-  background-color: var(--menu-color3);
-  box-shadow:inset -1px 0 5px 1px rgb(29, 44, 15);
+  border-bottom: 1px solid #6fb415;
 }
 
 /* MODAL OPTIONS */
@@ -161,40 +201,116 @@ grid-template-columns: 45% 10% 15% 15% 5% 5% 5%;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(3, 14, 20, 0.904);
+  background-color: rgba(18, 23, 26, 0.87);
   width: 100%;
   height: 100%;
 }
-.modalContent{
+
+.modalContent {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   outline: none;
 }
+
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 250ms ease-in-out;
 }
-.ReactModal__Overlay--after-open{
+
+.ReactModal__Overlay--after-open {
   opacity: 1;
 }
-.ReactModal__Overlay--before-close{
+
+.ReactModal__Overlay--before-close {
   opacity: 0;
 }
 
-@media only screen and (max-width: 800px) {
-
+@media only screen and (max-width: 450px) {
   .tableContainer {
-    top: 45%;
-    width: 100%;
+    width: 100vw;
   }
-  .noteMenuButton {
-    width: 30vw;
+
+  .noteTableNavi .link {
+    margin: 15px;
+    font-size: 0.6em;
+    top: 5%;
+    left: 25%;
+  }
+  .noteTableNavi input {
+    display: none;
+  }
+  .noteTableNavi span {
+    display: none;
+  }
+
+  .noteIcon {
+    width: 12px;
+    height: 12px;
   }
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 800px) {
+  .tableContainer {
+    width: 85vw;
+  }
+
+  .noteTableNavi .link {
+    margin: 15px;
+    font-size: 0.6em;
+    top: 5%;
+    left: 25%;
+  }
+  .noteTableNavi input {
+    display: none;
+  }
+  .noteTableNavi span {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .tableContainer {
+    font-size: 14px;
+    width: 76vw;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .currentColumns {
+    grid-template-columns: 30% 12% 12% 10% 10% 5% 5% 5%;
+  }
+
+  .soldColumns {
+    grid-template-columns: 25% 15% 7% 10% 7% 20% 10% 5%;
+  }
+
   #addButton {
-    height: 5vh;
+    height: 25px;
+    width: 150px;
+  }
+
+  .noteIcon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .noteTableNavi .link {
+    margin: 15px;
+    font-size: 0.6em;
+    top: 5%;
+    left: 25%;
+  }
+  .noteTableNavi input {
+    left: 35%;
+    width: 12vw;
+    font-size: 10px;
+  }
+  .noteTableNavi span {
+    display: none;
+  }
+  .noteTableNavi img {
+    width: 10px;
+    height: 10px;
   }
 }
+
+/*# sourceMappingURL=note.css.map */

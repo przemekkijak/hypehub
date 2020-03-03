@@ -1,32 +1,31 @@
 import React, { useState, useRef } from "react";
+import axios from 'axios';
+import Register from './register';
 
 function Login(props) {
   const [failed, setFailed] = useState(false);
-  const socket = props.socket;
   const username = useRef();
   const password = useRef();
-  const userData = [username, password];
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
-    let user = {
+
+      await axios.post('http://hypehub.pl/login', {
       username: username.current.value,
-      password: password.current.value
-    };
-    for (var element in user) {
-      if (/^[a-zA-Z0-9 /,.-]+$/.test(element.value)) {
-        socket.emit("login", user);
+      password: password.current.value,
+    })
+    .then(res => {
+      if(res.data.status === 'failed') {
+        setFailed(true);
+      } else {
+      props.handleLogin(res.data);
       }
-      }
-    socket.on("success", user => {
-      props.handleLogin(user);
-      localStorage.setItem("token", user.token);
-      localStorage.setItem("id", user.id);
-    });
-    socket.on("failed", res => {
-      setFailed(true);
-    });
+    })
+    .catch(error => {
+      console.log(error.message);
+    })
   }
+
   return (
     <div className="container">
       <div className="loginBox" id="loginBox" onSubmit={handleSubmit}>
@@ -39,6 +38,7 @@ function handleSubmit(e) {
           </button>
         </form>
       </div>
+      <Register/>
     </div>
   );
 }

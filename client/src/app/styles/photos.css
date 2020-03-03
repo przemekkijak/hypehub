@@ -1,0 +1,94 @@
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+/* v1 */
+/* --menu-color: rgb(22, 119, 78);
+--menu-color2: rgb(51, 138, 109);
+--menu-color3: rgb(11, 109, 68);
+--font-color: #C5C6C7; */
+/* v2 */
+.photoContainer {
+  position: relative;
+  left: -5%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 30% 90%;
+}
+.photoContainer input {
+  display: none;
+}
+.photoContainer .photosBox {
+  position: relative;
+  left: -9%;
+  top: 20%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.photoContainer .photosBox .photo {
+  margin: 5px;
+  width: 100%;
+  height: 100%;
+}
+.photoContainer .photosBox .photo img {
+  border: 2px solid rgba(83, 83, 83, 0.952);
+  padding: 2px;
+  width: 170px;
+  height: 190px;
+  cursor: pointer;
+}
+.photoContainer .photosOptions {
+  position: relative;
+  left: -9%;
+  height: 50%;
+  top: 25%;
+}
+.photoContainer .photosOptions p {
+  text-align: center;
+  font-size: 12px;
+  padding: 3%;
+  color: #666565;
+  white-space: pre-line;
+}
+.photoContainer .photosOptions button {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 25vw;
+  height: 5vh;
+  margin: 3px;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: 1px solid rgba(56, 55, 55, 0.568);
+  background-color: rgba(71, 70, 70, 0.2);
+}
+.photoContainer .photosOptions button:hover {
+  background-color: rgba(90, 90, 90, 0.2);
+}
+.photoContainer .photosOptions button:active {
+  background-color: rgba(46, 42, 42, 0.322);
+}
+.photoContainer .photosOptions #testuje {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 10%;
+  height: 200px;
+  width: 200px;
+}
+
+@media only screen and (max-width: 900px) {
+  .photosBox .photo {
+    width: 50%;
+    height: 50%;
+  }
+  .photosBox img {
+    width: 120px;
+    height: 150px;
+  }
+}
+
+/*# sourceMappingURL=photos.css.map */

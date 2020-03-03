@@ -1,0 +1,39 @@
+.loginBox {
+  width: 12vw;
+  height: 25vh;
+  font-size: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.loginBox input {
+  height: 42px;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #6fb415;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.registerBox {
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  height: 300px;
+  width: 300px;
+}
+.registerBox input {
+  height: 42px;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #6fb415;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/*# sourceMappingURL=login.css.map */

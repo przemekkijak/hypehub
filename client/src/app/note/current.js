@@ -1,68 +1,94 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
+import axios from 'axios';
 import SellItem from "./sellItem";
 
 ReactModal.setAppElement("#root");
 
 function Current(props) {
-  const socket = props.socket;
-  const [sellModal, setSellModal] = useState(false);
-  const [currentId, setCurrentId] = useState(0);
+const socket = props.socket;
+const [sellModal, setSellModal] = useState(false);
+const [currentId, setCurrentId] = useState(0);
 
-  function sellItem(id) {
-    setSellModal(true);
-    setCurrentId(id);
-  }
-  function handleModal() {
-    setSellModal(!sellModal);
+
+
+function sellItem(id) {
+  setSellModal(true);
+  setCurrentId(id);
+}
+function handleModal() {
+  setSellModal(!sellModal);
+}
+
+  function deleteItem(id) {
+    axios.post(`https://hypehub.pl/deleteItem`, {
+      id: id
+    })
+    props.refreshItems();
   }
 
-  function convertCondition(cond) {
-    if (cond === 10) {
-      return "DS";
-    } else {
-      return cond + "/10";
-    }
+
+function itemCondition(cond) {
+  if (cond === 10) {
+    return "DS";
+  } else {
+    return cond + "/10";
   }
+}
+function itemSize(item) {
+  switch(item.type) {
+    default:
+    case 1:
+      if(item.width === 0 || item.length === 0) {
+      return item.size;
+      } else {
+      return `${item.size} (${item.length} x ${item.width})`;
+      }
+    case 2:
+      if(item.shoeInsert === "0" || item.shoeInsert === "") {
+      return item.size;
+      } else {
+      return `${item.size} (${item.shoeInsert}cm)`
+      }
+    case 3:
+      return item.size;
+  }
+}
   return (
     <div className="currentContainer">
       {props.items.map((item, index) => (
         <div className="itemSlot currentColumns" id={item.id} key={index}>
           <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-          {item.type === 1 ? (
-            <p onClick={() => props.itemInfo(item.id)}>
-              {item.size}  ({item.length} x {item.width})
-            </p>
-          ) : (
-            <p onClick={() => props.itemInfo(item.id)}>{item.size}</p>
-          )}
-          <p onClick={() => props.itemInfo(item.id)}>
-            {convertCondition(item.cond)}
-          </p>
+          <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>
+          <p onClick={() => props.itemInfo(item.id)}>{itemCondition(item.cond)}</p>
           <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
-          <p>
-            <button
-              className="noteButton sellButton"
-              onClick={() => sellItem(item.id)}
-            >
-              $
-            </button>
+          <p onClick={() => props.itemInfo(item.id)}>{item.estimatedPrice} zł</p>
+          <p><button
+              className="actionButton"
+              onClick={() => sellItem(item.id)}>
+                <img src="/img/note/coin.png" alt="coin" className="noteIcon"/>
+              </button>
           </p>
-          {/* <p><button className="noteButton sellButton" onClick={() => props.itemInfo(item.id)}>i</button></p> */}
           <p>
             <button
-              className="noteButton deleteButton"
-              id={item.id}
-              onClick={id => {
-                if(window.confirm("Napewno usunac przedmiot?"))
-                props.deleteItem(id)
-              }}
-            >
-              x
+              className="actionButton"
+              onClick={() => props.itemInfo(item.id)}>
+                <img src="/img/note/info.png" alt="info" className="noteIcon"/>
+              </button>
+          </p>
+          <p>
+            <button
+              className="actionButton"
+              onClick={() => {
+                if(window.confirm(`Czy napewno usunąć ${item.name}?`))
+                deleteItem(item.id);
+              }}>
+                <img src="/img/note/delete.png" alt="delete" className="noteIcon"/>
             </button>
           </p>
         </div>
       ))}
+
 
       <ReactModal
         isOpen={sellModal}
