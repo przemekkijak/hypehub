@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import '../../styles/modifyitem.css';
+import '../../styles/modifyItem.css';
 import axios from 'axios';
 
 function Modify(props) {
