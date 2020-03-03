@@ -1,9 +1,12 @@
 import React from "react";
+import axios from 'axios';
 
 function Sold(props) {
 
   function deleteItem(id) {
-    props.socket.emit('deleteItem', id);
+    axios.post(`http://localhost:3000/sellItem`, {
+      id: id
+    })
     props.refreshItems();
   }
 

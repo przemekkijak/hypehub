@@ -1,5 +1,6 @@
-import React from 'react'
-import '../../styles/info.css'
+import React from 'react';
+import axios from 'axios';
+import '../../styles/info.css';
 
 function Info(props) {
 
@@ -21,9 +22,15 @@ function Info(props) {
         document.body.removeChild(area);
     }
     function unSold() {
-        props.socket.emit("unSold", props.item);
-        props.refreshItems();
-        props.handleModal();
+        axios.post('http://localhost:3000/unSold', {
+            id: props.item.id
+        })
+        .then(res => {
+            if(res.status(200)) {
+                props.refreshItems();
+                props.handleModal();
+            }
+        })
     }
 
     return (

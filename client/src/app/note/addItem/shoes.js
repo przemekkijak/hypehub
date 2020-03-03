@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import axios from 'axios';
 
 function AddShoes(props) {
   const formBox = useRef();
@@ -27,7 +28,9 @@ function AddShoes(props) {
       let count = validateInput(element);
       validateData += count;
       if(validateData === itemData.length) {
-        props.socket.emit('addItem', item);
+        axios.post('http://localhost:3000/addItem', {
+          item: item
+        });
         props.refreshItems();
         props.handleModal();
       }

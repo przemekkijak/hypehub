@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
+import axios from 'axios';
 import SellItem from "./sellItem";
 
 ReactModal.setAppElement("#root");
@@ -19,10 +20,13 @@ function handleModal() {
   setSellModal(!sellModal);
 }
 
-function deleteItem(id) {
-  socket.emit('deleteItem', id);
-  props.refreshItems();
-}
+  function deleteItem(id) {
+    axios.post(`http://localhost:3000/sellItem`, {
+      id: id
+    })
+    props.refreshItems();
+  }
+
 
 function itemCondition(cond) {
   if (cond === 10) {

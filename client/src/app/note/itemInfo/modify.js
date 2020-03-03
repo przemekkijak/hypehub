@@ -1,5 +1,6 @@
 import React, {useRef} from 'react'
 import '../../styles/modifyitem.css';
+import axios from 'axios';
 
 function Modify(props) {
     const item = props.item;
@@ -69,17 +70,22 @@ function Modify(props) {
               !isNaN(itemData.length) &&
               !isNaN(itemData.width) &&
               !isNaN(itemData.insert)
-            ) {
-              props.socket.emit("updateItem", itemData);
-              props.refreshItems();
-              props.handleModal();
-            } else {alert("Ktores z pol nie jest liczba")}
-          }
-        } else {
-          alert('Cos poszlo nie tak');
-        }
-      }
-    }
+              ) {
+                axios.post('http://localhost:3000/updateItem', {
+                  item: itemData
+                })
+                .then(res => {
+                  if(res.status(200)) {
+                    props.refreshItems();
+                    props.handleModal();
+                  }
+                });
+              };
+            };
+          };
+        };
+      };
+
     return(
         <div className="modify">
         <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">

@@ -18,7 +18,6 @@ import {
 function Render(props) {
   const [itemModal, setItemModal] = useState(false);
   const [currentItem, setCurrentItem] = useState(0);
-  const socket = props.socket;
 
   function itemInfo(id) {
     setCurrentItem(id);
@@ -66,25 +65,29 @@ return (
       </Switch>
       <div className="noteContent">
         <Switch>
+
           <Route exact path="/note/sold">
             <Sold
               items={props.soldItems}
               itemInfo={id => itemInfo(id)}
-              socket={socket}/>
+              refreshItems={props.refreshItems}/>
           </Route>
-          <Route exact path="/note/pending"><Pending/></Route>
+
+          <Route exact path="/note/pending">
+            <Pending/>
+          </Route>
+
           <Route exact path="/note/current">
             <Current
-              socket={socket}
               itemInfo={id => itemInfo(id)}
               items={props.currentItems}
               refreshItems={props.refreshItems}/>
           </Route>
+
           <Redirect to="/note/current" />
         </Switch>
       </div>
       <NoteMenu
-        socket={socket}
         userID={props.userID}
         refreshItems={props.refreshItems}/>
       <ReactModal
@@ -93,7 +96,6 @@ return (
         overlayClassName={"modalOverlay"}
         onRequestClose={() => setItemModal(false)}>
         <ItemInfo
-          socket={socket}
           handleModal={handleModal}
           itemID={currentItem}
           refreshItems={props.refreshItems}/>
