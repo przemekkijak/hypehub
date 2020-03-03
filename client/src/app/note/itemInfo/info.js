@@ -26,7 +26,7 @@ function Info(props) {
             id: props.item.id
         })
         .then(res => {
-            if(res.status(200)) {
+            if(res.status === 200) {
                 props.refreshItems();
                 props.handleModal();
             }

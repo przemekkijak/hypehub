@@ -75,7 +75,7 @@ function Modify(props) {
                   item: itemData
                 })
                 .then(res => {
-                  if(res.status(200)) {
+                  if(res.status === 200) {
                     props.refreshItems();
                     props.handleModal();
                   }

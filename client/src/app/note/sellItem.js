@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
+import axios from 'axios';
 import "../styles/sellItem.css";
 
 function SellItem(props) {
-  const socket = props.socket;
   const formBox = useRef();
   const itemPrice = useRef();
   const soldFor = useRef();
@@ -16,13 +16,16 @@ function SellItem(props) {
 
 
   useEffect(() => {
-    const getItem = () => {
-      socket.emit('getItem', props.id, item => {
-        setItem(item[0]);
+
+    axios.post('http://localhost:3000/getItem', {
+      id: props.id
+    })
+    .then(res => {
+      if(res.data.status === 'success') {
+        setItem(res.data.item);
         setLoaded(true);
-      })
-    }
-    getItem();
+      }
+    })
 
   }, [props.id]);
 
@@ -40,9 +43,15 @@ function SellItem(props) {
       let count = validateInput(element);
       validateData += count;
       if(validateData === itemData.length) {
-        props.socket.emit('sellItem', item);
-        props.refreshItems();
-        props.handleModal();
+        axios.post('http://localhost:3000/sellItem', {
+          item: item
+        })
+        .then(res => {
+          if(res.status === 200) {
+            props.refreshItems();
+            props.handleModal();
+          }
+        })
       }
     }
   }

@@ -93,7 +93,8 @@ function AddClothes(props) {
           <input
           id="itemSize"
           ref={itemSize}
-          required/>
+          required
+          spellCheck="false"/>
           <span>Rozmiar</span>
         </p>
         <p>

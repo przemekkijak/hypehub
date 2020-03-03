@@ -14,7 +14,7 @@ function ItemInfo(props) {
   useEffect(() => {
     !loaded &&
       axios.post('http://localhost:3000/getItem', {
-        id: props.item.id
+        id: props.itemID
       })
       .then(res => {
         if(res.data.status === 'success') {

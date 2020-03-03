@@ -14,7 +14,6 @@ function AddItem(props) {
           <AddClothes
             userID={props.userID}
             itemType={itemType}
-            socket={props.socket}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}
           />
@@ -24,7 +23,6 @@ function AddItem(props) {
           <AddShoes
             userID={props.userID}
             itemType={itemType}
-            socket={props.socket}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}
           />
@@ -34,7 +32,6 @@ function AddItem(props) {
           <AddAccessories
             userID={props.userID}
             itemType={itemType}
-            socket={props.socket}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}
           />
@@ -44,7 +41,6 @@ function AddItem(props) {
           <AddClothes
             userID={props.userID}
             itemType={itemType}
-            socket={props.socket}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}
           />

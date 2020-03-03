@@ -110,10 +110,10 @@ pool.getConnection(function(err, connection) {
   });
 
   app.post('/getItem', (req,res) => {
-    pool.query('SELECT * from items where id = "' + id + '";',
+    pool.query('SELECT * from items where id = "' + req.body.id + '";',
       (error, results) => {
         if (error) {
-          console.log("Error while getting item id: " + id);
+          console.log("Error while getting item id: " + req.body.id);
         }
         if (results.length > 0) {
           res.send({status: 'success', item: results[0]});
@@ -131,11 +131,12 @@ pool.getConnection(function(err, connection) {
       });
   });
 
-  app.post('/sellItem', (req,res) => {
+  app.post('/deleteItem', (req,res) => {
     pool.query("DELETE from items where id='" + req.body.id + "';", function(error) {
       if(error) {
         console.log(error);
       }
+      res.sendStatus(200);
     });
   });
 
@@ -205,35 +206,41 @@ pool.getConnection(function(err, connection) {
   app.post('/updateItem', (req,res) => {
     const {item} = req.body;
     pool.query(
-      "UPDATE items set name='"+
-      item.name+
-      "',buyPrice='"+
-      item.buyPrice+
-      "',sellPrice='"+
-      item.sellPrice+
-      "',size='"+
-      item.size+
-      "',estimatedPrice='"+
-      item.estimatedPrice+
-      "',length='"+
-      item.length+
-      "',width='"
-      +item.width+
-      "',shoeInsert='"
-      +item.insert+
-      "',cond='"+
-      item.cond+
-      "' where id='"+
-      item.id+"';",
-      function(error) {
+      "UPDATE items set name='" + item.name +
+      "',buyPrice='" + item.buyPrice +
+      "',sellPrice='" + item.sellPrice +
+      "',size='" + item.size +
+      "',estimatedPrice='"+ item.estimatedPrice +
+      "',length='" + item.length +
+      "',width='" + item.width +
+      "',shoeInsert='" + item.insert +
+      "',cond='" + item.cond +
+      "' where id='" + item.id +
+      "';", function(error) {
         if(error) {
           console.log(error);
-          console.log("Error while updating item");
         }
         res.sendStatus(200);
       }
-    )
+    );
+  });
 
+  app.post('/sellItem', (req,res) => {
+    const {item} = req.body;
+    pool.query(
+      "UPDATE items set sold='1', sellPrice='" +item.price +
+      "', soldFor='" + item.soldFor +
+      "', shipCompany ='" + item.shipCompany +
+      "', trackingNumber='"+item.trackingNumber +
+      "', soldAt=CURRENT_TIMESTAMP where id='" +
+      item.id +
+      "';",function(error) {
+        if (error) {
+          console.log(error);
+        }
+        res.sendStatus(200);
+      }
+    );
   })
 
 

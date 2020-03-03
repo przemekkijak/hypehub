@@ -21,7 +21,7 @@ function handleModal() {
 }
 
   function deleteItem(id) {
-    axios.post(`http://localhost:3000/sellItem`, {
+    axios.post(`http://localhost:3000/deleteItem`, {
       id: id
     })
     props.refreshItems();

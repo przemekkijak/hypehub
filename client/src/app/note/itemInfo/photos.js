@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React from 'react'
 import '../../styles/photos.css';
 import mergeImages from 'merge-images';
 
@@ -24,7 +24,6 @@ return (
                 <br/>Dostępne są dwa warianty, jeden w postaci czystych zdjęć, oraz drugi z dodatkowymi informacjami o Twoim przedmiocie. </p>
             <button >Zdjęcie z opisem</button>
             <button>Zdjęcie bez opisu</button>
-            <img src='/img/items/nophoto.jpg' id='testuje'/>
         </div>
     </div>
 
