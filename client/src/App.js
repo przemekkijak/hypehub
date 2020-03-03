@@ -19,7 +19,7 @@ const user = {
   id: 0
 };
 
-var env = 'https://hypehub.pl'
+var env = 'http://localhost:3000'
 
 var currentItems = [];
 var soldItems = [];
