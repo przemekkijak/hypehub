@@ -4,7 +4,7 @@ import Resell from "./app/resell.js";
 import Login from "./app/login.js";
 import "./app/styles/App.css";
 import axios from 'axios';
-
+import Cookies from 'universal-cookie';
 import {
   BrowserRouter as Router,
   Route,
@@ -13,6 +13,7 @@ import {
   NavLink
 } from "react-router-dom";
 
+const cookies = new Cookies();
 const socket = {};
 const user = {
   id: 0
@@ -26,13 +27,13 @@ var soldItems = [];
 function App() {
   const [, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
-    let token = localStorage.getItem('hhtkn');
+    let token = cookies.get('hhtkn');
     if(token !== null) {
       axios.post(`${env}/checkToken`, {
         token: token
       })
       .then(res => {
-        user.id = res.data.userID;
+        user.id = res.data.uid;
         refreshItems();
         setLoged(true);
       });
@@ -46,18 +47,17 @@ function App() {
   }, []);
 
 function handleLogin(userData) {
-  user.id = userData.id;
-  localStorage.setItem('hhtkn', userData.token);
+  user.id = userData.uid;
+  cookies.set('hhtkn', userData.token);
   refreshItems();
   setLoged(true);
 }
 function logout() {
-  setLoged(false);
-  localStorage.removeItem("id");
-  localStorage.removeItem("token");
+  cookies.remove('hhtkn')
+  .then(setLoged(false));
+
 }
 function refreshItems() {
-
   axios.post(`${env}/getCurrentItems`, {
     id: user.id
   })

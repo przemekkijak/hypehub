@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const randomToken = require('random-token');
 const path = require("path");
-const mysql = require("mysql")
+const mysql = require("mysql");
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const bcrypt = require('bcrypt');
@@ -64,7 +65,8 @@ pool.getConnection(function(err, connection) {
       if(error) {
         throw error;
       } if(results.length > 0) {
-        res.send({id: results[0].id, token: results[0].token});
+        token = jwt.sign({uid: results[0].id}, process.env.jwtSecret);
+        res.send({uid: results[0].id, token: token});
       } else {
         res.send({status: 'failed'});
       }
@@ -91,14 +93,11 @@ pool.getConnection(function(err, connection) {
   }); //post
 
   app.post('/checkToken', (req, res) => {
-    const {token} = req.body;
-    pool.query('SELECT * from users where token = "'+token+'"', (error, results) => {
-      if(error) {
-        throw error;
-      } if(results.length > 0 ) {
-        res.send({userID: results[0].id});
+    jwt.verify(req.body.token, process.env.jwtSecret, (error, decoded) => {
+      if(decoded !== undefined) {
+        res.send(decoded);
       }
-    }) //query
+    })
   }) //post
 
 
