@@ -22,7 +22,7 @@ function Info(props) {
         document.body.removeChild(area);
     }
     function unSold() {
-        axios.post('http://localhost:3000/unSold', {
+        axios.post('https://hypehub.pl/unSold', {
             id: props.item.id
         })
         .then(res => {

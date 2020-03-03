@@ -17,7 +17,7 @@ function SellItem(props) {
 
   useEffect(() => {
 
-    axios.post('http://localhost:3000/getItem', {
+    axios.post('https://hypehub.pl/getItem', {
       id: props.id
     })
     .then(res => {

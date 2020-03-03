@@ -35,7 +35,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/public/index.html"));
+});
 
 // mySQL POOL
 pool.getConnection(function(err, connection) {
@@ -48,15 +50,17 @@ pool.getConnection(function(err, connection) {
       // USER HANDLING
   app.post('/login', (req,res) => {
     const {username, password} = req.body;
-    pool.query('SELECT * from users where username = "'+username+'" and password = "'+password+'"', (error, results) => {
+    pool.query('SELECT * from users where username = "'+username+'"', (error, results) => {
       if(error) {
         throw error;
       } if(results.length > 0) {
-        token = jwt.sign({uid: results[0].id}, process.env.jwtSecret);
-        res.send({uid: results[0].id, token: token});
-      } else {
-        res.send({status: 'failed'});
-      }
+        bcrypt.compare(password, results[0].password, (error, result) => {
+          if(result === true) {
+            token = jwt.sign({uid: results[0].id}, process.env.jwtSecret);
+            res.send({uid: results[0].id, token: token});
+          }
+         });
+        }
     });
   });
 
@@ -67,12 +71,11 @@ pool.getConnection(function(err, connection) {
       if(err) {
         throw err;
       } else {
-        pool.query(`INSERT into users (username, password, email, token) VALUES ("${username}", "${hash}", "${email}", "${token}")`, (error, results) => {
+        pool.query(`INSERT into users (username, password, email) VALUES ("${username}", "${hash}", "${email}")`, (error, results) => {
           if(error) {
-            res.send({status: 'failed'});
             throw error;
           } else {
-            res.send({status: 'success', token: token});
+            res.sendStatus(200);
           }
         });
       }

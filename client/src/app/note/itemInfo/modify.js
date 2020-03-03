@@ -71,7 +71,7 @@ function Modify(props) {
               !isNaN(itemData.width) &&
               !isNaN(itemData.insert)
               ) {
-                axios.post('http://localhost:3000/updateItem', {
+                axios.post('https://hypehub.pl/updateItem', {
                   item: itemData
                 })
                 .then(res => {

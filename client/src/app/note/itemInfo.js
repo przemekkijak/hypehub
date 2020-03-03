@@ -13,7 +13,7 @@ function ItemInfo(props) {
 
   useEffect(() => {
     !loaded &&
-      axios.post('http://localhost:3000/getItem', {
+      axios.post('https://hypehub.pl/getItem', {
         id: props.itemID
       })
       .then(res => {

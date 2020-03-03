@@ -26,7 +26,7 @@ function AddAccessories(props) {
       let count = validateInput(element);
       validateData += count;
       if(validateData === itemData.length) {
-        axios.post('http://localhost:3000/addItem', {
+        axios.post('https://hypehub.pl/addItem', {
           item: item
         });
         props.refreshItems();

@@ -11,14 +11,13 @@ function Register() {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        await axios.post('http://localhost:3000/register', {
+        await axios.post('https://hypehub.pl/register', {
             username: username.current.value,
             password: password.current.value,
             email: email.current.value
           })
           .then(res => {
-              if(res.data.status === 'success') {
-                localStorage.setItem("hhtkn", res.data.token);
+              if(res.status === 200) {
               } else {
               }
           })
