@@ -174,6 +174,16 @@
     }
   }
 
+  .statBox {
+    padding: 5px;
+    border: 1px solid $menu-color4;
+    position: relative;
+    width: 10vw;
+    height: 30vh;
+    left: 105%;
+    top: -70%;
+  }
+
   /* MODAL OPTIONS */
   .modalOverlay {
     position: absolute;

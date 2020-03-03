@@ -95,7 +95,7 @@ pool.getConnection(function(err, connection) {
       // ITEMS
 
   app.post('/getCurrentItems', (req,res) => {
-    pool.query(`SELECT * from items where ownerID = "${req.body.id}" and sold = "0"`, (error, results) => {
+    pool.query(`SELECT * from items where ownerID = "${req.body.id}" and sold = "0" ORDER BY createdAt DESC`, (error, results) => {
       if(error) {
         console.log(error);
       }
@@ -104,7 +104,7 @@ pool.getConnection(function(err, connection) {
   });
 
   app.post('/getSoldItems', (req,res) => {
-    pool.query(`SELECT * from items where ownerID = "${req.body.id}" and sold = "1"`, (error, results) => {
+    pool.query(`SELECT * from items where ownerID = "${req.body.id}" and sold = "1" ORDER BY soldAt DESC`, (error, results) => {
       if(error) {
         console.log(error);
       }

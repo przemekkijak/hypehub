@@ -27,6 +27,42 @@ function Render(props) {
     setItemModal(!itemModal);
   }
 
+  function profitStats(time) {
+      let date = new Date();
+      let day = date.getDate();
+      let month = date.getMonth()+1;
+      let year = date.getFullYear();
+
+      if(month < 10) {
+        month = `0${month}`;
+      }
+      if(day < 10) {
+        day = `0${day}`;
+      }
+
+      let today = year+"-"+month+"-"+day;
+
+    let profit = 0;
+      switch(time) {
+        default:
+        case "all":
+          for(let i in props.soldItems) {
+            profit += (props.soldItems[i].sellPrice-props.soldItems[i].buyPrice);
+          }
+          return profit;
+
+        case "today":
+          for(let i in props.soldItems) {
+            let itemDate = props.soldItems[i].soldAt;
+            let splited = itemDate.split("T");
+            if(today === splited[0]) {
+              profit += (props.soldItems[i].sellPrice-props.soldItems[i].buyPrice);
+            }
+          }
+          return profit;
+      }
+  }
+
 return (
   <Router>
     <div className="noteTableNavi">
@@ -86,6 +122,14 @@ return (
 
           <Redirect to="/note/current" />
         </Switch>
+      </div>
+      <div className="statBox">
+        <p>Łączny zysk:</p>
+        <p>{profitStats("all")}</p>
+
+        <p>Dzisiejszy zysk:</p>
+        <p>{profitStats("today")}</p>
+
       </div>
       <NoteMenu
         userID={props.userID}
