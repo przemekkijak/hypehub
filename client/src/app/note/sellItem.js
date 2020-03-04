@@ -43,7 +43,7 @@ function SellItem(props) {
       let count = validateInput(element);
       validateData += count;
       if(validateData === itemData.length) {
-        axios.post('http://localhost:3000/sellItem', {
+        axios.post('https://hypehub.pl/sellItem', {
           item: item
         })
         .then(res => {
