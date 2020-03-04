@@ -39,10 +39,8 @@ function Render(props) {
       if(day < 10) {
         day = `0${day}`;
       }
-
       let today = year+"-"+month+"-"+day;
-
-    let profit = 0;
+      let profit = 0;
       switch(time) {
         default:
         case "all":
