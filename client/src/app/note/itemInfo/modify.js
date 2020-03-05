@@ -15,6 +15,7 @@ function Modify(props) {
     const itemWidth = useRef(0);
     const itemInsert = useRef(0);
     const itemTrackingNumber = useRef(0);
+    const shipCompany = useRef(0);
     const data = [
       itemName,
       itemSize,
@@ -25,7 +26,8 @@ function Modify(props) {
       itemLength,
       itemWidth,
       itemInsert,
-      itemTrackingNumber
+      itemTrackingNumber,
+      shipCompany
     ];
 
 
@@ -44,6 +46,7 @@ function Modify(props) {
         insert: itemInsert.current.value,
         cond: itemCond.current.value,
         trackingNumber: itemTrackingNumber.current.value,
+        shipCompany: shipCompany.current.value,
         type: props.itemType,
         ownerID: props.userID,
       };
@@ -152,6 +155,12 @@ function Modify(props) {
             ref={itemTrackingNumber}
             defaultValue={item.trackingNumber}/>
             <span>Numer paczki</span>
+        </p>
+        <p>
+            <input
+            ref={shipCompany}
+            defaultValue={item.shipCompany}/>
+            <span>Przewoznik</span>
         </p>
         </>
         )}

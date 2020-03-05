@@ -218,6 +218,8 @@ pool.getConnection(function(err, connection) {
       "',width='" + item.width +
       "',shoeInsert='" + item.insert +
       "',cond='" + item.cond +
+      "', trackingNumber='" + item.trackingNumber +
+      "', shipCompany='" + item.shipCompany +
       "' where id='" + item.id +
       "';", function(error) {
         if(error) {
