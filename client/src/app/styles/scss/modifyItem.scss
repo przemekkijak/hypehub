@@ -11,6 +11,8 @@
 
 .modifyForm {
     display: grid;
+    position: relative;
+    top: 7%;
     #itemName {
         background: none;
         left: 50%;
@@ -107,6 +109,18 @@
         input {
             text-align: right;
             margin: 2px;
+            width: 50%;
+        }
+        select {
+            background-color: rgba(90, 94, 92, 0.212);
+            outline: none;
+            border: none;
+            position: relative;
+            margin: 3px;
+            width: 50%;
+            option {
+                background-color: rgb(90,94,92);
+            }
         }
         #tracking {
             top: 35%;
@@ -115,6 +129,36 @@
         #shipcp {
             left: 52%;
             top: 35%;
+        }
+    }
+    #cond {
+        height: 35px;
+        margin-top: 15px;
+        position: relative;
+        width: 20%;
+        left: 50%;
+        transform: translate(-50%);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        select {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(90, 94, 92, 0.212);
+            outline: none;
+            border: none;
+            position: relative;
+            option {
+                background-color: rgb(90,94,92);
+            }
+        }
+        #condSpan {
+            position: absolute;
+            left: 40%;
+            top: 35%;
+            &:hover {
+                cursor: default;
+            }
         }
     }
 }
@@ -131,12 +175,61 @@
     border: 1px solid $menu-color;
 }
 
-@media only screen and (max-width: 1300px) {
+  // RWD
 
-    .modifyForm{
-        grid-gap: 1%;
-    }
-    .modifyForm span {
-        left: 13%;
-    }
+  // Phone - Large
+  @media only screen and (max-width: 450px) {
   }
+
+  // Ipad
+  @media only screen and (max-width: 800px) {
+  }
+
+// Laptops
+@media only screen and(max-width: 1100px) {
+
+    .modifyForm {
+        #itemName {
+            font-size: 14px;
+        }
+        #dimensions {
+            width: 80%;
+        }
+        #prices {
+            width: 80%;
+        }
+        #shipInfo {
+            width: 80%;
+        }
+        #cond {
+            width: 40%;
+            height: 30px;
+        }
+    }
+    .addButton {
+        margin-top: 30px;
+        height: 25px;
+        width: 50%;
+    }
+}
+
+
+//big laptop
+@media only screen and(max-width: 1440px){
+    .modifyForm {
+        input {
+            height: 27px;
+            font-size: 11px;
+        }
+        span {
+            font-size: 9px;
+        }
+
+    }
+    .addButton {
+        margin-top: 30px;
+        height: 30px;
+        width: 50%;
+    }
+
+}

@@ -92,6 +92,7 @@ function Modify(props) {
 
       function getTracking(type) {
         switch(type) {
+          default:
           case "number":
             if(item.trackingNumber === "undefined" || item.trackingNumber == null) {
               return "Brak";
@@ -182,21 +183,35 @@ function Modify(props) {
             defaultValue={getTracking("number")}/>
             <span id="tracking">Numer paczki</span>
 
-            <input
-            ref={shipCompany}
-            defaultValue={getTracking("company")}/>
-            <span id="shipcp">Przewoznik</span>
+            <select ref={shipCompany} id="shipCompany" defaultValue={getTracking("company")}>
+              <option value="">Wybierz przewoźnika</option>
+              <option value="dpd">DPD</option>
+              <option value="dhl">DHL</option>
+              <option value="pp">Poczta Polska</option>
+              <option value="ups">UPS</option>
+              <option value="inpost">InPost</option>
+          </select>
+
           </div>
         )}
 
+        <div id="cond">
+          <select ref={itemCond} id="itemCond" defaultValue={item.cond}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <span id="condSpan">Stan</span>
+        </div>
 
-        <p>
-          <input
-          ref={itemCond}
-          required
-          defaultValue={item.cond} />
-          <span>Stan</span>
-        </p>
+
         <p>
           <button type="submit" className="addButton" value="Submit">
             Zapisz
