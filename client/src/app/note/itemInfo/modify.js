@@ -95,45 +95,43 @@ function Modify(props) {
         <p>
          <input
           ref={itemName}
-          autoFocus={true}
           required
           defaultValue={item.name}
-          spellCheck="false" />
-          <span>Nazwa</span>
+          spellCheck="false"
+          id="itemName"/>
         </p>
-        <p>
-          <input
-          ref={itemSize}
-          required
-          defaultValue={item.size}/>
-          <span>Rozmiar</span>
-        </p>
-        {item.type === 1 && (
-          <>
-        <p>
-          <input
-          ref={itemLength}
-          required
-          defaultValue={item.length} />
-          <span>Dlugosc (cm)</span>
-        </p>
-        <p>
-          <input
-          ref={itemWidth}
-          required
-          defaultValue={item.width} />
-          <span>Szerokosc (cm)</span>
-        </p>
-        </>
-        )}
-        {item.type === 2 && (
-          <p>
-          <input
-          ref={itemInsert}
-          defaultValue={item.shoeInsert} />
-          <span>Długość wkładki (cm)</span>
-          </p>
-        )}
+        <div id="dimensions">
+
+            <input
+            autoFocus={true}
+            ref={itemSize}
+            required
+            defaultValue={item.size}/>
+
+          {item.type === 1 && (
+            <>
+            <input
+            ref={itemLength}
+            required
+            defaultValue={item.length} />
+            <span id="length">Dł:</span>
+            <input
+            ref={itemWidth}
+            required
+            defaultValue={item.width} />
+            <span id="width">Sz:</span>
+          </>
+          )}
+          {item.type === 2 && (
+            <>
+            <input
+            ref={itemInsert}
+            defaultValue={item.shoeInsert} />
+            <span id="shoeInsert">cm</span>
+            </>
+          )}
+        </div>
+
         <p>
           <input
           ref={itemBuyPrice}
