@@ -40,7 +40,11 @@ function Sold(props) {
   function getTracking(item) {
 
     if(item.trackingNumber !== "undefined") {
-      return `${item.shipCompany.toUpperCase()} : ${item.trackingNumber}`;
+      if(item.shipCompany.toLowerCase() === "inpost") {
+        return `InPost : ${item.trackingNumber}`;
+      } else {
+        return `${item.shipCompany.toUpperCase()} : ${item.trackingNumber}`;
+      }
     } else {
       return `Brak`;
     }
