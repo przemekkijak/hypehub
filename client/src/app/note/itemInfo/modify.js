@@ -32,6 +32,7 @@ function Modify(props) {
 
 
 
+
   function handleSubmit(e) {
       e.preventDefault();
       let itemData = {
@@ -89,6 +90,23 @@ function Modify(props) {
         };
       };
 
+      function getTracking(type) {
+        switch(type) {
+          case "number":
+            if(item.trackingNumber === "undefined" || item.trackingNumber == null) {
+              return "Brak";
+            } else {
+              return item.trackingNumber;
+            }
+          case "company":
+            if(item.shipCompany === "") {
+              return "Brak";
+            } else {
+              return item.shipCompany;
+            }
+        }
+      }
+
     return(
         <div className="modify">
         <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
@@ -132,47 +150,46 @@ function Modify(props) {
           )}
         </div>
 
-        <p>
+        <div id="prices">
           <input
           ref={itemBuyPrice}
           required
           defaultValue={item.buyPrice} />
-          <span>Cena kupna</span>
-        </p>
+          <span id="bPrice">Cena kupna</span>
         {item.sold === 1 && (
           <>
-        <p>
             <input
             ref={itemSellPrice}
             required
             defaultValue={item.sellPrice} />
-            <span>Cena sprzedazy</span>
-        </p>
-        <p>
-            <input
-            ref={itemTrackingNumber}
-            defaultValue={item.trackingNumber}/>
-            <span>Numer paczki</span>
-        </p>
-        <p>
-            <input
-            ref={shipCompany}
-            defaultValue={item.shipCompany}/>
-            <span>Przewoznik</span>
-        </p>
+            <span id="sPrice">Cena sprzedaży</span>
         </>
         )}
         {item.sold === 0 && (
           <>
-          <p>
             <input
             ref={itemEstimatedPrice}
             required
             defaultValue={item.estimatedPrice} />
-            <span>Przewidywana sprzedaz</span>
-          </p>
+            <span id="esPrice">Potencjalna sprzedaż</span>
           </>
         )}
+        </div>
+        {item.sold === 1 && (
+          <div id="shipInfo">
+            <input
+            ref={itemTrackingNumber}
+            defaultValue={getTracking("number")}/>
+            <span id="tracking">Numer paczki</span>
+
+            <input
+            ref={shipCompany}
+            defaultValue={getTracking("company")}/>
+            <span id="shipcp">Przewoznik</span>
+          </div>
+        )}
+
+
         <p>
           <input
           ref={itemCond}
