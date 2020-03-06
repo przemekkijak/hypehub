@@ -40,45 +40,86 @@
   background-color: rgba(90, 94, 92, 0.212);
   border-radius: 2%;
 }
+.modifyForm span {
+  font-size: 11px;
+  position: absolute;
+  opacity: 0.8;
+  color: rgba(177, 172, 172, 0.664);
+}
 .modifyForm #dimensions {
-  margin: 20px;
+  margin-top: 15px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 65%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-}
-.modifyForm #dimensions::before {
-  position: absolute;
-  content: "Wymiary";
-  font-size: 13px;
-  top: -50%;
-  opacity: 0.8;
-  color: rgba(177, 172, 172, 0.664);
+  justify-content: space-between;
 }
 .modifyForm #dimensions input {
   text-align: center;
-}
-.modifyForm #dimensions input:first-child {
-  margin-right: 10px;
-}
-.modifyForm #dimensions span {
-  font-size: 11px;
-  position: relative;
-  opacity: 0.8;
-  top: 22%;
-  color: rgba(177, 172, 172, 0.664);
+  margin: 2px;
 }
 .modifyForm #dimensions #length {
-  left: -24%;
+  left: 40%;
+  top: 36%;
 }
 .modifyForm #dimensions #width {
-  left: -23%;
+  left: 73%;
+  top: 36%;
 }
 .modifyForm #dimensions #shoeInsert {
-  left: -17%;
+  left: 80%;
+  top: 36%;
+}
+.modifyForm #prices {
+  margin-top: 15px;
+  position: relative;
+  width: 65%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.modifyForm #prices input {
+  margin: 2px;
+  text-align: right;
+  padding-right: 20px;
+}
+.modifyForm #prices #bPrice {
+  top: 35%;
+  left: 13%;
+}
+.modifyForm #prices #sPrice {
+  left: 52%;
+  top: 35%;
+}
+.modifyForm #prices #esPrice {
+  left: 55%;
+  top: 35%;
+}
+.modifyForm #shipInfo {
+  margin-top: 15px;
+  position: relative;
+  width: 65%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.modifyForm #shipInfo input {
+  text-align: right;
+  margin: 2px;
+}
+.modifyForm #shipInfo #tracking {
+  top: 35%;
+  left: 3%;
+}
+.modifyForm #shipInfo #shipcp {
+  left: 52%;
+  top: 35%;
 }
 
 .addButton {
@@ -91,10 +132,6 @@
 }
 
 @media only screen and (max-width: 1300px) {
-  .modify {
-    margin-top: 5%;
-  }
-
   .modifyForm {
     grid-gap: 1%;
   }
