@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import axios from 'axios';
+import '../../styles/addshoes.css';
 
 function AddShoes(props) {
   const formBox = useRef();
@@ -84,19 +85,18 @@ function AddShoes(props) {
           spellCheck="false"/>
           <span>Nazwa</span>
         </p>
-        <p>
+
+        <div id="dimensions">
           <input
           ref={itemSize}
           required
-          id="itemSize"/>
-          <span>Rozmiar</span>
-        </p>
-        <p>
+          id="itemSize"
+          placeholder="Rozmiar"/>
           <input
           ref={itemInsert}
-          id="itemInsert"/>
-          <span>Dlugosc wkladki (cm)</span>
-        </p>
+          id="itemInsert"
+          placeholder="Dlugosc wkladki (cm)"/>
+        </div>
         <p>
           <input
           ref={itemPrice}
