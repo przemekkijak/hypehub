@@ -2,12 +2,6 @@
 /* details */
 /* clicked menu button */
 /*bordes */
-/* v1 */
-/* --menu-color: rgb(22, 119, 78);
---menu-color2: rgb(51, 138, 109);
---menu-color3: rgb(11, 109, 68);
---font-color: #C5C6C7; */
-/* v2 */
 .addItemContainer {
   position: absolute;
   left: 50%;
@@ -20,46 +14,6 @@
   grid-template-rows: 20% 60%;
   border: 1px solid #1e2529;
   box-shadow: inset 0px 0 1px 1px #1d2c0f;
-}
-
-.addItemForm {
-  display: grid;
-  grid-gap: 2%;
-}
-.addItemForm input {
-  padding: 1%;
-  height: 42px;
-  width: 50%;
-  font-size: 12px;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  background: none;
-  outline: none;
-  border: none;
-  border: 1px solid #1e2529;
-  background-color: rgba(90, 94, 92, 0.212);
-  border-radius: 2%;
-}
-.addItemForm span {
-  font-size: 10px;
-  position: relative;
-  left: 9%;
-  opacity: 0.8;
-  color: rgba(177, 172, 172, 0.664);
-}
-
-.addButton {
-  cursor: pointer;
-  margin: 1% 25% 0% 25%;
-  height: 35px;
-  width: 50%;
-  background: none;
-  outline: none;
-  border: 1px solid #568d0e;
-}
-.addButton:active {
-  background-color: rgba(46, 42, 42, 0.322);
 }
 
 .itemType {

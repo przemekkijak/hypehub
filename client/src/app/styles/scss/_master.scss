@@ -7,16 +7,11 @@ $menu-color3: rgba(83, 138, 11, 0.808); /* clicked menu button */
 $menu-color4: rgba(83, 83, 83, 0.952); /*bordes */
 $font-color: #C5C6C7;
 
-    /* v1 */
-    /* --menu-color: rgb(22, 119, 78);
-    --menu-color2: rgb(51, 138, 109);
-    --menu-color3: rgb(11, 109, 68);
-    --font-color: #C5C6C7; */
-
-    /* v2 */
-    // $menu-color: rgb(4, 107, 51);
-    // $menu-color2: rgb(34, 187, 98);
-    // $menu-color3: rgb(17, 94, 51);
-    // $font-color: #C5C6C7;
-
-
+@mixin placeholder {
+    $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+    @each $placeholder in $placeholders {
+      &:#{$placeholder}-placeholder {
+        @content;
+      }
+    }
+  }
