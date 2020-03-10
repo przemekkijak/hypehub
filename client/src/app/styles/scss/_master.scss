@@ -15,3 +15,10 @@ $font-color: #C5C6C7;
       }
     }
   }
+
+@mixin center {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+  }

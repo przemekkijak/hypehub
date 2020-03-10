@@ -24,7 +24,7 @@
     }
     input {
         padding: 1%;
-        height: 42px;
+        height: 4vh;
         width: 50%;
         font-size: 12px;
         position: relative;
@@ -168,8 +168,8 @@
 
 .addButton {
     cursor: pointer;
-    margin: 1% 25% 0% 25%;
-    height: 35px;
+    margin-top: 5%;
+    height: 5vh;
     width: 50%;
     background: none;
     border: 1px solid $menu-color;
