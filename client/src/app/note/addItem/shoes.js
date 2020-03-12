@@ -75,7 +75,7 @@ function AddShoes(props) {
 
   return (
     <>
-      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" autoComplete="off">
+      <form ref={formBox} onSubmit={handleSubmit} id="addShoesForm" autoComplete="off">
           <input
           ref={itemName}
           autoFocus={true}
@@ -113,7 +113,7 @@ function AddShoes(props) {
           id="itemCond"
           placeholder="Stan"/>
 
-          <button type="submit" className="addButton" value="Submit">Dodaj</button>
+          <button type="submit" value="Submit">Dodaj</button>
       </form>
     </>
   );

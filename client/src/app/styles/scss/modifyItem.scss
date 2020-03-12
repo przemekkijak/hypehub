@@ -167,6 +167,7 @@
 
 
 .addButton {
+    @include center();
     cursor: pointer;
     margin-top: 5%;
     height: 5vh;

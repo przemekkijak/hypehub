@@ -2,7 +2,7 @@
 
 
 
-#addShoesForm {
+#addAccForm {
   display: grid;
   height: 100%;
   grid-gap: 1%;
@@ -23,20 +23,12 @@
     }
   }
 
-  #itemName, #itemPrice, #estimatedPrice, #itemCond, #dimensions {
+  #itemName, #itemPrice, #itemSize, #estimatedPrice, #itemCond {
     @include center();
   }
 
-  #dimensions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    input {
-      width: 50%;
-    }
-  }
 
-  button {
+  .addButton {
     @include center();
     cursor: pointer;
     margin-top: 1%;
