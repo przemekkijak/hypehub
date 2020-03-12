@@ -3,12 +3,12 @@ import axios from 'axios';
 import "../styles/sellItem.css";
 
 function SellItem(props) {
-  const formBox = useRef();
   const itemPrice = useRef();
   const soldFor = useRef();
+  const soldOn = useRef();
   const shipCompany = useRef();
   const trackingNumber = useRef(0);
-  const itemData = [itemPrice, soldFor, shipCompany, trackingNumber]
+  const itemData = [itemPrice, soldFor, soldOn, shipCompany, trackingNumber]
   const [trackingInput, enableTracking] = useState(false);
   const [item, setItem] = useState();
   const [loading, setLoaded] = useState(false);
@@ -35,6 +35,7 @@ function SellItem(props) {
       id: props.id,
       price: itemPrice.current.value,
       soldFor: soldFor.current.value,
+      soldOn: soldOn.current.value,
       shipCompany: shipCompany.current.value,
       trackingNumber: trackingNumber.current.value
     };
@@ -73,6 +74,7 @@ function SellItem(props) {
         // Check each item field, if not passed test -> add red border
         default:
         case "soldFor":
+        case "soldOn":
         case "shipCompany":
         case "trackingNumber":
           if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
@@ -104,27 +106,26 @@ function SellItem(props) {
   return (
     loading && (
     <div className="sellContainer">
-      <form onSubmit={handleSubmit} ref={formBox} autoComplete="off">
-        <div>{item.name}</div>
+      <form onSubmit={handleSubmit} autoComplete="off" id="sellForm">
+        <div id="itemName">{item.name}</div>
 
-        <p><input placeholder="Cena" id="itemPrice" ref={itemPrice} autoFocus={true} required/></p>
-        <p><input placeholder="Kupujacy (opcjonalnie)" id="soldFor" ref={soldFor} /></p>
-        <p><select ref={shipCompany} id="shipCompany" onChange={() => checkTracking()}>
+        <input placeholder="Cena" id="itemPrice" ref={itemPrice} autoFocus={true} required/>
+        <input placeholder="Kupujacy (opcjonalnie)" id="soldFor" ref={soldFor} />
+        <select ref={shipCompany} id="shipCompany" onChange={() => checkTracking()}>
               <option value="">Wybierz przewoźnika</option>
               <option value="dpd">DPD</option>
               <option value="dhl">DHL</option>
               <option value="pp">Poczta Polska</option>
               <option value="ups">UPS</option>
               <option value="inpost">InPost</option>
-          </select></p>
+          </select>
           {trackingInput && (
-            <p><input placeholder="Numer paczki" id="trackingNumber" ref={trackingNumber}/></p>
+            <input placeholder="Numer paczki" id="trackingNumber" ref={trackingNumber}/>
           )}
-
-
-          <p><button type="submit" className="menuButton" value="Submit">
+          <br/>
+         <button type="submit" className="menuButton" value="Submit">
             Sprzedaj
-          </button></p>
+          </button>
       </form>
     </div>
     ))
