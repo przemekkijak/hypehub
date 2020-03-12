@@ -232,6 +232,7 @@ pool.getConnection(function(err, connection) {
 
   app.post('/sellItem', (req,res) => {
     const {item} = req.body;
+    console.log(item.soldOn);
     pool.query(
       "UPDATE items set sold='1', sellPrice='" +item.price +
       "', soldFor='" + item.soldFor +

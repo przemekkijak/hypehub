@@ -44,7 +44,7 @@ function SellItem(props) {
       let count = validateInput(element);
       validateData += count;
       if(validateData === itemData.length) {
-        axios.post('https://hypehub.pl/sellItem', {
+        axios.post('https://hypehub.pl:3000/sellItem', {
           item: item
         })
         .then(res => {
@@ -110,15 +110,23 @@ function SellItem(props) {
         <div id="itemName">{item.name}</div>
 
         <input placeholder="Cena" id="itemPrice" ref={itemPrice} autoFocus={true} required/>
-        <input placeholder="Kupujacy (opcjonalnie)" id="soldFor" ref={soldFor} />
+        <input placeholder="Kupujacy" id="soldFor" ref={soldFor} />
+        <select ref={soldOn} id="soldOn" placeholder="Platforma sprzedaży">
+          <option value="" disabled selected hidden>Platforma sprzedaży</option>
+          <option value="facebook">Facebook</option>
+          <option value="vinted">Vinted</option>
+          <option value="grailed">Grailed</option>
+          <option value="Depop">Depop</option>
+          <option value="other">Inna</option>
+        </select>
         <select ref={shipCompany} id="shipCompany" onChange={() => checkTracking()}>
-              <option value="">Wybierz przewoźnika</option>
-              <option value="dpd">DPD</option>
-              <option value="dhl">DHL</option>
-              <option value="pp">Poczta Polska</option>
-              <option value="ups">UPS</option>
-              <option value="inpost">InPost</option>
-          </select>
+          <option value="" disabled selected hidden>Wybierz przewoźnika</option>
+          <option value="dpd">DPD</option>
+          <option value="dhl">DHL</option>
+          <option value="pp">Poczta Polska</option>
+          <option value="ups">UPS</option>
+          <option value="inpost">InPost</option>
+        </select>
           {trackingInput && (
             <input placeholder="Numer paczki" id="trackingNumber" ref={trackingNumber}/>
           )}

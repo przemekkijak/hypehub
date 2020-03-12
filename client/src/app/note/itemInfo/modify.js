@@ -9,6 +9,7 @@ function Modify(props) {
     const itemSize = useRef(0);
     const itemBuyPrice = useRef(0);
     const itemSellPrice = useRef(0);
+    const soldOn = useRef();
     const itemEstimatedPrice = useRef(0);
     const itemCond = useRef(0);
     const itemLength = useRef(0);
@@ -27,7 +28,8 @@ function Modify(props) {
       itemWidth,
       itemInsert,
       itemTrackingNumber,
-      shipCompany
+      shipCompany,
+      soldOn
     ];
 
 
@@ -45,6 +47,7 @@ function Modify(props) {
         length: itemLength.current.value,
         width: itemWidth.current.value,
         insert: itemInsert.current.value,
+        soldOn: soldOn.current.value,
         cond: itemCond.current.value,
         trackingNumber: itemTrackingNumber.current.value,
         shipCompany: shipCompany.current.value,
@@ -146,7 +149,7 @@ function Modify(props) {
             <input
             ref={itemInsert}
             defaultValue={item.shoeInsert} />
-            <span id="shoeInsert">cm</span>
+            <span id="shoeInsert">Długość wkładki</span>
             </>
           )}
         </div>
@@ -184,14 +187,26 @@ function Modify(props) {
             <span id="tracking">Numer paczki</span>
 
             <select ref={shipCompany} id="shipCompany" defaultValue={getTracking("company")}>
-              <option value="">Wybierz przewoźnika</option>
               <option value="dpd">DPD</option>
               <option value="dhl">DHL</option>
               <option value="pp">Poczta Polska</option>
               <option value="ups">UPS</option>
               <option value="inpost">InPost</option>
           </select>
+          <span id="shipcp">Przewoźnik</span>
+          </div>
+        )}
 
+        {item.sold === 1 && (
+          <div id="soldOn">
+            <select ref={soldOn} defaultValue={item.soldOn}>
+              <option value="facebook">Facebook</option>
+              <option value="vinted">Vinted</option>
+              <option value="grailed">Grailed</option>
+              <option value="Depop">Depop</option>
+              <option value="other">Inna</option>
+            </select>
+            <span>Platforma sprzedaży</span>
           </div>
         )}
 
