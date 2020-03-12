@@ -111,8 +111,18 @@ function Modify(props) {
         }
       }
 
+      function getPlatform() {
+        if(item.soldOn == null) {
+          return "";
+        }
+        else {
+          return item.soldOn;
+        }
+      }
+
     return(
         <div className="modify">
+          {console.log(item.soldOn)}
         <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
         <p>
          <input
@@ -149,7 +159,7 @@ function Modify(props) {
             <input
             ref={itemInsert}
             defaultValue={item.shoeInsert} />
-            <span id="shoeInsert">Długość wkładki</span>
+            <span id="shoeInsert">cm</span>
             </>
           )}
         </div>
@@ -199,14 +209,15 @@ function Modify(props) {
 
         {item.sold === 1 && (
           <div id="soldOn">
-            <select ref={soldOn} defaultValue={item.soldOn}>
+            <select ref={soldOn} defaultValue={getPlatform()}>
+              <option value=""></option>
               <option value="facebook">Facebook</option>
               <option value="vinted">Vinted</option>
               <option value="grailed">Grailed</option>
               <option value="Depop">Depop</option>
               <option value="other">Inna</option>
             </select>
-            <span>Platforma sprzedaży</span>
+            <span>Platforma </span>
           </div>
         )}
 

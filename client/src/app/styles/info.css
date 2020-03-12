@@ -44,8 +44,8 @@
 }
 .infoContainer .itemOptions button {
   position: relative;
-  width: 30vw;
-  height: 50px;
+  width: 50%;
+  height: 3.5vh;
   margin: 3px;
   left: 50%;
   transform: translate(-50%);
