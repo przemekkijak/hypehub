@@ -44,7 +44,7 @@ function SellItem(props) {
       let count = validateInput(element);
       validateData += count;
       if(validateData === itemData.length) {
-        axios.post('https://hypehub.pl:3000/sellItem', {
+        axios.post('https://hypehub.pl/sellItem', {
           item: item
         })
         .then(res => {
@@ -112,7 +112,7 @@ function SellItem(props) {
         <input placeholder="Cena" id="itemPrice" ref={itemPrice} autoFocus={true} required/>
         <input placeholder="Kupujacy" id="soldFor" ref={soldFor} />
         <select ref={soldOn} id="soldOn" placeholder="Platforma sprzedaży">
-          <option value="" disabled selected hidden>Platforma sprzedaży</option>
+          <option value="null" disabled selected hidden>Platforma sprzedaży</option>
           <option value="facebook">Facebook</option>
           <option value="vinted">Vinted</option>
           <option value="grailed">Grailed</option>

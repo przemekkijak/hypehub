@@ -214,6 +214,7 @@ pool.getConnection(function(err, connection) {
       "',sellPrice='" + item.sellPrice +
       "',size='" + item.size +
       "',estimatedPrice='"+ item.estimatedPrice +
+      "', soldOn ='" + item.soldOn +
       "',length='" + item.length +
       "',width='" + item.width +
       "',shoeInsert='" + item.insert +
