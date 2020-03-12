@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import axios from 'axios';
+import '../../styles/addclothes.css';
 
 function AddClothes(props) {
   const formBox = useRef();
@@ -79,64 +80,60 @@ function AddClothes(props) {
 }
 
   return (
-      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" autoComplete="off">
-        <p>
+      <form ref={formBox} onSubmit={handleSubmit} id="addClothes" autoComplete="off">
           <input
           ref={itemName}
           id="itemName"
           autoFocus={true}
           required
-          spellCheck="false"  />
-          <span>Nazwa</span>
-        </p>
-        <p>
+          spellCheck="false"
+          placeholder="Nazwa" />
+
           <input
           id="itemSize"
           ref={itemSize}
           required
-          spellCheck="false"/>
-          <span>Rozmiar</span>
-        </p>
-        <p>
+          spellCheck="false"
+          placeholder="Rozmiar"/>
+
+
+        <div id="dimensions">
           <input
           ref={itemLength}
           id="itemLength"
           spellCheck="false"
+          placeholder="Długość"
           />
-          <span>Dlugosc (cm)</span>
-        </p>
-        <p>
+
           <input
           ref={itemWidth}
           spellCheck="false"
           id="itemWidth"
+          placeholder="Szerokość"
           />
-          <span>Szerokosc (cm)</span>
-        </p>
-        <p>
+        </div>
+
           <input
           ref={itemPrice}
           spellCheck="false"
           id="itemPrice"
+          placeholder="Cena"
           required />
-          <span>Cena</span>
-        </p>
-        <p>
+
           <input
           ref={estimatedPrice}
           spellCheck="false"
           id="estimatedPrice"
+          placeholder="Potencjalna sprzedaż"
           />
-          <span>Potencjalna sprzedaz</span>
-        </p>
-        <p>
+
           <input
           ref={itemCond}
           spellCheck="false"
           id="itemCond"
+          placeholder="Stan"
           required />
-          <span>Stan</span>
-        </p>
+
           <button type="submit" className="addButton">
             Dodaj
           </button>

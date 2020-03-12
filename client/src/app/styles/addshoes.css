@@ -2,11 +2,12 @@
 /* details */
 /* clicked menu button */
 /*bordes */
-.addItemForm {
+#addShoesForm {
   display: grid;
-  height: 110%;
+  height: 100%;
+  grid-gap: 1%;
 }
-.addItemForm input {
+#addShoesForm input {
   padding: 1%;
   height: 4vh;
   font-size: 12px;
@@ -18,49 +19,49 @@
   border-radius: 2%;
   text-align: center;
 }
-.addItemForm input::-webkit-input-placeholder {
+#addShoesForm input::-webkit-input-placeholder {
   font-size: 9px;
   opacity: 0.8;
 }
-.addItemForm input::-moz-placeholder {
+#addShoesForm input::-moz-placeholder {
   font-size: 9px;
   opacity: 0.8;
 }
-.addItemForm input:-moz-placeholder {
+#addShoesForm input:-moz-placeholder {
   font-size: 9px;
   opacity: 0.8;
 }
-.addItemForm input:-ms-input-placeholder {
+#addShoesForm input:-ms-input-placeholder {
   font-size: 9px;
   opacity: 0.8;
 }
-.addItemForm #itemName, .addItemForm #itemPrice, .addItemForm #estimatedPrice, .addItemForm #itemCond, .addItemForm #dimensions {
+#addShoesForm #itemName, #addShoesForm #itemPrice, #addShoesForm #estimatedPrice, #addShoesForm #itemCond, #addShoesForm #dimensions {
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 50%;
 }
-.addItemForm #dimensions {
+#addShoesForm #dimensions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.addItemForm #dimensions input {
+#addShoesForm #dimensions input {
   width: 50%;
 }
-.addItemForm .addButton {
+#addShoesForm button {
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 50%;
   cursor: pointer;
-  margin: 0;
-  height: 4vh;
+  margin-top: 1%;
+  height: 3.5vh;
   background: none;
   outline: none;
   border: 1px solid #568d0e;
 }
-.addItemForm .addButton:active {
+#addShoesForm button:active {
   background-color: rgba(46, 42, 42, 0.322);
 }
 

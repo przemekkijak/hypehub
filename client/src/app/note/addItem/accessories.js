@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import axios from 'axios';
+import '../../styles/addaccessories.css';
 
 function AddAccessories(props) {
   const formBox = useRef();
@@ -71,50 +72,43 @@ function AddAccessories(props) {
 
   return (
     <>
-      <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" autoComplete="off">
-        <p>
+      <form ref={formBox} onSubmit={handleSubmit} id="addAccForm" autoComplete="off">
           <input
           ref={itemName}
           autoFocus={true}
           required
           id="itemName"
-          spellCheck="false"/>
-          <span>Nazwa</span>
-        </p>
-        <p>
+          spellCheck="false"
+          placeholder="Nazwa"/>
+
           <input
           ref={itemSize}
-          id="itemSize"/>
-          <span>Rozmiar</span>
-        </p>
-        <p>
+          id="itemSize"
+          placeholder="Rozmiar"/>
+
           <input
           ref={itemPrice}
           required
-          id="itemPrice"/>
-          <span>Cena</span>
-        </p>
-        <p>
+          id="itemPrice"
+          placeholder="Cena"/>
+
           <input
           ref={estimatedPrice}
-          id="estimatedPrice"/>
-          <span>Potencjalna sprzedaż</span>
-        </p>
-        <p>
+          id="estimatedPrice"
+          placeholder="Potencjalna sprzedaż"/>
+
           <input
           ref={itemCond}
           required
-          id="itemCond"/>
-          <span>Stan</span>
-        </p>
-        <p>
+          id="itemCond"
+          placeholder="Stan"/>
+
           <button
           type="submit"
           className="addButton"
           value="Submit">
             Dodaj
           </button>
-        </p>
       </form>
     </>
   );
