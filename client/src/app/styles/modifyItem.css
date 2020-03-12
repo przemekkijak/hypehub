@@ -9,10 +9,14 @@
   width: 123%;
 }
 
+span {
+  cursor: default;
+}
+
 .modifyForm {
   display: grid;
   position: relative;
-  top: 7%;
+  top: 4%;
 }
 .modifyForm #itemName {
   background: none;
@@ -25,13 +29,12 @@
 }
 .modifyForm input {
   padding: 1%;
-  height: 4vh;
+  height: 3.5vh;
   width: 50%;
   font-size: 12px;
   position: relative;
   background: none;
   outline: none;
-  border: none;
   border: 1px solid #1e2529;
   background-color: rgba(90, 94, 92, 0.212);
   border-radius: 2%;
@@ -43,10 +46,11 @@
   color: rgba(177, 172, 172, 0.664);
 }
 .modifyForm #dimensions {
-  margin-top: 15px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
+  width: 50%;
+  margin-top: 1%;
   width: 65%;
   display: flex;
   flex-direction: row;
@@ -69,11 +73,12 @@
   top: 36%;
 }
 .modifyForm #prices {
-  margin-top: 15px;
   position: relative;
-  width: 65%;
   left: 50%;
   transform: translate(-50%);
+  width: 50%;
+  margin-top: 1%;
+  width: 65%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -85,7 +90,7 @@
 }
 .modifyForm #prices #bPrice {
   top: 35%;
-  left: 13%;
+  left: 3%;
 }
 .modifyForm #prices #sPrice {
   left: 52%;
@@ -96,38 +101,48 @@
   top: 35%;
 }
 .modifyForm #shipInfo {
-  margin-top: 15px;
   position: relative;
-  width: 65%;
   left: 50%;
   transform: translate(-50%);
+  width: 50%;
+  margin-top: 1%;
+  width: 65%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .modifyForm #shipInfo input {
   text-align: right;
-  margin: 2px;
   width: 50%;
-}
-.modifyForm #shipInfo select {
-  background-color: rgba(90, 94, 92, 0.212);
-  outline: none;
-  border: none;
-  position: relative;
-  margin: 3px;
-  width: 50%;
-}
-.modifyForm #shipInfo select option {
-  background-color: #5a5e5c;
 }
 .modifyForm #shipInfo #tracking {
   top: 35%;
   left: 3%;
 }
 .modifyForm #shipInfo #shipcp {
-  left: 52%;
+  left: 72%;
   top: 35%;
+}
+.modifyForm #shipInfo select {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  left: 26%;
+}
+.modifyForm #soldOn {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  width: 60%;
+  text-align: center;
+  margin-top: 1%;
+}
+.modifyForm #soldOn span {
+  position: absolute;
+  left: 45%;
+  top: 29%;
 }
 .modifyForm #cond {
   height: 35px;
@@ -141,23 +156,29 @@
   justify-content: space-between;
 }
 .modifyForm #cond select {
-  height: 100%;
-  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+}
+.modifyForm #cond #condSpan {
+  position: absolute;
+  left: 45%;
+  top: 35%;
+}
+.modifyForm #cond #condSpan:hover {
+  cursor: default;
+}
+.modifyForm select {
+  height: 3.5vh;
+  width: 50%;
   background-color: rgba(90, 94, 92, 0.212);
   outline: none;
   border: none;
   position: relative;
 }
-.modifyForm #cond select option {
-  background-color: #5a5e5c;
-}
-.modifyForm #cond #condSpan {
-  position: absolute;
-  left: 40%;
-  top: 35%;
-}
-.modifyForm #cond #condSpan:hover {
-  cursor: default;
+.modifyForm select option {
+  background-color: #373b39;
 }
 
 .addButton {
