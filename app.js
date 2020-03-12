@@ -235,6 +235,7 @@ pool.getConnection(function(err, connection) {
     pool.query(
       "UPDATE items set sold='1', sellPrice='" +item.price +
       "', soldFor='" + item.soldFor +
+      "', soldOn ='" + item.soldOn +
       "', shipCompany ='" + item.shipCompany +
       "', trackingNumber='"+item.trackingNumber +
       "', soldAt=CURRENT_TIMESTAMP where id='" +

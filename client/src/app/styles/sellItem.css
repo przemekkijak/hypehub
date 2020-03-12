@@ -6,57 +6,70 @@
 .sellContainer {
   width: 25vw;
   height: 35vh;
+  display: grid;
   background: #12171a;
-  border: 1px solid rgba(83, 83, 83, 0.952);
+  border: 1px solid #1e2529;
 }
-.sellContainer form {
-  height: 100%;
-  width: 100%;
-}
-.sellContainer form div {
-  top: 5%;
+.sellContainer #sellForm #itemName {
   position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  margin: 3% 0% 4% 0%;
   text-align: center;
-  font-size: 0.8em;
 }
-.sellContainer form p {
+.sellContainer #sellForm button {
   position: relative;
-  top: 15%;
-  margin: 3px;
-}
-.sellContainer form p button {
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  height: 3.5vh;
   width: 8vw;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
 }
-.sellContainer form input {
-  padding: 5px;
-  height: 35px;
-  width: 15vw;
+.sellContainer #sellForm input {
   position: relative;
-  transform: translate(-50%);
-  margin: 3px;
   left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  padding: 5px;
+  height: 3.5vh;
+  width: 15vw;
+  margin: 3px;
   outline: none;
-  border: none;
   border: 1px solid #1e2529;
   background-color: rgba(90, 94, 92, 0.212);
   border-radius: 2%;
+  box-shadow: inset 0 0 1px gray;
 }
-.sellContainer form select {
+.sellContainer #sellForm input::-webkit-input-placeholder {
+  font-size: 12px;
+  opacity: 0.9;
+}
+.sellContainer #sellForm input::-moz-placeholder {
+  font-size: 12px;
+  opacity: 0.9;
+}
+.sellContainer #sellForm input:-moz-placeholder {
+  font-size: 12px;
+  opacity: 0.9;
+}
+.sellContainer #sellForm input:-ms-input-placeholder {
+  font-size: 12px;
+  opacity: 0.9;
+}
+.sellContainer #sellForm select {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
   background-color: rgba(90, 94, 92, 0.212);
   outline: none;
   border: none;
   width: 15vw;
-  height: 35px;
-  position: relative;
+  height: 3.5vh;
   margin: 3px;
-  left: 50%;
-  top: 70%;
-  transform: translate(-50%);
 }
-.sellContainer form select option {
+.sellContainer #sellForm select option {
   background-color: #5a5e5c;
 }
 
