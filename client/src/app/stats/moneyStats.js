@@ -4,24 +4,15 @@ import Chart from 'chart.js';
 
 function MoneyStats(props) {
 
-    let today = new Date();
-    let weekAgo = new Date();
-    weekAgo.setDate(weekAgo.getDate() - 7);
-    useEffect(() => {
 
-        let arrDates = [];
-        for(let i = 1; i<=7; i++) {
-            today.setDate(today.getDate() - 1);
-            arrDates.push(today.toISOString().slice(8,10));
-        }
-        console.log(arrDates);
+    useEffect(() => {
 
         new Chart(document.getElementById('moneyStats'), {
             type: 'line',
             data: {
-                labels: arrDates,
+                labels: getDates("short"),
                 datasets: [{
-                    data: [0,15,0,2,15,55,70],
+                    data: getItems(),
                     backgroundColor: [
                         'rgba(111, 180, 21, 0.5)'
                     ],
@@ -53,8 +44,45 @@ function MoneyStats(props) {
                 }
             }
         })
-
     });
+
+    function getDates(type) {
+        const today = new Date();
+        const weekAgo = new Date();
+        weekAgo.setDate(weekAgo.getDate() - 7);
+
+        let arrDates = [];
+        if(type === "short") {
+            arrDates[0] = today.toISOString().slice(8,10);
+        } else {
+            arrDates[0] = today.toISOString().slice(0,10);
+        }
+
+        for(let i = 1; i<=6; i++) {
+            today.setDate(today.getDate() - 1);
+            if(type === "short") {
+                arrDates.push(today.toISOString().slice(8,10));
+            } else {
+            arrDates.push(today.toISOString().slice(0,10));
+            }
+        }
+        return arrDates;
+    }
+
+    function getItems() {
+        let dates = getDates();
+        let earnings = [];
+        for(let i = 0; i<=dates.length; i++) {
+            let money = 0;
+            props.soldItems.filter((element) => {
+                if(element.soldAt.slice(0,10) === dates[i]) {
+                    money += (element.sellPrice - element.buyPrice);
+                }
+            })
+            earnings.push(money);
+        }
+        return earnings;
+    }
 
 
     return(
