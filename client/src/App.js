@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import Note from "./app/note.js";
+import Stats from "./app/stats.js";
 import Resell from "./app/resell.js";
 import Login from "./app/login.js";
 import "./app/styles/App.css";
@@ -126,7 +127,11 @@ return (
           </div>
 
           <Switch>
-            <Route exact path="/stats"><Resell/></Route>
+            <Route exact path="/stats">
+              <Stats
+                currentItems={currentItems}
+                soldItems={soldItems}/>
+            </Route>
             <Route exact path="/account"><Resell/></Route>
             <Route exact path="/bulk"><Resell/></Route>
             <Route exact path="/note">
