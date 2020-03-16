@@ -5,7 +5,7 @@
 #statsContainer {
   position: relative;
 }
-#statsContainer #soldItemsStats {
+#statsContainer #platform {
   position: relative;
   padding: 5% 0% 0% 5%;
   width: 30vw;
