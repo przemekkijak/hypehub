@@ -61,7 +61,7 @@ function Modify(props) {
         itemData.length = 0;
         itemData.width = 0;
       }
-      if(item.type === 1) {
+      if(item.type === 1 || item.type === 3) {
         itemData.insert = 0;
       }
 
@@ -69,6 +69,8 @@ function Modify(props) {
       for (var element in itemData) {
         if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
           validateData++;
+          console.log(itemData.length);
+          console.log(validateData);
           if (validateData === data.length) {
             if (
               !isNaN(itemData.buyPrice) &&
@@ -122,7 +124,6 @@ function Modify(props) {
 
     return(
         <div className="modify">
-          {console.log(item.soldOn)}
         <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
         <p>
          <input
@@ -147,6 +148,7 @@ function Modify(props) {
             required
             defaultValue={item.length} />
             <span id="length">Dł:</span>
+
             <input
             ref={itemWidth}
             required
@@ -214,7 +216,7 @@ function Modify(props) {
               <option value="facebook">Facebook</option>
               <option value="vinted">Vinted</option>
               <option value="grailed">Grailed</option>
-              <option value="Depop">Depop</option>
+              <option value="depop">Depop</option>
               <option value="other">Inna</option>
             </select>
             <span>Platforma </span>

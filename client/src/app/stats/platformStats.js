@@ -7,7 +7,7 @@ function PlatformStats(props) {
 
 
     useEffect(() => {
-        getPlatformData();
+        const {facebook, vinted, grailed, depop, other} = getPlatformData();
         var ctx = document.getElementById('platformStats');
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -15,7 +15,7 @@ function PlatformStats(props) {
                 labels: ['Facebook', 'Vinted', 'Grailed', 'Depop', 'Inne'],
                 datasets: [{
                     label: 'Platforma',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: [facebook.length, vinted.length, grailed.length, depop.length, other.length],
                     backgroundColor: [
                         'rgba(49, 109, 253, 0.3)',
                         'rgba(29, 198, 197, 0.3)',
@@ -40,14 +40,40 @@ function PlatformStats(props) {
                             beginAtZero: true
                         }
                     }]
+                },
+                tooltips: {
+                    enabled: false
                 }
             }
         });
 
-    }, [])
+    })
 
     function getPlatformData() {
-        console.log(props.soldItems);
+        let facebook = props.soldItems.filter((element) => {
+            return element.soldOn === "facebook";
+        })
+        let vinted = props.soldItems.filter((element) => {
+            return element.soldOn === "vinted";
+        })
+        let grailed = props.soldItems.filter((element) => {
+            return element.soldOn === "grailed";
+        })
+        let depop = props.soldItems.filter((element) => {
+            return element.soldOn === "depop";
+        })
+        let other = props.soldItems.filter((element) => {
+            return element.soldOn === "other";
+        })
+
+        let platforms = {
+            facebook: facebook,
+            vinted: vinted,
+            grailed: grailed,
+            depop: depop,
+            other: other
+        }
+        return platforms;
     }
 
 return (
