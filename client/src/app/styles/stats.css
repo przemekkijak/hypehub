@@ -1,0 +1,15 @@
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+#statsContainer {
+  position: relative;
+}
+#statsContainer #soldItemsStats {
+  position: relative;
+  padding: 5% 0% 0% 5%;
+  width: 30vw;
+  height: 30vh;
+}
+
+/*# sourceMappingURL=stats.css.map */
