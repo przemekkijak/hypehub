@@ -8,13 +8,11 @@ function PlatformStats(props) {
 
     useEffect(() => {
         const {facebook, vinted, grailed, depop, other} = getPlatformData();
-        var ctx = document.getElementById('platformStats');
-        var myChart = new Chart(ctx, {
+        new Chart(document.getElementById('platformStats'), {
             type: 'bar',
             data: {
                 labels: ['Facebook', 'Vinted', 'Grailed', 'Depop', 'Inne'],
                 datasets: [{
-                    label: 'Platforma',
                     data: [facebook.length, vinted.length, grailed.length, depop.length, other.length],
                     backgroundColor: [
                         'rgba(49, 109, 253, 0.3)',

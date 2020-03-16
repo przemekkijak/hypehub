@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/stats.css';
 import PlatformStats from './stats/platformStats';
+import MoneyStats from './stats/moneyStats';
 
 
 function Stats(props) {
@@ -12,6 +13,10 @@ function Stats(props) {
 
             <div id="platform">
                 <PlatformStats soldItems={props.soldItems}/>
+            </div>
+
+            <div id="earnings">
+                <MoneyStats soldItems={props.soldItems}/>
             </div>
 
         </div>
