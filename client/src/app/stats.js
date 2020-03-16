@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './styles/stats.css';
 import PlatformStats from './stats/platformStats';
 

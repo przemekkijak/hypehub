@@ -1,6 +1,5 @@
 import React from 'react'
 import '../../styles/photos.css';
-import mergeImages from 'merge-images';
 
 
 

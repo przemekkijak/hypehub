@@ -1,0 +1,69 @@
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
+#addClothes {
+  display: grid;
+  height: 110%;
+  grid-gap: 1%;
+}
+#addClothes input {
+  padding: 1%;
+  height: 4vh;
+  font-size: 12px;
+  position: relative;
+  background: none;
+  outline: none;
+  border: 1px solid #1e2529;
+  background-color: rgba(90, 94, 92, 0.212);
+  border-radius: 2%;
+  text-align: center;
+  box-shadow: inset 0 0 1px gray;
+}
+#addClothes input::-webkit-input-placeholder {
+  font-size: 9px;
+  opacity: 0.8;
+}
+#addClothes input::-moz-placeholder {
+  font-size: 9px;
+  opacity: 0.8;
+}
+#addClothes input:-moz-placeholder {
+  font-size: 9px;
+  opacity: 0.8;
+}
+#addClothes input:-ms-input-placeholder {
+  font-size: 9px;
+  opacity: 0.8;
+}
+#addClothes #itemName, #addClothes #itemPrice, #addClothes #itemSize, #addClothes #estimatedPrice, #addClothes #itemCond, #addClothes #dimensions {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+}
+#addClothes #dimensions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#addClothes #dimensions input {
+  width: 50%;
+}
+#addClothes button {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  cursor: pointer;
+  margin-top: 1%;
+  height: 3.5vh;
+  background: none;
+  outline: none;
+  border: 1px solid #568d0e;
+}
+#addClothes button:active {
+  background-color: rgba(46, 42, 42, 0.322);
+}
+
+/*# sourceMappingURL=addclothes.css.map */
