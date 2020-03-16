@@ -10,7 +10,7 @@ function Stats(props) {
     return(
         <div id="statsContainer">
 
-            <div id="soldItemsStats">
+            <div id="platform">
                 <PlatformStats soldItems={props.soldItems}/>
             </div>
 

@@ -69,8 +69,6 @@ function Modify(props) {
       for (var element in itemData) {
         if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
           validateData++;
-          console.log(itemData.length);
-          console.log(validateData);
           if (validateData === data.length) {
             if (
               !isNaN(itemData.buyPrice) &&

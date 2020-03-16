@@ -37,12 +37,21 @@ function PlatformStats(props) {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            precision: 0
+
                         }
                     }]
                 },
                 tooltips: {
                     enabled: false
+                },
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: 'Platformy sprzedażowe'
                 }
             }
         });
