@@ -15,10 +15,13 @@ function Stats(props) {
                 <PlatformStats soldItems={props.soldItems}/>
             </div>
 
-            <div id="earnings">
-                <MoneyStats soldItems={props.soldItems}/>
+            <div id="weekEarnings">
+                <MoneyStats soldItems={props.soldItems} period="days" amount="7" cnvID="week"/>
             </div>
 
+            <div id="monthEarnings">
+                <MoneyStats soldItems={props.soldItems} period="days" amount="30" cnvID="month"/>
+            </div>
         </div>
     )
 }
