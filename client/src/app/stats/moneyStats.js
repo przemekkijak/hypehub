@@ -47,23 +47,22 @@ function MoneyStats(props) {
     });
 
     function getDates(type) {
-        const today = new Date();
         const weekAgo = new Date();
-        weekAgo.setDate(weekAgo.getDate() - 7);
+        weekAgo.setDate(weekAgo.getDate() - 6);
 
         let arrDates = [];
         if(type === "short") {
-            arrDates[0] = today.toISOString().slice(8,10);
+            arrDates[0] = weekAgo.toISOString().slice(8,10);
         } else {
-            arrDates[0] = today.toISOString().slice(0,10);
+            arrDates[0] = weekAgo.toISOString().slice(0,10);
         }
 
         for(let i = 1; i<=6; i++) {
-            today.setDate(today.getDate() - 1);
+            weekAgo.setDate(weekAgo.getDate() + 1);
             if(type === "short") {
-                arrDates.push(today.toISOString().slice(8,10));
+                arrDates.push(weekAgo.toISOString().slice(8,10));
             } else {
-            arrDates.push(today.toISOString().slice(0,10));
+            arrDates.push(weekAgo.toISOString().slice(0,10));
             }
         }
         return arrDates;
