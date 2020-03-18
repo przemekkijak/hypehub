@@ -12,17 +12,15 @@
   width: 30vw;
   height: 30vh;
 }
-#statsContainer #weekEarnings {
+#statsContainer #earningsSwitch {
+  position: absolute;
+  left: 50%;
+  top: -10%;
+}
+#statsContainer #earnings {
   position: relative;
   left: 50%;
   top: -20%;
-  width: 30vw;
-  height: 30vh;
-}
-#statsContainer #monthEarnings {
-  position: relative;
-  left: 50%;
-  top: -5%;
   width: 30vw;
   height: 30vh;
 }
