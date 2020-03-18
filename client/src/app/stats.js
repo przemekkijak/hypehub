@@ -16,7 +16,7 @@ function Stats(props) {
             </div>
 
             <div id="earnings">
-                <MoneyStats soldItems={props.soldItems} period="days" cnvID="week"/>
+                <MoneyStats soldItems={props.soldItems}/>
             </div>
 
         </div>

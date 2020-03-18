@@ -14,8 +14,25 @@
 }
 #statsContainer #earningsSwitch {
   position: absolute;
-  left: 50%;
+  left: 15%;
   top: -10%;
+  width: 20vw;
+}
+#statsContainer #earningsSwitch .earningsRadio:checked,
+#statsContainer #earningsSwitch .earningsRadio:not(:checked) {
+  display: none;
+}
+#statsContainer #earningsSwitch .earningsRadio:checked + label,
+#statsContainer #earningsSwitch .earningsRadio:not(:checked) + label {
+  cursor: pointer;
+  margin: 0% 2% 0% 2%;
+  font-size: 1em;
+}
+#statsContainer #earningsSwitch .earningsRadio:not(:checked) + label {
+  opacity: 0.5;
+}
+#statsContainer #earningsSwitch .earningsRadio:checked + label {
+  opacity: 0.9;
 }
 #statsContainer #earnings {
   position: relative;
