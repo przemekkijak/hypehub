@@ -7,7 +7,7 @@ function MoneyStats(props) {
     const [period,setPeriod] = useState(7);
 
     useEffect(() => {
-        new Chart(document.getElementById(props.cnvID), {
+        new Chart(document.getElementById("cnvEarnings"), {
             type: 'line',
             data: {
                 labels: getDates("short"),
@@ -51,9 +51,11 @@ function MoneyStats(props) {
         let arrDates = [];
         startDate.setDate(startDate.getDate() - period);
 
-
+        // For Yearly earnings ->
         if(period > 30) {
             switch(type) {
+                //Short is for displaying dates in Chart e.g "19-07", Year+Month
+                // Full is to compare dates with items Sold At, "2019-07", Full Year + Month
                 default:
                 case "short":
                     arrDates[0] = startDate.toISOString().slice(2,7);
@@ -61,6 +63,7 @@ function MoneyStats(props) {
                 case "full":
                     arrDates[0] = startDate.toISOString().slice(0,6);
             }
+
             for(let i = 1; i<=12; i++) {
                 startDate.setMonth(startDate.getMonth() + 1);
                 if(type === "short") {
@@ -70,8 +73,9 @@ function MoneyStats(props) {
                 }
             }
         } else {
-
             switch(type) {
+                // Short is for displaying dates in Chart e.g "08-20", Month+Day
+                // Full is to compare dates with items Sold At, Full Date, Year+Month+Day
                 default:
                 case "short":
                     arrDates[0] = startDate.toISOString().slice(8,10);
@@ -119,18 +123,29 @@ function MoneyStats(props) {
 
             <input type="radio"
             name="earnings"
+            id="week"
+            className="earningsRadio"
             onChange={() => setPeriod(7)}
             defaultChecked/>
+            <label htmlFor="week">Tydzień</label>
 
             <input type="radio"
             name="earnings"
+            id="month"
+            className="earningsRadio"
             onChange={() => setPeriod(30)}/>
+            <label htmlFor="month">Miesiąc</label>
 
             <input type="radio"
             name="earnings"
+            id="year"
+            className="earningsRadio"
             onChange={() => setPeriod(365)}/>
+            <label htmlFor="year">Rok</label>
+
+
         </div>
-        <canvas id={props.cnvID}></canvas>
+        <canvas id="cnvEarnings"></canvas>
         </>
     )
 
