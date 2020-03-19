@@ -2,7 +2,6 @@
  import axios from 'axios';
  import Info from './itemInfo/info'
  import Modify from './itemInfo/modify'
- import Photos from './itemInfo/photos'
  import '../styles/itemInfo.css';
 
 
@@ -32,8 +31,6 @@ function ItemInfo(props) {
         return <Info item={item} handleModal={props.handleModal} refreshItems={props.refreshItems}/>
       case 2:
         return <Modify item={item} handleModal={props.handleModal} refreshItems={props.refreshItems}/>
-      case 3:
-        return <Photos item={item} handleModal={props.handleModal} refreshItems={props.refreshItems}/>
     }
   }
 
@@ -63,18 +60,6 @@ function ItemInfo(props) {
         <label htmlFor="edit">
           Edytuj
         </label>
-
-        <input
-          type="radio"
-          name="itemoption"
-          id="photos"
-          className="detailsRadio"
-          onChange={() => setMenu(3)}
-        />
-        <label htmlFor="photos">
-          Zdjecia
-        </label>
-
 
       </div>
         <div className="itemContent">
