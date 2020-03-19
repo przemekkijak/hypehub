@@ -109,21 +109,35 @@ return (
         {isLoged ? (
         <>
           <div className="navigationContainer">
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="note">
-              <img src="../img/menu/shirt.png" alt="Items" className="navIcon"/><br/>
-              Itemy</NavLink></p>
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="bulk">
-              <img src="../img/menu/bulk.png" alt="Bulk" className="navIcon"/><br/>
-              Bulk</NavLink></p>
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="stats">
-              <img src="../img/menu/stats.png" alt="Stats" className="navIcon"/><br/>
-              Statystyki</NavLink></p>
-            <p><NavLink className="link naviElement" activeClassName="navActive" to="account">
-              <img src="../img/menu/user.png" alt="Account" className="navIcon"/><br/>
-              Moje konto</NavLink></p>
-            <p id="logoutNav"><NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>
-              <img src="../img/menu/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/><br/>
-              Wyloguj</NavLink></p>
+
+            <div id="navis">
+
+              <NavLink className="link naviElement" activeClassName="navActive" to="note">
+                <img src="../img/menu/shirt.png" alt="Items" className="navIcon"/>
+                <p>Itemy</p>
+              </NavLink>
+
+              <NavLink className="link naviElement" activeClassName="navActive" to="bulk">
+                <img src="../img/menu/bulk.png" alt="Bulk" className="navIcon"/>
+                <p>Bulk</p>
+              </NavLink>
+
+              <NavLink className="link naviElement" activeClassName="navActive" to="stats">
+                <img src="../img/menu/stats.png" alt="Stats" className="navIcon"/>
+                <p>Statystyki</p>
+              </NavLink>
+
+              <NavLink className="link naviElement" activeClassName="navActive" to="account">
+                <img src="../img/menu/user.png" alt="Account" className="navIcon"/>
+                <p>Moje konto</p>
+              </NavLink>
+
+              <NavLink className="link naviElement" activeClassName="navActive" to="/logout" onClick={logout}>
+                <img src="../img/menu/logout.png" alt="Logout" className="navIcon" id="logoutIcon"/>
+                <p>Wyloguj</p>
+              </NavLink>
+
+            </div>
           </div>
 
           <Switch>

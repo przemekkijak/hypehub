@@ -125,7 +125,7 @@ function MoneyStats(props) {
             name="earnings"
             id="week"
             className="earningsRadio"
-            onChange={() => setPeriod(7)}
+            onClick={() => setPeriod(7)}
             defaultChecked/>
             <label htmlFor="week">Tydzień</label>
 
@@ -133,14 +133,14 @@ function MoneyStats(props) {
             name="earnings"
             id="month"
             className="earningsRadio"
-            onChange={() => setPeriod(30)}/>
+            onClick={() => setPeriod(30)}/>
             <label htmlFor="month">Miesiąc</label>
 
             <input type="radio"
             name="earnings"
             id="year"
             className="earningsRadio"
-            onChange={() => setPeriod(365)}/>
+            onClick={() => setPeriod(365)}/>
             <label htmlFor="year">Rok</label>
 
 

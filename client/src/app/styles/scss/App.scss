@@ -28,78 +28,43 @@ body {
 }
 
 .navigationContainer {
-  font-family: Assistant, sans-serif;
-  font-size: 0.8em;
+  position: relative;
+  font-size: 0.9em;
   background-color: $background-second;
-  .naviElement {
-    color: rgb(81, 88, 92);
-    font-weight: bold;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  p {
+  #navis {
     position: relative;
-    top:20%;
-    left: 50%;
-    transform:translate(-50%);
-    margin-top: 30%;
-  }
-  .navActive {
-      font-weight: bold;
-      color: $menu-color;
+    top: 25%;
+    .naviElement {
+      p {
+        color: rgb(105, 111, 114);
+      }
+      &:hover {
+        cursor: pointer;
+      }
     }
+    .navActive {
+      p {
+        color: rgb(174, 182, 185);
+      }
+      font-weight: bold;
+    }
+  }
+
+
   .navIcon {
-    height: 30px;
-    width: 30px;
-    margin-bottom: 7px;
+    height: 2.6vh;
+    width: 1.3vw;
+    margin: 15% 0% 5% 0%;
   }
   #logoutNav {
     position: relative;
     top: 45%;
   }
   #logoutIcon {
-    width: 20px;
-    height: 20px;
+    width: 2.5vh;
+    height: 1.3vw;
   }
 }
-
-
-.loginBox {
-  width: 12vw;
-  height: 25vh;
-  font-size: 16px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-//   Adding item input? -- to check
-  input {
-    height: 42px;
-    width: 100%;
-    background: none;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid $menu-color2;
-    font-size: 16px;
-    letter-spacing: 1px;
-  }
-}
-
-.userInfo {
-  padding: 15px;
-  border: 1px dashed $menu-color2;
-  position: absolute;
-  left: 85%;
-  top: 5%;
-  display: flex;
-  flex-direction: column;
-  font-size: 13px;
-  Link {
-    cursor: pointer;
-  }
-}
-
 
 
   // RWD

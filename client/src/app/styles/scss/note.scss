@@ -43,13 +43,13 @@
       cursor: pointer;
     }
     img {
-      height: 20px;
-      width: 20px;
+      height: 1.7vh;
+      width: 1.1vw;
       margin-left: 5px;
       cursor: pointer;
     }
     input {
-      height: 30px;
+      height: 3vh;
       position: relative;
       top: 35%;
       left: 46%;
@@ -310,14 +310,4 @@
         }
       }
 
-      .statBox {
-        font-size: 12px;
-        padding: 10px;
-        border: 1px solid $menu-color4;
-        position: absolute;
-        left: 105%;
-        top: 30%;
-        width: 10vw;
-        height: 16vh;
-      }
 }
