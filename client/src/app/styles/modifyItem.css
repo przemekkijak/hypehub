@@ -19,18 +19,19 @@ span {
   top: 4%;
 }
 .modifyForm #itemName {
-  background: none;
+  position: relative;
   left: 50%;
   transform: translate(-50%);
+  width: 50%;
   border: none;
-  font-size: 17px;
-  margin: 10px;
+  margin: 6% 0% 1% 0%;
+  font-size: 0.9em;
   text-align: center;
 }
 .modifyForm input {
   padding: 1%;
   height: 3.5vh;
-  width: 50%;
+  width: 100%;
   font-size: 12px;
   position: relative;
   background: none;
@@ -187,9 +188,9 @@ span {
   transform: translate(-50%);
   width: 50%;
   cursor: pointer;
-  margin-top: 5%;
-  height: 3.5vh;
-  width: 50%;
+  margin-top: 3%;
+  height: 3vh;
+  width: 30%;
   background: none;
   border: 1px solid #568d0e;
 }

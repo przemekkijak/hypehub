@@ -9,7 +9,7 @@ function Modify(props) {
     const itemSize = useRef(0);
     const itemBuyPrice = useRef(0);
     const itemSellPrice = useRef(0);
-    const soldOn = useRef();
+    const soldOn = useRef("");
     const itemEstimatedPrice = useRef(0);
     const itemCond = useRef(0);
     const itemLength = useRef(0);

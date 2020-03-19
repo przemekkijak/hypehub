@@ -35,25 +35,7 @@ function Info(props) {
 
     return (
         <div className="infoContainer">
-            <p id="itemName"> {props.item.name} </p>
-            <div className="itemDetails">
-            <span>Przewidywany zarobek: {props.item.estimatedPrice-props.item.buyPrice} zł</span>
-            <span>
-                Rozmiar: {props.item.size}
-                {props.item.type === 2 && (
-                    props.item.shoeInsert > 0 && (
-                    (<span>[{props.item.shoeInsert}cm]</span>)
-                    ))}
-                </span>
-            </div>
-            <p id="itemFlaws">Wady</p>
-            <div className="itemFlaws"></div>
 
-            <div className="itemOptions">
-                <button onClick={() => copyDesc()}>Skopiuj opis</button>
-            {props.item.sold === 1 && (
-                <button onClick={() => unSold() }>Wycofaj ze sprzedanych</button>)}
-    </div>
 
         </div>
     )
