@@ -32,7 +32,7 @@ body {
 
 .navigationContainer {
   position: relative;
-  font-size: 0.9em;
+  font-size: 0.85em;
   background-color: #12171a;
 }
 .navigationContainer #navis {
@@ -46,7 +46,7 @@ body {
   color: #696f72;
 }
 .navigationContainer #navis .naviElement div {
-  height: 10vh;
+  height: 8vh;
   background-color: #12171a;
 }
 .navigationContainer #navis .navActive p {
@@ -62,7 +62,7 @@ body {
 .navigationContainer .navIcon {
   height: 2.6vh;
   width: 1.3vw;
-  margin: 15% 0% 5% 0%;
+  margin: 10% 0% 3% 0%;
 }
 .navigationContainer #logoutNav {
   position: relative;

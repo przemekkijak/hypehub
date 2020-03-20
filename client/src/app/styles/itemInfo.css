@@ -7,45 +7,13 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 25vw;
+  width: 30vw;
   height: 40vh;
   background-color: #12171a;
-  border: 1px solid rgba(83, 83, 83, 0.952);
+  border: 1px solid rgba(99, 107, 98, 0.726);
+  border-radius: 3%;
   display: grid;
   grid-template-rows: 5% 90%;
-  box-shadow: inset -1px 0 2px 1px #1f2e11;
-}
-
-.itemMenu {
-  position: relative;
-  display: flex;
-  height: 4vh;
-  justify-content: center;
-  padding-top: 2%;
-  font-size: 0.9em;
-  border-bottom: 1px solid rgba(83, 83, 83, 0.952);
-}
-
-/* Hiding default radio buttons */
-.detailsRadio:checked,
-.detailsRadio:not(:checked) {
-  display: none;
-}
-
-/* Custom radio buttons */
-.detailsRadio:checked + label,
-.detailsRadio:not(:checked) + label {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  margin: 0% 5% 0% 5%;
-  height: 33.3%;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-}
-
-.detailsRadio:checked + label {
-  color: #6fb415;
 }
 
 /*# sourceMappingURL=itemInfo.css.map */
