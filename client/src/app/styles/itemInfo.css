@@ -10,7 +10,7 @@
   width: 30vw;
   height: 45vh;
   background-color: #12171a;
-  border: 1px solid rgba(99, 107, 98, 0.726);
+  border: 1px solid #1e2529;
   border-radius: 3%;
   display: grid;
   grid-template-rows: 5% 90%;
