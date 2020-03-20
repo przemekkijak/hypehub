@@ -18,7 +18,7 @@ body {
 .App {
   text-align: center;
   background-color: #1e2529;
-  background: linear-gradient(45deg, #1e2529 0%, #141414 100%);
+  background: linear-gradient(45deg, #1e2529 35%, #141414 100%);
   height: 100vh;
   width: 100vw;
   font-size: 17px;
@@ -39,17 +39,25 @@ body {
   position: relative;
   top: 25%;
 }
-.navigationContainer #navis .naviElement p {
-  color: #696f72;
-}
 .navigationContainer #navis .naviElement:hover {
   cursor: pointer;
 }
-.navigationContainer #navis .navActive {
-  font-weight: bold;
+.navigationContainer #navis .naviElement p {
+  color: #696f72;
+}
+.navigationContainer #navis .naviElement div {
+  height: 10vh;
+  background-color: #12171a;
 }
 .navigationContainer #navis .navActive p {
   color: #aeb6b9;
+}
+.navigationContainer #navis .navActive div {
+  background-color: #1e2529;
+  -moz-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 .navigationContainer .navIcon {
   height: 2.6vh;
