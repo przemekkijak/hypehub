@@ -4,8 +4,10 @@
 
 #addShoesForm {
   display: grid;
-  height: 100%;
+  height: 110%;
   grid-gap: 1%;
+  position: relative;
+  top: 7%;
   input {
     padding: 1%;
     height: 4vh;

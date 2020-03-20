@@ -4,8 +4,10 @@
 
 #addClothes {
   display: grid;
-  height: 110%;
+  height: 120%;
   grid-gap: 1%;
+  position: relative;
+  top: 3%;
 
   input {
     padding: 1%;

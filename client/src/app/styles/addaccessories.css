@@ -4,8 +4,10 @@
 /*bordes */
 #addAccForm {
   display: grid;
-  height: 100%;
+  height: 110%;
   grid-gap: 1%;
+  position: relative;
+  top: 7%;
 }
 #addAccForm input {
   padding: 1%;
