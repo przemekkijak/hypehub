@@ -13,6 +13,7 @@
   display: grid;
   grid-template-rows: 20% 60%;
   border: 1px solid #1e2529;
+  border-radius: 3%;
 }
 
 .itemType {
@@ -50,7 +51,7 @@
 /* Custom radio buttons */
 .addRadio:checked + label,
 .addRadio:not(:checked) + label {
-  margin: 5px;
+  margin: 3% 0% 2% 0%;
   display: block;
   text-align: center;
   position: relative;
@@ -60,7 +61,7 @@
 .addRadio:checked + label:after,
 .addRadio:not(:checked) + label:after {
   content: "";
-  width: 35%;
+  width: 100%;
   height: 100%;
   border-bottom: 3px solid #6fb415;
   opacity: 0.6;
@@ -68,18 +69,18 @@
   left: 50%;
   transform: translate(-50%);
   top: 0px;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .addRadio:not(:checked) + label:after {
-  opacity: 0;
+  border-bottom: 3px solid rgba(83, 83, 83, 0.952);
 }
 
 .addRadio:checked + label:after {
-  opacity: 1;
+  border-bottom: 3px solid #6fb415;
 }
 
 @media only screen and (max-width: 800px) {
