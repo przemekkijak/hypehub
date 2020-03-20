@@ -15,7 +15,7 @@ body {
 .App {
   text-align: center;
   background-color: $background-color;
-  background: linear-gradient(45deg, $background-color 0%, rgb(20, 20, 20) 100%);
+  background: linear-gradient(45deg, $background-color 35%, rgb(20, 20, 20) 100%);
   height: 100vh;
   width: 100vw;
   font-size: 17px;
@@ -31,22 +31,32 @@ body {
   position: relative;
   font-size: 0.9em;
   background-color: $background-second;
+
   #navis {
     position: relative;
     top: 25%;
     .naviElement {
-      p {
-        color: rgb(105, 111, 114);
-      }
       &:hover {
         cursor: pointer;
       }
+      p {
+        color: rgb(105, 111, 114);
+      }
+      div {
+        height: 10vh;
+        background-color: $background-second;
+      }
     }
+
     .navActive {
       p {
         color: rgb(174, 182, 185);
       }
-      font-weight: bold;
+      div {
+        background-color: $background-color;
+        @include transition(background-color 0.3s ease)
+      }
+
     }
   }
 

@@ -22,3 +22,10 @@ $font-color: #C5C6C7;
     transform: translate(-50%);
     width: 50%;
   }
+
+  @mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
