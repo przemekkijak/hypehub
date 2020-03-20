@@ -1,6 +1,5 @@
  import React, { useState, useEffect } from "react";
  import axios from 'axios';
- import Info from './itemInfo/info'
  import Modify from './itemInfo/modify'
  import '../styles/itemInfo.css';
 
