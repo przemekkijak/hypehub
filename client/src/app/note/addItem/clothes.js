@@ -7,11 +7,10 @@ function AddClothes(props) {
   const itemName = useRef();
   const itemSize = useRef();
   const itemPrice = useRef();
-  const estimatedPrice = useRef();
   const itemCond = useRef();
   const itemLength = useRef();
   const itemWidth = useRef();
-  const itemData = [itemName,itemSize,itemPrice,itemCond,itemLength,itemWidth, estimatedPrice];
+  const itemData = [itemName,itemSize,itemPrice,itemCond,itemLength,itemWidth];
 
 
   function handleSubmit(e) {
@@ -19,7 +18,6 @@ function AddClothes(props) {
     let item = {
       name: itemName.current.value,
       price: itemPrice.current.value,
-      estimatedPrice: estimatedPrice.current.value,
       size: itemSize.current.value,
       length: itemLength.current.value,
       width: itemWidth.current.value,
@@ -67,7 +65,6 @@ function AddClothes(props) {
           case "itemLength":
           case "itemWidth":
           case "itemPrice":
-          case "estimatedPrice":
           case "itemCond":
             if(/^[0-9]*$/.test(input.current.value)) {
               success();
@@ -119,13 +116,6 @@ function AddClothes(props) {
           id="itemPrice"
           placeholder="Cena"
           required />
-
-          <input
-          ref={estimatedPrice}
-          spellCheck="false"
-          id="estimatedPrice"
-          placeholder="Potencjalna sprzedaż"
-          />
 
           <input
           ref={itemCond}

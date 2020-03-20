@@ -62,7 +62,6 @@ function itemSize(item) {
           <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>
           <p onClick={() => props.itemInfo(item.id)}>{itemCondition(item.cond)}</p>
           <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
-          <p onClick={() => props.itemInfo(item.id)}>{item.estimatedPrice} zł</p>
           <p><button
               className="actionButton"
               onClick={() => sellItem(item.id)}>
