@@ -10,7 +10,6 @@ function Modify(props) {
     const itemBuyPrice = useRef(0);
     const itemSellPrice = useRef(0);
     const soldOn = useRef("");
-    const itemEstimatedPrice = useRef(0);
     const itemCond = useRef(0);
     const itemLength = useRef(0);
     const itemWidth = useRef(0);
@@ -22,7 +21,6 @@ function Modify(props) {
       itemSize,
       itemBuyPrice,
       itemSellPrice,
-      itemEstimatedPrice,
       itemCond,
       itemLength,
       itemWidth,
@@ -42,7 +40,6 @@ function Modify(props) {
         name: itemName.current.value,
         buyPrice: itemBuyPrice.current.value,
         sellPrice: itemSellPrice.current.value,
-        estimatedPrice: itemEstimatedPrice.current.value,
         size: itemSize.current.value,
         length: itemLength.current.value,
         width: itemWidth.current.value,
@@ -178,15 +175,6 @@ function Modify(props) {
             defaultValue={item.sellPrice} />
             <span id="sPrice">Cena sprzedaży</span>
         </>
-        )}
-        {item.sold === 0 && (
-          <>
-            <input
-            ref={itemEstimatedPrice}
-            required
-            defaultValue={item.estimatedPrice} />
-            <span id="esPrice">Potencjalna sprzedaż</span>
-          </>
         )}
         </div>
         {item.sold === 1 && (

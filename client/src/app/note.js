@@ -60,7 +60,6 @@ return (
             <span>Rozmiar</span>
             <span>Stan</span>
             <span>Cena kupna</span>
-            <span>Potencjalna sprzedaz</span>
           </div>
         </Route>
       </Switch>

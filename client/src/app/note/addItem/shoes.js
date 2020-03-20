@@ -8,16 +8,14 @@ function AddShoes(props) {
   const itemSize = useRef();
   const itemInsert = useRef();
   const itemPrice = useRef();
-  const estimatedPrice = useRef();
   const itemCond = useRef();
-  const itemData = [itemName, itemSize, itemInsert, itemPrice, itemCond, estimatedPrice];
+  const itemData = [itemName, itemSize, itemInsert, itemPrice, itemCond];
 
   function handleSubmit(e) {
     e.preventDefault();
     let item = {
       name: itemName.current.value,
       price: itemPrice.current.value,
-      estimatedPrice: estimatedPrice.current.value,
       size: itemSize.current.value,
       insert: itemInsert.current.value,
       cond: itemCond.current.value,
@@ -61,7 +59,6 @@ function AddShoes(props) {
           }
         case "itemInsert":
         case "itemPrice":
-        case "estimatedPrice":
         case "itemCond":
           if(/^[0-9]*$/.test(input.current.value)) {
             success();
@@ -101,11 +98,6 @@ function AddShoes(props) {
           required
           id="itemPrice"
           placeholder="Cena"/>
-
-          <input
-          ref={estimatedPrice}
-          id="estimatedPrice"
-          placeholder="Potencjalna sprzedaż"/>
 
           <input
           ref={itemCond}
