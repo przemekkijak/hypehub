@@ -148,10 +148,9 @@ pool.getConnection(function(err, connection) {
     switch (item.type) {
       case 1:
         pool.query(
-          "INSERT into items (name,buyPrice,estimatedPrice,size,length,width,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice,size,length,width,cond,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
-            item.estimatedPrice + "','" +
             item.size + "','" +
             item.length + "','" +
             item.width + "','" +
@@ -168,10 +167,9 @@ pool.getConnection(function(err, connection) {
         break;
       case 2:
         pool.query(
-          "INSERT into items (name,buyPrice,estimatedPrice,size,shoeInsert,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice,size,shoeInsert,cond,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
-            item.estimatedPrice + "','" +
             item.size + "','" +
             item.insert + "','" +
             item.cond + "','" +
@@ -187,10 +185,9 @@ pool.getConnection(function(err, connection) {
         break;
       case 3:
         pool.query(
-          "INSERT into items (name,buyPrice,estimatedPrice,size,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
-            item.estimatedPrice + "','" +
             item.size + "','" +
             item.cond + "', '" +
             item.ownerID + "','" +
@@ -213,7 +210,6 @@ pool.getConnection(function(err, connection) {
       "',buyPrice='" + item.buyPrice +
       "',sellPrice='" + item.sellPrice +
       "',size='" + item.size +
-      "',estimatedPrice='"+ item.estimatedPrice +
       "', soldOn ='" + item.soldOn +
       "',length='" + item.length +
       "',width='" + item.width +
