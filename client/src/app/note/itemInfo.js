@@ -10,6 +10,11 @@ function ItemInfo(props) {
   const [item, setItem] = useState();
 
   useEffect(() => {
+    if(loaded) {
+      if(item.sold === 0) {
+        document.getElementById("itemInfo").style.height = "37vh"
+      }
+    }
     !loaded &&
       axios.post('https://hypehub.pl/getItem', {
         id: props.itemID
@@ -25,10 +30,10 @@ function ItemInfo(props) {
 
   return (
     loaded && (
-      <div className="itemInfoContainer">
+      <div className="itemInfoContainer" id="itemInfo">
 
 
-        <div className="itemContent">
+        <div>
           <Modify item={item} handleModal={props.handleModal} refreshItems={props.refreshItems}/>
         </div>
 

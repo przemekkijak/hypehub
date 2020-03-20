@@ -232,6 +232,12 @@ function Modify(props) {
           </button>
         </p>
       </form>
+      <div id="dates">
+          <span>Dodano: {item.createdAt.slice(0,10)}</span>
+          {item.sold === 1 && (
+            <p><span>Sprzedano: {item.soldAt.slice(0,10)}</span></p>
+          )}
+      </div>
         </div>
     )
 }
