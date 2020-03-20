@@ -3,9 +3,7 @@
 // Container
 .modify {
     position: relative;
-    left: -15%;
-    height: 100%;
-    width: 123%;
+    top: 120%;
   }
 
 span {
@@ -14,10 +12,7 @@ span {
 
 .modifyForm {
     display: grid;
-    position: relative;
-    top: 4%;
     #itemName {
-        // background: none;
         @include center();
         border: none;
         margin: 6% 0% 1% 0%;
@@ -134,7 +129,7 @@ span {
         height: 35px;
         margin-top: 15px;
         position: relative;
-        width: 20%;
+        width: 30%;
         left: 50%;
         transform: translate(-50%);
         display: flex;

@@ -9,13 +9,14 @@
   display: grid;
   background: #12171a;
   border: 1px solid #1e2529;
+  border-radius: 3%;
 }
 .sellContainer #sellForm #itemName {
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 50%;
-  margin: 3% 0% 4% 0%;
+  margin: 5% 0% 4% 0%;
   text-align: center;
 }
 .sellContainer #sellForm button {
