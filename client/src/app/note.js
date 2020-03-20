@@ -34,9 +34,9 @@ return (
       <NavLink
         className="link naviButton"
         activeClassName="active"
-        to="/note/current">Aktualne</NavLink>
+        to="/note/current">Posiadane</NavLink>
       <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
-      <NavLink className="link naviButton" to="/note/pending">Zamowione</NavLink>
+      <NavLink className="link naviButton" to="/note/pending">Zamówione</NavLink>
       <span>Filtruj<img src="/img/note/filtr.png" alt="filtr" onClick={() => props.filterItems()}/></span>
       <input type="text" placeholder="Szukaj..." onChange={(e) => props.searchItem(e.target.value)}/>
     </div>
@@ -48,7 +48,7 @@ return (
             <span>Nazwa</span>
             <span>Rozmiar</span>
             <span>Stan</span>
-            <span>Cena kupna</span>
+            <span>Cena</span>
             <span>Profit</span>
             <span>Tracking</span>
             <span>Kupujacy</span>
@@ -59,7 +59,7 @@ return (
             <span>Nazwa</span>
             <span>Rozmiar</span>
             <span>Stan</span>
-            <span>Cena kupna</span>
+            <span>Cena</span>
           </div>
         </Route>
       </Switch>
