@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modify from "./itemInfo/modify";
-import "../styles/itemInfo.css";
+import "../styles/css/itemInfo.css";
 
 function ItemInfo(props) {
   const [loaded, setLoaded] = useState(false);

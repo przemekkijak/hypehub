@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./styles/login.css";
+import "./styles/css/login.css";
 import axios from "axios";
 
 function Register() {

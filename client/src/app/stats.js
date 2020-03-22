@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/stats.css";
+import "./styles/css/stats.css";
 import PlatformStats from "./stats/platformStats";
 import MoneyStats from "./stats/moneyStats";
 

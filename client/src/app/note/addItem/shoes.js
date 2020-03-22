@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import axios from 'axios';
-import '../../styles/addshoes.css';
+import '../../styles/css/addshoes.css';
 
 function AddShoes(props) {
   const formBox = useRef();

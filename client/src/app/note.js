@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/note.css";
+import "./styles/css/note.css";
 import Current from "./note/current";
 import Sold from "./note/sold";
 import Pending from "./note/pending";

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js";
-import "../styles/stats.css";
 
 function PlatformStats(props) {
   useEffect(() => {

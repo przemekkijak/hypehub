@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/sellItem.css";
+import "../styles/css/sellItem.css";
 
 function SellItem(props) {
   const itemPrice = useRef();

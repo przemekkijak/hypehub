@@ -4,6 +4,8 @@
 /*bordes */
 #statsContainer {
   position: relative;
+  width: 90vw;
+  height: 100vh;
 }
 #statsContainer #platform {
   position: relative;

@@ -3,7 +3,7 @@ import Note from "./app/note.js";
 import Stats from "./app/stats.js";
 import Resell from "./app/resell.js";
 import Login from "./app/login.js";
-import "./app/styles/App.css";
+import "./app/styles/css/App.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import {
