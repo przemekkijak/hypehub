@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import AddShoes from "./addItem/shoes";
 import AddClothes from "./addItem/clothes";
 import AddAccessories from "./addItem/accessories";
-import '../styles/addItem.css';
+import "../styles/addItem.css";
 
 function AddItem(props) {
   const [itemType, setType] = useState(1);
-
 
   function itemForm(itemType) {
     switch (itemType) {

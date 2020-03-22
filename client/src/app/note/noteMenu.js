@@ -13,26 +13,28 @@ function NoteMenu(props) {
 
   return (
     <>
-    <div className="noteMenu">
-      <button
-        className="noteButton"
-        id="addButton"
-        onClick={() => handleModal()}
-      >Dodaj</button>
+      <div className="noteMenu">
+        <button
+          className="noteButton"
+          id="addButton"
+          onClick={() => handleModal()}
+        >
+          Dodaj
+        </button>
 
-      <ReactModal
-        isOpen={addModal}
-        className={"modalContent"}
-        overlayClassName={"modalOverlay"}
-        onRequestClose={() => handleModal()}
-      >
-        <AddItem
-          userID={props.userID}
-          refreshItems={props.refreshItems}
-          handleModal={handleModal}
-        />
-      </ReactModal>
-    </div>
+        <ReactModal
+          isOpen={addModal}
+          className={"modalContent"}
+          overlayClassName={"modalOverlay"}
+          onRequestClose={() => handleModal()}
+        >
+          <AddItem
+            userID={props.userID}
+            refreshItems={props.refreshItems}
+            handleModal={handleModal}
+          />
+        </ReactModal>
+      </div>
     </>
   );
 }
