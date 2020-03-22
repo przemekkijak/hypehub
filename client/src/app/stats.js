@@ -15,8 +15,16 @@ function Stats(props) {
                 <PlatformStats soldItems={props.soldItems}/>
             </div>
 
-            <div id="earnings">
-                <MoneyStats soldItems={props.soldItems}/>
+            <div id="week">
+                <MoneyStats soldItems={props.soldItems} period="7"/>
+            </div>
+
+            <div id="month">
+                <MoneyStats soldItems={props.soldItems} period="30"/>
+            </div>
+
+            <div id="year">
+                <MoneyStats soldItems={props.soldItems} period="365"/>
             </div>
 
         </div>
