@@ -92,8 +92,8 @@ function Modify(props) {
         switch(type) {
           default:
           case "number":
-            if(item.trackingNumber === "undefined" || item.trackingNumber == null) {
-              return "Brak";
+            if(item.trackingNumber === "undefined" || item.trackingNumber === null || item.trackingNumber === "") {
+              return "";
             } else {
               return item.trackingNumber;
             }
@@ -183,6 +183,7 @@ function Modify(props) {
             <span id="tracking">Numer paczki</span>
 
             <select ref={shipCompany} id="shipCompany" defaultValue={getTracking("company")}>
+              <option value=""></option>
               <option value="dpd">DPD</option>
               <option value="dhl">DHL</option>
               <option value="pp">Poczta Polska</option>

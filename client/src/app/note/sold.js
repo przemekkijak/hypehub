@@ -40,11 +40,14 @@ function Sold(props) {
     if (item.trackingNumber !== "undefined") {
       if (item.shipCompany.toLowerCase() === "inpost") {
         return `InPost : ${item.trackingNumber}`;
-      } else {
+      } else if(item.shipCompany === "" || item.trackingNumber === "") {
+        return `-`;
+      }
+       else {
         return `${item.shipCompany.toUpperCase()} : ${item.trackingNumber}`;
       }
     } else {
-      return `Brak`;
+      return `-`;
     }
   }
 

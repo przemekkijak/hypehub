@@ -122,7 +122,7 @@ function SellItem(props) {
             <option value="facebook">Facebook</option>
             <option value="vinted">Vinted</option>
             <option value="grailed">Grailed</option>
-            <option value="Depop">Depop</option>
+            <option value="depop">Depop</option>
             <option value="other">Inna</option>
           </select>
           <select
