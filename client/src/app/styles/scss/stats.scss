@@ -1,0 +1,55 @@
+@import "master";
+
+#statsContainer {
+    position: relative;
+
+    #platform {
+        position: relative;
+        left: 10%;
+        top: 3%;
+        width: 32vw;
+    }
+    #week {
+        position: relative;
+        left: 60%;
+        top: -25%;
+        width: 25vw;
+    }
+    #month {
+        position: relative;
+        width: 25vw;
+        left: 60%;
+        top: -20%;
+    }
+    #year {
+        position: relative;
+        width: 25vw;
+        left: 60%;
+        top: -15%;
+    }
+    #details {
+        font-size: 0.9em;
+        opacity: 0.65;
+        width: 25vw;
+        height: 25vh;
+        position: absolute;
+        left: 11%;
+        top: 45%;
+
+        #currentItems {
+            padding: 3% 0% 0% 2%;
+            border-left: 2px solid rgb(158, 153, 132);
+            height: 7vh;
+            width: 13vw;
+        }
+        #soldItems {
+            margin-top: 5%;
+            padding: 3% 0% 0% 2%;
+            border-left: 2px solid rgb(94, 167, 72);
+            height: 7vh;
+            width: 13vw;
+        }
+    }
+
+
+}
