@@ -1,29 +1,30 @@
 import React, { useState, useRef } from "react";
-import axios from 'axios';
-import Register from './register';
+import axios from "axios";
+import Register from "./register";
 
 function Login(props) {
   const [failed, setFailed] = useState(false);
   const username = useRef();
   const password = useRef();
 
-async function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-      await axios.post('https://hypehub.pl/login', {
-      username: username.current.value,
-      password: password.current.value,
-    })
-    .then(res => {
-      if(res.data.status === 'failed') {
-        setFailed(true);
-      } else {
-      props.handleLogin(res.data);
-      }
-    })
-    .catch(error => {
-      console.log(error.message);
-    })
+    await axios
+      .post("https://hypehub.pl/login", {
+        username: username.current.value,
+        password: password.current.value,
+      })
+      .then((res) => {
+        if (res.data.status === "failed") {
+          setFailed(true);
+        } else {
+          props.handleLogin(res.data);
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }
 
   return (
