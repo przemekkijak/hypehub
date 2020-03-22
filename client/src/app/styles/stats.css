@@ -7,39 +7,27 @@
 }
 #statsContainer #platform {
   position: relative;
-  left: 5%;
-  top: 10%;
-  width: 30vw;
-  height: 30vh;
+  left: 10%;
+  top: 3%;
+  width: 32vw;
 }
-#statsContainer #earningsSwitch {
-  position: absolute;
-  left: 15%;
-  top: -10%;
-  width: 20vw;
-}
-#statsContainer #earningsSwitch .earningsRadio:checked,
-#statsContainer #earningsSwitch .earningsRadio:not(:checked) {
-  display: none;
-}
-#statsContainer #earningsSwitch .earningsRadio:checked + label,
-#statsContainer #earningsSwitch .earningsRadio:not(:checked) + label {
-  cursor: pointer;
-  margin: 0% 2% 0% 2%;
-  font-size: 1em;
-}
-#statsContainer #earningsSwitch .earningsRadio:not(:checked) + label {
-  opacity: 0.5;
-}
-#statsContainer #earningsSwitch .earningsRadio:checked + label {
-  opacity: 0.9;
-}
-#statsContainer #earnings {
+#statsContainer #week {
   position: relative;
-  left: 50%;
+  left: 60%;
+  top: -25%;
+  width: 25vw;
+}
+#statsContainer #month {
+  position: relative;
+  width: 25vw;
+  left: 60%;
   top: -20%;
-  width: 30vw;
-  height: 30vh;
+}
+#statsContainer #year {
+  position: relative;
+  width: 25vw;
+  left: 60%;
+  top: -15%;
 }
 
 /*# sourceMappingURL=stats.css.map */

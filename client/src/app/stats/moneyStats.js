@@ -1,23 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import Chart from 'chart.js';
 
 
 function MoneyStats(props) {
+    const {period} = props;
 
-    const [period,setPeriod] = useState(7);
+    var bgColor, borderColor;
+    switch (period) {
+        case "7":
+            bgColor = 'rgba(111, 180, 21, 0.5)';
+            borderColor = 'rgba(111, 180, 21, 1)';
+            break;
+        case "30":
+            bgColor = 'rgba(255, 140, 0, 0.5)';
+            borderColor = 'rgba(255, 140, 0, 1)';
+            break;
+        case "365":
+            bgColor = 'rgba(255, 20, 147, 0.5)';
+            borderColor = 'rgba(255, 20, 147, 1)';
+            break;
+    }
+
 
     useEffect(() => {
-        new Chart(document.getElementById("cnvEarnings"), {
+        new Chart(document.getElementById(period), {
             type: 'line',
             data: {
                 labels: getDates("short"),
                 datasets: [{
                     data: getItems(),
                     backgroundColor: [
-                        'rgba(111, 180, 21, 0.5)'
+                        bgColor,
                     ],
                     borderColor: [
-                        'rgba(111, 180, 21, 1)',
+                        borderColor,
                     ],
                     borderWidth: 1
                 }]
@@ -58,7 +74,7 @@ function MoneyStats(props) {
                 // Full is to compare dates with items Sold At, "2019-07", Full Year + Month
                 default:
                 case "short":
-                    arrDates[0] = startDate.toISOString().slice(2,7);
+                    arrDates[0] = startDate.toISOString().slice(5,7);
                     break;
                 case "full":
                     arrDates[0] = startDate.toISOString().slice(0,6);
@@ -67,7 +83,7 @@ function MoneyStats(props) {
             for(let i = 1; i<=12; i++) {
                 startDate.setMonth(startDate.getMonth() + 1);
                 if(type === "short") {
-                    arrDates.push(startDate.toISOString().slice(2,7));
+                    arrDates.push(startDate.toISOString().slice(5,7));
                 } else if(type === "full") {
                     arrDates.push(startDate.toISOString().slice(0,6));
                 }
@@ -83,7 +99,7 @@ function MoneyStats(props) {
                 case "full":
                     arrDates[0] = startDate.toISOString().slice(0,10);
             }
-            for(let i = 1; i<period; i++) {
+            for(let i = 1; i<=period; i++) {
                 startDate.setDate(startDate.getDate() + 1);
                 if(type === "short") {
                     arrDates.push(startDate.toISOString().slice(8,10));
@@ -118,35 +134,7 @@ function MoneyStats(props) {
 
 
     return(
-        <>
-        <div id="earningsSwitch">
-
-            <input type="radio"
-            name="earnings"
-            id="week"
-            className="earningsRadio"
-            onClick={() => setPeriod(7)}
-            defaultChecked/>
-            <label htmlFor="week">Tydzień</label>
-
-            <input type="radio"
-            name="earnings"
-            id="month"
-            className="earningsRadio"
-            onClick={() => setPeriod(30)}/>
-            <label htmlFor="month">Miesiąc</label>
-
-            <input type="radio"
-            name="earnings"
-            id="year"
-            className="earningsRadio"
-            onClick={() => setPeriod(365)}/>
-            <label htmlFor="year">Rok</label>
-
-
-        </div>
-        <canvas id="cnvEarnings"></canvas>
-        </>
+        <canvas id={period}></canvas>
     )
 
 }
