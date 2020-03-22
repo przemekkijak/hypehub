@@ -29,5 +29,27 @@
   left: 60%;
   top: -15%;
 }
+#statsContainer #details {
+  font-size: 0.9em;
+  opacity: 0.65;
+  width: 25vw;
+  height: 25vh;
+  position: absolute;
+  left: 11%;
+  top: 45%;
+}
+#statsContainer #details #currentItems {
+  padding: 3% 0% 0% 2%;
+  border-left: 2px solid #9e9984;
+  height: 7vh;
+  width: 13vw;
+}
+#statsContainer #details #soldItems {
+  margin-top: 5%;
+  padding: 3% 0% 0% 2%;
+  border-left: 2px solid #5ea748;
+  height: 7vh;
+  width: 13vw;
+}
 
 /*# sourceMappingURL=stats.css.map */

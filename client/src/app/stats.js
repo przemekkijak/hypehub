@@ -4,6 +4,21 @@ import PlatformStats from "./stats/platformStats";
 import MoneyStats from "./stats/moneyStats";
 
 function Stats(props) {
+
+  function moneyValue(items, priceType) {
+
+    var money = 0;
+      for(let i of items) {
+
+        if(priceType === 1) {
+          money += i.buyPrice;
+        } else if(priceType === 2){
+          money += i.sellPrice;
+        }
+      }
+      return money;
+  }
+
   return (
     <div id="statsContainer">
       <div id="platform">
@@ -21,6 +36,21 @@ function Stats(props) {
       <div id="year">
         <MoneyStats soldItems={props.soldItems} period="365" />
       </div>
+
+      <div id="details">
+
+          <div id="currentItems">
+            <p>Posiadane przedmioty: {props.currentItems.length}</p>
+            <p>Wartość: {moneyValue(props.currentItems, 1)} PLN</p>
+          </div>
+
+          <div id="soldItems">
+            <p>Sprzedane przedmioty: {props.soldItems.length}</p>
+            <p>Całkowity profit: {moneyValue(props.soldItems, 2)} PLN</p>
+          </div>
+
+      </div>
+
     </div>
   );
 }
