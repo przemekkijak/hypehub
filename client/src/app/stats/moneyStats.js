@@ -6,6 +6,7 @@ function MoneyStats(props) {
 
   var bgColor, borderColor;
   switch (period) {
+    default:
     case "7":
       bgColor = "rgba(111, 180, 21, 0.5)";
       borderColor = "rgba(111, 180, 21, 1)";
