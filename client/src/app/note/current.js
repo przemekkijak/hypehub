@@ -21,8 +21,10 @@ function Current(props) {
   function deleteItem(id) {
     axios.post(`https://hypehub.pl/deleteItem`, {
       id: id,
-    });
-    props.refreshItems();
+    })
+    .then(() => {
+      props.refreshItems();
+    })
   }
 
   function itemCondition(cond) {
