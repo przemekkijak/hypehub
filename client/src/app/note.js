@@ -45,13 +45,9 @@ function Note(props) {
         </NavLink>
         <span>
           Filtruj
-          <img
-            src="/img/note/filtr.png"
-            alt="filtr"
-            onClick={() => props.filterItems()}
-          />
         </span>
         <input
+          id="searchInput"
           type="text"
           placeholder="Szukaj..."
           onChange={(e) => props.searchItem(e.target.value)}

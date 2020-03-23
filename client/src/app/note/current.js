@@ -54,7 +54,7 @@ function Current(props) {
   }
   return (
     <>
-    {props.items.length == 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
+    {props.items.length === 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
       <div className="currentContainer">
         {props.items.map((item, index) => (
           <div className="itemSlot currentColumns" id={item.id} key={index}>

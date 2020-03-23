@@ -55,7 +55,7 @@ function Sold(props) {
 
   return (
     <>
-    {props.items.length == 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
+    {props.items.length === 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
       <div className="soldContainer">
         {props.items.map((item, index) => (
           <div className="itemSlot soldColumns" id="" key={index}>

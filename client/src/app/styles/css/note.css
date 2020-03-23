@@ -56,17 +56,11 @@
   height: 25px;
   cursor: pointer;
 }
-.noteTableNavi img {
-  height: 1.7vh;
-  width: 1.1vw;
-  margin-left: 5px;
-  cursor: pointer;
-}
-.noteTableNavi input {
+.noteTableNavi #searchInput {
   height: 3vh;
   position: relative;
   top: 35%;
-  left: 46%;
+  left: 40%;
   background: none;
   outline: none;
   border: none;
@@ -177,22 +171,6 @@
   cursor: pointer;
   height: 25px;
   width: 25px;
-}
-
-/* Container for "Sell Item */
-.itemMenuBox {
-  width: 17vw;
-  height: 25vh;
-  font-size: 16px;
-  border-top: 5px solid #6fb415;
-}
-.itemMenuBox input {
-  height: 42px;
-  width: 100%;
-  background: none;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #6fb415;
 }
 
 /* MODAL OPTIONS */

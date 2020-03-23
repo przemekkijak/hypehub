@@ -39,7 +39,6 @@
 
 .noteTableNavi {
     display: flex;
-    // border: 1px solid pink;
     width: 100vw;
     height: 15vh;
     span {
@@ -50,17 +49,11 @@
       height: 25px;
       cursor: pointer;
     }
-    img {
-      height: 1.7vh;
-      width: 1.1vw;
-      margin-left: 5px;
-      cursor: pointer;
-    }
-    input {
+    #searchInput {
       height: 3vh;
       position: relative;
       top: 35%;
-      left: 46%;
+      left: 40%;
       background: none;
       outline: none;
       border: none;
@@ -166,21 +159,7 @@
   height: 25px;
   width: 25px;
 }
-  /* Container for "Sell Item */
-  .itemMenuBox {
-    width: 17vw;
-    height: 25vh;
-    font-size: 16px;
-    border-top: 5px solid $menu-color2;
-    input {
-        height: 42px;
-        width: 100%;
-        background: none;
-        outline: none;
-        border: none;
-        border-bottom: 1px solid $menu-color2;
-    }
-  }
+
 
   /* MODAL OPTIONS */
   .modalOverlay {
