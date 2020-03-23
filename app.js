@@ -161,6 +161,8 @@ pool.getConnection(function(err, connection) {
           function(error) {
             if (error) {
               console.log(error);
+            } else {
+            res.sendStatus(200);
             }
           }
         );
@@ -179,6 +181,8 @@ pool.getConnection(function(err, connection) {
           function(error) {
             if (error) {
               console.log(error);
+            } else {
+            res.sendStatus(200);
             }
           }
         );
@@ -196,6 +200,8 @@ pool.getConnection(function(err, connection) {
           function(error) {
             if (error) {
               console.log(error);
+            } else {
+            res.sendStatus(200);
             }
           }
         );
