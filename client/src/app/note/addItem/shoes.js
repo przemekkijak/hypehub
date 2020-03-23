@@ -29,8 +29,10 @@ function AddShoes(props) {
       if(validateData === itemData.length) {
         axios.post('https://hypehub.pl/addItem', {
           item: item
-        });
-        props.refreshItems();
+        })
+        .then((res) => {
+          props.refreshItems();
+        })
         props.handleModal();
       }
     }
