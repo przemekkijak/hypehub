@@ -15,7 +15,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-function Render(props) {
+function Note(props) {
   const [itemModal, setItemModal] = useState(false);
   const [currentItem, setCurrentItem] = useState(0);
 
@@ -122,4 +122,4 @@ function Render(props) {
     </Router>
   );
 }
-export default { Render };
+export default Note;

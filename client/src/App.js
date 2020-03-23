@@ -80,22 +80,23 @@ function App() {
   }
 
   function searchItem(itemName) {
+    var results;
     if (itemName.length < 2) {
       refreshItems();
     }
     if (window.location.pathname === "/note/current") {
-      var item = currentItems.filter((item) =>
+      results = currentItems.filter((item) =>
         item.name.toLowerCase().includes(itemName)
       );
-      if (item.length > 0) {
-        currentItems = item;
+      if (results.length > 0) {
+        currentItems = results;
       }
-    } else {
-      item = soldItems.filter((item) =>
+    } else if(window.location.pathname === "/note/sold") {
+      results = soldItems.filter((item) =>
         item.name.toLowerCase().includes(itemName)
       );
-      if (item.length > 0) {
-        soldItems = item;
+      if (results.length > 0) {
+        soldItems = results;
       }
     }
     loadingItems(true);
@@ -208,7 +209,7 @@ function App() {
                 <Resell />
               </Route>
               <Route exact path="/note">
-                <Note.Render
+                <Note
                   currentItems={currentItems}
                   soldItems={soldItems}
                   refreshItems={refreshItems}
