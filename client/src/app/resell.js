@@ -4,7 +4,7 @@ function Resell() {
   return (
     <div className="resellContainer">
       <div className="tableContainer">
-        <p>jeszcze nie gotowe</p>
+        <p>work in progress</p>
       </div>
     </div>
   );

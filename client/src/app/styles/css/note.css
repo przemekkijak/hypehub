@@ -36,6 +36,13 @@
   font-size: 0.9em;
 }
 
+#noItems {
+  position: relative;
+  top: 30%;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
 .noteTableNavi {
   display: flex;
   width: 100vw;
@@ -186,16 +193,6 @@
   outline: none;
   border: none;
   border-bottom: 1px solid #6fb415;
-}
-
-.statBox {
-  padding: 5px;
-  border: 1px solid rgba(83, 83, 83, 0.952);
-  position: absolute;
-  left: 105%;
-  top: 30%;
-  width: 10vw;
-  height: 15vh;
 }
 
 /* MODAL OPTIONS */
