@@ -15,7 +15,6 @@ import {
 } from "react-router-dom";
 
 const cookies = new Cookies();
-const socket = {};
 const user = {
   id: 0,
 };
@@ -210,7 +209,6 @@ function App() {
               </Route>
               <Route exact path="/note">
                 <Note.Render
-                  socket={socket}
                   currentItems={currentItems}
                   soldItems={soldItems}
                   refreshItems={refreshItems}
