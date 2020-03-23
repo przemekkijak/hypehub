@@ -6,7 +6,6 @@ import SellItem from "./sellItem";
 ReactModal.setAppElement("#root");
 
 function Current(props) {
-  const socket = props.socket;
   const [sellModal, setSellModal] = useState(false);
   const [currentId, setCurrentId] = useState(0);
 
@@ -54,60 +53,63 @@ function Current(props) {
     }
   }
   return (
-    <div className="currentContainer">
-      {props.items.map((item, index) => (
-        <div className="itemSlot currentColumns" id={item.id} key={index}>
-          <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-          <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>
-          <p onClick={() => props.itemInfo(item.id)}>
-            {itemCondition(item.cond)}
-          </p>
-          <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
-          <p>
-            <button className="actionButton" onClick={() => sellItem(item.id)}>
-              <img src="/img/note/coin.png" alt="coin" className="noteIcon" />
-            </button>
-          </p>
-          <p>
-            <button
-              className="actionButton"
-              onClick={() => props.itemInfo(item.id)}
-            >
-              <img src="/img/note/info.png" alt="info" className="noteIcon" />
-            </button>
-          </p>
-          <p>
-            <button
-              className="actionButton"
-              onClick={() => {
-                if (window.confirm(`Czy napewno usunąć ${item.name}?`))
-                  deleteItem(item.id);
-              }}
-            >
-              <img
-                src="/img/note/delete.png"
-                alt="delete"
-                className="noteIcon"
-              />
-            </button>
-          </p>
-        </div>
-      ))}
+    <>
+    {props.items.length == 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
+      <div className="currentContainer">
+        {props.items.map((item, index) => (
+          <div className="itemSlot currentColumns" id={item.id} key={index}>
+            <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
+            <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)}>
+              {itemCondition(item.cond)}
+            </p>
+            <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
+            <p>
+              <button className="actionButton" onClick={() => sellItem(item.id)}>
+                <img src="/img/note/coin.png" alt="coin" className="noteIcon" />
+              </button>
+            </p>
+            <p>
+              <button
+                className="actionButton"
+                onClick={() => props.itemInfo(item.id)}
+              >
+                <img src="/img/note/info.png" alt="info" className="noteIcon" />
+              </button>
+            </p>
+            <p>
+              <button
+                className="actionButton"
+                onClick={() => {
+                  if (window.confirm(`Czy napewno usunąć ${item.name}?`))
+                    deleteItem(item.id);
+                }}
+              >
+                <img
+                  src="/img/note/delete.png"
+                  alt="delete"
+                  className="noteIcon"
+                />
+              </button>
+            </p>
+          </div>
+        ))}
 
-      <ReactModal
-        isOpen={sellModal}
-        className={"modalContent"}
-        overlayClassName={"modalOverlay"}
-        onRequestClose={() => setSellModal(false)}
-      >
-        <SellItem
-          socket={socket}
-          id={currentId}
-          handleModal={() => handleModal()}
-          refreshItems={props.refreshItems}
-        />
-      </ReactModal>
-    </div>
+        <ReactModal
+          isOpen={sellModal}
+          className={"modalContent"}
+          overlayClassName={"modalOverlay"}
+          onRequestClose={() => setSellModal(false)}
+        >
+          <SellItem
+            id={currentId}
+            handleModal={() => handleModal()}
+            refreshItems={props.refreshItems}
+          />
+        </ReactModal>
+      </div>
+    }
+  </>
   );
 }
 
