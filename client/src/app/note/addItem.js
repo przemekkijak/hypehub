@@ -3,6 +3,7 @@ import AddShoes from "./addItem/shoes";
 import AddClothes from "./addItem/clothes";
 import AddAccessories from "./addItem/accessories";
 import "../styles/css/addItem.css";
+import store from "../redux/store/index";
 
 function AddItem(props) {
   const [itemType, setType] = useState(1);
@@ -12,7 +13,7 @@ function AddItem(props) {
       case 1:
         return (
           <AddClothes
-            userID={props.userID}
+            userID={store.getState().user.uid}
             itemType={itemType}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}
@@ -21,7 +22,7 @@ function AddItem(props) {
       case 2:
         return (
           <AddShoes
-            userID={props.userID}
+          userID={store.getState().user.uid}
             itemType={itemType}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}
@@ -30,7 +31,7 @@ function AddItem(props) {
       case 3:
         return (
           <AddAccessories
-            userID={props.userID}
+          userID={store.getState().user.uid}
             itemType={itemType}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}

@@ -80,7 +80,6 @@ function Note(props) {
           <Switch>
             <Route exact path="/note/sold">
               <Sold
-                items={props.soldItems}
                 itemInfo={(id) => itemInfo(id)}
                 refreshItems={props.refreshItems}
               />
@@ -93,7 +92,6 @@ function Note(props) {
             <Route exact path="/note/current">
               <Current
                 itemInfo={(id) => itemInfo(id)}
-                items={props.currentItems}
                 refreshItems={props.refreshItems}
               />
             </Route>
@@ -101,7 +99,7 @@ function Note(props) {
             <Redirect to="/note/current" />
           </Switch>
         </div>
-        <NoteMenu userID={props.userID} refreshItems={props.refreshItems} />
+        <NoteMenu refreshItems={props.refreshItems} />
         <ReactModal
           isOpen={itemModal}
           className={"modalContent"}

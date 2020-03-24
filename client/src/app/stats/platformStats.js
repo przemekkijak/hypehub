@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js";
+import store from "../redux/store/index";
 
 function PlatformStats(props) {
   useEffect(() => {
@@ -61,19 +62,21 @@ function PlatformStats(props) {
   });
 
   function getPlatformData() {
-    let facebook = props.soldItems.filter((element) => {
+    var soldItems = store.getState().soldItems;
+
+    let facebook = soldItems.filter((element) => {
       return element.soldOn === "facebook";
     });
-    let vinted = props.soldItems.filter((element) => {
+    let vinted = soldItems.filter((element) => {
       return element.soldOn === "vinted";
     });
-    let grailed = props.soldItems.filter((element) => {
+    let grailed = soldItems.filter((element) => {
       return element.soldOn === "grailed";
     });
-    let depop = props.soldItems.filter((element) => {
+    let depop = soldItems.filter((element) => {
       return element.soldOn === "depop";
     });
-    let other = props.soldItems.filter((element) => {
+    let other = soldItems.filter((element) => {
       return element.soldOn === "other";
     });
 

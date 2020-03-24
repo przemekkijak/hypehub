@@ -29,7 +29,6 @@ function NoteMenu(props) {
           onRequestClose={() => handleModal()}
         >
           <AddItem
-            userID={props.userID}
             refreshItems={props.refreshItems}
             handleModal={handleModal}
           />

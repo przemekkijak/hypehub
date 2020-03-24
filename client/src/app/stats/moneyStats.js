@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js";
+import store from "../redux/store/index";
 
 function MoneyStats(props) {
   const { period } = props;
@@ -114,7 +115,7 @@ function MoneyStats(props) {
     let earnings = [];
     for (let i = 0; i <= dates.length; i++) {
       let money = 0;
-      props.soldItems.filter((element) => {
+      store.getState().soldItems.filter((element) => {
         if (period > 30) {
           if (element.soldAt.slice(0, 6) === dates[i]) {
             money += element.sellPrice - element.buyPrice;

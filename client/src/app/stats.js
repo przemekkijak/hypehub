@@ -2,6 +2,8 @@ import React from "react";
 import "./styles/css/stats.css";
 import PlatformStats from "./stats/platformStats";
 import MoneyStats from "./stats/moneyStats";
+import store from "../app/redux/store/index";
+
 
 function Stats(props) {
 
@@ -22,31 +24,31 @@ function Stats(props) {
   return (
     <div id="statsContainer">
       <div id="platform">
-        <PlatformStats soldItems={props.soldItems} />
+        <PlatformStats />
       </div>
 
       <div id="week">
-        <MoneyStats soldItems={props.soldItems} period="7" />
+        <MoneyStats period="7" />
       </div>
 
       <div id="month">
-        <MoneyStats soldItems={props.soldItems} period="30" />
+        <MoneyStats period="30" />
       </div>
 
       <div id="year">
-        <MoneyStats soldItems={props.soldItems} period="365" />
+        <MoneyStats period="365" />
       </div>
 
       <div id="details">
 
           <div id="currentItems">
-            <p>Posiadane przedmioty: {props.currentItems.length}</p>
-            <p>Wartość: {moneyValue(props.currentItems, 1)} PLN</p>
+            <p>Posiadane przedmioty: {store.getState().currentItems.length}</p>
+            <p>Wartość: {moneyValue(store.getState().currentItems, 1)} PLN</p>
           </div>
 
           <div id="soldItems">
-            <p>Sprzedane przedmioty: {props.soldItems.length}</p>
-            <p>Całkowity profit: {moneyValue(props.soldItems, 2)} PLN</p>
+            <p>Sprzedane przedmioty: {store.getState().soldItems.length}</p>
+            <p>Całkowity profit: {moneyValue(store.getState().soldItems, 2)} PLN</p>
           </div>
 
       </div>
