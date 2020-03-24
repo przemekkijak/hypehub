@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import ReactModal from "react-modal";
 import axios from "axios";
 import SellItem from "./sellItem";
+import store from "../redux/store/index";
 
 ReactModal.setAppElement("#root");
 
 function Current(props) {
+
+
   const [sellModal, setSellModal] = useState(false);
   const [currentId, setCurrentId] = useState(0);
 
@@ -54,9 +57,9 @@ function Current(props) {
   }
   return (
     <>
-    {props.items.length === 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
+    {store.getState().currentItems.length === 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
       <div className="currentContainer">
-        {props.items.map((item, index) => (
+        {store.getState().currentItems.map((item, index) => (
           <div className="itemSlot currentColumns" id={item.id} key={index}>
             <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
             <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import store from "../redux/store/index";
 
 function Sold(props) {
   function deleteItem(id) {
@@ -55,9 +56,9 @@ function Sold(props) {
 
   return (
     <>
-    {props.items.length === 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
+    {store.getState().soldItems.length === 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
       <div className="soldContainer">
-        {props.items.map((item, index) => (
+        {store.getState().soldItems.map((item, index) => (
           <div className="itemSlot soldColumns" id="" key={index}>
             <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
             <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>

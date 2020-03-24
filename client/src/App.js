@@ -13,16 +13,13 @@ import {
   Redirect,
   NavLink,
 } from "react-router-dom";
+import store from "./app/redux/store/index";
+import { setCurrent, setSold, setUser } from "./app/redux/actions/index";
 
 const cookies = new Cookies();
-const user = {
-  id: 0,
-};
 
 var env = "https://hypehub.pl";
 
-var currentItems = [];
-var soldItems = [];
 
 function App() {
   const [, loadingItems] = useState(false);
@@ -34,7 +31,7 @@ function App() {
           token: token,
         })
         .then((res) => {
-          user.id = res.data.uid;
+          store.dispatch(setUser(res.data));
           refreshItems();
           setLoged(true);
         });
@@ -42,13 +39,15 @@ function App() {
   });
 
   useEffect(() => {
-    if (user.id !== 0) {
+    if (store.getState().user.uid !== 0) {
       refreshItems();
     }
   }, []);
 
   function handleLogin(userData) {
-    user.id = userData.uid;
+    console.log(userData);
+    store.dispatch(setUser(userData));
+    console.log(store.getState().user);
     cookies.set("hhtkn", userData.token);
     refreshItems();
     setLoged(true);
@@ -62,19 +61,19 @@ function App() {
   function refreshItems() {
     axios
       .post(`${env}/getCurrentItems`, {
-        id: user.id,
+        id: store.getState().user.uid,
       })
       .then((res) => {
-        currentItems = res.data;
+        store.dispatch(setCurrent(res.data));
         loadingItems(true);
       });
 
     axios
       .post(`${env}/getSoldItems`, {
-        id: user.id,
+        id: store.getState().user.uid,
       })
       .then((res) => {
-        soldItems = res.data;
+        store.dispatch(setSold(res.data));
         loadingItems(false);
       });
   }
@@ -85,18 +84,18 @@ function App() {
       refreshItems();
     }
     if (window.location.pathname === "/note/current") {
-      results = currentItems.filter((item) =>
+      results = store.getState().currentItems.filter((item) =>
         item.name.toLowerCase().includes(itemName)
       );
       if (results.length > 0) {
-        currentItems = results;
+        store.dispatch(setCurrent(results));
       }
     } else if(window.location.pathname === "/note/sold") {
-      results = soldItems.filter((item) =>
+      results = store.getState().soldItems.filter((item) =>
         item.name.toLowerCase().includes(itemName)
       );
       if (results.length > 0) {
-        soldItems = results;
+        store.dispatch(setSold(results));
       }
     }
     loadingItems(true);
@@ -200,7 +199,7 @@ function App() {
 
             <Switch>
               <Route exact path="/stats">
-                <Stats currentItems={currentItems} soldItems={soldItems} />
+                <Stats />
               </Route>
               <Route exact path="/account">
                 <Resell />
@@ -210,10 +209,8 @@ function App() {
               </Route>
               <Route exact path="/note">
                 <Note
-                  currentItems={currentItems}
-                  soldItems={soldItems}
                   refreshItems={refreshItems}
-                  userID={user.id}
+                  userID={store.getState().user.id}
                   searchItem={searchItem}
                   unfilter={unfilter}
                 />
