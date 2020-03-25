@@ -54,6 +54,7 @@ body {
 }
 .navigationContainer #navis .navActive div {
   background-color: #1e2529;
+  box-shadow: inset 5px 0px 5px #12171a;
   -moz-transition: background-color 0.3s ease;
   -o-transition: background-color 0.3s ease;
   -webkit-transition: background-color 0.3s ease;

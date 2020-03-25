@@ -84,7 +84,7 @@
 }
 
 .active {
-  border-bottom: 3px solid rgba(83, 138, 11, 0.808);
+  border-bottom: 0.4vh solid rgba(83, 138, 11, 0.808);
 }
 
 .noteContent {
