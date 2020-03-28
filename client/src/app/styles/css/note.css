@@ -28,7 +28,7 @@
 
 .tableContainer {
   position: absolute;
-  width: 65vw;
+  width: 70vw;
   height: 66vh;
   left: 50%;
   top: 50%;
@@ -111,11 +111,6 @@
 .itemSlot:hover {
   background-color: rgba(46, 46, 46, 0.25);
 }
-.itemSlot p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .currentColumns {
   grid-template-columns: 35% 15% 12% 12% 5% 5% 5%;
@@ -160,8 +155,8 @@
 }
 
 .noteIcon {
-  width: 22px;
-  height: 22px;
+  width: 1.2vw;
+  height: 2.3vh;
 }
 
 .actionButton {
@@ -169,8 +164,8 @@
   background: none;
   outline: none;
   cursor: pointer;
-  height: 25px;
-  width: 25px;
+  width: 1.2vw;
+  height: 2.3vh;
 }
 
 /* MODAL OPTIONS */
@@ -208,87 +203,65 @@
 
 @media only screen and (max-width: 450px) {
   .tableContainer {
-    width: 100vw;
-  }
-
-  .noteTableNavi .link {
-    margin: 15px;
-    font-size: 0.6em;
-    top: 5%;
-    left: 25%;
-  }
-  .noteTableNavi input {
-    display: none;
-  }
-  .noteTableNavi span {
-    display: none;
+    top: 55%;
   }
 
   .noteIcon {
-    width: 12px;
-    height: 12px;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .tableContainer {
-    width: 85vw;
-  }
-
-  .noteTableNavi .link {
-    margin: 15px;
-    font-size: 0.6em;
-    top: 5%;
-    left: 25%;
-  }
-  .noteTableNavi input {
-    display: none;
-  }
-  .noteTableNavi span {
-    display: none;
-  }
-}
-@media only screen and (max-width: 1100px) {
-  .tableContainer {
-    font-size: 14px;
-    width: 76vw;
-  }
-}
-@media only screen and (max-width: 1440px) {
-  .currentColumns {
-    grid-template-columns: 30% 12% 12% 10% 10% 5% 5% 5%;
-  }
-
-  .soldColumns {
-    grid-template-columns: 25% 15% 7% 10% 7% 20% 10% 5%;
+    width: 4vw;
   }
 
   #addButton {
-    height: 25px;
-    width: 150px;
+    width: 40vw;
   }
 
-  .noteIcon {
-    width: 19px;
-    height: 19px;
+  .itemSlot {
+    height: 10vh;
   }
 
-  .noteTableNavi .link {
-    margin: 15px;
-    font-size: 1em;
-    top: 5%;
-    left: 25%;
+  .itemsInfo {
+    display: none;
   }
-  .noteTableNavi input {
-    left: 35%;
-    width: 12vw;
-    font-size: 10px;
+
+  .currentColumns {
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 35% 25% 35%;
+  }
+
+  .itemName {
+    padding-top: 1%;
+    grid-column: 1/7;
+    grid-row: 1;
+  }
+
+  .itemDetails {
+    grid-row: 2;
+  }
+
+  .itemOptions {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+    grid-row: 3;
+  }
+
+  .noteTableNavi {
+    height: 12vh;
+  }
+  .noteTableNavi #searchInput {
+    display: none;
   }
   .noteTableNavi span {
     display: none;
   }
-  .noteTableNavi img {
-    width: 10px;
-    height: 10px;
+  .noteTableNavi .naviButton {
+    height: 4vh;
+    width: 20vw;
+    margin: 0% 5% 0% 5%;
+    top: 90%;
+  }
+  .noteTableNavi .active {
+    border-bottom: 0.5vh solid rgba(83, 138, 11, 0.808);
   }
 }
 

@@ -61,28 +61,23 @@ function Current(props) {
       <div className="currentContainer">
         {store.getState().currentItems.map((item, index) => (
           <div className="itemSlot currentColumns" id={item.id} key={index}>
-            <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-            <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)}>
+            <p onClick={() => props.itemInfo(item.id)} className="itemName">{item.name}</p>
+            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">{itemSize(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">
               {itemCondition(item.cond)}
             </p>
-            <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
-            <p>
-              <button className="actionButton" onClick={() => sellItem(item.id)}>
+            <span onClick={() => props.itemInfo(item.id)} className="itemDetails">{item.buyPrice} zł</span>
+              <button className="actionButton itemOptions" onClick={() => sellItem(item.id)}>
                 <img src="/img/note/coin.png" alt="coin" className="noteIcon" />
               </button>
-            </p>
-            <p>
               <button
-                className="actionButton"
+                className="actionButton itemOptions"
                 onClick={() => props.itemInfo(item.id)}
               >
                 <img src="/img/note/info.png" alt="info" className="noteIcon" />
               </button>
-            </p>
-            <p>
               <button
-                className="actionButton"
+                className="actionButton itemOptions"
                 onClick={() => {
                   if (window.confirm(`Czy napewno usunąć ${item.name}?`))
                     deleteItem(item.id);
@@ -94,7 +89,6 @@ function Current(props) {
                   className="noteIcon"
                 />
               </button>
-            </p>
           </div>
         ))}
 
