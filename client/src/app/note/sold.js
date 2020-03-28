@@ -60,20 +60,19 @@ function Sold(props) {
       <div className="soldContainer">
         {store.getState().soldItems.map((item, index) => (
           <div className="itemSlot soldColumns" id="" key={index}>
-            <p onClick={() => props.itemInfo(item.id)}>{item.name}</p>
-            <p onClick={() => props.itemInfo(item.id)}>{itemSize(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)}>
+            <p onClick={() => props.itemInfo(item.id)} className="itemName">{item.name}</p>
+            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">{itemSize(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">
               {convertCondition(item.cond)}
             </p>
-            <p onClick={() => props.itemInfo(item.id)}>{item.buyPrice} zł</p>
-            <p onClick={() => props.itemInfo(item.id)} id="earnings">
+            <p onClick={() => props.itemInfo(item.id)} id="buyPrice" className="itemDetails">{item.buyPrice} zł</p>
+            <p onClick={() => props.itemInfo(item.id)} id="earnings" className="itemDetails">
               {item.sellPrice - item.buyPrice} zł
             </p>
-            <p onClick={() => props.itemInfo(item.id)}>{getTracking(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)}>{item.soldFor}</p>
-            <p>
+            <p onClick={() => props.itemInfo(item.id)} className="itemTracking">{getTracking(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} className="itemSoldFor">{item.soldFor}</p>
               <button
-                className="actionButton"
+                className="actionButton itemDelete"
                 onClick={() => {
                   if (window.confirm(`Czy napewno usunąć ${item.name}?`))
                     deleteItem(item.id);
@@ -85,7 +84,6 @@ function Sold(props) {
                   className="noteIcon"
                 />
               </button>
-            </p>
           </div>
         ))}
       </div>

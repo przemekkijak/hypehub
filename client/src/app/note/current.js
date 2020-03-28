@@ -66,7 +66,7 @@ function Current(props) {
             <p onClick={() => props.itemInfo(item.id)} className="itemDetails">
               {itemCondition(item.cond)}
             </p>
-            <span onClick={() => props.itemInfo(item.id)} className="itemDetails">{item.buyPrice} zł</span>
+            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">{item.buyPrice} zł</p>
               <button className="actionButton itemOptions" onClick={() => sellItem(item.id)}>
                 <img src="/img/note/coin.png" alt="coin" className="noteIcon" />
               </button>

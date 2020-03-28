@@ -74,26 +74,9 @@
   background-color: #373b39;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 450px) {
   .sellContainer {
-    width: 35vw;
-    height: 55vh;
-  }
-  .sellContainer form div {
-    font-size: 1em;
-  }
-  .sellContainer form input {
-    height: 25px;
-    font-size: 0.7em;
-  }
-  .sellContainer form select {
-    font-size: 0.7em;
-  }
-  .sellContainer form button {
-    font-size: 0.7em;
-    width: 6vw;
-    height: 25px;
-    top: 90%;
+    width: 90vw;
   }
 }
 

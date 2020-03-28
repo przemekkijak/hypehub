@@ -111,6 +111,14 @@
 .itemSlot:hover {
   background-color: rgba(46, 46, 46, 0.25);
 }
+.itemSlot p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.itemSlot button {
+  padding-top: 20%;
+}
 
 .currentColumns {
   grid-template-columns: 35% 15% 12% 12% 5% 5% 5%;
@@ -215,7 +223,7 @@
   }
 
   .itemSlot {
-    height: 10vh;
+    height: 12vh;
   }
 
   .itemsInfo {
@@ -224,25 +232,53 @@
 
   .currentColumns {
     grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 35% 25% 35%;
   }
-
-  .itemName {
+  .currentColumns .itemName {
     padding-top: 1%;
     grid-column: 1/7;
     grid-row: 1;
   }
-
-  .itemDetails {
+  .currentColumns .itemDetails {
     grid-row: 2;
   }
-
-  .itemOptions {
+  .currentColumns .itemOptions {
     position: relative;
     left: 50%;
     transform: translate(-50%);
     width: 50%;
     grid-row: 3;
+  }
+
+  .soldColumns {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+  .soldColumns .itemName {
+    padding-top: 1%;
+    grid-column: 1/5;
+    grid-row: 1;
+  }
+  .soldColumns .itemDetails {
+    grid-row: 2;
+  }
+  .soldColumns .itemTracking {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .soldColumns .itemSoldFor {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .soldColumns .itemDelete {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+    grid-column: 1/5;
+    grid-row: 4;
+  }
+  .soldColumns #earnings {
+    color: green;
+    font-weight: bold;
   }
 
   .noteTableNavi {
