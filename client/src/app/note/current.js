@@ -61,23 +61,23 @@ function Current(props) {
       <div className="currentContainer">
         {store.getState().currentItems.map((item, index) => (
           <div className="itemSlot currentColumns" id={item.id} key={index}>
-            <p onClick={() => props.itemInfo(item.id)} className="itemName">{item.name}</p>
-            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">{itemSize(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">
+            <p onClick={() => props.itemInfo(item.id)} id="itemName">{item.name}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemSize">{itemSize(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemCond">
               {itemCondition(item.cond)}
             </p>
-            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">{item.buyPrice} zł</p>
-              <button className="actionButton itemOptions" onClick={() => sellItem(item.id)}>
-                <img src="/img/note/coin.png" alt="coin" className="noteIcon" />
+            <p onClick={() => props.itemInfo(item.id)} id="itemBuyPrice">{item.buyPrice} zł</p>
+              <button className="actionButton itemSell" onClick={() => sellItem(item.id)}>
+                <img src="/img/note/coin.png" alt="coin" className="noteIcon itemSell" />
               </button>
               <button
-                className="actionButton itemOptions"
+                className="actionButton itemInfo"
                 onClick={() => props.itemInfo(item.id)}
               >
-                <img src="/img/note/info.png" alt="info" className="noteIcon" />
+                <img src="/img/note/info.png" alt="info" className="noteIcon itemInfo" />
               </button>
               <button
-                className="actionButton itemOptions"
+                className="actionButton itemDelete"
                 onClick={() => {
                   if (window.confirm(`Czy napewno usunąć ${item.name}?`))
                     deleteItem(item.id);
@@ -86,7 +86,7 @@ function Current(props) {
                 <img
                   src="/img/note/delete.png"
                   alt="delete"
-                  className="noteIcon"
+                  className="noteIcon itemDelete"
                 />
               </button>
           </div>

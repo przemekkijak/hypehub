@@ -16,9 +16,9 @@
   grid-template-rows: 5% 90%;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 480px) {
   .itemInfoContainer {
-    width: 90vw;
+    width: 100vw;
   }
 }
 

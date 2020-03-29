@@ -44,13 +44,13 @@ function Sold(props) {
       if (item.shipCompany.toLowerCase() === "inpost") {
         return `InPost : ${item.trackingNumber}`;
       } else if(item.shipCompany === "" || item.trackingNumber === "") {
-        return `-`;
+        return null;
       }
        else {
         return `${item.shipCompany.toUpperCase()} : ${item.trackingNumber}`;
       }
     } else {
-      return `-`;
+      return null;
     }
   }
 
@@ -60,19 +60,20 @@ function Sold(props) {
       <div className="soldContainer">
         {store.getState().soldItems.map((item, index) => (
           <div className="itemSlot soldColumns" id="" key={index}>
-            <p onClick={() => props.itemInfo(item.id)} className="itemName">{item.name}</p>
-            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">{itemSize(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)} className="itemDetails">
+            <p onClick={() => props.itemInfo(item.id)} id="itemName">{item.name}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemSize">{itemSize(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemCond">
               {convertCondition(item.cond)}
             </p>
-            <p onClick={() => props.itemInfo(item.id)} id="buyPrice" className="itemDetails">{item.buyPrice} zł</p>
-            <p onClick={() => props.itemInfo(item.id)} id="earnings" className="itemDetails">
+            <p onClick={() => props.itemInfo(item.id)} id="buyPrice">{item.buyPrice} zł</p>
+            <p onClick={() => props.itemInfo(item.id)} id="earnings" >
               {item.sellPrice - item.buyPrice} zł
             </p>
-            <p onClick={() => props.itemInfo(item.id)} className="itemTracking">{getTracking(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)} className="itemSoldFor">{item.soldFor}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemTracking">{getTracking(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemSoldFor">{item.soldFor}</p>
               <button
-                className="actionButton itemDelete"
+                className="actionButton"
+                id="itemDelete"
                 onClick={() => {
                   if (window.confirm(`Czy napewno usunąć ${item.name}?`))
                     deleteItem(item.id);

@@ -16,10 +16,7 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(41, 40, 40, 0.336);
   }
-  .note {
-  height: 100%;
-  width: 100%;
-  }
+
   .tableContainer {
   position: absolute;
   width: 70vw;
@@ -124,6 +121,7 @@
   background: none;
   outline: none;
   border: 1px solid $menu-color2;
+  border-radius: 1%;
   justify-items: center;
 }
 // login e.g
@@ -146,7 +144,8 @@
 #addButton {
   margin-top: 2%;
   height: 4vh;
-  width: 12vw;
+  width: 15vw;
+  border-radius: 3%;
   &:hover {
     background-color: rgba(87, 81, 81, 0.25);
   }
@@ -199,10 +198,12 @@
   // RWD
 
   // Phone - Large
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 480px) {
 
     .tableContainer {
       top: 55%;
+      width: 30%;
+      margin-top: 5%;
     }
 
     .noteIcon {
@@ -210,63 +211,105 @@
     }
 
     #addButton {
-      width: 40vw;
+      width: 60vw;
     }
 
     .itemSlot {
-      height: 12vh;
+      height: 15vh;
     }
     .itemsInfo {
       display: none;
     }
 
     .currentColumns {
-      grid-template-columns: 33% 33% 33%;
-      .itemName {
-        padding-top: 1%;
-        grid-column: 1/7;
+      grid-template-columns: repeat(5, 20%);
+      p {
+        // border: 1px solid green;
+      }
+      #itemName {
+        font-weight: bold;
+        padding-top: 3%;
+        grid-column: 1/6;
         grid-row: 1;
       }
-      .itemDetails {
-        grid-row: 2;
-      }
-      .itemOptions {
-        @include center();
-        grid-row: 3;
-      }
-    }
-
-    .soldColumns {
-      grid-template-columns: 25% 25% 25% 25%;
-      .itemName {
-        padding-top: 1%;
-        grid-column: 1/5;
-        grid-row: 1;
-      }
-      .itemDetails {
-        grid-row: 2;
-      }
-      .itemTracking {
+      #itemSize {
         grid-column: 2;
-        grid-row: 3;
+        grid-row: 2;
       }
-      .itemSoldFor {
+      #itemCond {
         grid-column: 3;
-        grid-row: 3;
+        grid-row: 2;
+      }
+      #itemBuyPrice {
+        grid-column: 4;
+        grid-row: 2;
+      }
+      .itemSell {
+        grid-row: 4;
+        grid-column: 2;
+      }
+      .itemInfo {
+        grid-row: 4;
+        grid-column: 3;
       }
       .itemDelete {
-        @include center();
-        grid-column: 1/5;
         grid-row: 4;
+        grid-column: 4;
+      }
+      .actionButton {
+        margin-top: -35%;
+        padding-left: 40%;
+    }
+  }
+    .soldColumns {
+      grid-template-columns: repeat(5, 20%);
+
+      #itemName {
+        padding-top: 3%;
+        font-weight: bold;
+        grid-row: 1;
+        grid-column: 1/6;
+      }
+      #itemSize {
+        grid-row: 2;
+        grid-column: 2;
+      }
+      #itemCond {
+        grid-row: 2;
+        grid-column: 3;
+      }
+      #buyPrice {
+        grid-row: 2;
+        grid-column: 4;
       }
       #earnings {
+        grid-row: 3;
+        grid-column: 2/5;
         color: green;
-        font-weight: bold;
+        &:before {
+          color: $font-color;
+          content: 'Profit -';
+          margin-right: 3%;
+        }
       }
+      #itemTracking {
+        grid-row: 4;
+        grid-column: 2/5;
+      }
+      #itemSoldFor {
+        grid-row: 5;
+        grid-column: 2/5;
+      }
+      #itemDelete {
+        display: none;
+      }
+
     }
 
-
+// Navi (Current/Sold/Pending)
   .noteTableNavi {
+    position: relative;
+    top: -2%;
     height: 12vh;
     #searchInput {
       display: none;

@@ -83,29 +83,16 @@
   border-bottom: 3px solid #6fb415;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 480px) {
   .addItemContainer {
-    width: 60vw;
-    height: 55vh;
+    position: absolute;
+    width: 100vw;
   }
-}
-@media only screen and (max-width: 1100px) {
-  .itemInfoContainer {
-    height: 35vh;
-    width: 60vw;
-    font-size: 0.7em;
+  .addItemContainer .itemIcon {
+    width: 6vw;
   }
-}
-@media only screen and (max-width: 1440px) {
-  .itemMenu {
-    font-size: 11px;
-    height: 35%;
-  }
-
-  .itemInfoContainer {
-    height: 50vh;
-    width: 40vw;
-    font-size: 0.7em;
+  .addItemContainer #shoeIcon {
+    width: 8vw;
   }
 }
 
