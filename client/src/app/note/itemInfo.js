@@ -12,6 +12,10 @@ function ItemInfo(props) {
       if (item.sold === 0) {
         document.getElementById("itemInfo").style.height = "37vh";
       }
+      if(item.sold === 1) {
+        document.getElementById("itemInfo").style.width = "35vw";
+        document.getElementById('itemInfo').style.height = "55vh";
+      }
     }
     !loaded &&
       axios

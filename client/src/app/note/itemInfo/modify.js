@@ -115,6 +115,18 @@ function Modify(props) {
         }
       }
 
+      function unSold() {
+        axios.post("https://hypehub.pl/unSold", {
+          id: item.id,
+        })
+        .then((res) => {
+          if(res.status === 200) {
+            props.refreshItems();
+            props.handleModal();
+          }
+        })
+      }
+
     return(
         <div className="modify">
         <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
@@ -224,12 +236,8 @@ function Modify(props) {
           <span id="condSpan">Stan</span>
         </div>
 
-
-        <p>
-          <button type="submit" className="addButton" value="Submit">
-            Zapisz
-          </button>
-        </p>
+        <button id="unSold" className="addButton" onClick={() => unSold()}>Wycofaj ze sprzedanych</button>
+        <button type="submit" className="addButton" value="Submit">Zapisz</button>
       </form>
       <div id="dates">
           <span>Dodano: {item.createdAt.slice(0,10)}</span>
