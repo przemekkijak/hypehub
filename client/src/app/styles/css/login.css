@@ -1,3 +1,7 @@
+/* main color */
+/* details */
+/* clicked menu button */
+/*bordes */
 .loginBox {
   width: 12vw;
   height: 25vh;
@@ -8,6 +12,8 @@
   transform: translate(-50%, -50%);
 }
 .loginBox input {
+  margin-top: 1%;
+  padding-left: 3%;
   height: 42px;
   width: 100%;
   background: none;
@@ -29,11 +35,18 @@
   height: 42px;
   width: 100%;
   background: none;
-  border: none;
   outline: none;
   border-bottom: 1px solid #6fb415;
   font-size: 16px;
   letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 480px) {
+  .loginBox {
+    position: absolute;
+    top: 60%;
+    width: 35vw;
+  }
 }
 
 /*# sourceMappingURL=login.css.map */

@@ -67,28 +67,27 @@ function Current(props) {
               {itemCondition(item.cond)}
             </p>
             <p onClick={() => props.itemInfo(item.id)} id="itemBuyPrice">{item.buyPrice} zł</p>
-              <button className="actionButton itemSell" onClick={() => sellItem(item.id)}>
-                <img src="/img/note/coin.png" alt="coin" className="noteIcon itemSell" />
-              </button>
-              <button
-                className="actionButton itemInfo"
+              <img
+                className="actionButton itemSell noteIcon"
+                src="/img/note/coin.png"
+                alt="Sell "
+                onClick={() => sellItem(item.id)}/>
+              <img
+                className="actionButton itemInfo noteIcon"
+                src="/img/note/info.png"
+                alt="Info"
                 onClick={() => props.itemInfo(item.id)}
-              >
-                <img src="/img/note/info.png" alt="info" className="noteIcon itemInfo" />
-              </button>
-              <button
-                className="actionButton itemDelete"
+              />
+              <img
+                className="actionButton itemDelete noteIcon"
+                src="/img/note/delete.png"
+                alt="Delete"
                 onClick={() => {
                   if (window.confirm(`Czy napewno usunąć ${item.name}?`))
                     deleteItem(item.id);
                 }}
-              >
-                <img
-                  src="/img/note/delete.png"
-                  alt="delete"
-                  className="noteIcon itemDelete"
-                />
-              </button>
+              />
+
           </div>
         ))}
 
@@ -106,7 +105,7 @@ function Current(props) {
         </ReactModal>
       </div>
     }
-  </>
+    </>
   );
 }
 

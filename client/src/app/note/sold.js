@@ -71,20 +71,17 @@ function Sold(props) {
             </p>
             <p onClick={() => props.itemInfo(item.id)} id="itemTracking">{getTracking(item)}</p>
             <p onClick={() => props.itemInfo(item.id)} id="itemSoldFor">{item.soldFor}</p>
-              <button
-                className="actionButton"
+              <img
+                className="actionButton "
                 id="itemDelete"
+                src="/img/note/delete.png"
+                alt="Delete"
                 onClick={() => {
                   if (window.confirm(`Czy napewno usunąć ${item.name}?`))
                     deleteItem(item.id);
                 }}
-              >
-                <img
-                  src="/img/note/delete.png"
-                  alt="delete"
-                  className="noteIcon"
-                />
-              </button>
+              />
+
           </div>
         ))}
       </div>

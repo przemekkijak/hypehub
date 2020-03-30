@@ -207,7 +207,8 @@
     }
 
     .noteIcon {
-      width: 4vw;
+      width: 6vw;
+      height: 2.5vh;
     }
 
     #addButton {
@@ -215,7 +216,7 @@
     }
 
     .itemSlot {
-      height: 15vh;
+      height: 16vh;
     }
     .itemsInfo {
       display: none;
@@ -223,9 +224,7 @@
 
     .currentColumns {
       grid-template-columns: repeat(5, 20%);
-      p {
-        // border: 1px solid green;
-      }
+
       #itemName {
         font-weight: bold;
         padding-top: 3%;
@@ -257,8 +256,8 @@
         grid-column: 4;
       }
       .actionButton {
-        margin-top: -35%;
-        padding-left: 40%;
+        margin-top: -25%;
+        margin-left: 30%;
     }
   }
     .soldColumns {
@@ -301,7 +300,12 @@
         grid-column: 2/5;
       }
       #itemDelete {
-        display: none;
+        grid-row: 6;
+        width: 6vw;
+        height: 2.5vh;
+        grid-column: 3;
+        margin-top: 3%;
+        margin-left: 25%;
       }
 
     }
