@@ -127,7 +127,7 @@ span {
   width: 50%;
   left: 26%;
 }
-.modifyForm #soldOn {
+.modifyForm #soldOnDiv {
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -136,7 +136,7 @@ span {
   text-align: center;
   margin-top: 1%;
 }
-.modifyForm #soldOn span {
+.modifyForm #soldOnDiv span {
   position: absolute;
   left: 45%;
   top: 29%;

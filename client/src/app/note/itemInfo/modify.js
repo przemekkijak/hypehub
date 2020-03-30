@@ -7,7 +7,7 @@ function Modify(props) {
     const formBox = useRef();
     const itemName = useRef(0);
     const itemSize = useRef(0);
-    const itemBuyPrice = useRef(0);
+    const itemBuyPrice2 = useRef(0);
     const itemSellPrice = useRef(0);
     const soldOn = useRef("");
     const itemCond = useRef(0);
@@ -16,19 +16,7 @@ function Modify(props) {
     const itemInsert = useRef(0);
     const itemTrackingNumber = useRef(0);
     const shipCompany = useRef(0);
-    const data = [
-      itemName,
-      itemSize,
-      itemBuyPrice,
-      itemSellPrice,
-      itemCond,
-      itemLength,
-      itemWidth,
-      itemInsert,
-      itemTrackingNumber,
-      shipCompany,
-      soldOn
-    ];
+    const data = [itemName, itemSize, itemBuyPrice2, itemSellPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn];
 
 
   function handleSubmit(e) {
@@ -36,7 +24,7 @@ function Modify(props) {
       let itemData = {
         id: item.id,
         name: itemName.current.value,
-        buyPrice: itemBuyPrice.current.value,
+        buyPrice: itemBuyPrice2.current.value,
         sellPrice: itemSellPrice.current.value,
         size: itemSize.current.value,
         length: itemLength.current.value,
@@ -61,32 +49,64 @@ function Modify(props) {
       }
 
       var validateData = 0;
-      for (var element in itemData) {
-        if (/^[a-zA-Z0-9 / ,.-]+$/.test(element.value)) {
-          validateData++;
-          if (validateData === data.length) {
-            if (
-              !isNaN(itemData.buyPrice) &&
-              !isNaN(itemData.sellPrice) &&
-              !isNaN(itemData.cond) &&
-              !isNaN(itemData.length) &&
-              !isNaN(itemData.width) &&
-              !isNaN(itemData.insert)
-              ) {
-                axios.post('https://hypehub.pl/updateItem', {
-                  item: itemData
-                })
-                .then(res => {
-                  if(res.status === 200) {
-                    props.refreshItems();
-                    props.handleModal();
-                  }
-                });
-              };
-            };
-          };
-        };
-      };
+      for (var element of data) {
+        let count = validateInput(element);
+          validateData += count;
+          if(validateData === data.length) {
+            axios.post('https://hypehub.pl/updateItem', {
+              item: itemData,
+            })
+            .then((res) => {
+              props.refreshItems();
+            })
+            props.handleModal();
+          }
+        }
+      }
+
+      function validateInput(input) {
+
+        var element = document.getElementById(input.current.id);
+        if(!element) {
+          return 1;
+        } else {
+        function success() {
+          element.style.border = "none";
+        }
+        function failed() {
+          element.style.border = "1px solid darkred";
+        }
+          switch(input.current.id) {
+            // Check each item field, if not passed test -> add red border
+            default:
+            case "itemName":
+            case "itemSize":
+            case "itemTrackingNumber":
+            case "shipCompany":
+            case "soldOn":
+            case "itemInsert":
+              if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
+                success();
+                return 1;
+              } else {
+                failed();
+                return 0;
+              }
+              case "itemBuyPrice2":
+              case "itemSellPrice":
+              case "itemCond":
+              case "itemLength":
+              case "itemWidth":
+              if(/^[0-9]*$/.test(input.current.value)) {
+                success();
+                return 1;
+              } else {
+                failed();
+                return 0;
+              }
+           }
+        }      
+      }
 
       function getTracking(type) {
         switch(type) {
@@ -143,6 +163,7 @@ function Modify(props) {
             <input
             autoFocus={true}
             ref={itemSize}
+            id="itemSize"
             required
             defaultValue={item.size}/>
 
@@ -151,12 +172,14 @@ function Modify(props) {
             <input
             ref={itemLength}
             required
+            id="itemLength"
             defaultValue={item.length} />
             <span id="length">Dł:</span>
 
             <input
             ref={itemWidth}
             required
+            id="itemWidth"
             defaultValue={item.width} />
             <span id="width">Sz:</span>
           </>
@@ -165,6 +188,7 @@ function Modify(props) {
             <>
             <input
             ref={itemInsert}
+            id="itemInsert"
             defaultValue={item.shoeInsert} />
             <span id="shoeInsert">cm</span>
             </>
@@ -173,8 +197,9 @@ function Modify(props) {
 
         <div id="prices">
           <input
-          ref={itemBuyPrice}
+          ref={itemBuyPrice2}
           required
+          id="itemBuyPrice2"
           defaultValue={item.buyPrice} />
           <span id="bPrice">Cena kupna</span>
         {item.sold === 1 && (
@@ -182,6 +207,7 @@ function Modify(props) {
             <input
             ref={itemSellPrice}
             required
+            id="itemSellPrice"
             defaultValue={item.sellPrice} />
             <span id="sPrice">Cena sprzedaży</span>
         </>
@@ -191,6 +217,7 @@ function Modify(props) {
           <div id="shipInfo">
             <input
             ref={itemTrackingNumber}
+            id="itemTrackingNumber"
             defaultValue={getTracking("number")}/>
             <span id="tracking">Numer paczki</span>
 
@@ -207,8 +234,8 @@ function Modify(props) {
         )}
 
         {item.sold === 1 && (
-          <div id="soldOn">
-            <select ref={soldOn} defaultValue={getPlatform()}>
+          <div id="soldOnDiv">
+            <select ref={soldOn} id="soldOn" defaultValue={getPlatform()}>
               <option value=""></option>
               <option value="facebook">Facebook</option>
               <option value="vinted">Vinted</option>
