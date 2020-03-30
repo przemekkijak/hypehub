@@ -1,3 +1,5 @@
+@import "_master";
+
 .loginBox {
     width: 12vw;
     height: 25vh;
@@ -7,14 +9,16 @@
     top: 50%;
     transform: translate(-50%, -50%);
     input {
-        height: 42px;
-        width: 100%;
-        background: none;
-        border: none;
-        outline: none;
-        border-bottom: 1px solid #6fb415;
-        font-size: 16px;
-        letter-spacing: 1px;
+      margin-top: 1%;
+      padding-left: 3%;
+      height: 42px;
+      width: 100%;
+      background: none;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #6fb415;
+      font-size: 16px;
+      letter-spacing: 1px;
       }
   }
 
@@ -26,16 +30,28 @@
     height: 300px;
     width: 300px;
     input {
-        height: 42px;
-        width: 100%;
-        background: none;
-        border: none;
-        outline: none;
-        border-bottom: 1px solid #6fb415;
-        font-size: 16px;
-        letter-spacing: 1px;
+      height: 42px;
+      width: 100%;
+      background: none;
+      outline: none;
+      border-bottom: 1px solid $menu-color2;
+      font-size: 16px;
+      letter-spacing: 1px;
       }
 }
 
+  // Phone - Large
+  @media only screen and (max-width: 480px) {
+
+    .loginBox {
+      position: absolute;
+      top: 60%;
+      width: 35vw;
+      input {
+        // border: 1px solid $menu-color2;
+      }
+
+    }
+  }
 
 
