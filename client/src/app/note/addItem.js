@@ -10,6 +10,7 @@ function AddItem(props) {
 
   function itemForm(itemType) {
     switch (itemType) {
+      default:
       case 1:
         return (
           <AddClothes
@@ -22,7 +23,7 @@ function AddItem(props) {
       case 2:
         return (
           <AddShoes
-          userID={store.getState().user.uid}
+            userID={store.getState().user.uid}
             itemType={itemType}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}
@@ -31,16 +32,7 @@ function AddItem(props) {
       case 3:
         return (
           <AddAccessories
-          userID={store.getState().user.uid}
-            itemType={itemType}
-            refreshItems={props.refreshItems}
-            handleModal={() => props.handleModal()}
-          />
-        );
-      default:
-        return (
-          <AddClothes
-            userID={props.userID}
+            userID={store.getState().user.uid}
             itemType={itemType}
             refreshItems={props.refreshItems}
             handleModal={() => props.handleModal()}
