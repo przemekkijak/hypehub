@@ -235,8 +235,9 @@ function Modify(props) {
           </select>
           <span id="condSpan">Stan</span>
         </div>
-
-        <button id="unSold" className="addButton" onClick={() => unSold()}>Wycofaj ze sprzedanych</button>
+        {item.sold === 1 &&
+          <button id="unSold" className="addButton" onClick={() => unSold()}>Wycofaj ze sprzedanych</button>
+        }
         <button type="submit" className="addButton" value="Submit">Zapisz</button>
       </form>
       <div id="dates">
