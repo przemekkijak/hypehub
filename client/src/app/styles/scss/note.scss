@@ -76,9 +76,10 @@
 
   }
     .active {
+      font-size: 0.9rem;
       border-bottom: 0.4vh solid $menu-color2;
-      border-radius: 10%;
-      @include transition(all 0.1s ease)
+      // border-radius: 10%;
+      @include transition(all 0.3s ease)
     }
 
   .noteContent {

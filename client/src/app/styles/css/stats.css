@@ -7,51 +7,135 @@
   width: 90vw;
   height: 100vh;
 }
-#statsContainer #platform {
-  position: relative;
-  left: 10%;
-  top: 3%;
-  width: 32vw;
-}
-#statsContainer #week {
-  position: relative;
-  left: 60%;
-  top: -25%;
-  width: 25vw;
-}
-#statsContainer #month {
-  position: relative;
-  width: 25vw;
-  left: 60%;
-  top: -20%;
-}
-#statsContainer #year {
-  position: relative;
-  width: 25vw;
-  left: 60%;
-  top: -15%;
-}
 #statsContainer #details {
-  font-size: 0.9em;
-  opacity: 0.65;
-  width: 25vw;
-  height: 25vh;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  width: 55vw;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  margin-top: 6%;
+}
+#statsContainer #details #totalProfit {
+  background-color: #12171a;
+  box-shadow: 0px 0px 2px 0px rgba(83, 83, 83, 0.952);
+  position: relative;
+  border-radius: 5%;
+  width: 12vw;
+  height: 17vh;
+}
+#statsContainer #details #totalProfit p:first-of-type {
+  position: relative;
+  top: 20%;
+  left: 15%;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.522);
+}
+#statsContainer #details #totalProfit p:last-of-type {
+  position: relative;
+  top: 40%;
+  font-size: 1.5rem;
+}
+#statsContainer #details #totalProfit .detailsIcon {
   position: absolute;
-  left: 11%;
-  top: 45%;
+  left: 5%;
+  top: -20%;
+  width: 8vh;
 }
 #statsContainer #details #currentItems {
-  padding: 3% 0% 0% 2%;
-  border-left: 2px solid #9e9984;
-  height: 7vh;
-  width: 13vw;
+  background-color: #12171a;
+  box-shadow: 0px 0px 2px 0px rgba(83, 83, 83, 0.952);
+  position: relative;
+  border-radius: 5%;
+  left: 10%;
+  width: 12vw;
+  height: 17vh;
+}
+#statsContainer #details #currentItems p {
+  position: relative;
+  top: 35%;
+  font-size: 1.4rem;
+}
+#statsContainer #details #currentItems p:first-of-type {
+  position: relative;
+  top: 25%;
+  left: 16%;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.522);
+}
+#statsContainer #details #currentItems p:last-of-type {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 4%;
+  position: relative;
+  top: 47%;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.522);
+}
+#statsContainer #details #currentItems .detailsIcon {
+  position: absolute;
+  left: -3%;
+  top: -45%;
+  width: 10vh;
 }
 #statsContainer #details #soldItems {
-  margin-top: 5%;
-  padding: 3% 0% 0% 2%;
-  border-left: 2px solid #5ea748;
-  height: 7vh;
-  width: 13vw;
+  background-color: #12171a;
+  box-shadow: 0px 0px 2px 0px rgba(83, 83, 83, 0.952);
+  position: relative;
+  border-radius: 5%;
+  left: 15%;
+  width: 12vw;
+  height: 17vh;
+}
+#statsContainer #details #soldItems p:first-of-type {
+  position: relative;
+  top: 25%;
+  left: 16%;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.522);
+}
+#statsContainer #details #soldItems p:last-of-type {
+  position: relative;
+  top: 40%;
+  font-size: 1.5rem;
+}
+#statsContainer #details #soldItems .detailsIcon {
+  position: absolute;
+  left: -3%;
+  top: -45%;
+  width: 10vh;
+}
+#statsContainer #platform {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  top: 5%;
+  width: 23vw;
+}
+#statsContainer #moneyStats {
+  position: relative;
+  left: 0%;
+  top: 10%;
+  display: flex;
+}
+#statsContainer #moneyStats #week {
+  position: relative;
+  left: 5%;
+  top: 15%;
+  width: 25vw;
+}
+#statsContainer #moneyStats #month {
+  position: relative;
+  width: 25vw;
+  left: 10%;
+  top: 0%;
+}
+#statsContainer #moneyStats #year {
+  position: relative;
+  width: 25vw;
+  left: 15%;
+  top: 0%;
 }
 
 /*# sourceMappingURL=stats.css.map */

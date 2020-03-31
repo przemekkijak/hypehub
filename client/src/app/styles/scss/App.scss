@@ -35,16 +35,13 @@ body {
 
   #title {
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: rgba(255,255,255,0.822);
     cursor: pointer;
     padding-bottom: 15%;
     border-bottom: 5px solid $menu-color3;
     top: 4%;
     @include transition(all 0.2s ease);
-    &:hover {
-      color: $menu-color2;
-    }
   }
 
   #navis {
@@ -52,7 +49,7 @@ body {
     top: 30%;
     .naviElement {
       span {
-        color: rgba(255, 255, 255, 0.822);
+        color: rgba(255,255,255,0.822);
         &:hover {
           cursor: pointer;
         }

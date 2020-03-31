@@ -23,35 +23,59 @@ function Stats(props) {
 
   return (
     <div id="statsContainer">
-      <div id="platform">
-        <PlatformStats />
-      </div>
-
-      <div id="week">
-        <MoneyStats period="7" />
-      </div>
-
-      <div id="month">
-        <MoneyStats period="30" />
-      </div>
-
-      <div id="year">
-        <MoneyStats period="365" />
-      </div>
 
       <div id="details">
 
+        <div id="totalProfit">
+          <img src="../img/stats/profit.svg"
+          alt="Profit"
+          className="detailsIcon"
+          />
+          <p>Całkowity zysk</p>
+          <p>{moneyValue(store.getState().soldItems, 2)} PLN</p>
+        </div>
+
+
           <div id="currentItems">
-            <p>Posiadane przedmioty: {store.getState().currentItems.length}</p>
+            <img src="../img/stats/current.svg"
+            alt="Current"
+            className="detailsIcon"
+            />
+            <p>Posiadane przedmioty</p>
+            <p>{store.getState().currentItems.length}</p>
             <p>Wartość: {moneyValue(store.getState().currentItems, 1)} PLN</p>
           </div>
 
           <div id="soldItems">
-            <p>Sprzedane przedmioty: {store.getState().soldItems.length}</p>
-            <p>Całkowity profit: {moneyValue(store.getState().soldItems, 2)} PLN</p>
+            <img src="../img/stats/sold.svg"
+            alt="Sold"
+            className="detailsIcon"
+            />
+            <p>Sprzedane przedmioty</p>
+            <p>{store.getState().soldItems.length}</p>
           </div>
 
       </div>
+
+      <div id="platform">
+        <PlatformStats />
+      </div>
+
+      <div id="moneyStats">
+        <div id="week">
+          <MoneyStats period="7" />
+        </div>
+
+        <div id="month">
+          <MoneyStats period="30" />
+        </div>
+
+        <div id="year">
+          <MoneyStats period="365" />
+        </div>
+      </div>
+
+
 
     </div>
   );
