@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddItem from "./addItem";
 import ReactModal from "react-modal";
+import "../styles/css/note.css";
 
 ReactModal.setAppElement("#root");
 

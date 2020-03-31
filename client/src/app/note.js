@@ -99,7 +99,6 @@ function Note(props) {
             <Redirect to="/note/current" />
           </Switch>
         </div>
-        <NoteMenu refreshItems={props.refreshItems} />
         <ReactModal
           isOpen={itemModal}
           className={"modalContent"}
@@ -113,6 +112,7 @@ function Note(props) {
           />
         </ReactModal>
       </div>
+      <NoteMenu refreshItems={props.refreshItems} />
     </Router>
   );
 }

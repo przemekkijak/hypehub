@@ -14,17 +14,19 @@
   }
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(41, 40, 40, 0.336);
+    background: $menu-color2;
   }
 
   .tableContainer {
   position: absolute;
   width: 70vw;
-  height: 66vh;
+  height: 70vh;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
   font-size: 0.9em;
+  border-radius: 0.5%;
+  padding: 1%;
     }
 
     #noItems {
@@ -74,13 +76,15 @@
 
   }
     .active {
-      border-bottom: 0.4vh solid $menu-color3;
+      border-bottom: 0.4vh solid $menu-color2;
+      border-radius: 10%;
+      @include transition(all 0.1s ease)
     }
 
   .noteContent {
     position: relative;
     overflow-y: auto;
-    height: 90%;
+    height: 97%;
 
   }
   /* Items navigation */
@@ -137,14 +141,15 @@
 
 /* Menu options container [additem]*/
 .noteMenu {
-  display: inline;
+  position: absolute;
+  top: 90%;
   left: 50%;
   transform: translate(-50%);
 }
 #addButton {
-  margin-top: 2%;
-  height: 4vh;
-  width: 15vw;
+  margin-top: 3%;
+  height: 5vh;
+  width: 17vw;
   border-radius: 3%;
   &:hover {
     background-color: rgba(87, 81, 81, 0.25);

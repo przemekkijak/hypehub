@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Assistant, sans-serif;
+  font-family: sans-serif;
   color: $font-color;
 }
 body {
@@ -28,52 +28,51 @@ body {
 }
 
 .navigationContainer {
+  width: 8vw;
   position: relative;
-  font-size: 0.85em;
+  font-size: 0.9rem;
   background-color: $background-second;
 
   #navis {
     position: relative;
-    top: 25%;
+    top: 30%;
     .naviElement {
-      &:hover {
-        cursor: pointer;
-      }
-      p {
-        color: rgb(105, 111, 114);
+      span {
+        color: rgba(255, 255, 255, 0.822);
+        &:hover {
+          cursor: pointer;
+        }
       }
       div {
-        height: 8vh;
+        margin-left: 3%;
+        border-radius: 3%;
+        width: 7.5vw;
+        height: 7vh;
+        border: none;
         background-color: $background-second;
       }
     }
-
     .navActive {
-      p {
-        color: rgb(174, 182, 185);
-      }
       div {
-        background-color: $background-color;
-        box-shadow: inset 5px 0px 5px $background-second;
-        @include transition(background-color 0.3s ease)
+        background-color: rgb(92, 150, 16);
+        box-shadow: inset 0px 0px 3px $background-second;
+        @include transition(background-color 0.5s ease)
       }
 
     }
-  }
-
-
-  .navIcon {
-    height: 2.6vh;
-    width: 1.3vw;
-    margin: 10% 0% 3% 0%;
-  }
-  #logoutNav {
-    position: relative;
-    top: 45%;
-  }
-  #logoutIcon {
-    width: 2.5vh;
-    height: 1.3vw;
+    .navIcon {
+      height: 2.6vh;
+      width: 1.3vw;
+      margin: 14% 5% -5% 0%;
+    }
+    #userIcon {
+      height: 2.8vh;
+      width: 1.5vw;
+    }
+    #logoutIcon {
+      width: 2.5vh;
+      height: 1.3vw;
+    }
   }
 }
 

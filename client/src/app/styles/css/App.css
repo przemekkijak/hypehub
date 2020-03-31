@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Assistant, sans-serif;
+  font-family: sans-serif;
   color: #C5C6C7;
 }
 
@@ -31,45 +31,47 @@ body {
 }
 
 .navigationContainer {
+  width: 8vw;
   position: relative;
-  font-size: 0.85em;
+  font-size: 0.9rem;
   background-color: #12171a;
 }
 .navigationContainer #navis {
   position: relative;
-  top: 25%;
+  top: 30%;
 }
-.navigationContainer #navis .naviElement:hover {
+.navigationContainer #navis .naviElement span {
+  color: rgba(255, 255, 255, 0.822);
+}
+.navigationContainer #navis .naviElement span:hover {
   cursor: pointer;
 }
-.navigationContainer #navis .naviElement p {
-  color: #696f72;
-}
 .navigationContainer #navis .naviElement div {
-  height: 8vh;
+  margin-left: 3%;
+  border-radius: 3%;
+  width: 7.5vw;
+  height: 7vh;
+  border: none;
   background-color: #12171a;
 }
-.navigationContainer #navis .navActive p {
-  color: #aeb6b9;
-}
 .navigationContainer #navis .navActive div {
-  background-color: #1e2529;
-  box-shadow: inset 5px 0px 5px #12171a;
-  -moz-transition: background-color 0.3s ease;
-  -o-transition: background-color 0.3s ease;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
+  background-color: #5c9610;
+  box-shadow: inset 0px 0px 3px #12171a;
+  -moz-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
 }
-.navigationContainer .navIcon {
+.navigationContainer #navis .navIcon {
   height: 2.6vh;
   width: 1.3vw;
-  margin: 10% 0% 3% 0%;
+  margin: 14% 5% -5% 0%;
 }
-.navigationContainer #logoutNav {
-  position: relative;
-  top: 45%;
+.navigationContainer #navis #userIcon {
+  height: 2.8vh;
+  width: 1.5vw;
 }
-.navigationContainer #logoutIcon {
+.navigationContainer #navis #logoutIcon {
   width: 2.5vh;
   height: 1.3vw;
 }

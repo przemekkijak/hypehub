@@ -125,11 +125,11 @@ function App() {
                 >
                   <div className="navElementContainer">
                     <img
-                      src="../img/menu/shirt.png"
+                      src="../img/menu/shirt.svg"
                       alt="Items"
                       className="navIcon"
                     />
-                    <p>Itemy</p>
+                    <span>Itemy</span>
                   </div>
                 </NavLink>
 
@@ -140,11 +140,12 @@ function App() {
                 >
                   <div className="navElementContainer">
                     <img
-                      src="../img/menu/bulk.png"
+                      src="../img/menu/bulk.svg"
+                      id="bulkIcon"
                       alt="Bulk"
                       className="navIcon"
                     />
-                    <p>Bulk</p>
+                    <span>Bulk</span>
                   </div>
                 </NavLink>
 
@@ -155,11 +156,11 @@ function App() {
                 >
                   <div className="navElementContainer">
                     <img
-                      src="../img/menu/stats.png"
+                      src="../img/menu/stats.svg"
                       alt="Stats"
                       className="navIcon"
                     />
-                    <p>Statystyki</p>
+                    <span>Statystyki</span>
                   </div>
                 </NavLink>
 
@@ -170,11 +171,12 @@ function App() {
                 >
                   <div className="navElementContainer">
                     <img
-                      src="../img/menu/user.png"
+                      src="../img/menu/user.svg"
+                      id="userIcon"
                       alt="Account"
                       className="navIcon"
                     />
-                    <p>Moje konto</p>
+                    <span>Moje konto</span>
                   </div>
                 </NavLink>
 
@@ -186,12 +188,12 @@ function App() {
                 >
                   <div className="navElementContainer">
                     <img
-                      src="../img/menu/logout.png"
+                      src="../img/menu/logout.svg"
                       alt="Logout"
                       className="navIcon"
                       id="logoutIcon"
                     />
-                    <p>Wyloguj</p>
+                    <span>Wyloguj</span>
                   </div>
                 </NavLink>
               </div>
