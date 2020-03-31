@@ -36,6 +36,22 @@ body {
   font-size: 0.9rem;
   background-color: #12171a;
 }
+.navigationContainer #title {
+  position: relative;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.822);
+  cursor: pointer;
+  padding-bottom: 15%;
+  border-bottom: 5px solid rgba(83, 138, 11, 0.808);
+  top: 4%;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.navigationContainer #title:hover {
+  color: #5c9610;
+}
 .navigationContainer #navis {
   position: relative;
   top: 30%;

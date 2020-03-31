@@ -45,7 +45,6 @@ function App() {
   }, []);
 
   function handleLogin(userData) {
-    console.log(userData);
     store.dispatch(setUser(userData));
     console.log(store.getState().user);
     cookies.set("hhtkn", userData.token);
@@ -117,6 +116,7 @@ function App() {
         {isLoged ? (
           <>
             <div className="navigationContainer">
+              <p id="title">HypeHub</p>
               <div id="navis">
                 <NavLink
                   className="link naviElement"

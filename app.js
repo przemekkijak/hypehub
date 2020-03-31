@@ -46,8 +46,7 @@ pool.getConnection(function(err, connection) {
 
 
   // USER HANDLING
-    // USER HANDLING
-      // USER HANDLING
+
   app.post('/login', (req,res) => {
     const {username, password} = req.body;
     pool.query('SELECT * from users where username = "'+username+'"', (error, results) => {

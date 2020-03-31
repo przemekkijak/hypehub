@@ -33,6 +33,20 @@ body {
   font-size: 0.9rem;
   background-color: $background-second;
 
+  #title {
+    position: relative;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.822);
+    cursor: pointer;
+    padding-bottom: 15%;
+    border-bottom: 5px solid $menu-color3;
+    top: 4%;
+    @include transition(all 0.2s ease);
+    &:hover {
+      color: $menu-color2;
+    }
+  }
+
   #navis {
     position: relative;
     top: 30%;
