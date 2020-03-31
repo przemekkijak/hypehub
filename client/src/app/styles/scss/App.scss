@@ -65,7 +65,7 @@ body {
     }
     .navActive {
       div {
-        background-color: rgb(92, 150, 16);
+        background-color: $menu-color2;
         box-shadow: inset 0px 0px 3px $background-second;
         @include transition(background-color 0.5s ease)
       }

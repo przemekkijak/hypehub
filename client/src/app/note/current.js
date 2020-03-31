@@ -69,18 +69,18 @@ function Current(props) {
             <p onClick={() => props.itemInfo(item.id)} id="itemBuyPrice">{item.buyPrice} zł</p>
               <img
                 className="actionButton itemSell noteIcon"
-                src="/img/note/coin.png"
+                src="/img/note/coin.svg"
                 alt="Sell "
                 onClick={() => sellItem(item.id)}/>
               <img
                 className="actionButton itemInfo noteIcon"
-                src="/img/note/info.png"
+                src="/img/note/info.svg"
                 alt="Info"
                 onClick={() => props.itemInfo(item.id)}
               />
               <img
                 className="actionButton itemDelete noteIcon"
-                src="/img/note/delete.png"
+                src="/img/note/delete.svg"
                 alt="Delete"
                 onClick={() => {
                   if (window.confirm(`Czy napewno usunąć ${item.name}?`))

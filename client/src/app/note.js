@@ -43,9 +43,9 @@ function Note(props) {
         <NavLink className="link naviButton" to="/note/pending">
           Zamówione
         </NavLink>
-        <span>
+        {/* <span>
           Filtruj
-        </span>
+        </span> */}
         <input
           id="searchInput"
           type="text"

@@ -15,7 +15,7 @@
   width: 55vw;
   display: grid;
   grid-template-columns: repeat(3, 33%);
-  margin-top: 6%;
+  margin-top: 4%;
 }
 #statsContainer #details #totalProfit {
   background-color: #12171a;
@@ -105,37 +105,48 @@
   top: -45%;
   width: 10vh;
 }
-#statsContainer #platform {
+#statsContainer #moneyStats {
+  position: relative;
+  left: 4.5%;
+  top: 5%;
+  display: grid;
+  height: 60vh;
+}
+#statsContainer #moneyStats #platform {
+  grid-row: 1;
+  grid-column: 1;
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 50%;
-  top: 5%;
   width: 23vw;
-}
-#statsContainer #moneyStats {
-  position: relative;
-  left: 0%;
-  top: 10%;
-  display: flex;
+  border: 1px dotted black;
 }
 #statsContainer #moneyStats #week {
   position: relative;
-  left: 5%;
-  top: 15%;
-  width: 25vw;
+  width: 23vw;
+  grid-row: 1;
+  grid-column: 2;
+  border: 1px dotted black;
 }
 #statsContainer #moneyStats #month {
   position: relative;
-  width: 25vw;
-  left: 10%;
-  top: 0%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  width: 23vw;
+  margin-top: 2%;
+  grid-row: 2;
+  grid-column: 1;
+  border: 1px dotted black;
 }
 #statsContainer #moneyStats #year {
   position: relative;
-  width: 25vw;
-  left: 15%;
-  top: 0%;
+  margin-top: 2%;
+  width: 23vw;
+  grid-row: 2;
+  grid-column: 2;
+  border: 1px dotted black;
 }
 
 /*# sourceMappingURL=stats.css.map */

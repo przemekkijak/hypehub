@@ -57,14 +57,15 @@ function Stats(props) {
 
       </div>
 
-      <div id="platform">
-        <PlatformStats />
-      </div>
 
       <div id="moneyStats">
         <div id="week">
           <MoneyStats period="7" />
         </div>
+
+        <div id="platform">
+        <PlatformStats />
+      </div>
 
         <div id="month">
           <MoneyStats period="30" />
