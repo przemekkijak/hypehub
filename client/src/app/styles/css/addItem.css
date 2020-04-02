@@ -1,6 +1,5 @@
 /* main color */
 /* details */
-/* clicked menu button */
 /*bordes */
 .addItemContainer {
   position: absolute;
@@ -64,7 +63,7 @@
   width: 100%;
   height: 100%;
   border-bottom: 3px solid #5c9610;
-  opacity: 0.6;
+  opacity: 1;
   position: absolute;
   left: 50%;
   transform: translate(-50%);

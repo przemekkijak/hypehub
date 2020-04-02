@@ -1,6 +1,5 @@
 /* main color */
 /* details */
-/* clicked menu button */
 /*bordes */
 ::-webkit-scrollbar {
   width: 7px;
@@ -31,6 +30,7 @@
   font-size: 0.9em;
   border-radius: 0.5%;
   padding: 1%;
+  margin-left: 2%;
 }
 
 #noItems {
@@ -92,7 +92,7 @@
 .noteContent {
   position: relative;
   overflow-y: auto;
-  height: 97%;
+  height: 96%;
 }
 
 /* Items navigation */
@@ -130,16 +130,6 @@
   grid-template-columns: 25% 10% 7% 10% 5% 20% 15% 5%;
 }
 
-/* Add bUtton */
-.noteButton {
-  cursor: pointer;
-  background: none;
-  outline: none;
-  border: 1px solid #5c9610;
-  border-radius: 1%;
-  justify-items: center;
-}
-
 .menuButton {
   cursor: pointer;
   margin-top: 25px;
@@ -158,18 +148,10 @@
 }
 
 #addButton {
-  margin-top: 3%;
-  height: 5vh;
-  width: 17vw;
-  border-radius: 3%;
-}
-#addButton:hover {
-  background-color: rgba(87, 81, 81, 0.25);
-}
-
-.noteIcon {
-  width: 1.2vw;
-  height: 2.3vh;
+  margin-top: -7%;
+  height: 5.5vh;
+  width: 12vw;
+  cursor: pointer;
 }
 
 .actionButton {
@@ -177,9 +159,9 @@
   background: none;
   outline: none;
   cursor: pointer;
-  width: 1.2vw;
-  height: 2.3vh;
-  margin-top: 20%;
+  width: 1.7vw;
+  height: 2.5vh;
+  margin-top: 17%;
 }
 
 /* MODAL OPTIONS */
@@ -343,7 +325,7 @@
     top: 90%;
   }
   .noteTableNavi .active {
-    border-bottom: 0.5vh solid rgba(83, 138, 11, 0.808);
+    border-bottom: 0.5vh solid #5c9610;
   }
 }
 

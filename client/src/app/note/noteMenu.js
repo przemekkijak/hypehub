@@ -15,13 +15,12 @@ function NoteMenu(props) {
   return (
     <>
       <div className="noteMenu">
-        <button
-          className="noteButton"
+          <img
           id="addButton"
+          src="../img/note/addButton.svg"
+          alt="Add Item"
           onClick={() => handleModal()}
-        >
-          Dodaj
-        </button>
+          />
 
         <ReactModal
           isOpen={addModal}

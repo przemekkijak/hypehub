@@ -74,7 +74,7 @@ function Sold(props) {
               <img
                 className="actionButton "
                 id="itemDelete"
-                src="/img/note/delete.png"
+                src="/img/note/delete.svg"
                 alt="Delete"
                 onClick={() => {
                   if (window.confirm(`Czy napewno usunąć ${item.name}?`))

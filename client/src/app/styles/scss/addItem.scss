@@ -56,7 +56,7 @@
     width: 100%;
     height: 100%;
     border-bottom: 3px solid $menu-color2;
-    opacity: 0.6;
+    opacity: 1.0;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
@@ -79,7 +79,7 @@
   .addItemContainer {
     position: absolute;
     width: 100vw;
-    
+
     .itemIcon {
       width: 6vw;
     }

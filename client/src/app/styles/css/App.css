@@ -1,6 +1,5 @@
 /* main color */
 /* details */
-/* clicked menu button */
 /*bordes */
 * {
   margin: 0;
@@ -42,7 +41,7 @@ body {
   color: rgba(255, 255, 255, 0.822);
   cursor: pointer;
   padding-bottom: 15%;
-  border-bottom: 5px solid rgba(83, 138, 11, 0.808);
+  border-bottom: 5px solid #5c9610;
   top: 4%;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
