@@ -55,6 +55,14 @@ function Current(props) {
         return item.size;
     }
   }
+
+  function getEstimated(item) {
+    if(item.estimatedPrice === 0) {
+      return null;
+    } else {
+      return item.estimatedPrice + ' zł';
+    }
+  }
   return (
     <>
     {store.getState().currentItems.length === 0 ? <p id="noItems">Nie posiadasz jeszcze żadnych przedmiotów</p> :
@@ -67,6 +75,7 @@ function Current(props) {
               {itemCondition(item.cond)}
             </p>
             <p onClick={() => props.itemInfo(item.id)} id="itemBuyPrice">{item.buyPrice} zł</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemEstimatedPrice">{getEstimated(item)}</p>
               <img
                 className="actionButton itemSell noteIcon"
                 src="/img/note/coin.svg"

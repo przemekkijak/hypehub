@@ -7,14 +7,16 @@ function AddAccessories(props) {
   const itemName = useRef();
   const itemSize = useRef();
   const itemPrice = useRef();
+  const itemEstimatedPrice = useRef(0);
   const itemCond = useRef();
-  const itemData = [itemName, itemSize, itemPrice, itemCond];
+  const itemData = [itemName, itemSize, itemPrice, itemEstimatedPrice, itemCond];
 
   function handleSubmit(e) {
     e.preventDefault();
     let item = {
       name: itemName.current.value,
       price: itemPrice.current.value,
+      estimatedPrice: itemEstimatedPrice.current.value,
       size: itemSize.current.value,
       cond: itemCond.current.value,
       type: props.itemType,
@@ -58,6 +60,7 @@ function AddAccessories(props) {
             return 0;
           }
         case "itemPrice":
+        case "itemEstimatedPrice":
         case "itemCond":
           if(/^[0-9]*$/.test(input.current.value)) {
             success();
@@ -90,6 +93,11 @@ function AddAccessories(props) {
           required
           id="itemPrice"
           placeholder="Cena"/>
+
+          <input
+          ref={itemEstimatedPrice}
+          id="itemEstimatedPrice"
+          placeholder="Przybliżona wartość"/>
 
           <input
           ref={itemCond}

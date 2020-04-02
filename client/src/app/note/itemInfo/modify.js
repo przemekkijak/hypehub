@@ -9,6 +9,7 @@ function Modify(props) {
     const itemSize = useRef(0);
     const itemBuyPrice2 = useRef(0);
     const itemSellPrice = useRef(0);
+    const itemEstimatedPrice = useRef(0);
     const soldOn = useRef("");
     const itemCond = useRef(0);
     const itemLength = useRef(0);
@@ -16,7 +17,7 @@ function Modify(props) {
     const itemInsert = useRef(0);
     const itemTrackingNumber = useRef(0);
     const shipCompany = useRef(0);
-    const data = [itemName, itemSize, itemBuyPrice2, itemSellPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn];
+    const data = [itemName, itemSize, itemBuyPrice2, itemSellPrice, itemEstimatedPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn];
 
 
   function handleSubmit(e) {
@@ -26,6 +27,7 @@ function Modify(props) {
         name: itemName.current.value,
         buyPrice: itemBuyPrice2.current.value,
         sellPrice: itemSellPrice.current.value,
+        estimatedPrice: itemEstimatedPrice.current.value,
         size: itemSize.current.value,
         length: itemLength.current.value,
         width: itemWidth.current.value,
@@ -94,6 +96,7 @@ function Modify(props) {
               }
               case "itemBuyPrice2":
               case "itemSellPrice":
+              case "itemEstimatedPrice":
               case "itemCond":
               case "itemLength":
               case "itemWidth":
@@ -105,7 +108,7 @@ function Modify(props) {
                 return 0;
               }
            }
-        }      
+        }
       }
 
       function getTracking(type) {
@@ -202,6 +205,16 @@ function Modify(props) {
           id="itemBuyPrice2"
           defaultValue={item.buyPrice} />
           <span id="bPrice">Cena kupna</span>
+
+        {item.sold === 0 && (
+          <>
+          <input
+          ref={itemEstimatedPrice}
+          id="itemEstimatedPrice"
+          defaultValue={item.estimatedPrice} />
+          <span id="ePrice">Przybliżona wartość</span>
+          </>
+        )}
         {item.sold === 1 && (
           <>
             <input

@@ -147,9 +147,10 @@ pool.getConnection(function(err, connection) {
     switch (item.type) {
       case 1:
         pool.query(
-          "INSERT into items (name,buyPrice,size,length,width,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice, estimatedPrice,size,length,width,cond,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
+            item.estimatedPrice + "','" +
             item.size + "','" +
             item.length + "','" +
             item.width + "','" +
@@ -168,9 +169,10 @@ pool.getConnection(function(err, connection) {
         break;
       case 2:
         pool.query(
-          "INSERT into items (name,buyPrice,size,shoeInsert,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice,estimatedPrice,size,shoeInsert,cond,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
+            item.estimatedPrice + "','" +
             item.size + "','" +
             item.insert + "','" +
             item.cond + "','" +
@@ -188,9 +190,10 @@ pool.getConnection(function(err, connection) {
         break;
       case 3:
         pool.query(
-          "INSERT into items (name,buyPrice,size,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice,estimatedPrice,size,cond,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
+            item.estimatedPrice + "','" +
             item.size + "','" +
             item.cond + "', '" +
             item.ownerID + "','" +
@@ -214,6 +217,7 @@ pool.getConnection(function(err, connection) {
       "UPDATE items set name='" + item.name +
       "',buyPrice='" + item.buyPrice +
       "',sellPrice='" + item.sellPrice +
+      "',estimatedPrice='" + item.estimatedPrice +
       "',size='" + item.size +
       "', soldOn ='" + item.soldOn +
       "',length='" + item.length +
@@ -234,7 +238,6 @@ pool.getConnection(function(err, connection) {
 
   app.post('/sellItem', (req,res) => {
     const {item} = req.body;
-    console.log(item.soldOn);
     pool.query(
       "UPDATE items set sold='1', sellPrice='" +item.price +
       "', soldFor='" + item.soldFor +

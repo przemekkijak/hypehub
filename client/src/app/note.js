@@ -65,6 +65,7 @@ function Note(props) {
               <span>Rozmiar</span>
               <span>Stan</span>
               <span>Cena</span>
+              <span>Przybliżona wartość</span>
             </div>
           </Route>
         </Switch>
