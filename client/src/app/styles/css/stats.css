@@ -5,6 +5,7 @@
   position: relative;
   width: 90vw;
   height: 100vh;
+  left: 3%;
 }
 #statsContainer #details {
   position: absolute;
@@ -22,24 +23,29 @@
   position: relative;
   border-radius: 5%;
   width: 12vw;
-  height: 17vh;
+  height: 15vh;
 }
 #statsContainer #details #totalProfit p:first-of-type {
   position: relative;
   top: 20%;
-  left: 15%;
-  font-size: 0.8rem;
+  left: 25%;
+  width: 60%;
+  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.8);
+  padding-bottom: 5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
 #statsContainer #details #totalProfit p:last-of-type {
   position: relative;
-  top: 40%;
-  font-size: 1.5rem;
+  top: 30%;
+  width: 60%;
+  left: 25%;
+  font-size: 1.3rem;
 }
 #statsContainer #details #totalProfit .detailsIcon {
   position: absolute;
-  left: 5%;
-  top: -20%;
+  left: -15%;
+  top: 23%;
   width: 8vh;
 }
 #statsContainer #details #currentItems {
@@ -48,7 +54,7 @@
   position: relative;
   border-radius: 5%;
   width: 12vw;
-  height: 17vh;
+  height: 15vh;
 }
 #statsContainer #details #currentItems p {
   position: relative;
@@ -72,8 +78,8 @@
 }
 #statsContainer #details #currentItems .detailsIcon {
   position: absolute;
-  left: -3%;
-  top: -45%;
+  left: -25%;
+  top: -5%;
   width: 10vh;
 }
 #statsContainer #details #soldItems {
@@ -82,7 +88,7 @@
   position: relative;
   border-radius: 5%;
   width: 12vw;
-  height: 17vh;
+  height: 15vh;
 }
 #statsContainer #details #soldItems p:first-of-type {
   position: relative;
@@ -98,8 +104,8 @@
 }
 #statsContainer #details #soldItems .detailsIcon {
   position: absolute;
-  left: -3%;
-  top: -45%;
+  left: -25%;
+  top: 0%;
   width: 10vh;
 }
 #statsContainer #moneyStats {
@@ -120,6 +126,7 @@
 }
 #statsContainer #moneyStats #week {
   position: relative;
+  left: -5%;
   width: 32vw;
   grid-row: 1;
   grid-column: 2;
@@ -137,6 +144,7 @@
 #statsContainer #moneyStats #year {
   position: relative;
   margin-top: 14%;
+  left: -5%;
   width: 32vw;
   grid-row: 2;
   grid-column: 2;

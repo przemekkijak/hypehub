@@ -30,7 +30,7 @@ body {
 }
 
 .navigationContainer {
-  width: 8vw;
+  width: 9vw;
   position: relative;
   font-size: 0.9rem;
   background-color: #12171a;
@@ -41,7 +41,7 @@ body {
   color: rgba(255, 255, 255, 0.822);
   cursor: pointer;
   padding-bottom: 15%;
-  border-bottom: 5px solid #5c9610;
+  border-bottom: 5px solid #69ad0f;
   top: 4%;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
@@ -51,23 +51,23 @@ body {
 .navigationContainer #navis {
   position: relative;
   top: 30%;
+  cursor: pointer;
 }
 .navigationContainer #navis .naviElement span {
   color: rgba(255, 255, 255, 0.822);
-}
-.navigationContainer #navis .naviElement span:hover {
   cursor: pointer;
 }
 .navigationContainer #navis .naviElement div {
-  margin-left: 3%;
+  cursor: pointer;
+  margin-left: 6%;
   border-radius: 3%;
-  width: 7.5vw;
+  width: 8vw;
   height: 7vh;
   border: none;
   background-color: #12171a;
 }
 .navigationContainer #navis .navActive div {
-  background-color: #5c9610;
+  background-color: #69ad0f;
   box-shadow: inset 0px 0px 3px #12171a;
   -moz-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;

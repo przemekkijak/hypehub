@@ -62,7 +62,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  border-bottom: 3px solid #5c9610;
+  border-bottom: 3px solid #69ad0f;
   opacity: 1;
   position: absolute;
   left: 50%;
@@ -79,7 +79,7 @@
 }
 
 .addRadio:checked + label:after {
-  border-bottom: 3px solid #5c9610;
+  border-bottom: 3px solid #69ad0f;
 }
 
 @media only screen and (max-width: 480px) {

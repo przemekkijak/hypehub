@@ -9,16 +9,16 @@ function MoneyStats(props) {
   switch (period) {
     default:
     case "7":
-      bgColor = "rgba(111, 180, 21, 0.7)";
-      borderColor = "rgba(111, 180, 21, 1)";
+      bgColor = "#87194e";
+      borderColor = "#87194e";
       break;
     case "30":
-      bgColor = "rgba(255, 140, 0, 0.7)";
-      borderColor = "rgba(255, 140, 0, 1)";
+      bgColor = "#da4e41";
+      borderColor = "#da4e41";
       break;
     case "365":
-      bgColor = "rgba(255, 20, 147, 0.7)";
-      borderColor = "rgba(255, 20, 147, 1)";
+      bgColor = "#f4782c";
+      borderColor = "#f4782c";
       break;
   }
 

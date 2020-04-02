@@ -15,7 +15,7 @@ function Stats(props) {
         if(priceType === 1) {
           money += i.buyPrice;
         } else if(priceType === 2){
-          money += i.sellPrice;
+          money += (i.sellPrice-i.buyPrice);
         }
       }
       return money;
@@ -31,7 +31,7 @@ function Stats(props) {
           alt="Profit"
           className="detailsIcon"
           />
-          <p>Całkowity zysk</p>
+          <p>ZYSK</p>
           <p>{moneyValue(store.getState().soldItems, 2)} PLN</p>
         </div>
 

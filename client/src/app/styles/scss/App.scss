@@ -28,7 +28,7 @@ body {
 }
 
 .navigationContainer {
-  width: 8vw;
+  width: 9vw;
   position: relative;
   font-size: 0.9rem;
   background-color: $background-second;
@@ -47,17 +47,17 @@ body {
   #navis {
     position: relative;
     top: 30%;
+    cursor: pointer;
     .naviElement {
       span {
         color: rgba(255,255,255,0.822);
-        &:hover {
-          cursor: pointer;
-        }
+        cursor: pointer;
       }
       div {
-        margin-left: 3%;
+        cursor: pointer;
+        margin-left: 6%;
         border-radius: 3%;
-        width: 7.5vw;
+        width: 8vw;
         height: 7vh;
         border: none;
         background-color: $background-second;
