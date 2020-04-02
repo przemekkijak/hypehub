@@ -34,18 +34,10 @@ function Note(props) {
           className="link naviButton"
           activeClassName="active"
           to="/note/current"
-        >
-          Posiadane
-        </NavLink>
-        <NavLink className="link naviButton" to="/note/sold">
-          Sprzedane
-        </NavLink>
-        <NavLink className="link naviButton" to="/note/pending">
-          Zamówione
-        </NavLink>
-        {/* <span>
-          Filtruj
-        </span> */}
+          >Posiadane</NavLink>
+        <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
+        <NavLink className="link naviButton" to="/note/pending">Zamówione</NavLink>
+
         <input
           id="searchInput"
           type="text"

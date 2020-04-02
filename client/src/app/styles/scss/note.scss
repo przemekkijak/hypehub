@@ -65,8 +65,8 @@
     position: relative;
     left: 5%;
     top: 35%;
-    width: 6%;
-    height: 50px;
+    width: 5.5vw;
+    height: 4vh;
     border: none;
     outline: none;
     font-size: 12px;
@@ -74,12 +74,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.6;
 
   }
     .active {
       font-size: 0.9rem;
-      border-bottom: 0.4vh solid $menu-color2;
-      // border-radius: 10%;
+      // background-color: $background-second;
+      opacity: 1.0;
+      border-bottom: 0.4vh solid $menu-color4;
       @include transition(all 0.3s ease)
     }
 

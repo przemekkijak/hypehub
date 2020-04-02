@@ -6,10 +6,13 @@
     height: 100vh;
 
     #details {
-        @include center();
-        width: 55vw;
+        position: absolute;
+        top: 7%;
+        left: 85%;
+        width: 15vw;
+        height: 80vh;
         display: grid;
-        grid-template-columns: repeat(3, 33%);
+        grid-template-rows: repeat(3, 33%);
         margin-top: 4%;
 
 
@@ -25,8 +28,8 @@
                     position: relative;
                     top: 20%;
                     left: 15%;
-                    font-size: 1.0rem;
-                    color: rgba(255,255,255, 0.522);
+                    font-size: 0.8rem;
+                    color: rgba(255,255,255, 0.8);
                 }
                 &:last-of-type {
                     position: relative;
@@ -48,7 +51,6 @@
             box-shadow: 0px 0px 2px 0px $menu-color4;
             position: relative;
             border-radius: 5%;
-            left: 10%;
             width: 12vw;
             height: 17vh;
             p {
@@ -60,7 +62,7 @@
                     top: 25%;
                     left: 16%;
                     font-size: 0.8rem;
-                    color: rgba(255,255,255, 0.522);
+                    color: rgba(255,255,255, 0.8);
                 }
                 &:last-of-type {
                     border-top: 1px solid rgba(255,255,255,0.1);
@@ -68,7 +70,7 @@
                     position: relative;
                     top: 47%;
                     font-size: 0.9rem;
-                    color: rgba(255,255,255, 0.522);
+                    color: rgba(255,255,255, 0.8);
                 }
             }
             .detailsIcon {
@@ -84,7 +86,6 @@
             box-shadow: 0px 0px 2px 0px $menu-color4;
             position: relative;
             border-radius: 5%;
-            left: 15%;
             width: 12vw;
             height: 17vh;
             p {
@@ -93,7 +94,7 @@
                     top: 25%;
                     left: 16%;
                     font-size: 0.8rem;
-                    color: rgba(255,255,255, 0.522);
+                    color: rgba(255,255,255, 0.8);
                 }
                 &:last-of-type {
                     position: relative;
@@ -115,39 +116,35 @@
 
     #moneyStats {
         position: relative;
-        left: 4.5%;
-        top: 5%;
+        left: -3%;
+        top: 8.5%;
         display: grid;
         height: 60vh;
         #platform {
             grid-row: 1;
             grid-column: 1;
             @include center();
-            width: 23vw;
-            border: 1px dotted black;
+            width: 32vw;
         }
         #week {
             position: relative;
-            width: 23vw;
+            width: 32vw;
             grid-row: 1;
             grid-column: 2;
-            border: 1px dotted black;
         }
         #month {
             @include center();
-            width: 23vw;
-            margin-top: 2%;
+            width: 32vw;
+            margin-top: 14%;
             grid-row: 2;
             grid-column: 1;
-            border: 1px dotted black;
         }
         #year {
             position: relative;
-            margin-top: 2%;
-            width: 23vw;
+            margin-top: 14%;
+            width: 32vw;
             grid-row: 2;
             grid-column: 2;
-            border: 1px dotted black;
         }
     }
 }

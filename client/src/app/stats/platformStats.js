@@ -19,11 +19,11 @@ function PlatformStats(props) {
               other.length,
             ],
             backgroundColor: [
-              "rgba(18,23,26, 0.0)",
-              "rgba(18,23,26, 0.0)",
-              "rgba(18,23,26, 0.0)",
-              "rgba(18,23,26, 0.0)",
-              "rgba(18,23,26, 0.0)",
+              "rgba(49,109,253, 0.5)",
+              "rgba(29, 198, 197, 0.5)",
+              "rgba(255, 255, 255, 0.5)",
+              "rgba(245, 58, 58, 0.5)",
+              "rgba(216, 243, 70, 0.5)",
             ],
             borderColor: [
               "rgba(49,109,253, 1)",
@@ -55,7 +55,10 @@ function PlatformStats(props) {
         },
         title: {
           display: true,
-          text: "Platformy sprzedażowe",
+          text: "Sprzedaż według platform",
+          fontColor: 'rgba(255,255,255, 0.6)',
+          padding: 15,
+          fontSize: 14,
         },
       },
     });

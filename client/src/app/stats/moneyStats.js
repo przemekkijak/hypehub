@@ -9,15 +9,15 @@ function MoneyStats(props) {
   switch (period) {
     default:
     case "7":
-      bgColor = "rgba(111, 180, 21, 0.5)";
+      bgColor = "rgba(111, 180, 21, 0.7)";
       borderColor = "rgba(111, 180, 21, 1)";
       break;
     case "30":
-      bgColor = "rgba(255, 140, 0, 0.5)";
+      bgColor = "rgba(255, 140, 0, 0.7)";
       borderColor = "rgba(255, 140, 0, 1)";
       break;
     case "365":
-      bgColor = "rgba(255, 20, 147, 0.5)";
+      bgColor = "rgba(255, 20, 147, 0.7)";
       borderColor = "rgba(255, 20, 147, 1)";
       break;
   }
@@ -56,6 +56,9 @@ function MoneyStats(props) {
         title: {
           display: true,
           text: `Zarobki z ostatnich ${period} dni`,
+          fontColor: 'rgba(255,255,255, 0.6)',
+          padding: 15,
+          fontSize: 14,
         },
       },
     });
