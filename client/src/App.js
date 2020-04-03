@@ -108,10 +108,6 @@ function App() {
   return (
     <Router>
       <div className="App" id="root">
-        <link
-          href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap"
-          rel="stylesheet"
-        />
 
         {isLoged ? (
           <>

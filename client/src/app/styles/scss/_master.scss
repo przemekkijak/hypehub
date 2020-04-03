@@ -7,6 +7,9 @@ $menu-color4: rgba(83, 83, 83, 0.952); /*bordes */
 $font-color: #C5C6C7;
 $font-gray: rgba(255,255,255,0.522);
 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
 @mixin placeholder {
     $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
     @each $placeholder in $placeholders {

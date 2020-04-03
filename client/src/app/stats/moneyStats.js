@@ -83,7 +83,7 @@ function MoneyStats(props) {
           arrDates[0] = startDate.toISOString().slice(5, 7);
           break;
         case "full":
-          arrDates[0] = startDate.toISOString().slice(0, 6);
+          arrDates[0] = startDate.toISOString().slice(0, 7);
       }
 
       for (let i = 1; i <= 12; i++) {
@@ -91,7 +91,7 @@ function MoneyStats(props) {
         if (type === "short") {
           arrDates.push(startDate.toISOString().slice(5, 7));
         } else if (type === "full") {
-          arrDates.push(startDate.toISOString().slice(0, 6));
+          arrDates.push(startDate.toISOString().slice(0, 7));
         }
       }
     } else {
@@ -124,7 +124,7 @@ function MoneyStats(props) {
       let money = 0;
       store.getState().soldItems.filter((element) => {
         if (period > 30) {
-          if (element.soldAt.slice(0, 6) === dates[i]) {
+          if (element.soldAt.slice(0, 7) === dates[i]) {
             money += element.sellPrice - element.buyPrice;
           }
         } else {

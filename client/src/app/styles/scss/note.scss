@@ -3,18 +3,22 @@
 // width
 ::-webkit-scrollbar {
     width: 7px;
+    border-radius: 10%;
   }
   /* Track */
   ::-webkit-scrollbar-track {
     background: #69686857;
+    border-radius: 10%;
   }
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: $menu-color;
+    background: $menu-color2;
+    border-radius: 10%;
   }
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: $menu-color2;
+    border-radius: 10%;
   }
 
   .tableContainer {
@@ -24,7 +28,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  font-size: 0.9em;
+  font-size: 1.0rem;
   border-radius: 0.5%;
   padding: 1%;
   margin-left: 2%;
@@ -49,21 +53,31 @@
       height: 25px;
       cursor: pointer;
     }
-    #searchInput {
-      height: 3vh;
+    #search {
       position: relative;
-      top: 35%;
-      left: 40%;
-      background: none;
-      outline: none;
-      border: none;
-      border-bottom: 1px solid $menu-color;
+      left: 51%;
+      top: 34%;
+      width: 10vw;
+      height: 5vh;
+      background: url('http://hypehub.pl/img/note/lupa.svg');
+      background-size: 90%;
+      background-repeat: no-repeat;
+      #searchInput {
+        position: relative;
+        top: -10%;
+        height: 5vh;
+        outline: none;
+        border: none;
+        background: none;
+        padding-left: 5%;
+
+      }
     }
   }
   /* Table Navi Buttons (Current|Sold|Pending */
 .naviButton {
     position: relative;
-    left: 5%;
+    left: 13%;
     top: 35%;
     width: 5.5vw;
     height: 4vh;
@@ -78,10 +92,11 @@
 
   }
     .active {
-      font-size: 0.9rem;
-      // background-color: $background-second;
+      font-size: 1.0rem;
       opacity: 1.0;
+      padding-bottom: 0.5%;
       border-bottom: 0.4vh solid $menu-color4;
+      border-radius: 4%;
       @include transition(all 0.3s ease)
     }
 
@@ -93,32 +108,45 @@
   }
   /* Items navigation */
   .itemsInfo {
+    position: relative;
     display: grid;
     padding-top: 2px;
-    margin-bottom: 5px;
+    margin-bottom: 1%;
+    left: 0%;
     opacity: 0.6;
-    font-size: 12px;
+    font-size: 1.0rem;
   }
   .itemSlot {
+    position: relative;
+    // left: 5%;
     cursor: pointer;
     display: grid;
-    height: 50px;
+    width: 100%;
+    height: 6vh;
     border-bottom: 1px solid rgba(90, 114, 77, 0.356);
     &:hover {
       background-color: hsla(0,0%,18%,0.250);
     }
     p {
       display: flex;
+      font-weight: 400;
       align-items: center;
       justify-content: center;
     }
+    #itemName {
+      justify-content: left;
+      padding-left: 2%;
+      font-weight: 600;
+    }
     button {
+      display: flex;
+      justify-content: left;
       padding-top: 20%;
     }
 
   }
   .currentColumns {
-  grid-template-columns: 35% 13% 10% 10% 12% 5% 5% 5%;
+  grid-template-columns: 28% 15% 13% 12% 12% 6% 6% 6%;
   }
   .soldColumns {
   grid-template-columns: 25% 10% 7% 10% 5% 20% 15% 5%;
@@ -144,7 +172,7 @@
 #addButton {
   margin-top: -7%;
   height: 5.5vh;
-  width: 12vw;
+  width: 10vw;
   cursor: pointer;
 
 }

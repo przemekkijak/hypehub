@@ -38,12 +38,14 @@ function Note(props) {
         <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
         <NavLink className="link naviButton" to="/note/pending">Zamówione</NavLink>
 
+      <div id="search">
         <input
           id="searchInput"
           type="text"
           placeholder="Szukaj..."
           onChange={(e) => props.searchItem(e.target.value)}
         />
+      </div>
       </div>
 
       <div className="tableContainer">
