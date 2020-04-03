@@ -37,7 +37,7 @@
   font-size: 9px;
   opacity: 0.8;
 }
-#addAccForm #itemName, #addAccForm #itemPrice, #addAccForm #itemSize, #addAccForm #itemEstimatedPrice, #addAccForm #itemCond {
+#addAccForm #itemName, #addAccForm #itemPrice, #addAccForm #itemSize, #addAccForm #itemEstimatedPrice, #addAccForm #itemCond, #addAccForm #itemCreatedAt {
   position: relative;
   left: 50%;
   transform: translate(-50%);

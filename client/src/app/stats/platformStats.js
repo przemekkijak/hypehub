@@ -60,7 +60,11 @@ function PlatformStats(props) {
           padding: 15,
           fontSize: 14,
         },
-      },
+        hover: {
+          animationDuration: 0
+        },
+        responsiveAnimationDuration: 0
+      }
     });
   });
 

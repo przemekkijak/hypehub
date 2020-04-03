@@ -11,11 +11,17 @@ function AddClothes(props) {
   const itemCond = useRef();
   const itemLength = useRef();
   const itemWidth = useRef();
-  const itemData = [itemName,itemSize,itemPrice,itemEstimatedPrice,itemCond,itemLength,itemWidth];
+  const itemCreatedAt = useRef();
+  const itemData = [itemName,itemSize,itemPrice,itemEstimatedPrice,itemCond,itemLength,itemWidth, itemCreatedAt];
 
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    let time = new Date().toLocaleTimeString();
+    var itemCreatedAtFull = `${itemCreatedAt.current.value} ${time}`;
+
+
     let item = {
       name: itemName.current.value,
       price: itemPrice.current.value,
@@ -24,6 +30,7 @@ function AddClothes(props) {
       length: itemLength.current.value,
       width: itemWidth.current.value,
       cond: itemCond.current.value,
+      createdAt: itemCreatedAtFull,
       type: props.itemType,
       ownerID: props.userID
     };
@@ -54,11 +61,13 @@ function AddClothes(props) {
         element.style.border = "1px solid darkred";
       }
 
+      if(element) {
         switch(input.current.id) {
           // Check each item field, if not passed test -> add red border
           default:
           case "itemName":
           case "itemSize":
+          case "itemCreatedAt":
             if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
               success();
               return 1;
@@ -78,8 +87,14 @@ function AddClothes(props) {
               failed();
               return 0;
             }
-  }
+        }
+      }
 }
+
+  function getDate() {
+    let date = new Date().toISOString().replace('T', ' ').slice(0,10);
+    return date;
+  }
 
   return (
       <form ref={formBox} onSubmit={handleSubmit} id="addClothes" autoComplete="off">
@@ -135,9 +150,19 @@ function AddClothes(props) {
           placeholder="Stan"
           required />
 
+          <input
+          type="date"
+          ref={itemCreatedAt}
+          id="itemCreatedAt"
+          name="createdAt"
+          defaultValue={getDate()}
+          max={getDate()}
+          />
+
           <button type="submit" className="addButton">
             Dodaj
           </button>
+
       </form>
   );
 }

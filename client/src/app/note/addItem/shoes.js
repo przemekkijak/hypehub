@@ -10,10 +10,15 @@ function AddShoes(props) {
   const itemPrice = useRef();
   const itemEstimatedPrice = useRef(0);
   const itemCond = useRef();
-  const itemData = [itemName, itemSize, itemInsert, itemPrice,itemEstimatedPrice, itemCond];
+  const itemCreatedAt = useRef();
+  const itemData = [itemName, itemSize, itemInsert, itemPrice,itemEstimatedPrice, itemCond, itemCreatedAt];
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    let time = new Date().toLocaleTimeString();
+    var itemCreatedAtFull = `${itemCreatedAt.current.value} ${time}`;
+
     let item = {
       name: itemName.current.value,
       price: itemPrice.current.value,
@@ -21,6 +26,7 @@ function AddShoes(props) {
       size: itemSize.current.value,
       insert: itemInsert.current.value,
       cond: itemCond.current.value,
+      createdAt: itemCreatedAtFull,
       type: props.itemType,
       ownerID: props.userID
     };
@@ -54,6 +60,7 @@ function AddShoes(props) {
         default:
         case "itemName":
         case "itemSize":
+        case "itemCreatedAt":
           if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
             success();
             return 1;
@@ -72,8 +79,12 @@ function AddShoes(props) {
             failed();
             return 0;
           }
-}
-}
+      }
+  }
+  function getDate() {
+    let date = new Date().toISOString().replace('T', ' ').slice(0,10);
+    return date;
+  }
 
   return (
     <>
@@ -115,6 +126,15 @@ function AddShoes(props) {
           required
           id="itemCond"
           placeholder="Stan"/>
+
+          <input
+          type="date"
+          ref={itemCreatedAt}
+          id="itemCreatedAt"
+          name="createdAt"
+          defaultValue={getDate()}
+          max={getDate()}
+          />
 
           <button type="submit" value="Submit">Dodaj</button>
       </form>

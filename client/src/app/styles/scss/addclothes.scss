@@ -27,7 +27,7 @@
     }
   }
 
-  #itemName, #itemPrice, #itemSize, #itemEstimatedPrice, #itemCond, #dimensions {
+  #itemName, #itemPrice, #itemSize, #itemEstimatedPrice, #itemCond, #dimensions, #itemCreatedAt  {
     @include center();
   }
 

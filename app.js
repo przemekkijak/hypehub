@@ -147,7 +147,7 @@ pool.getConnection(function(err, connection) {
     switch (item.type) {
       case 1:
         pool.query(
-          "INSERT into items (name,buyPrice, estimatedPrice,size,length,width,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice, estimatedPrice,size,length,width,cond,createdAt,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
             item.estimatedPrice + "','" +
@@ -155,6 +155,7 @@ pool.getConnection(function(err, connection) {
             item.length + "','" +
             item.width + "','" +
             item.cond + "', '" +
+            item.createdAt + "','" +
             item.ownerID + "','" +
             item.type +
             "',0);",
@@ -169,13 +170,14 @@ pool.getConnection(function(err, connection) {
         break;
       case 2:
         pool.query(
-          "INSERT into items (name,buyPrice,estimatedPrice,size,shoeInsert,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice,estimatedPrice,size,shoeInsert,cond,createdAt,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
             item.estimatedPrice + "','" +
             item.size + "','" +
             item.insert + "','" +
             item.cond + "','" +
+            item.createdAt + "','" +
             item.ownerID + "','" +
             item.type +
             "',0);",
@@ -190,12 +192,13 @@ pool.getConnection(function(err, connection) {
         break;
       case 3:
         pool.query(
-          "INSERT into items (name,buyPrice,estimatedPrice,size,cond,ownerID,type,sold) values ('" +
+          "INSERT into items (name,buyPrice,estimatedPrice,size,cond,createdAt,ownerID,type,sold) values ('" +
             item.name + "','" +
             item.price + "','" +
             item.estimatedPrice + "','" +
             item.size + "','" +
             item.cond + "', '" +
+            item.createdAt + "','" +
             item.ownerID + "','" +
             item.type +
             "',0);",

@@ -9,16 +9,22 @@ function AddAccessories(props) {
   const itemPrice = useRef();
   const itemEstimatedPrice = useRef(0);
   const itemCond = useRef();
-  const itemData = [itemName, itemSize, itemPrice, itemEstimatedPrice, itemCond];
+  const itemCreatedAt = useRef();
+  const itemData = [itemName, itemSize, itemPrice, itemEstimatedPrice, itemCond, itemCreatedAt];
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    let time = new Date().toLocaleTimeString();
+    var itemCreatedAtFull = `${itemCreatedAt.current.value} ${time}`;
+
     let item = {
       name: itemName.current.value,
       price: itemPrice.current.value,
       estimatedPrice: itemEstimatedPrice.current.value,
       size: itemSize.current.value,
       cond: itemCond.current.value,
+      createdAt: itemCreatedAtFull,
       type: props.itemType,
       ownerID: props.userID
     };
@@ -69,8 +75,13 @@ function AddAccessories(props) {
             failed();
             return 0;
           }
-}
-}
+      }
+    }
+
+  function getDate() {
+    let date = new Date().toISOString().replace('T', ' ').slice(0,10);
+    return date;
+  }
 
   return (
     <>
@@ -104,6 +115,15 @@ function AddAccessories(props) {
           required
           id="itemCond"
           placeholder="Stan"/>
+
+          <input
+          type="date"
+          ref={itemCreatedAt}
+          id="itemCreatedAt"
+          name="createdAt"
+          defaultValue={getDate()}
+          max={getDate()}
+          />
 
           <button
           type="submit"
