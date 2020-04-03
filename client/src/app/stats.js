@@ -10,12 +10,15 @@ function Stats(props) {
   function moneyValue(items, priceType) {
 
     var money = 0;
-      for(let i of items) {
-
+      for(let item of items) {
         if(priceType === 1) {
-          money += i.buyPrice;
+          if(item.estimatedPrice > 0) {
+            money += item.estimatedPrice;
+          } else {
+            money+= item.buyPrice;
+          }
         } else if(priceType === 2){
-          money += (i.sellPrice-i.buyPrice);
+          money += (item.sellPrice-item.buyPrice);
         }
       }
       return money;
