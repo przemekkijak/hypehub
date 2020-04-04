@@ -69,24 +69,6 @@
 #addAccForm #itemName, #addAccForm #itemBrand, #addAccForm #itemSize, #addAccForm #itemPrice, #addAccForm #itemEstimatedPrice, #addAccForm #itemCond, #addAccForm #itemCreatedAt {
   grid-column: 1/4;
 }
-#addAccForm #itemName {
-  grid-row: 1;
-}
-#addAccForm #itemBrand {
-  grid-row: 2;
-}
-#addAccForm #itemSize {
-  grid-row: 3;
-}
-#addAccForm #itemPrice {
-  grid-row: 4;
-}
-#addAccForm #itemEstimatedPrice {
-  grid-row: 5;
-}
-#addAccForm #itemCond {
-  grid-row: 6;
-}
 #addAccForm #itemCreatedAt {
   grid-row: 7;
   padding-left: 7%;

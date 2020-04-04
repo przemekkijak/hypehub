@@ -60,7 +60,7 @@ function AddClothes(props) {
         element.style.border = "none";
       }
       function failed() {
-        element.style.border = "1px solid darkred";
+        element.style.border = "2px solid darkred";
       }
 
       if(element) {

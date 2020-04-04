@@ -48,12 +48,6 @@
   #itemName, #itemBrand, #itemSize, #itemPrice, #itemEstimatedPrice, #itemCond, #itemCreatedAt {
     grid-column: 1/4;
   }
-  #itemName { grid-row: 1; }
-  #itemBrand { grid-row: 2; }
-  #itemSize { grid-row: 3; }
-  #itemPrice { grid-row: 4; }
-  #itemEstimatedPrice { grid-row: 5; }
-  #itemCond { grid-row: 6; }
   #itemCreatedAt {
     grid-row: 7;
     padding-left: 7%;

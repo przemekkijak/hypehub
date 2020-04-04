@@ -60,7 +60,7 @@
   outline: none;
   border: 2px solid #69ad0f;
   border-radius: 7px;
-  grid-row: 8;
+  grid-row: 9;
   grid-column: 1/4;
 }
 #addShoesForm button:hover {
@@ -69,26 +69,8 @@
 #addShoesForm #itemName, #addShoesForm #itemBrand, #addShoesForm #itemSize, #addShoesForm #itemInsert, #addShoesForm #itemPrice, #addShoesForm #itemEstimatedPrice, #addShoesForm #itemCond, #addShoesForm #itemCreatedAt {
   grid-column: 1/4;
 }
-#addShoesForm #itemName {
-  grid-row: 1;
-}
-#addShoesForm #itemBrand {
-  grid-row: 2;
-}
-#addShoesForm #itemSize {
-  grid-row: 3;
-}
-#addShoesForm #itemPrice {
-  grid-row: 5;
-}
-#addShoesForm #itemEstimatedPrice {
-  grid-row: 6;
-}
-#addShoesForm #itemCond {
-  grid-row: 7;
-}
 #addShoesForm #itemCreatedAt {
-  grid-row: 7;
+  grid-row: 8;
   padding-left: 7%;
 }
 

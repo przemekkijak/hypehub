@@ -39,7 +39,7 @@
     outline: none;
     border: 2px solid $menu-color2;
     border-radius: 7px;
-    grid-row: 8;
+    grid-row: 9;
     grid-column: 1/4;
     &:hover {
       background-color: $menu-color2;
@@ -48,14 +48,8 @@
   #itemName, #itemBrand, #itemSize, #itemPrice, #itemEstimatedPrice, #itemCond, #itemCreatedAt {
     grid-column: 1/4;
   }
-  #itemName { grid-row: 1; }
-  #itemBrand { grid-row: 2; }
-  #itemSize { grid-row: 3; }
-  #itemPrice { grid-row: 5; }
-  #itemEstimatedPrice { grid-row: 6; }
-  #itemCond { grid-row: 7; }
   #itemCreatedAt { 
-    grid-row: 7;
+    grid-row: 8;
     padding-left: 7%;
 }
 
