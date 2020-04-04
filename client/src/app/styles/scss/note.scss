@@ -42,7 +42,6 @@
       overflow-y: auto;
       height: 87%;
     }
-      /* Items navigation */
     .itemsInfo {
       position: relative;
       display: grid;
@@ -60,10 +59,10 @@
         top: 120%;
         left: 50%;
         transform: translate(-50%);
-        width: 95%;
-        height: 2px;
+        width: 100%;
+        height: 0.3vh;
         border-radius: 5%;
-        background-color: rgba(255,255,255,0.8);
+        background-color: rgba(255,255,255,0.7);
       }
     }
     .itemSlot {
@@ -71,7 +70,7 @@
       cursor: pointer;
       display: grid;
       width: 100%;
-      height: 6vh;
+      height: 5vh;
       border-bottom: 1px solid rgba(90, 114, 77, 0.356);
       &:hover {
         background-color: hsla(0,0%,18%,0.250);
@@ -99,7 +98,7 @@
       cursor: pointer;
       width: 2vw;
       height: 3vh;
-      margin-top: 17%;
+      margin-top: 12%;
     }
     }
   }
@@ -109,14 +108,6 @@
   display: flex;
   width: 100vw;
   height: 15vh;
-  span {
-    position: relative;
-    top: 35%;
-    left: 59%;
-    font-size: 0.8em;
-    height: 25px;
-    cursor: pointer;
-  }
   #search {
     position: relative;
     left: 49%;
@@ -136,26 +127,27 @@
       padding-left: 5%;
     }
   }
-  /* Table Navi Buttons (Current|Sold|Pending */
   .naviButton {
     position: relative;
     left: 13%;
     top: 35%;
     width:7vw;
-    border: 1px solid pink;
     height: 4.5vh;
     border: none;
     outline: none;
-    font-size: 12px;
+    font-size: 0.8rem;
     cursor: pointer;
     display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 0.6;
   }
     .active {
-      font-size: 1.0rem;
+      font-size: 1.1rem;
       opacity: 1.0;
       padding-bottom: 0.5%;
-      border-radius: 4%;
+      border-radius: 1%;
+      border-bottom: 2px solid rgba(255,255,255,0.9);
       @include transition(all 0.3s ease)
     }
   }
@@ -188,7 +180,7 @@
     margin-top: -7%;
     height: 5.5vh;
     width: 10vw;
-    cursor: pointer;  
+    cursor: pointer;
   }
 }
 
@@ -374,6 +366,10 @@
 
 // big laptop
 @media only screen and(max-width: 1440px){
-
+  .tableContainer {
+    .itemSlot {
+      height: 6vh;
+    }
+  }
 
 }
