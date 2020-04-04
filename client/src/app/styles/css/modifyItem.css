@@ -1,7 +1,7 @@
 /* main color */
 /* details */
 /*bordes */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 .modify {
   position: relative;
   top: 120%;
@@ -13,16 +13,6 @@ span {
 
 .modifyForm {
   display: grid;
-}
-.modifyForm #itemName {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-  border: none;
-  margin: 3% 0% 1% 0%;
-  font-size: 0.9em;
-  text-align: center;
 }
 .modifyForm input {
   padding: 1%;
@@ -41,6 +31,22 @@ span {
   position: absolute;
   opacity: 0.8;
   color: rgba(177, 172, 172, 0.664);
+}
+.modifyForm #itemName {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  border: none;
+  margin: 3% 0% 1% 0%;
+  font-size: 0.9em;
+  text-align: center;
+}
+.modifyForm #itemBrand {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
 }
 .modifyForm #dimensions {
   position: relative;

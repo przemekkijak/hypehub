@@ -147,8 +147,9 @@ pool.getConnection(function(err, connection) {
     switch (item.type) {
       case 1:
         pool.query(
-          "INSERT into items (name,buyPrice, estimatedPrice,size,length,width,cond,createdAt,ownerID,type,sold) values ('" +
+          "INSERT into items (name,brand,buyPrice, estimatedPrice,size,length,width,cond,createdAt,ownerID,type,sold) values ('" +
             item.name + "','" +
+            item.brand + "','" +
             item.price + "','" +
             item.estimatedPrice + "','" +
             item.size + "','" +
@@ -170,8 +171,9 @@ pool.getConnection(function(err, connection) {
         break;
       case 2:
         pool.query(
-          "INSERT into items (name,buyPrice,estimatedPrice,size,shoeInsert,cond,createdAt,ownerID,type,sold) values ('" +
+          "INSERT into items (name,brand,buyPrice,estimatedPrice,size,shoeInsert,cond,createdAt,ownerID,type,sold) values ('" +
             item.name + "','" +
+            item.brand + "','" +
             item.price + "','" +
             item.estimatedPrice + "','" +
             item.size + "','" +
@@ -192,8 +194,9 @@ pool.getConnection(function(err, connection) {
         break;
       case 3:
         pool.query(
-          "INSERT into items (name,buyPrice,estimatedPrice,size,cond,createdAt,ownerID,type,sold) values ('" +
+          "INSERT into items (name,brand,buyPrice,estimatedPrice,size,cond,createdAt,ownerID,type,sold) values ('" +
             item.name + "','" +
+            item.brand + "','" +
             item.price + "','" +
             item.estimatedPrice + "','" +
             item.size + "','" +
@@ -218,6 +221,7 @@ pool.getConnection(function(err, connection) {
     const {item} = req.body;
     pool.query(
       "UPDATE items set name='" + item.name +
+      "',brand='" + item.brand +
       "',buyPrice='" + item.buyPrice +
       "',sellPrice='" + item.sellPrice +
       "',estimatedPrice='" + item.estimatedPrice +

@@ -6,6 +6,7 @@ function Modify(props) {
     const item = props.item;
     const formBox = useRef();
     const itemName = useRef(0);
+    const itemBrand = useRef();
     const itemSize = useRef(0);
     const itemBuyPrice2 = useRef(0);
     const itemSellPrice = useRef(0);
@@ -17,7 +18,7 @@ function Modify(props) {
     const itemInsert = useRef(0);
     const itemTrackingNumber = useRef(0);
     const shipCompany = useRef(0);
-    const data = [itemName, itemSize, itemBuyPrice2, itemSellPrice, itemEstimatedPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn];
+    const data = [itemName,itemBrand, itemSize, itemBuyPrice2, itemSellPrice, itemEstimatedPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn];
 
 
   function handleSubmit(e) {
@@ -25,6 +26,7 @@ function Modify(props) {
       let itemData = {
         id: item.id,
         name: itemName.current.value,
+        brand: itemBrand.current.value,
         buyPrice: itemBuyPrice2.current.value,
         sellPrice: itemSellPrice.current.value,
         estimatedPrice: itemEstimatedPrice.current.value,
@@ -87,6 +89,7 @@ function Modify(props) {
             case "shipCompany":
             case "soldOn":
             case "itemInsert":
+            case "itemBrand":
               if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
                 success();
                 return 1;
@@ -160,6 +163,13 @@ function Modify(props) {
           defaultValue={item.name}
           spellCheck="false"
           id="itemName"/>
+        </p>
+        <p>
+          <input
+          ref={itemBrand}
+          defaultValue={item.brand}
+          spellCheck="false"
+          id="itemBrand"/>
         </p>
         <div id="dimensions">
 

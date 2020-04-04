@@ -28,13 +28,20 @@ function SellItem(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+      var tracking;
+      if(!trackingNumber.current.value) {
+        tracking = "";
+      } else {
+        tracking = trackingNumber.current.value;
+      }
+
     let item = {
       id: props.id,
       price: itemPrice.current.value,
       soldFor: soldFor.current.value,
       soldOn: soldOn.current.value,
       shipCompany: shipCompany.current.value,
-      trackingNumber: trackingNumber.current.value,
+      trackingNumber: tracking
     };
     var validateData = 0;
     for (let element of itemData) {
@@ -116,7 +123,7 @@ function SellItem(props) {
           />
           <input placeholder="Kupujacy" id="soldFor" ref={soldFor} />
           <select ref={soldOn} id="soldOn" placeholder="Platforma sprzedaży">
-            <option value="null" disabled selected hidden>
+            <option value="" disabled selected hidden>
               Platforma sprzedaży
             </option>
             <option value="facebook">Facebook</option>
@@ -143,6 +150,7 @@ function SellItem(props) {
             <input
               placeholder="Numer paczki"
               id="trackingNumber"
+              defaultValue=""
               ref={trackingNumber}
             />
           )}

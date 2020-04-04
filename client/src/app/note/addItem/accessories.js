@@ -5,12 +5,13 @@ import '../../styles/css/addaccessories.css';
 function AddAccessories(props) {
   const formBox = useRef();
   const itemName = useRef();
+  const itemBrand = useRef();
   const itemSize = useRef();
   const itemPrice = useRef();
   const itemEstimatedPrice = useRef(0);
   const itemCond = useRef();
   const itemCreatedAt = useRef();
-  const itemData = [itemName, itemSize, itemPrice, itemEstimatedPrice, itemCond, itemCreatedAt];
+  const itemData = [itemName,itemBrand, itemSize, itemPrice, itemEstimatedPrice, itemCond, itemCreatedAt];
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,6 +21,7 @@ function AddAccessories(props) {
 
     let item = {
       name: itemName.current.value,
+      brand: itemBrand.current.value,
       price: itemPrice.current.value,
       estimatedPrice: itemEstimatedPrice.current.value,
       size: itemSize.current.value,
@@ -58,6 +60,7 @@ function AddAccessories(props) {
         default:
         case "itemName":
         case "itemSize":
+        case "itemBrand":
           if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
             success();
             return 1;
@@ -93,6 +96,12 @@ function AddAccessories(props) {
           id="itemName"
           spellCheck="false"
           placeholder="Nazwa"/>
+
+          <input
+          ref={itemBrand}
+          id="itemBrand"
+          spellCheck="false"
+          placeholder="Marka"/>
 
           <input
           ref={itemSize}

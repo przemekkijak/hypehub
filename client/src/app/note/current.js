@@ -69,13 +69,12 @@ function Current(props) {
       <div className="currentContainer">
         {store.getState().currentItems.map((item, index) => (
           <div className="itemSlot currentColumns" id={item.id} key={index}>
-            <p onClick={() => props.itemInfo(item.id)} id="itemName">{item.name}</p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemSize">{itemSize(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemCond">
-              {itemCondition(item.cond)}
-            </p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemBuyPrice">{item.buyPrice} zł</p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemEstimatedPrice">{getEstimated(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemNameCurrent">{item.name}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemBrandCurrent">{item.brand}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemSizeCurrent">{itemSize(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemCondCurrent">{itemCondition(item.cond)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemBuyPriceCurrent">{item.buyPrice} zł</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemEstimatedPriceCurrent">{getEstimated(item)}</p>
               <img
                 className="actionButton itemSell noteIcon"
                 src="/img/note/coin.svg"

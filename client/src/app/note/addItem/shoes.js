@@ -5,13 +5,14 @@ import '../../styles/css/addshoes.css';
 function AddShoes(props) {
   const formBox = useRef();
   const itemName = useRef();
+  const itemBrand = useRef();
   const itemSize = useRef();
   const itemInsert = useRef();
   const itemPrice = useRef();
   const itemEstimatedPrice = useRef(0);
   const itemCond = useRef();
   const itemCreatedAt = useRef();
-  const itemData = [itemName, itemSize, itemInsert, itemPrice,itemEstimatedPrice, itemCond, itemCreatedAt];
+  const itemData = [itemName, itemBrand, itemSize, itemInsert, itemPrice,itemEstimatedPrice, itemCond, itemCreatedAt];
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -21,6 +22,7 @@ function AddShoes(props) {
 
     let item = {
       name: itemName.current.value,
+      brand: itemBrand.current.value,
       price: itemPrice.current.value,
       estimatedPrice: itemEstimatedPrice.current.value,
       size: itemSize.current.value,
@@ -60,6 +62,7 @@ function AddShoes(props) {
         default:
         case "itemName":
         case "itemSize":
+        case "itemBrand":
         case "itemCreatedAt":
           if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
             success();
@@ -96,6 +99,12 @@ function AddShoes(props) {
           id="itemName"
           spellCheck="false"
           placeholder="Nazwa"/>
+
+          <input
+          ref={itemBrand}
+          id="itemBrand"
+          spellCheck="false"
+          placeholder="Marka"/>
 
         <div id="dimensions">
           <input

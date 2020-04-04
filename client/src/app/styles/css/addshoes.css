@@ -1,7 +1,7 @@
 /* main color */
 /* details */
 /*bordes */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 #addShoesForm {
   display: grid;
   height: 110%;
@@ -38,7 +38,7 @@
   font-size: 9px;
   opacity: 0.8;
 }
-#addShoesForm #itemName, #addShoesForm #itemPrice, #addShoesForm #itemEstimatedPrice, #addShoesForm #itemCond, #addShoesForm #dimensions, #addShoesForm #itemCreatedAt {
+#addShoesForm #itemName, #addShoesForm #itemBrand, #addShoesForm #itemPrice, #addShoesForm #itemEstimatedPrice, #addShoesForm #itemCond, #addShoesForm #dimensions, #addShoesForm #itemCreatedAt {
   position: relative;
   left: 50%;
   transform: translate(-50%);

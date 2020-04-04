@@ -53,6 +53,7 @@ function Note(props) {
           <Route path="/note/sold">
             <div className="itemsInfo soldColumns">
               <span>Nazwa</span>
+              <span>Marka</span>
               <span>Rozmiar</span>
               <span>Stan</span>
               <span>Cena</span>
@@ -64,10 +65,11 @@ function Note(props) {
           <Route path="/">
             <div className="itemsInfo currentColumns">
               <span>Nazwa</span>
+              <span>Marka</span>
               <span>Rozmiar</span>
               <span>Stan</span>
               <span>Cena</span>
-              <span>Przybliżona wartość</span>
+              <span>Wartość</span>
             </div>
           </Route>
         </Switch>

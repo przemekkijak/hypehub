@@ -40,17 +40,10 @@ function Sold(props) {
   }
 
   function getTracking(item) {
-    if (item.trackingNumber !== "undefined") {
-      if (item.shipCompany.toLowerCase() === "inpost") {
-        return `InPost : ${item.trackingNumber}`;
-      } else if(item.shipCompany === "" || item.trackingNumber === "") {
-        return null;
-      }
-       else {
-        return `${item.shipCompany.toUpperCase()} : ${item.trackingNumber}`;
-      }
-    } else {
-      return null;
+    if(item.trackingNumber !== "" && item.shipCompany !== "") {
+      return `${item.shipCompany.toUpperCase()} - ${item.trackingNumber}`;
+    } else if(item.shipCompany !== "" && item.trackingNumber === "") {
+      return `${item.shipCompany.toUpperCase()}`;
     }
   }
 
@@ -60,7 +53,8 @@ function Sold(props) {
       <div className="soldContainer">
         {store.getState().soldItems.map((item, index) => (
           <div className="itemSlot soldColumns" id="" key={index}>
-            <p onClick={() => props.itemInfo(item.id)} id="itemName">{item.name}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemNameSold">{item.name}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemBrand">{item.brand}</p>
             <p onClick={() => props.itemInfo(item.id)} id="itemSize">{itemSize(item)}</p>
             <p onClick={() => props.itemInfo(item.id)} id="itemCond">
               {convertCondition(item.cond)}

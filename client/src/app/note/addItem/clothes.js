@@ -5,6 +5,7 @@ import '../../styles/css/addclothes.css';
 function AddClothes(props) {
   const formBox = useRef();
   const itemName = useRef();
+  const itemBrand = useRef();
   const itemSize = useRef();
   const itemPrice = useRef();
   const itemEstimatedPrice = useRef(0);
@@ -12,7 +13,7 @@ function AddClothes(props) {
   const itemLength = useRef();
   const itemWidth = useRef();
   const itemCreatedAt = useRef();
-  const itemData = [itemName,itemSize,itemPrice,itemEstimatedPrice,itemCond,itemLength,itemWidth, itemCreatedAt];
+  const itemData = [itemName,itemBrand,itemSize,itemPrice,itemEstimatedPrice,itemCond,itemLength,itemWidth, itemCreatedAt];
 
 
   function handleSubmit(e) {
@@ -24,6 +25,7 @@ function AddClothes(props) {
 
     let item = {
       name: itemName.current.value,
+      brand: itemBrand.current.value,
       price: itemPrice.current.value,
       estimatedPrice: itemEstimatedPrice.current.value,
       size: itemSize.current.value,
@@ -66,6 +68,7 @@ function AddClothes(props) {
           // Check each item field, if not passed test -> add red border
           default:
           case "itemName":
+          case "itemBrand":
           case "itemSize":
           case "itemCreatedAt":
             if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
@@ -105,6 +108,12 @@ function AddClothes(props) {
           required
           spellCheck="false"
           placeholder="Nazwa" />
+
+          <input
+          ref={itemBrand}
+          id="itemBrand"
+          spellCheck="false"
+          placeholder="Marka"/>
 
           <input
           id="itemSize"

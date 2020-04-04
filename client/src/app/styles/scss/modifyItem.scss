@@ -12,13 +12,6 @@ span {
 
 .modifyForm {
     display: grid;
-    #itemName {
-        @include center();
-        border: none;
-        margin: 3% 0% 1% 0%;
-        font-size: 0.9em;
-        text-align: center;
-    }
     input {
         padding: 1%;
         height: 3.5vh;
@@ -36,6 +29,16 @@ span {
         position: absolute;
         opacity: 0.8;
         color: rgba(177, 172, 172, 0.664);
+        }
+        #itemName {
+            @include center();
+            border: none;
+            margin: 3% 0% 1% 0%;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        #itemBrand {
+            @include center();
         }
 
     #dimensions {
