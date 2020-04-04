@@ -4,60 +4,92 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 #addAccForm {
   display: grid;
-  height: 110%;
-  grid-gap: 1%;
+  height: 100%;
   position: relative;
-  top: 7%;
+  top: -3%;
 }
 #addAccForm input {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
   padding: 1%;
   height: 4vh;
+  width: 35%;
+  color: #12171a;
   font-size: 12px;
   position: relative;
   background: none;
   outline: none;
   border: 1px solid #1e2529;
-  background-color: rgba(90, 94, 92, 0.212);
-  border-radius: 2%;
+  background-color: #a0a0a0;
+  border-radius: 10px;
   text-align: center;
   box-shadow: inset 0 0 1px gray;
 }
 #addAccForm input::-webkit-input-placeholder {
-  font-size: 9px;
-  opacity: 0.8;
+  font-size: 0.8rem;
+  color: #12171a;
+  opacity: 0.7;
 }
 #addAccForm input::-moz-placeholder {
-  font-size: 9px;
-  opacity: 0.8;
+  font-size: 0.8rem;
+  color: #12171a;
+  opacity: 0.7;
 }
 #addAccForm input:-moz-placeholder {
-  font-size: 9px;
-  opacity: 0.8;
+  font-size: 0.8rem;
+  color: #12171a;
+  opacity: 0.7;
 }
 #addAccForm input:-ms-input-placeholder {
-  font-size: 9px;
-  opacity: 0.8;
+  font-size: 0.8rem;
+  color: #12171a;
+  opacity: 0.7;
 }
-#addAccForm #itemName, #addAccForm #itemBrand, #addAccForm #itemPrice, #addAccForm #itemSize, #addAccForm #itemEstimatedPrice, #addAccForm #itemCond, #addAccForm #itemCreatedAt {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-}
-#addAccForm .addButton {
+#addAccForm button {
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 50%;
   cursor: pointer;
   margin-top: 1%;
-  height: 3.5vh;
+  height: 4vh;
+  width: 25%;
   background: none;
   outline: none;
-  border: 1px solid #568d0e;
+  border: 2px solid #69ad0f;
+  border-radius: 7px;
+  grid-row: 8;
+  grid-column: 1/4;
 }
-#addAccForm .addButton:active {
-  background-color: rgba(46, 42, 42, 0.322);
+#addAccForm button:hover {
+  background-color: #69ad0f;
+}
+#addAccForm #itemName, #addAccForm #itemBrand, #addAccForm #itemSize, #addAccForm #itemPrice, #addAccForm #itemEstimatedPrice, #addAccForm #itemCond, #addAccForm #itemCreatedAt {
+  grid-column: 1/4;
+}
+#addAccForm #itemName {
+  grid-row: 1;
+}
+#addAccForm #itemBrand {
+  grid-row: 2;
+}
+#addAccForm #itemSize {
+  grid-row: 3;
+}
+#addAccForm #itemPrice {
+  grid-row: 4;
+}
+#addAccForm #itemEstimatedPrice {
+  grid-row: 5;
+}
+#addAccForm #itemCond {
+  grid-row: 6;
+}
+#addAccForm #itemCreatedAt {
+  grid-row: 7;
+  padding-left: 7%;
 }
 
 /*# sourceMappingURL=addaccessories.css.map */

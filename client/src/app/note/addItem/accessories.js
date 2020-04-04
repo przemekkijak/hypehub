@@ -117,7 +117,7 @@ function AddAccessories(props) {
           <input
           ref={itemEstimatedPrice}
           id="itemEstimatedPrice"
-          placeholder="Przybliżona wartość"/>
+          placeholder="Wartość"/>
 
           <input
           ref={itemCond}

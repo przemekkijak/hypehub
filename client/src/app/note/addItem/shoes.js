@@ -106,7 +106,6 @@ function AddShoes(props) {
           spellCheck="false"
           placeholder="Marka"/>
 
-        <div id="dimensions">
           <input
           ref={itemSize}
           required
@@ -116,7 +115,6 @@ function AddShoes(props) {
           ref={itemInsert}
           id="itemInsert"
           placeholder="Dlugosc wkladki (cm)"/>
-        </div>
 
           <input
           ref={itemPrice}
@@ -127,7 +125,7 @@ function AddShoes(props) {
           <input
           ref={itemEstimatedPrice}
           id="itemEstimatedPrice"
-          placeholder="Przybliżona wartość"
+          placeholder="Wartość"
           />
 
           <input
