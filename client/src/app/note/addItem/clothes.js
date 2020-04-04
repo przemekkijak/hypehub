@@ -100,63 +100,60 @@ function AddClothes(props) {
   }
 
   return (
-      <form ref={formBox} onSubmit={handleSubmit} id="addClothes" autoComplete="off">
+    <>
+    <form ref={formBox} onSubmit={handleSubmit} id="addClothes" autoComplete="off">
+
           <input
           ref={itemName}
           id="itemName"
           autoFocus={true}
           required
-          spellCheck="false"
-          placeholder="Nazwa" />
+          placeholder="Nazwa"
+          spellCheck="false"/>
 
           <input
           ref={itemBrand}
           id="itemBrand"
-          spellCheck="false"
-          placeholder="Marka"/>
+          placeholder="Marka"
+          spellCheck="false"/>
 
           <input
           id="itemSize"
           ref={itemSize}
           required
-          spellCheck="false"
-          placeholder="Rozmiar"/>
+          placeholder="Rozmiar"
+          spellCheck="false"/>
 
 
-        <div id="dimensions">
           <input
           ref={itemLength}
           id="itemLength"
-          spellCheck="false"
           placeholder="Długość"
-          />
+          spellCheck="false"/>
 
           <input
           ref={itemWidth}
-          spellCheck="false"
-          id="itemWidth"
           placeholder="Szerokość"
-          />
-        </div>
+          spellCheck="false"
+          id="itemWidth"/>
 
           <input
           ref={itemPrice}
           spellCheck="false"
-          id="itemPrice"
           placeholder="Cena"
+          id="itemPrice"
           required />
 
           <input
           ref={itemEstimatedPrice}
-          id="itemEstimatedPrice"
-          placeholder="Przybliżona wartość"
-          />
+          placeholder="Wartość"
+          id="itemEstimatedPrice"/>
 
           <input
           ref={itemCond}
+          placeholder="Stan"
           spellCheck="false"
           id="itemCond"
-          placeholder="Stan"
           required />
 
           <input
@@ -173,6 +170,8 @@ function AddClothes(props) {
           </button>
 
       </form>
+
+    </>
   );
 }
 
