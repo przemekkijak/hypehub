@@ -59,3 +59,17 @@
   }
 }
 
+// RWD
+// big laptop
+
+@media only screen and (max-width: 1440px) {
+  #addShoesForm {
+
+    input {
+      height: 5.4vh;
+    }
+    button {
+      height: 5.2vh;
+    }
+  }
+}
