@@ -170,11 +170,15 @@ span {
         background: none;
         border: 1px solid $menu-color;
     }
-    #unSold {
-        width: 15vw;
-        height: 3.5vh;
-        border: 1px solid $menu-color4;
-    }
+}
+#unSold {
+    width: 15vw;
+    height: 3.5vh;
+    border: 1px solid $menu-color4;
+    @include center();
+    cursor: pointer;
+    margin-top: 3%;
+    background: none;
 }
 
 #dates {
