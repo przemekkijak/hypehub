@@ -59,21 +59,21 @@
 }
 #statsContainer #details #currentItems p {
   position: relative;
-  top: 35%;
+  top: 30%;
   font-size: 1.4rem;
 }
 #statsContainer #details #currentItems p:first-of-type {
   position: relative;
-  top: 25%;
-  left: 16%;
-  font-size: 0.8rem;
+  top: 20%;
+  left: 5%;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
 }
 #statsContainer #details #currentItems p:last-of-type {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 4%;
   position: relative;
-  top: 47%;
+  top: 42%;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -94,8 +94,8 @@
 #statsContainer #details #soldItems p:first-of-type {
   position: relative;
   top: 25%;
-  left: 16%;
-  font-size: 0.8rem;
+  left: 5%;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
 }
 #statsContainer #details #soldItems p:last-of-type {
