@@ -62,9 +62,9 @@ body {
 .navigationContainer #navis .naviElement div {
   cursor: pointer;
   margin-left: 6%;
-  border-radius: 3%;
+  border-radius: 5px;
   width: 9.5vw;
-  height: 7vh;
+  height: 7.5vh;
   border: none;
   background-color: #12171a;
 }
