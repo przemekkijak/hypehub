@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useRef} from "react";
 import axios from "axios";
 import store from "../redux/store/index";
 
 function Sold(props) {
+  const profitR = useRef();
   function deleteItem(id) {
     axios.post(`https://hypehub.pl/deleteItem`, {
       id: id,
@@ -38,13 +39,24 @@ function Sold(props) {
         return item.size;
     }
   }
-
   function getTracking(item) {
     if(item.trackingNumber !== "" && item.shipCompany !== "") {
       return `${item.shipCompany.toUpperCase()} - ${item.trackingNumber}`;
     } else if(item.shipCompany !== "" && item.trackingNumber === "") {
       return `${item.shipCompany.toUpperCase()}`;
     }
+  }
+  function getProfit(item) {
+    let calculateProfit = item.sellPrice - item.buyPrice;
+    var profitColor;
+    if(calculateProfit < 0 ) {
+      profitColor = {color: '#BD3030'};
+    } else {
+      profitColor = {color: '#84D444'}
+    }
+    const profit = <span style={profitColor}>{calculateProfit} zł</span>
+
+    return profit;
   }
 
   return (
@@ -60,9 +72,7 @@ function Sold(props) {
               {convertCondition(item.cond)}
             </p>
             <p onClick={() => props.itemInfo(item.id)} id="buyPrice">{item.buyPrice} zł</p>
-            <p onClick={() => props.itemInfo(item.id)} id="earnings" >
-              {item.sellPrice - item.buyPrice} zł
-            </p>
+            <p onClick={() => props.itemInfo(item.id)} id="earnings" ref={profitR}>{getProfit(item)}</p>
             <p onClick={() => props.itemInfo(item.id)} id="itemTracking">{getTracking(item)}</p>
             <p onClick={() => props.itemInfo(item.id)} id="itemSoldFor">{item.soldFor}</p>
               <img

@@ -78,14 +78,12 @@
       }
       p {
         display: flex;
-        font-weight: 400;
         align-items: center;
         justify-content: center;
       }
       #itemNameCurrent, #itemNameSold {
         justify-content: left;
         padding-left: 2%;
-        font-weight: 500;
       }
       button {
         display: flex;

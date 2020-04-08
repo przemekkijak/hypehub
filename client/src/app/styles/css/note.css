@@ -1,8 +1,7 @@
 /* main color */
 /* details */
 /*bordes */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 ::-webkit-scrollbar {
   width: 0.5vw;
   border-radius: 50px;
@@ -84,14 +83,12 @@
 }
 .tableContainer .itemSlot p {
   display: flex;
-  font-weight: 400;
   align-items: center;
   justify-content: center;
 }
 .tableContainer .itemSlot #itemNameCurrent, .tableContainer .itemSlot #itemNameSold {
   justify-content: left;
   padding-left: 2%;
-  font-weight: 500;
 }
 .tableContainer .itemSlot button {
   display: flex;
