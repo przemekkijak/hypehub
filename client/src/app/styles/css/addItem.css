@@ -9,10 +9,10 @@
   transform: translate(-50%, -50%);
   width: 40vw;
   height: 60vh;
-  background-color: #12171a;
+  background-color: #6e6e6e;
   display: grid;
   grid-template-rows: 20% 80%;
-  border: 1px solid #1e2529;
+  border: 1px solid #e6e6e6;
   border-radius: 3%;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .addRadio:not(:checked) + label:after {
-  border-bottom: 3px solid rgba(83, 83, 83, 0.952);
+  border-bottom: 3px solid #323232;
 }
 
 .addRadio:checked + label:after {

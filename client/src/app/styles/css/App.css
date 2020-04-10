@@ -1,14 +1,13 @@
 /* main color */
 /* details */
-/*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  color: #C5C6C7;
+  font-weight: 500;
+  color: #1f3b4d;
 }
 
 body {
@@ -18,8 +17,7 @@ body {
 
 .App {
   text-align: center;
-  background-color: #1e2529;
-  background: linear-gradient(45deg, #1e2529 35%, #141414 100%);
+  background-color: #e8e8e8;
   height: 100vh;
   width: 100vw;
   font-size: 17px;
@@ -32,18 +30,19 @@ body {
 }
 
 .navigationContainer {
-  width: 11vw;
+  width: 10vw;
   position: relative;
   font-size: 0.9rem;
-  background-color: #12171a;
+  border-right: 1px solid #c8c8c8;
+  background-color: #f1f1f1;
 }
 .navigationContainer #title {
   position: relative;
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.822);
+  color: #1f3b4d;
   cursor: pointer;
   padding-bottom: 15%;
-  border-bottom: 5px solid #69ad0f;
+  border-bottom: 3px solid #1f3b4d;
   top: 4%;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
@@ -56,25 +55,31 @@ body {
   cursor: pointer;
 }
 .navigationContainer #navis .naviElement span {
-  color: rgba(255, 255, 255, 0.822);
+  color: #1f3b4d;
   cursor: pointer;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 .navigationContainer #navis .naviElement div {
   cursor: pointer;
-  margin-left: 6%;
-  border-radius: 5px;
-  width: 9.5vw;
+  width: 9.95vw;
   height: 7.5vh;
   border: none;
-  background-color: #12171a;
+  background-color: #f1f1f1;
 }
 .navigationContainer #navis .navActive div {
-  background-color: #69ad0f;
-  box-shadow: inset 0px 0px 3px #12171a;
+  background-color: gainsboro;
+  box-shadow: inset 0px 0px 3px #f1f1f1;
   -moz-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
+}
+.navigationContainer #navis .navActive span {
+  font-size: 1rem;
+  color: #1a3648;
 }
 .navigationContainer #navis .navIcon {
   height: 2.6vh;

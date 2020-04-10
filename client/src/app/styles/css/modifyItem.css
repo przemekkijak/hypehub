@@ -22,7 +22,7 @@ span {
   position: relative;
   background: none;
   outline: none;
-  border: 1px solid #1e2529;
+  border: 1px solid #e6e6e6;
   background-color: rgba(90, 94, 92, 0.212);
   border-radius: 2%;
 }
@@ -193,13 +193,13 @@ span {
   height: 3.5vh;
   width: 12vw;
   background: none;
-  border: 1px solid #568d0e;
+  border: 1px solid #e25d11;
 }
 
 #unSold {
   width: 15vw;
   height: 3.5vh;
-  border: 1px solid rgba(83, 83, 83, 0.952);
+  border: 1px solid #323232;
   position: relative;
   left: 50%;
   transform: translate(-50%);

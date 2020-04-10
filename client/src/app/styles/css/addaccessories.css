@@ -21,7 +21,7 @@
   position: relative;
   background: none;
   outline: none;
-  border: 1px solid #1e2529;
+  border: 1px solid #e6e6e6;
   background-color: #a0a0a0;
   border-radius: 5px;
   text-align: center;
@@ -29,22 +29,22 @@
 }
 #addAccForm input::-webkit-input-placeholder {
   font-size: 0.8rem;
-  color: #12171a;
+  color: #6e6e6e;
   opacity: 0.7;
 }
 #addAccForm input::-moz-placeholder {
   font-size: 0.8rem;
-  color: #12171a;
+  color: #6e6e6e;
   opacity: 0.7;
 }
 #addAccForm input:-moz-placeholder {
   font-size: 0.8rem;
-  color: #12171a;
+  color: #6e6e6e;
   opacity: 0.7;
 }
 #addAccForm input:-ms-input-placeholder {
   font-size: 0.8rem;
-  color: #12171a;
+  color: #6e6e6e;
   opacity: 0.7;
 }
 #addAccForm button {

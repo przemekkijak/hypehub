@@ -26,7 +26,7 @@
   height: 100%;
 }
 .photoContainer .photosBox .photo img {
-  border: 2px solid rgba(83, 83, 83, 0.952);
+  border: 2px solid #323232;
   padding: 2px;
   width: 170px;
   height: 190px;

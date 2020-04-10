@@ -1,6 +1,5 @@
 /* main color */
 /* details */
-/*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 ::-webkit-scrollbar {
   width: 0.5vw;
@@ -9,22 +8,25 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #69686857;
+  background: #aaaaaa;
   border-radius: 50px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.5);
+  background: #828282;
   border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background: #1f3b4d;
+  cursor: pointer;
 }
 
 .tableContainer {
+  background-color: #f1f1f1;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
   position: absolute;
   width: 70vw;
   height: 70vh;
@@ -32,7 +34,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   font-size: 1rem;
-  border-radius: 4%;
+  border-radius: 5px;
   padding: 1%;
 }
 .tableContainer #noItems {
@@ -55,7 +57,7 @@
   font-size: 1rem;
 }
 .tableContainer .itemsInfo span {
-  color: rgba(255, 255, 255, 0.75);
+  color: #323232;
   cursor: pointer;
 }
 .tableContainer .itemsInfo:after {
@@ -67,7 +69,7 @@
   width: 100%;
   height: 1px;
   border-radius: 5%;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: #bebebe;
 }
 .tableContainer .itemSlot {
   position: relative;
@@ -76,10 +78,10 @@
   width: 100%;
   height: 5vh;
   font-size: 0.9rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #c8c8c8;
 }
 .tableContainer .itemSlot:hover {
-  background-color: #21272b;
+  background-color: #d7d7d7;
 }
 .tableContainer .itemSlot p {
   display: flex;
@@ -138,6 +140,7 @@
   border: none;
   outline: none;
   font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -145,11 +148,12 @@
   opacity: 0.6;
 }
 .noteTableNavi .active {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  color: #1f3b4d;
   opacity: 1;
   padding-bottom: 0.5%;
   border-radius: 1%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 3px solid #1f3b4d;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -309,7 +313,7 @@
     color: green;
   }
   .soldColumns #earnings:before {
-    color: #C5C6C7;
+    color: #1f3b4d;
     content: "Profit -";
     margin-right: 3%;
   }

@@ -7,20 +7,24 @@
   }
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #69686857;
+    background: rgb(170, 170, 170);
     border-radius: 50px;
   }
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.5);
+    background: rgba(130,130,130, 1);
     border-radius: 50px;
   }
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,0.7);
+    // background: rgba(90,90,90,1);
+    background: $menu-color;
+    cursor: pointer;
   }
 
   .tableContainer {
+    background-color: rgb(241, 241, 241);
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1);
     position: absolute;
     width: 70vw;
     height: 70vh;
@@ -28,7 +32,7 @@
     top: 50%;
     transform: translate(-50%,-50%);
     font-size: 1.0rem;
-    border-radius: 4%;
+    border-radius: 5px;
     padding: 1%;
     #noItems {
       position: relative;
@@ -42,6 +46,7 @@
       height: 87%;
     }
     .itemsInfo {
+      // background-color: $background-second;
       position: relative;
       display: grid;
       padding-top: 2px;
@@ -49,7 +54,7 @@
       padding: 1.5% 0% 1% 0%;
       font-size: 1.0rem;
       span {
-        color: rgba(255,255,255,0.75);
+        color: rgb(50,50,50);
         cursor: pointer;
       }
       &:after {
@@ -61,7 +66,7 @@
         width: 100%;
         height: 1px;
         border-radius: 5%;
-        background-color: rgba(255,255,255,0.35);
+        background-color: $menu-color4;
       }
     }
     .itemSlot {
@@ -71,10 +76,9 @@
       width: 100%;
       height: 5vh;
       font-size: 0.9rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgb(200,200,200);
       &:hover {
-        background-color: rgb(33, 39, 43);
-        // background-color: hsla(0,0%,18%,0.250);
+        background-color: rgb(215,215,215);
       }
       p {
         display: flex;
@@ -135,6 +139,7 @@
     border: none;
     outline: none;
     font-size: 0.8rem;
+    font-weight: 600;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -142,11 +147,12 @@
     opacity: 0.6;
   }
     .active {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      color: $menu-color;
       opacity: 1.0;
       padding-bottom: 0.5%;
       border-radius: 1%;
-      border-bottom: 1px solid rgba(255,255,255,0.6);
+      border-bottom: 3px solid $menu-color;
       @include transition(all 0.3s ease)
     }
   }
