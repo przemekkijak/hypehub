@@ -51,8 +51,6 @@ function Sold(props) {
     var profitColor;
     if(calculateProfit < 0 ) {
       profitColor = {color: '#BD3030'};
-    } else {
-      profitColor = {color: '#218036'}
     }
     const profit = <span style={profitColor}>{calculateProfit} zł</span>
 

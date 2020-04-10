@@ -33,17 +33,19 @@ body {
   width: 10vw;
   position: relative;
   font-size: 0.9rem;
-  border-right: 1px solid #c8c8c8;
-  background-color: #f1f1f1;
+  border-right: 2px solid #bebebe;
+  background-color: #fafafa;
 }
 .navigationContainer #title {
   position: relative;
   font-size: 1.1rem;
-  color: #1f3b4d;
+  color: #e8e8e8;
+  background-color: #1f3b4d;
   cursor: pointer;
-  padding-bottom: 15%;
+  padding: 15%;
   border-bottom: 3px solid #1f3b4d;
-  top: 4%;
+  top: 3%;
+  box-shadow: 0px 3px 5px 1px #bebebe;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   -webkit-transition: all 0.2s ease;
@@ -64,14 +66,13 @@ body {
 }
 .navigationContainer #navis .naviElement div {
   cursor: pointer;
-  width: 9.95vw;
+  width: 9.9vw;
   height: 7.5vh;
   border: none;
-  background-color: #f1f1f1;
+  background-color: #fafafa;
 }
 .navigationContainer #navis .navActive div {
   background-color: gainsboro;
-  box-shadow: inset 0px 0px 3px #f1f1f1;
   -moz-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;
   -webkit-transition: background-color 0.5s ease;
