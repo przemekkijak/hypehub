@@ -182,9 +182,14 @@
   left: 50%;
   transform: translate(-50%);
   #addButton {
-    margin-top: -7%;
-    height: 5.5vh;
+    height: 4vh;
     width: 10vw;
+    outline: none;
+    border: none;
+    background-color: $menu-color;
+    color: white;
+    border-radius: 50px;
+    font-size: 1.8rem;
     cursor: pointer;
   }
 }
@@ -219,6 +224,59 @@
     opacity: 0;
   }
 
+
+// DARK MODE
+    .dark {
+      .tableContainer {
+        background-color: $background-second-dark;
+        .itemsInfo {
+          span {
+            color: $font-color-dark;
+          }
+          &:after {
+            background-color: $menu-color4-dark;
+          }
+        }
+        .itemSlot {
+          border-bottom: 1px solid rgb(40,40,40);
+          &:hover {
+            background-color: rgb(23,28,31);
+          }
+        }
+      }
+
+      .noteTableNavi {
+        .active {
+          color: rgb(180,180,180);
+          border-bottom: 3px solid $menu-color-dark;
+        }
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: $background-color-dark;
+        border-radius: 50px;
+      }
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(100,100,100);
+        border-radius: 50px;
+      }
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(130,130,130);
+        cursor: pointer;
+      }
+      .noteMenu {
+        #addButton {
+          height: 4vh;
+          width: 10vw;
+          outline: none;
+          border: none;
+          background-color: $menu-color-dark;
+        }
+      }
+    }
 
 
   // RWD

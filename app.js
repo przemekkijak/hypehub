@@ -56,7 +56,6 @@ pool.getConnection(function(err, connection) {
         bcrypt.compare(password, results[0].password, (error, result) => {
           if(result === true) {
             token = jwt.sign({uid: results[0].id, theme: results[0].theme}, process.env.jwtSecret);
-            console.log(token);
             res.send({uid: results[0].id, theme: results[0].theme, token: token});
           }
          });

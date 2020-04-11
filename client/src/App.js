@@ -18,7 +18,7 @@ import { setCurrent, setSold, setUser } from "./app/redux/actions/index";
 
 const cookies = new Cookies();
 
-var env = "http://localhost:5555";
+var env = "https://hypehub.pl";
 
 
 function App() {
@@ -107,10 +107,6 @@ function App() {
         {isLoged ? (
           <>
             <div className="navigationContainer">
-              <p id="title">HypeHub</p>
-              <button id="switch" onClick={() => {
-                setTheme(!theme);
-              }}>theme</button>
               <div id="navis">
                 <NavLink
                   className="link naviElement"

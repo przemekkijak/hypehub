@@ -6,6 +6,7 @@ import Pending from "./note/pending";
 import NoteMenu from "./note/noteMenu";
 import ItemInfo from "./note/itemInfo";
 import ReactModal from "react-modal";
+import store from "./redux/store/index";
 
 import {
   BrowserRouter as Router,
@@ -28,6 +29,7 @@ function Note(props) {
   }
 
   return (
+    <div className={store.getState().user.theme ? 'dark' : ''}>
     <Router>
       <div className="noteTableNavi">
         <NavLink
@@ -111,6 +113,7 @@ function Note(props) {
       </div>
       <NoteMenu refreshItems={props.refreshItems} />
     </Router>
+    </div>
   );
 }
 export default Note;

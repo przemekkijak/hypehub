@@ -11,6 +11,7 @@
 body {
   overflow-x: hidden;
   overflow-y: hidden;
+
 }
 
 .App {
@@ -38,19 +39,6 @@ body {
   font-size: 0.9rem;
   border-right: 2px solid $menu-color4;
   background-color: $background-second;
-
-  #title {
-    position: relative;
-    font-size: 1.1rem;
-    color: $background-color;
-    background-color: $font-color;
-    cursor: pointer;
-    padding: 15%;
-    border-bottom: 3px solid $font-color;
-    top: 3%;
-    box-shadow: 0px 3px 5px 1px $menu-color4;
-    @include transition(all 0.2s ease);
-  }
 
   #navis {
     position: relative;
@@ -99,16 +87,13 @@ body {
 
 // dark theme
 .dark {
+  * {
+    color: $font-color-dark;
+  }
   background-color: $background-color-dark;
   .navigationContainer {
     border-right: 2px solid $background-second-dark;
     background-color: $background-second-dark;
-    #title {
-      color: $font-color-dark;
-      background: none;
-      border-bottom: 3px solid $menu-color2-dark;
-      box-shadow: none;
-    }
     #navis {
       .naviElement {
         span {
@@ -120,7 +105,7 @@ body {
       }
       .navActive {
         .navElementContainer {
-          background-color: $menu-color2-dark;
+          background-color: $menu-color-dark;
         }
         span {
           color: $font-color-dark;

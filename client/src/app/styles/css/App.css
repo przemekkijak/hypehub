@@ -1,6 +1,5 @@
 /* main color */
 /* details */
-/* main color */
 /* details */
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
@@ -42,21 +41,6 @@ body {
 .navigationContainer #switch {
   position: absolute;
   top: 15%;
-}
-.navigationContainer #title {
-  position: relative;
-  font-size: 1.1rem;
-  color: #e8e8e8;
-  background-color: #1f3b4d;
-  cursor: pointer;
-  padding: 15%;
-  border-bottom: 3px solid #1f3b4d;
-  top: 3%;
-  box-shadow: 0px 3px 5px 1px #bebebe;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
 }
 .navigationContainer #navis {
   position: relative;
@@ -104,26 +88,23 @@ body {
 }
 
 .dark {
-  background-color: #1e2529;
+  background-color: #1c2124;
+}
+.dark * {
+  color: rgba(255, 255, 255, 0.7);
 }
 .dark .navigationContainer {
-  border-right: 2px solid #12171a;
-  background-color: #12171a;
-}
-.dark .navigationContainer #title {
-  color: rgba(255, 255, 255, 0.7);
-  background: none;
-  border-bottom: 3px solid #69ad0f;
-  box-shadow: none;
+  border-right: 2px solid #14191a;
+  background-color: #14191a;
 }
 .dark .navigationContainer #navis .naviElement span {
   color: rgba(255, 255, 255, 0.7);
 }
 .dark .navigationContainer #navis .navElementContainer {
-  background-color: #12171a;
+  background-color: #14191a;
 }
 .dark .navigationContainer #navis .navActive .navElementContainer {
-  background-color: #69ad0f;
+  background-color: #048243;
 }
 .dark .navigationContainer #navis .navActive span {
   color: rgba(255, 255, 255, 0.7);

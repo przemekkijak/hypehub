@@ -1,5 +1,6 @@
 /* main color */
 /* details */
+/* details */
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 .photoContainer {
@@ -26,7 +27,7 @@
   height: 100%;
 }
 .photoContainer .photosBox .photo img {
-  border: 2px solid #323232;
+  border: 2px solid #bebebe;
   padding: 2px;
   width: 170px;
   height: 190px;
