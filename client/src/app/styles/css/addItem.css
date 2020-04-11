@@ -1,5 +1,7 @@
 /* main color */
 /* details */
+/* main color */
+/* details */
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 .addItemContainer {
@@ -9,10 +11,10 @@
   transform: translate(-50%, -50%);
   width: 40vw;
   height: 60vh;
-  background-color: #6e6e6e;
+  background-color: #fafafa;
   display: grid;
   grid-template-rows: 20% 80%;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #e8e8e8;
   border-radius: 3%;
 }
 
@@ -74,7 +76,7 @@
 }
 
 .addRadio:not(:checked) + label:after {
-  border-bottom: 3px solid #323232;
+  border-bottom: 3px solid #bebebe;
 }
 
 .addRadio:checked + label:after {

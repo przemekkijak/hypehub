@@ -1,5 +1,7 @@
 /* main color */
 /* details */
+/* main color */
+/* details */
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 /* Sell Item */
@@ -7,8 +9,8 @@
   width: 25vw;
   height: 35vh;
   display: grid;
-  background: #6e6e6e;
-  border: 1px solid #e6e6e6;
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
   border-radius: 3%;
 }
 .sellContainer #sellForm #itemName {
@@ -37,7 +39,7 @@
   width: 15vw;
   margin: 3px;
   outline: none;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #e8e8e8;
   background-color: rgba(90, 94, 92, 0.212);
   border-radius: 2%;
   box-shadow: inset 0 0 1px gray;

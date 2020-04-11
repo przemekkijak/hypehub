@@ -23,11 +23,16 @@ body {
   grid-template-columns: 7% 93%;
 }
 
+
 .link {
   text-decoration: none;
 }
 
 .navigationContainer {
+  #switch {
+    position: absolute;
+    top: 15%;
+  }
   width: 10vw;
   position: relative;
   font-size: 0.9rem;
@@ -57,7 +62,7 @@ body {
         cursor: pointer;
         @include transition(all 0.2s ease);
       }
-      div {
+      .navElementContainer {
         cursor: pointer;
         width: 9.9vw;
         height: 7.5vh;
@@ -66,7 +71,7 @@ body {
       }
     }
     .navActive {
-      div {
+      .navElementContainer {
         background-color: rgb(220,220,220);
         @include transition(background-color 0.5s ease);
       }
@@ -90,6 +95,41 @@ body {
     }
   }
 }
+
+
+// dark theme
+.dark {
+  background-color: $background-color-dark;
+  .navigationContainer {
+    border-right: 2px solid $background-second-dark;
+    background-color: $background-second-dark;
+    #title {
+      color: $font-color-dark;
+      background: none;
+      border-bottom: 3px solid $menu-color2-dark;
+      box-shadow: none;
+    }
+    #navis {
+      .naviElement {
+        span {
+          color: $font-color-dark;
+        }
+      }
+      .navElementContainer {
+        background-color: $background-second-dark;
+      }
+      .navActive {
+        .navElementContainer {
+          background-color: $menu-color2-dark;
+        }
+        span {
+          color: $font-color-dark;
+        }
+      }
+    }
+  }
+}
+
 
 
   // RWD

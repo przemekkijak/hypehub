@@ -22,6 +22,7 @@ var env = "https://hypehub.pl";
 
 
 function App() {
+  const [theme,setTheme] = useState(false);
   const [, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
     let token = cookies.get("hhtkn");
@@ -107,12 +108,15 @@ function App() {
 
   return (
     <Router>
-      <div className="App" id="root">
+      <div className={`App ${theme ? 'dark' : ''}`} id="root">
 
         {isLoged ? (
           <>
             <div className="navigationContainer">
               <p id="title">HypeHub</p>
+              <button id="switch" onClick={() => {
+                setTheme(!theme);
+              }}>theme</button>
               <div id="navis">
                 <NavLink
                   className="link naviElement"

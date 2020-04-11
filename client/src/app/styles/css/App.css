@@ -1,5 +1,8 @@
 /* main color */
 /* details */
+/* main color */
+/* details */
+/*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 * {
   margin: 0;
@@ -36,6 +39,10 @@ body {
   border-right: 2px solid #bebebe;
   background-color: #fafafa;
 }
+.navigationContainer #switch {
+  position: absolute;
+  top: 15%;
+}
 .navigationContainer #title {
   position: relative;
   font-size: 1.1rem;
@@ -64,14 +71,14 @@ body {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-.navigationContainer #navis .naviElement div {
+.navigationContainer #navis .naviElement .navElementContainer {
   cursor: pointer;
   width: 9.9vw;
   height: 7.5vh;
   border: none;
   background-color: #fafafa;
 }
-.navigationContainer #navis .navActive div {
+.navigationContainer #navis .navActive .navElementContainer {
   background-color: gainsboro;
   -moz-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;
@@ -94,6 +101,32 @@ body {
 .navigationContainer #navis #logoutIcon {
   width: 2.5vh;
   height: 1.3vw;
+}
+
+.dark {
+  background-color: #1e2529;
+}
+.dark .navigationContainer {
+  border-right: 2px solid #12171a;
+  background-color: #12171a;
+}
+.dark .navigationContainer #title {
+  color: rgba(255, 255, 255, 0.7);
+  background: none;
+  border-bottom: 3px solid #69ad0f;
+  box-shadow: none;
+}
+.dark .navigationContainer #navis .naviElement span {
+  color: rgba(255, 255, 255, 0.7);
+}
+.dark .navigationContainer #navis .navElementContainer {
+  background-color: #12171a;
+}
+.dark .navigationContainer #navis .navActive .navElementContainer {
+  background-color: #69ad0f;
+}
+.dark .navigationContainer #navis .navActive span {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @media only screen and (max-width: 450px) {
