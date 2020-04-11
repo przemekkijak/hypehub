@@ -55,8 +55,9 @@ pool.getConnection(function(err, connection) {
       } if(results.length > 0) {
         bcrypt.compare(password, results[0].password, (error, result) => {
           if(result === true) {
-            token = jwt.sign({uid: results[0].id}, process.env.jwtSecret);
-            res.send({uid: results[0].id, token: token});
+            token = jwt.sign({uid: results[0].id, theme: results[0].theme}, process.env.jwtSecret);
+            console.log(token);
+            res.send({uid: results[0].id, theme: results[0].theme, token: token});
           }
          });
         }
@@ -89,8 +90,7 @@ pool.getConnection(function(err, connection) {
     })
   })
 
-  // ITEMS
-    // ITEMS
+
       // ITEMS
 
   app.post('/getCurrentItems', (req,res) => {

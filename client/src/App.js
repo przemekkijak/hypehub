@@ -18,7 +18,7 @@ import { setCurrent, setSold, setUser } from "./app/redux/actions/index";
 
 const cookies = new Cookies();
 
-var env = "https://hypehub.pl";
+var env = "http://localhost:5555";
 
 
 function App() {
@@ -32,22 +32,16 @@ function App() {
           token: token,
         })
         .then((res) => {
-          store.dispatch(setUser(res.data));
+          store.dispatch(setUser({uid: res.data.uid, theme: res.data.theme}));
           refreshItems();
           setLoged(true);
         });
     }
   });
 
-  useEffect(() => {
-    if (store.getState().user.uid !== 0) {
-      refreshItems();
-    }
-  }, []);
 
   function handleLogin(userData) {
-    store.dispatch(setUser(userData));
-    console.log(store.getState().user);
+    store.dispatch(setUser({uid: userData.uid, theme: userData.theme}));
     cookies.set("hhtkn", userData.token);
     refreshItems();
     setLoged(true);
@@ -108,7 +102,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`App ${theme ? 'dark' : ''}`} id="root">
+      <div className={`App ${store.getState().user.theme ? 'dark' : ''}`} id="root">
 
         {isLoged ? (
           <>
