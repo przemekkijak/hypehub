@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Note from "./app/note.js";
 import Stats from "./app/stats.js";
 import Resell from "./app/resell.js";
@@ -15,7 +15,7 @@ import {
 } from "react-router-dom";
 import store from "./app/redux/store/index";
 import { setCurrent, setSold, setUser } from "./app/redux/actions/index";
-
+import {ShirtSVG, BulkSVG, StatsSVG, UserSVG, LogoutSVG} from './app/svg/icons.js';
 const cookies = new Cookies();
 
 var env = "https://hypehub.pl";
@@ -114,11 +114,7 @@ function App() {
                   to="note"
                 >
                   <div className="navElementContainer">
-                    <img
-                      src="../img/menu/shirt.svg"
-                      alt="Items"
-                      className="navIcon"
-                    />
+                    <ShirtSVG/>
                     <span>Itemy</span>
                   </div>
                 </NavLink>
@@ -129,12 +125,8 @@ function App() {
                   to="bulk"
                 >
                   <div className="navElementContainer">
-                    <img
-                      src="../img/menu/bulk.svg"
-                      id="bulkIcon"
-                      alt="Bulk"
-                      className="navIcon"
-                    />
+
+                    <BulkSVG/>
                     <span>Bulk</span>
                   </div>
                 </NavLink>
@@ -145,11 +137,7 @@ function App() {
                   to="stats"
                 >
                   <div className="navElementContainer">
-                    <img
-                      src="../img/menu/stats.svg"
-                      alt="Stats"
-                      className="navIcon"
-                    />
+                    <StatsSVG/>
                     <span>Statystyki</span>
                   </div>
                 </NavLink>
@@ -160,12 +148,7 @@ function App() {
                   to="account"
                 >
                   <div className="navElementContainer">
-                    <img
-                      src="../img/menu/user.svg"
-                      id="userIcon"
-                      alt="Account"
-                      className="navIcon"
-                    />
+                    <UserSVG/>
                     <span>Moje konto</span>
                   </div>
                 </NavLink>
@@ -177,12 +160,7 @@ function App() {
                   onClick={logout}
                 >
                   <div className="navElementContainer">
-                    <img
-                      src="../img/menu/logout.svg"
-                      alt="Logout"
-                      className="navIcon"
-                      id="logoutIcon"
-                    />
+                    <LogoutSVG/>
                     <span>Wyloguj</span>
                   </div>
                 </NavLink>

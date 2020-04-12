@@ -46,6 +46,9 @@ body {
     cursor: pointer;
     .naviElement {
       span {
+        position: relative;
+        top: 35%;
+        font-weight: 400;
         color: $font-color;
         cursor: pointer;
         @include transition(all 0.2s ease);
@@ -53,14 +56,16 @@ body {
       .navElementContainer {
         cursor: pointer;
         width: 9.9vw;
-        height: 7.5vh;
+        height: 7vh;
         border: none;
-        background-color: $background-second;
+        background-color: none;
       }
     }
     .navActive {
       .navElementContainer {
-        background-color: rgb(220,220,220);
+        border: none;
+        border-right: 5px solid $menu-color;
+        background-color: $background-color;
         @include transition(background-color 0.5s ease);
       }
       span {
@@ -69,9 +74,11 @@ body {
       }
     }
     .navIcon {
+      position: absolute;
       height: 2.6vh;
       width: 1.3vw;
-      margin: 14% 5% -5% 0%;
+      margin: 11% 0% 0% -20%;
+      fill: $font-color;
     }
     #userIcon {
       height: 2.8vh;
@@ -92,7 +99,7 @@ body {
   }
   background-color: $background-color-dark;
   .navigationContainer {
-    border-right: 2px solid $background-second-dark;
+    border-right: none;
     background-color: $background-second-dark;
     #navis {
       .naviElement {
@@ -105,11 +112,18 @@ body {
       }
       .navActive {
         .navElementContainer {
-          background-color: $menu-color-dark;
+          background-color: $background-color-dark;
+          border-right: 5px solid $menu-color-dark;
         }
         span {
-          color: $font-color-dark;
+          color: $menu-color-dark;
         }
+        .navIcon {
+          fill: $menu-color-dark;
+        }
+      }
+      .navIcon {
+        fill: $font-color-dark;
       }
     }
   }
