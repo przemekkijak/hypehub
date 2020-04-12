@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import Note from "./app/note.js";
 import Stats from "./app/stats.js";
 import Resell from "./app/resell.js";
@@ -22,6 +22,7 @@ var env = "https://hypehub.pl";
 
 
 function App() {
+  const [, reloadTheme] = useState(0);
   const [, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
     let token = cookies.get("hhtkn");
@@ -37,6 +38,8 @@ function App() {
         });
     }
   });
+
+
 
 
 
@@ -197,12 +200,12 @@ function App() {
               <div id="toggleTheme">
                 <button onClick={() => {
                   localStorage.setItem('hypehubTheme','0');
-                  window.location.reload();
+                  reloadTheme(1);
                   }}>Light
                 </button>
                 <button onClick={() => {
                   localStorage.setItem('hypehubTheme','1');
-                  window.location.reload();
+                  reloadTheme(2);
                   }}>Dark
                 </button>
               </div>
