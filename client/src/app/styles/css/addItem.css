@@ -10,10 +10,9 @@
   transform: translate(-50%, -50%);
   width: 40vw;
   height: 60vh;
-  background-color: #fafafa;
+  background-color: #e8e8e8;
   display: grid;
   grid-template-rows: 20% 80%;
-  border: 1px solid #e8e8e8;
   border-radius: 3%;
 }
 
@@ -64,7 +63,6 @@
   content: "";
   width: 100%;
   height: 100%;
-  border-bottom: 3px solid #69ad0f;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -79,7 +77,17 @@
 }
 
 .addRadio:checked + label:after {
-  border-bottom: 3px solid #69ad0f;
+  border-bottom: 3px solid #1f3b4d;
+}
+
+.dark .addItemContainer {
+  background-color: #2d323a;
+}
+.dark .addRadio:not(:checked) + label:after {
+  border-bottom: 3px solid rgba(83, 83, 83, 0.952);
+}
+.dark .addRadio:checked + label:after {
+  border-bottom: 3px solid #17b466;
 }
 
 @media only screen and (max-width: 480px) {

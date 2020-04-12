@@ -117,7 +117,6 @@
   height: 15vh;
 }
 .noteTableNavi #search {
-  display: none;
   position: relative;
   left: 49%;
   top: 34%;
@@ -240,13 +239,13 @@
   /* Handle on hover */
 }
 .dark .tableContainer {
-  background-color: #1e1e1e;
+  background-color: #2d323a;
 }
 .dark .tableContainer .itemsInfo span {
   color: rgba(255, 255, 255, 0.7);
 }
 .dark .tableContainer .itemsInfo:after {
-  background-color: #25292c;
+  background-color: #1e242c;
 }
 .dark .tableContainer .itemSlot {
   border-bottom: 1px solid #282828;
@@ -259,7 +258,7 @@
   border-bottom: 3px solid #17b466;
 }
 .dark ::-webkit-scrollbar-track {
-  background: #25292c;
+  background: #1e242c;
   border-radius: 50px;
 }
 .dark ::-webkit-scrollbar-thumb {
