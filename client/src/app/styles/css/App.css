@@ -8,7 +8,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   color: #1f3b4d;
 }
 
@@ -38,9 +38,16 @@ body {
   border-right: 2px solid #bebebe;
   background-color: #fafafa;
 }
-.navigationContainer #switch {
+.navigationContainer #todayProfit {
   position: absolute;
+  visibility: hidden;
   top: 15%;
+  left: 20%;
+}
+.navigationContainer #todayProfit p:last-of-type {
+  margin-top: 5%;
+  font-size: 1rem;
+  color: #1f3b4d;
 }
 .navigationContainer #navis {
   position: relative;
@@ -103,6 +110,9 @@ body {
 .dark .navigationContainer {
   border-right: none;
   background-color: #1e1e1e;
+}
+.dark .navigationContainer #todayProfit p:last-of-type {
+  color: #17b466;
 }
 .dark .navigationContainer #navis .naviElement span {
   color: rgba(255, 255, 255, 0.85);

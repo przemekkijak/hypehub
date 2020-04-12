@@ -100,6 +100,23 @@ function App() {
     console.log("unfilter");
   }
 
+  function todayProfit() {
+    let today = new Date().toISOString().slice(0,10);
+    let items = store.getState().soldItems;
+    var profit = 0;
+    for(let item of items) {
+      if(item.soldAt.slice(0,10) == today) {
+        profit += item.sellPrice;
+      }
+    }
+    if(profit > 0) {
+      document.getElementById("todayProfit").style.visibility= "visible";
+      return profit;
+    } else {
+      return null;
+    }
+  }
+
   return (
     <Router>
       <div className={`App ${store.getState().user.theme ? 'dark' : ''}`} id="root">
@@ -107,6 +124,10 @@ function App() {
         {isLoged ? (
           <>
             <div className="navigationContainer">
+              <div id="todayProfit">
+                <p>Dzisiejszy profit</p>
+                <p>{todayProfit()} zł</p>
+              </div>
               <div id="navis">
                 <NavLink
                   className="link naviElement"
