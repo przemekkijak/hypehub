@@ -100,6 +100,21 @@ body {
   width: 2.5vh;
   height: 1.3vw;
 }
+.navigationContainer #toggleTheme {
+  position: absolute;
+  top: 85%;
+  left: 6%;
+}
+.navigationContainer #toggleTheme button {
+  color: #1f3b4d;
+  border: 1px solid #1f3b4d;
+  background: none;
+  outline: none;
+  width: 4vw;
+  height: 4vh;
+  border-radius: 50px;
+  cursor: pointer;
+}
 
 .dark {
   background-color: #25292c;
@@ -132,6 +147,10 @@ body {
 }
 .dark .navigationContainer #navis .navIcon {
   fill: rgba(255, 255, 255, 0.85);
+}
+.dark .navigationContainer #toggleTheme button {
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid #17b466;
 }
 
 @media only screen and (max-width: 450px) {

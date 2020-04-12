@@ -255,7 +255,7 @@
   background-color: #232323;
 }
 .dark .noteTableNavi .active {
-  color: #b4b4b4;
+  color: rgba(255, 255, 255, 0.85);
   border-bottom: 3px solid #17b466;
 }
 .dark ::-webkit-scrollbar-track {

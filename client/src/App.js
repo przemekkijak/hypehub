@@ -22,7 +22,6 @@ var env = "https://hypehub.pl";
 
 
 function App() {
-  const [theme,setTheme] = useState(false);
   const [, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
     let token = cookies.get("hhtkn");
@@ -32,7 +31,7 @@ function App() {
           token: token,
         })
         .then((res) => {
-          store.dispatch(setUser({uid: res.data.uid, theme: res.data.theme}));
+          store.dispatch(setUser({uid: res.data.uid}));
           refreshItems();
           setLoged(true);
         });
@@ -40,15 +39,21 @@ function App() {
   });
 
 
+
+
   function handleLogin(userData) {
-    store.dispatch(setUser({uid: userData.uid, theme: userData.theme}));
+    localStorage.setItem('hypehubTheme', userData.theme);
+    console.log('Theme: ' + userData.theme);
+    console.log(localStorage.getItem('hypehubTheme'));
+    store.dispatch(setUser({uid: userData.uid}));
     cookies.set("hhtkn", userData.token);
     refreshItems();
     setLoged(true);
   }
 
-  async function logout() {
+  function logout() {
     cookies.remove("hhtkn");
+    store.dispatch(setUser());
     setLoged(false);
   }
 
@@ -105,12 +110,15 @@ function App() {
     let items = store.getState().soldItems;
     var profit = 0;
     for(let item of items) {
-      if(item.soldAt.slice(0,10) == today) {
+      if(item.soldAt.slice(0,10) === today) {
         profit += item.sellPrice;
       }
     }
     if(profit > 0) {
-      document.getElementById("todayProfit").style.visibility= "visible";
+      let element = document.getElementById("todayProfit");
+      if(element) {
+      element.style.visibility = "visible";
+      }
       return profit;
     } else {
       return null;
@@ -119,7 +127,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`App ${store.getState().user.theme ? 'dark' : ''}`} id="root">
+      <div className={`App ${localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}`} id="root">
 
         {isLoged ? (
           <>
@@ -185,6 +193,18 @@ function App() {
                     <span>Wyloguj</span>
                   </div>
                 </NavLink>
+              </div>
+              <div id="toggleTheme">
+                <button onClick={() => {
+                  localStorage.setItem('hypehubTheme','0');
+                  window.location.reload();
+                  }}>Light
+                </button>
+                <button onClick={() => {
+                  localStorage.setItem('hypehubTheme','1');
+                  window.location.reload();
+                  }}>Dark
+                </button>
               </div>
             </div>
 
