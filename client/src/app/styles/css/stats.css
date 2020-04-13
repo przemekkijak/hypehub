@@ -27,15 +27,17 @@
   width: 12vw;
   height: 15vh;
 }
+#statsContainer #details #totalProfit p {
+  color: #1f3b4d;
+}
 #statsContainer #details #totalProfit p:first-of-type {
   position: relative;
   top: 20%;
   left: 25%;
   width: 60%;
   font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.8);
   padding-bottom: 5%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #1f3b4d;
 }
 #statsContainer #details #totalProfit p:last-of-type {
   position: relative;
@@ -59,6 +61,7 @@
   height: 15vh;
 }
 #statsContainer #details #currentItems p {
+  color: #1f3b4d;
   position: relative;
   top: 30%;
   font-size: 1.4rem;
@@ -68,15 +71,13 @@
   top: 20%;
   left: 5%;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
 }
 #statsContainer #details #currentItems p:last-of-type {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #1f3b4d;
   padding-top: 4%;
   position: relative;
-  top: 42%;
+  top: 44%;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
 }
 #statsContainer #details #currentItems .detailsIcon {
   position: absolute;
@@ -92,12 +93,14 @@
   width: 12vw;
   height: 15vh;
 }
+#statsContainer #details #soldItems p {
+  color: #1f3b4d;
+}
 #statsContainer #details #soldItems p:first-of-type {
   position: relative;
   top: 25%;
   left: 5%;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
 }
 #statsContainer #details #soldItems p:last-of-type {
   position: relative;
@@ -150,6 +153,31 @@
   width: 32vw;
   grid-row: 2;
   grid-column: 2;
+}
+
+.dark #statsContainer #details #totalProfit {
+  background-color: #2d323a;
+}
+.dark #statsContainer #details #totalProfit p {
+  color: rgba(255, 255, 255, 0.85);
+}
+.dark #statsContainer #details #totalProfit p:first-of-type {
+  border-bottom: 1px solid #17b466;
+}
+.dark #statsContainer #details #currentItems {
+  background-color: #2d323a;
+}
+.dark #statsContainer #details #currentItems p {
+  color: rgba(255, 255, 255, 0.85);
+}
+.dark #statsContainer #details #currentItems p:last-of-type {
+  border: none;
+}
+.dark #statsContainer #details #soldItems {
+  background-color: #2d323a;
+}
+.dark #statsContainer #details #soldItems p {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /*# sourceMappingURL=stats.css.map */

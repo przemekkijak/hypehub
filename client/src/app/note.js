@@ -29,7 +29,7 @@ function Note(props) {
   }
 
   return (
-    <div className={store.getState().user.theme ? 'dark' : ''}>
+    <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
     <Router>
       <div className="noteTableNavi">
         <NavLink

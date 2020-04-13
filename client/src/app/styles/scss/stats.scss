@@ -25,15 +25,15 @@
             width: 12vw;
             height: 15vh;
             p {
+                color: $menu-color;
                 &:first-of-type {
                     position: relative;
                     top: 20%;
                     left: 25%;
                     width: 60%;
                     font-size: 1.3rem;
-                    color: rgba(255,255,255, 0.8);
                     padding-bottom: 5%;
-                    border-bottom: 1px solid rgba(255,255,255,0.8);
+                    border-bottom: 1px solid $menu-color;
                 }
                 &:last-of-type {
                     position: relative;
@@ -60,6 +60,7 @@
             width: 12vw;
             height: 15vh;
             p {
+                color: $menu-color;
                 position: relative;
                 top: 30%;
                 font-size: 1.4rem;
@@ -68,15 +69,13 @@
                     top: 20%;
                     left: 5%;
                     font-size: 0.9rem;
-                    color: rgba(255,255,255, 0.8);
                 }
                 &:last-of-type {
-                    border-top: 1px solid rgba(255,255,255,0.1);
+                    border-top: 1px solid $menu-color;
                     padding-top: 4%;
                     position: relative;
-                    top: 42%;
+                    top: 44%;
                     font-size: 0.9rem;
-                    color: rgba(255,255,255, 0.8);
                 }
             }
             .detailsIcon {
@@ -95,12 +94,12 @@
             width: 12vw;
             height: 15vh;
             p {
+                color: $menu-color;
                 &:first-of-type {
                     position: relative;
                     top: 25%;
                     left: 5%;
                     font-size: 0.9rem;
-                    color: rgba(255,255,255, 0.8);
                 }
                 &:last-of-type {
                     position: relative;
@@ -156,3 +155,34 @@
         }
     }
 }
+
+    .dark {
+        #statsContainer {
+            #details {
+                #totalProfit {
+                    background-color: $background-second-dark;
+                    p {
+                        color: $font-color-dark;
+                        &:first-of-type {
+                            border-bottom: 1px solid $menu-color-dark;
+                        }
+                    }
+                }
+                #currentItems {
+                    background-color: $background-second-dark;
+                    p {
+                        color: $font-color-dark;
+                        &:last-of-type {
+                            border: none;
+                        }
+                    }
+                }
+                #soldItems {
+                    background-color: $background-second-dark;
+                    p {
+                        color: $font-color-dark;
+                    }
+                }
+            }
+        }
+    }

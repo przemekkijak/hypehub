@@ -25,7 +25,7 @@ function Stats(props) {
   }
 
   return (
-    <div id="statsContainer">
+    <div id="statsContainer" className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
 
       <div id="details">
 
