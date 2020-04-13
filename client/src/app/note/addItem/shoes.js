@@ -97,12 +97,14 @@ function AddShoes(props) {
           autoFocus={true}
           required
           id="itemName"
+          className="addInput"
           spellCheck="false"
           placeholder="Nazwa"/>
 
           <input
           ref={itemBrand}
           id="itemBrand"
+          className="addInput"
           spellCheck="false"
           placeholder="Marka"/>
 
@@ -110,21 +112,25 @@ function AddShoes(props) {
           ref={itemSize}
           required
           id="itemSize"
+          className="addInput"
           placeholder="Rozmiar"/>
           <input
           ref={itemInsert}
           id="itemInsert"
+          className="addInput"
           placeholder="Dlugosc wkladki (cm)"/>
 
           <input
           ref={itemPrice}
           required
           id="itemPrice"
+          className="addInput"
           placeholder="Cena"/>
 
           <input
           ref={itemEstimatedPrice}
           id="itemEstimatedPrice"
+          className="addInput"
           placeholder="Wartość"
           />
 
@@ -132,18 +138,20 @@ function AddShoes(props) {
           ref={itemCond}
           required
           id="itemCond"
+          className="addInput"
           placeholder="Stan"/>
 
           <input
           type="date"
           ref={itemCreatedAt}
           id="itemCreatedAt"
+          className="addInput"
           name="createdAt"
           defaultValue={getDate()}
           max={getDate()}
           />
 
-          <button type="submit" value="Submit">Dodaj</button>
+          <button type="submit" className="addButton" value="Submit">Dodaj</button>
       </form>
     </>
   );

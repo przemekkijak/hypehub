@@ -94,41 +94,48 @@ function AddAccessories(props) {
           autoFocus={true}
           required
           id="itemName"
+          className="addInput"
           spellCheck="false"
           placeholder="Nazwa"/>
 
           <input
           ref={itemBrand}
           id="itemBrand"
+          className="addInput"
           spellCheck="false"
           placeholder="Marka"/>
 
           <input
           ref={itemSize}
           id="itemSize"
+          className="addInput"
           placeholder="Rozmiar"/>
 
           <input
           ref={itemPrice}
           required
           id="itemPrice"
+          className="addInput"
           placeholder="Cena"/>
 
           <input
           ref={itemEstimatedPrice}
           id="itemEstimatedPrice"
+          className="addInput"
           placeholder="Wartość"/>
 
           <input
           ref={itemCond}
           required
           id="itemCond"
+          className="addInput"
           placeholder="Stan"/>
 
           <input
           type="date"
           ref={itemCreatedAt}
           id="itemCreatedAt"
+          className="addInput"
           name="createdAt"
           defaultValue={getDate()}
           max={getDate()}

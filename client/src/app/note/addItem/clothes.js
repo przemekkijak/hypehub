@@ -105,6 +105,7 @@ function AddClothes(props) {
 
           <input
           ref={itemName}
+          className="addInput"
           id="itemName"
           autoFocus={true}
           required
@@ -114,11 +115,13 @@ function AddClothes(props) {
           <input
           ref={itemBrand}
           id="itemBrand"
+          className="addInput"
           placeholder="Marka"
           spellCheck="false"/>
 
           <input
           id="itemSize"
+          className="addInput"
           ref={itemSize}
           required
           placeholder="Rozmiar"
@@ -128,11 +131,13 @@ function AddClothes(props) {
           <input
           ref={itemLength}
           id="itemLength"
+          className="addInput"
           placeholder="Długość"
           spellCheck="false"/>
 
           <input
           ref={itemWidth}
+          className="addInput"
           placeholder="Szerokość"
           spellCheck="false"
           id="itemWidth"/>
@@ -142,17 +147,20 @@ function AddClothes(props) {
           spellCheck="false"
           placeholder="Cena"
           id="itemPrice"
+          className="addInput"
           required />
 
           <input
           ref={itemEstimatedPrice}
           placeholder="Wartość"
+          className="addInput"
           id="itemEstimatedPrice"/>
 
           <input
           ref={itemCond}
           placeholder="Stan"
           spellCheck="false"
+          className="addInput"
           id="itemCond"
           required />
 
@@ -160,6 +168,7 @@ function AddClothes(props) {
           type="date"
           ref={itemCreatedAt}
           id="itemCreatedAt"
+          className="addInput"
           name="createdAt"
           defaultValue={getDate()}
           max={getDate()}
