@@ -117,9 +117,9 @@
   }
 
   .addInput {
-    background-color: $background-second-dark;
+    background-color: $background-color-dark;
     border: none;
-    border-left: 3px solid $menu-color-dark;
+    box-shadow: inset 0px 0px 2px 0px $menu-color4-dark;
   }
   .addButton {
     background-color: $menu-color-dark;

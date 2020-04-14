@@ -147,9 +147,9 @@
   border-bottom: 3px solid #17b466;
 }
 .dark .addInput {
-  background-color: #1a1a1a;
+  background-color: #262626;
   border: none;
-  border-left: 3px solid #17b466;
+  box-shadow: inset 0px 0px 2px 0px rgba(150, 150, 150, 0.952);
 }
 .dark .addButton {
   background-color: #17b466;
