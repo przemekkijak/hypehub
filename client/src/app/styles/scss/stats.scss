@@ -6,42 +6,37 @@
     height: 100vh;
     left: 3%;
 
-    #details {
+    .statsSVG {
         position: absolute;
+        width: 5.5vw;
+        height: 5.5vh;
+        fill: $font-color;
+    }
+
+    #details {
+        position: relative;
         top: 7%;
-        left: 85%;
-        width: 15vw;
-        height: 80vh;
+        left: 17%;
+        width: 68vw;
         display: grid;
-        grid-template-rows: repeat(3, 33%);
+        grid-template-columns: repeat(3, 33%);
         margin-top: 4%;
 
 
         #totalProfit {
             background-color: $background-second;
-            box-shadow: 0px 0px 2px 0px $menu-color4;
             position: relative;
-            border-radius: 5%;
-            width: 12vw;
+            border-radius: 2%;
+            border-bottom: 1px solid $menu-color-dark;
+            width: 14vw;
             height: 15vh;
+            #profitSVG {
+                fill: $menu-color-dark;
+                left: -5%;
+                top: 25%;
+            }
             p {
-                color: $menu-color;
-                &:first-of-type {
-                    position: relative;
-                    top: 20%;
-                    left: 25%;
-                    width: 60%;
-                    font-size: 1.3rem;
-                    padding-bottom: 5%;
-                    border-bottom: 1px solid $menu-color;
-                }
-                &:last-of-type {
-                    position: relative;
-                    top: 30%;
-                    width: 60%;
-                    left: 25%;
-                    font-size: 1.3rem;
-                }
+
             }
             .detailsIcon {
                 position: absolute;
@@ -54,10 +49,9 @@
 
         #currentItems {
             background-color: $background-second;
-            box-shadow: 0px 0px 2px 0px $menu-color4;
             position: relative;
             border-radius: 5%;
-            width: 12vw;
+            width: 14vw;
             height: 15vh;
             p {
                 color: $menu-color;
@@ -88,10 +82,9 @@
 
         #soldItems {
             background-color: $background-second;
-            box-shadow: 0px 0px 2px 0px $menu-color4;
             position: relative;
             border-radius: 5%;
-            width: 12vw;
+            width: 14vw;
             height: 15vh;
             p {
                 color: $menu-color;
@@ -121,36 +114,18 @@
 
     #moneyStats {
         position: relative;
-        left: -3%;
-        top: 8.5%;
+        top: 30%;
         display: grid;
         height: 60vh;
         #platform {
+            position: relative;
             grid-row: 1;
-            grid-column: 1;
-            @include center();
-            width: 32vw;
+            width: 35vw;
         }
         #week {
             position: relative;
-            left: -5%;
-            width: 32vw;
+            width: 35vw;
             grid-row: 1;
-            grid-column: 2;
-        }
-        #month {
-            @include center();
-            width: 32vw;
-            margin-top: 14%;
-            grid-row: 2;
-            grid-column: 1;
-        }
-        #year {
-            position: relative;
-            margin-top: 14%;
-            left: -5%;
-            width: 32vw;
-            grid-row: 2;
             grid-column: 2;
         }
     }
@@ -164,7 +139,6 @@
                     p {
                         color: $font-color-dark;
                         &:first-of-type {
-                            border-bottom: 1px solid $menu-color-dark;
                         }
                     }
                 }

@@ -239,13 +239,13 @@
   /* Handle on hover */
 }
 .dark .tableContainer {
-  background-color: #2d323a;
+  background-color: #1a1a1a;
 }
 .dark .tableContainer .itemsInfo span {
   color: rgba(255, 255, 255, 0.7);
 }
 .dark .tableContainer .itemsInfo:after {
-  background-color: #1e242c;
+  background-color: #262626;
 }
 .dark .tableContainer .itemSlot {
   border-bottom: 1px solid #282828;
@@ -258,7 +258,7 @@
   border-bottom: 3px solid #17b466;
 }
 .dark ::-webkit-scrollbar-track {
-  background: #1e242c;
+  background: #262626;
   border-radius: 50px;
 }
 .dark ::-webkit-scrollbar-thumb {

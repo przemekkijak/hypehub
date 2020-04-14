@@ -60,6 +60,9 @@ function MoneyStats(props) {
           padding: 15,
           fontSize: 14,
         },
+        animation: {
+          duration: 0
+        },
         hover: {
           animationDuration: 0
         },

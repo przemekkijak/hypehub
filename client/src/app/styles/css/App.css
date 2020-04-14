@@ -117,14 +117,14 @@ body {
 }
 
 .dark {
-  background-color: #1e242c;
+  background-color: #262626;
 }
 .dark * {
   color: rgba(255, 255, 255, 0.85);
 }
 .dark .navigationContainer {
   border-right: none;
-  background-color: #2d323a;
+  background-color: #1a1a1a;
 }
 .dark .navigationContainer #todayProfit p:last-of-type {
   color: #17b466;
@@ -133,10 +133,10 @@ body {
   color: rgba(255, 255, 255, 0.85);
 }
 .dark .navigationContainer #navis .navElementContainer {
-  background-color: #2d323a;
+  background-color: #1a1a1a;
 }
 .dark .navigationContainer #navis .navActive .navElementContainer {
-  background-color: #1e242c;
+  background-color: #262626;
   border-right: 5px solid #17b466;
 }
 .dark .navigationContainer #navis .navActive span {

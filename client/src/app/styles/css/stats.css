@@ -9,42 +9,33 @@
   height: 100vh;
   left: 3%;
 }
-#statsContainer #details {
+#statsContainer .statsSVG {
   position: absolute;
+  width: 5.5vw;
+  height: 5.5vh;
+  fill: #1f3b4d;
+}
+#statsContainer #details {
+  position: relative;
   top: 7%;
-  left: 85%;
-  width: 15vw;
-  height: 80vh;
+  left: 17%;
+  width: 68vw;
   display: grid;
-  grid-template-rows: repeat(3, 33%);
+  grid-template-columns: repeat(3, 33%);
   margin-top: 4%;
 }
 #statsContainer #details #totalProfit {
   background-color: #fafafa;
-  box-shadow: 0px 0px 2px 0px #bebebe;
   position: relative;
-  border-radius: 5%;
-  width: 12vw;
+  border-radius: 2%;
+  border-bottom: 1px solid #17b466;
+  width: 14vw;
   height: 15vh;
 }
-#statsContainer #details #totalProfit p {
-  color: #1f3b4d;
-}
-#statsContainer #details #totalProfit p:first-of-type {
-  position: relative;
-  top: 20%;
-  left: 25%;
-  width: 60%;
-  font-size: 1.3rem;
-  padding-bottom: 5%;
-  border-bottom: 1px solid #1f3b4d;
-}
-#statsContainer #details #totalProfit p:last-of-type {
-  position: relative;
-  top: 30%;
-  width: 60%;
-  left: 25%;
-  font-size: 1.3rem;
+#statsContainer #details #totalProfit #profitSVG {
+  fill: #17b466;
+  left: -5%;
+  top: 25%;
 }
 #statsContainer #details #totalProfit .detailsIcon {
   position: absolute;
@@ -54,10 +45,9 @@
 }
 #statsContainer #details #currentItems {
   background-color: #fafafa;
-  box-shadow: 0px 0px 2px 0px #bebebe;
   position: relative;
   border-radius: 5%;
-  width: 12vw;
+  width: 14vw;
   height: 15vh;
 }
 #statsContainer #details #currentItems p {
@@ -87,10 +77,9 @@
 }
 #statsContainer #details #soldItems {
   background-color: #fafafa;
-  box-shadow: 0px 0px 2px 0px #bebebe;
   position: relative;
   border-radius: 5%;
-  width: 12vw;
+  width: 14vw;
   height: 15vh;
 }
 #statsContainer #details #soldItems p {
@@ -115,57 +104,30 @@
 }
 #statsContainer #moneyStats {
   position: relative;
-  left: -3%;
-  top: 8.5%;
+  top: 30%;
   display: grid;
   height: 60vh;
 }
 #statsContainer #moneyStats #platform {
-  grid-row: 1;
-  grid-column: 1;
   position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-  width: 32vw;
+  grid-row: 1;
+  width: 35vw;
 }
 #statsContainer #moneyStats #week {
   position: relative;
-  left: -5%;
-  width: 32vw;
+  width: 35vw;
   grid-row: 1;
-  grid-column: 2;
-}
-#statsContainer #moneyStats #month {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-  width: 32vw;
-  margin-top: 14%;
-  grid-row: 2;
-  grid-column: 1;
-}
-#statsContainer #moneyStats #year {
-  position: relative;
-  margin-top: 14%;
-  left: -5%;
-  width: 32vw;
-  grid-row: 2;
   grid-column: 2;
 }
 
 .dark #statsContainer #details #totalProfit {
-  background-color: #2d323a;
+  background-color: #1a1a1a;
 }
 .dark #statsContainer #details #totalProfit p {
   color: rgba(255, 255, 255, 0.85);
 }
-.dark #statsContainer #details #totalProfit p:first-of-type {
-  border-bottom: 1px solid #17b466;
-}
 .dark #statsContainer #details #currentItems {
-  background-color: #2d323a;
+  background-color: #1a1a1a;
 }
 .dark #statsContainer #details #currentItems p {
   color: rgba(255, 255, 255, 0.85);
@@ -174,7 +136,7 @@
   border: none;
 }
 .dark #statsContainer #details #soldItems {
-  background-color: #2d323a;
+  background-color: #1a1a1a;
 }
 .dark #statsContainer #details #soldItems p {
   color: rgba(255, 255, 255, 0.85);
