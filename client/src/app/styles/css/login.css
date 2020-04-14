@@ -20,9 +20,12 @@
   background: none;
   border: none;
   outline: none;
-  border-bottom: 1px solid #6fb415;
+  border-bottom: 1px solid #1f3b4d;
   font-size: 16px;
   letter-spacing: 1px;
+}
+.loginBox button {
+  border: 1px solid #1f3b4d;
 }
 
 .registerBox {
@@ -40,6 +43,13 @@
   border-bottom: 1px solid #69ad0f;
   font-size: 16px;
   letter-spacing: 1px;
+}
+
+.dark .loginBox input {
+  border-bottom: 1px solid #17b466;
+}
+.dark .loginBox button {
+  border: 1px solid #17b466;
 }
 
 @media only screen and (max-width: 480px) {

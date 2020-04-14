@@ -46,8 +46,6 @@ function App() {
 
   function handleLogin(userData) {
     localStorage.setItem('hypehubTheme', userData.theme);
-    console.log('Theme: ' + userData.theme);
-    console.log(localStorage.getItem('hypehubTheme'));
     store.dispatch(setUser({uid: userData.uid}));
     cookies.set("hhtkn", userData.token);
     refreshItems();

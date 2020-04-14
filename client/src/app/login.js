@@ -29,7 +29,7 @@ function Login(props) {
 
   return (
     <div className="container">
-      <div className="loginBox" id="loginBox" onSubmit={handleSubmit}>
+      <div className={`loginBox ${localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}`} onSubmit={handleSubmit}>
         <form>
           {failed && <label>Login lub haslo nieprawidlowe</label>}
           <input placeholder="Login" ref={username} autoFocus={true} required />

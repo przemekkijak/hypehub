@@ -16,9 +16,12 @@
       background: none;
       border: none;
       outline: none;
-      border-bottom: 1px solid #6fb415;
+      border-bottom: 1px solid $menu-color;
       font-size: 16px;
       letter-spacing: 1px;
+      }
+      button {
+        border: 1px solid $menu-color;
       }
   }
 
@@ -38,6 +41,17 @@
       font-size: 16px;
       letter-spacing: 1px;
       }
+}
+
+.dark {
+  .loginBox {
+    input {
+      border-bottom: 1px solid $menu-color-dark;
+    }
+    button {
+      border: 1px solid $menu-color-dark;
+    }
+  }
 }
 
   // Phone - Large
