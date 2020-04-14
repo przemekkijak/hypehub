@@ -42,61 +42,63 @@ function AddItem(props) {
   }
 
   return (
-    <div className={`addItemContainer ${localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}`} id="addItem">
-      <div className="itemType">
-        <input
-          type="radio"
-          name="itemTypeRadio"
-          id="clothes"
-          value="clothes"
-          className="addRadio"
-          onChange={() => setType(1)}
-          defaultChecked
-        />
-        <label htmlFor="clothes">
-          <img
-            src="../img/additem/shirt.png"
-            alt="Item clothes"
-            className="itemIcon"
-            id="clothesIcon"
+    <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
+      <div className="addItemContainer">
+        <div className="itemType">
+          <input
+            type="radio"
+            name="itemTypeRadio"
+            id="clothes"
+            value="clothes"
+            className="addRadio"
+            onChange={() => setType(1)}
+            defaultChecked
           />
-        </label>
+          <label htmlFor="clothes">
+            <img
+              src="../img/additem/shirt.png"
+              alt="Item clothes"
+              className="itemIcon"
+              id="clothesIcon"
+            />
+          </label>
 
-        <input
-          type="radio"
-          name="itemTypeRadio"
-          id="shoes"
-          value="shoes"
-          className="addRadio"
-          onChange={() => setType(2)}
-        />
-        <label htmlFor="shoes">
-          <img
-            src="../img/additem/shoe.png"
-            alt="Item shoes"
-            className="itemIcon"
-            id="shoeIcon"
+          <input
+            type="radio"
+            name="itemTypeRadio"
+            id="shoes"
+            value="shoes"
+            className="addRadio"
+            onChange={() => setType(2)}
           />
-        </label>
+          <label htmlFor="shoes">
+            <img
+              src="../img/additem/shoe.png"
+              alt="Item shoes"
+              className="itemIcon"
+              id="shoeIcon"
+            />
+          </label>
 
-        <input
-          type="radio"
-          name="itemTypeRadio"
-          id="accessories"
-          value="3"
-          className="addRadio"
-          onChange={() => setType(3)}
-        />
-        <label htmlFor="accessories">
-          <img
-            src="../img/additem/accessories.png"
-            alt="Item Accessories"
-            className="itemIcon"
-            id="hatIcon"
+          <input
+            type="radio"
+            name="itemTypeRadio"
+            id="accessories"
+            value="3"
+            className="addRadio"
+            onChange={() => setType(3)}
           />
-        </label>
+          <label htmlFor="accessories">
+            <img
+              src="../img/additem/accessories.png"
+              alt="Item Accessories"
+              className="itemIcon"
+              id="hatIcon"
+            />
+          </label>
+        </div>
+        {itemForm(itemType)}
       </div>
-      {itemForm(itemType)}
     </div>
   );
 }

@@ -122,7 +122,9 @@ body {
   * {
     color: $font-color-dark;
   }
+  .App {
     background-color: $background-color-dark;
+  }
   .navigationContainer {
     border-right: none;
     background-color: $background-second-dark;

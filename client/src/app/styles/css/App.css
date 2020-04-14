@@ -116,11 +116,11 @@ body {
   cursor: pointer;
 }
 
-.dark {
-  background-color: #262626;
-}
 .dark * {
   color: rgba(255, 255, 255, 0.85);
+}
+.dark .App {
+  background-color: #262626;
 }
 .dark .navigationContainer {
   border-right: none;

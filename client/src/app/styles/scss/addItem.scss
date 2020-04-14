@@ -125,8 +125,6 @@
     background-color: $menu-color-dark;
     border: 1px solid $menu-color-dark;
   }
-
-
 }
 
 // end dark
@@ -165,11 +163,6 @@
 
 // big Laptops
 @media only screen and(max-width: 1440px){
-  .addItemContainer {
-    height: 70vh;
-    width: 45vw;
-  }
-
 
 
 }

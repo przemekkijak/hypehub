@@ -128,6 +128,7 @@ function App() {
 
   return (
     <Router>
+    <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
       <div className={`App ${localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}`} id="root">
 
         {isLoged ? (
@@ -239,6 +240,7 @@ function App() {
           </>
         )}
       </div>
+    </div>
     </Router>
   );
 }

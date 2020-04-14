@@ -168,11 +168,5 @@
     width: 8vw;
   }
 }
-@media only screen and (max-width: 1440px) {
-  .addItemContainer {
-    height: 70vh;
-    width: 45vw;
-  }
-}
 
 /*# sourceMappingURL=addItem.css.map */
