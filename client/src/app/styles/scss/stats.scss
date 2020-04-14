@@ -15,8 +15,8 @@
 
     #details {
         position: relative;
-        top: 7%;
-        left: 17%;
+        top: 4%;
+        left: 15%;
         width: 68vw;
         display: grid;
         grid-template-columns: repeat(3, 33%);
@@ -27,25 +27,32 @@
             background-color: $background-second;
             position: relative;
             border-radius: 2%;
-            border-bottom: 1px solid $menu-color-dark;
+            border-bottom: 1px solid $menu-color;
             width: 14vw;
             height: 15vh;
             #profitSVG {
-                fill: $menu-color-dark;
+                fill: $menu-color;
                 left: -5%;
                 top: 25%;
             }
             p {
+                color: $font-color;
+                position: relative;
+                &:first-of-type {
+                    font-size: 1.7rem;
+                    top: 30%;
+                    left: 5%;
+                }
+                &:last-of-type {
+                    font-size: 0.9rem;
+                    top: 40%;
+                    left: 4%;
+                    color: $menu-color4-dark;
+                }
 
             }
-            .detailsIcon {
-                position: absolute;
-                left: -15%;
-                top:  23%;
-                width: 8vh;
-            }
-
         }
+        
 
         #currentItems {
             background-color: $background-second;
@@ -53,6 +60,11 @@
             border-radius: 5%;
             width: 14vw;
             height: 15vh;
+            #currentSVG {
+                position: absolute;
+                width: 5vw;
+                fill: $menu-color-dark;
+            }
             p {
                 color: $menu-color;
                 position: relative;
@@ -136,9 +148,14 @@
             #details {
                 #totalProfit {
                     background-color: $background-second-dark;
+                    border-bottom: 1px solid $menu-color-dark;
+                    #profitSVG {
+                        fill: $menu-color-dark;
+                    }
                     p {
                         color: $font-color-dark;
-                        &:first-of-type {
+                        &:last-of-type {
+                            color: $menu-color4-dark;
                         }
                     }
                 }
