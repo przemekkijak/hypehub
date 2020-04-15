@@ -5,7 +5,7 @@
     width: 25vw;
     height: 35vh;
     display: grid;
-    background: $background-second;
+    background-color: $background-second;
     border: 1px solid $background-color;
     border-radius: 3%;
     #sellForm {
@@ -45,6 +45,29 @@
             margin: 3px;
             option {
                 background-color: rgb(55, 59, 57);
+            }
+        }
+    }
+}
+
+// DARK THEME
+
+.dark {
+
+    .sellContainer {
+        background-color: $background-second-dark;
+        border: none;
+        #sellForm {
+            input {
+                border: 1px solid $background-color-dark;
+                border-radius: 3px;
+                outline: none;
+            }
+            button {
+                border: 1px solid $menu-color-dark;
+                color: black;
+                background-color: $menu-color-dark;
+                border-radius: 3px;
             }
         }
     }

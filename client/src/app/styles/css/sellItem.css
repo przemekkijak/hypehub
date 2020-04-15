@@ -7,7 +7,7 @@
   width: 25vw;
   height: 35vh;
   display: grid;
-  background: #fafafa;
+  background-color: #fafafa;
   border: 1px solid #e8e8e8;
   border-radius: 3%;
 }
@@ -72,6 +72,22 @@
 }
 .sellContainer #sellForm select option {
   background-color: #373b39;
+}
+
+.dark .sellContainer {
+  background-color: #1a1a1a;
+  border: none;
+}
+.dark .sellContainer #sellForm input {
+  border: 1px solid #262626;
+  border-radius: 3px;
+  outline: none;
+}
+.dark .sellContainer #sellForm button {
+  border: 1px solid #17b466;
+  color: black;
+  background-color: #17b466;
+  border-radius: 3px;
 }
 
 @media only screen and (max-width: 450px) {
