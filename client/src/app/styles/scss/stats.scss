@@ -125,19 +125,24 @@
 
     #moneyStats {
         position: relative;
-        top: 30%;
+        top: 15%;
         display: grid;
         height: 60vh;
         #platform {
             position: relative;
             grid-row: 1;
+            height: 36.5vh;
             width: 35vw;
+            left: 10%;
+            border-radius: 2%;
         }
         #week {
             position: relative;
             width: 35vw;
+            height: 36.5vh;
             grid-row: 1;
             grid-column: 2;
+            border-radius: 2%;
         }
     }
 }
@@ -172,6 +177,15 @@
                     p {
                         color: $font-color-dark;
                     }
+                }
+            }
+
+            #moneyStats {
+                #platform {
+                    background-color: $background-second-dark;
+                }
+                #week {
+                    background-color: $background-second-dark;
                 }
             }
         }

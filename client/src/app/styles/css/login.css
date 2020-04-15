@@ -1,6 +1,5 @@
 /* main color */
 /* details */
-/* details */
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 .loginBox {
@@ -40,7 +39,7 @@
   width: 100%;
   background: none;
   outline: none;
-  border-bottom: 1px solid #69ad0f;
+  border-bottom: 1px solid #1f3b4d;
   font-size: 16px;
   letter-spacing: 1px;
 }

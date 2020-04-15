@@ -1,6 +1,5 @@
 /* main color */
 /* details */
-/* details */
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 #statsContainer {
@@ -118,20 +117,25 @@
 }
 #statsContainer #moneyStats {
   position: relative;
-  top: 30%;
+  top: 15%;
   display: grid;
   height: 60vh;
 }
 #statsContainer #moneyStats #platform {
   position: relative;
   grid-row: 1;
+  height: 36.5vh;
   width: 35vw;
+  left: 10%;
+  border-radius: 2%;
 }
 #statsContainer #moneyStats #week {
   position: relative;
   width: 35vw;
+  height: 36.5vh;
   grid-row: 1;
   grid-column: 2;
+  border-radius: 2%;
 }
 
 .dark #statsContainer #details #totalProfit {
@@ -161,6 +165,12 @@
 }
 .dark #statsContainer #details #soldItems p {
   color: rgba(255, 255, 255, 0.85);
+}
+.dark #statsContainer #moneyStats #platform {
+  background-color: #1a1a1a;
+}
+.dark #statsContainer #moneyStats #week {
+  background-color: #1a1a1a;
 }
 
 /*# sourceMappingURL=stats.css.map */

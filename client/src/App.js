@@ -25,6 +25,9 @@ function App() {
   const [, reloadTheme] = useState(0);
   const [, loadingItems] = useState(false);
   const [isLoged, setLoged] = useState(() => {
+    if(localStorage.getItem('hypehubTheme') === null) {
+      localStorage.setItem('hypehubTheme', '1');
+    }
     let token = cookies.get("hhtkn");
     if (token !== null) {
       axios
@@ -45,7 +48,6 @@ function App() {
 
 
   function handleLogin(userData) {
-    localStorage.setItem('hypehubTheme', userData.theme);
     store.dispatch(setUser({uid: userData.uid}));
     cookies.set("hhtkn", userData.token);
     refreshItems();
