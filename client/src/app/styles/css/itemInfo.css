@@ -7,13 +7,17 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 30vw;
-  height: 45vh;
+  width: 35vw;
   background-color: #fafafa;
   border: 1px solid #e8e8e8;
   border-radius: 3%;
   display: grid;
   grid-template-rows: 5% 90%;
+}
+
+.dark .itemInfoContainer {
+  background-color: #1a1a1a;
+  border: none;
 }
 
 @media only screen and (max-width: 480px) {

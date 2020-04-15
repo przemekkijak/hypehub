@@ -5,8 +5,8 @@
     width: 25vw;
     height: 35vh;
     display: grid;
-    background-color: $background-second;
-    border: 1px solid $background-color;
+    background-color: $background-color;
+    border: 1px solid $menu-color;
     border-radius: 3%;
     #sellForm {
         #itemName {
@@ -57,6 +57,7 @@
     .sellContainer {
         background-color: $background-second-dark;
         border: none;
+        box-shadow: 0px 0px 3px 0.1px $menu-color-dark;
         #sellForm {
             input {
                 border: 1px solid $background-color-dark;

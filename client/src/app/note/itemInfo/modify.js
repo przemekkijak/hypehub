@@ -156,14 +156,13 @@ function Modify(props) {
     return(
         <div className="modify">
         <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
-        <p>
+
          <input
           ref={itemName}
           required
           defaultValue={item.name}
           spellCheck="false"
           id="itemName"/>
-        </p>
         <p>
           <input
           ref={itemBrand}

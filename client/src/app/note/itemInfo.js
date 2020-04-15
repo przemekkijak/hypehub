@@ -10,7 +10,7 @@ function ItemInfo(props) {
   useEffect(() => {
     if (loaded) {
       if (item.sold === 0) {
-        document.getElementById("itemInfo").style.height = "37vh";
+        document.getElementById("itemInfo").style.height = "45vh";
       }
       if(item.sold === 1) {
         document.getElementById("itemInfo").style.width = "35vw";
@@ -32,8 +32,8 @@ function ItemInfo(props) {
 
   return (
     loaded && (
-      <div className="itemInfoContainer" id="itemInfo">
-        <div>
+      <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
+        <div className="itemInfoContainer" id="itemInfo">
           <Modify
             item={item}
             handleModal={props.handleModal}
