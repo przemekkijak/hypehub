@@ -65,7 +65,7 @@ body {
       }
       .navElementContainer {
         cursor: pointer;
-        width: 9.9vw;
+        width: 10vw;
         height: 7vh;
         border: none;
         background-color: none;
@@ -149,7 +149,7 @@ body {
       .navActive {
         .navElementContainer {
           background-color: $background-color-dark;
-          border-right: 5px solid $menu-color-dark;
+          border-right: 3px solid $menu-color-dark;
         }
         span {
           color: $menu-color-dark;

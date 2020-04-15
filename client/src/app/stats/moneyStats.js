@@ -9,7 +9,7 @@ function MoneyStats(props) {
   switch (period) {
     default:
     case "7":
-      bgColor = "#87194e";
+      bgColor = "rgba(110,10,58, 0.7)";
       borderColor = "#87194e";
       break;
     case "30":
@@ -32,7 +32,7 @@ function MoneyStats(props) {
             data: getItems(),
             backgroundColor: [bgColor],
             borderColor: [borderColor],
-            borderWidth: 1,
+            borderWidth: 2,
           },
         ],
       },
@@ -64,9 +64,9 @@ function MoneyStats(props) {
           duration: 0
         },
         hover: {
-          animationDuration: 0
+          // animationDuration: 0
         },
-        responsiveAnimationDuration: 0
+        // responsiveAnimationDuration: 0
       },
     });
   });

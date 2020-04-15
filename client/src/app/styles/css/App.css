@@ -67,7 +67,7 @@ body {
 }
 .navigationContainer #navis .naviElement .navElementContainer {
   cursor: pointer;
-  width: 9.9vw;
+  width: 10vw;
   height: 7vh;
   border: none;
   background-color: none;
@@ -138,7 +138,7 @@ body {
 }
 .dark .navigationContainer #navis .navActive .navElementContainer {
   background-color: #262626;
-  border-right: 5px solid #17b466;
+  border-right: 3px solid #17b466;
 }
 .dark .navigationContainer #navis .navActive span {
   color: #17b466;
