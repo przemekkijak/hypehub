@@ -116,13 +116,13 @@ function SellItem(props) {
             <div id="itemName">{item.name}</div>
 
             <input
-              placeholder="Cena"
+              placeholder="Cena sprzedaży"
               id="itemPrice"
               ref={itemPrice}
               autoFocus={true}
               required
             />
-            <input placeholder="Kupujacy" id="soldFor" ref={soldFor} />
+            <input placeholder="Dane kupującego (opcjonalnie)" id="soldFor" ref={soldFor} />
             <select ref={soldOn} id="soldOn" placeholder="Platforma sprzedaży">
               <option value="" disabled selected hidden>
                 Platforma sprzedaży

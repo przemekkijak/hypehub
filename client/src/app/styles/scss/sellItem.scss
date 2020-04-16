@@ -2,17 +2,25 @@
 
   /* Sell Item */
   .sellContainer {
-    width: 25vw;
-    height: 35vh;
+    width: 30vw;
+    height: 40vh;
     display: grid;
     background-color: $background-color;
-    border: 1px solid $menu-color;
+    border-top: 3px solid $menu-color;
     border-radius: 3%;
     #sellForm {
+        position: relative;
+        top: 5%;
         #itemName {
             @include center();
             margin: 5% 0% 4% 0%;
             text-align: center;
+            width: 75%;
+            padding-top: 1.2%;
+            border-radius: 10px;
+            height: 3.5vh;
+            background-color: $background-second;
+            cursor: pointer;
         }
         button {
             @include center();
@@ -56,9 +64,11 @@
 
     .sellContainer {
         background-color: $background-second-dark;
-        border: none;
-        box-shadow: 0px 0px 3px 0.1px $menu-color-dark;
+        border-top: 3px solid $menu-color-dark;
         #sellForm {
+            #itemName {
+                background-color: $background-color-dark;
+            }
             input {
                 border: 1px solid $background-color-dark;
                 border-radius: 3px;

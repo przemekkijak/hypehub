@@ -4,12 +4,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 /* Sell Item */
 .sellContainer {
-  width: 25vw;
-  height: 35vh;
+  width: 30vw;
+  height: 40vh;
   display: grid;
   background-color: #e8e8e8;
-  border: 1px solid #1f3b4d;
+  border-top: 3px solid #1f3b4d;
   border-radius: 3%;
+}
+.sellContainer #sellForm {
+  position: relative;
+  top: 5%;
 }
 .sellContainer #sellForm #itemName {
   position: relative;
@@ -18,6 +22,12 @@
   width: 50%;
   margin: 5% 0% 4% 0%;
   text-align: center;
+  width: 75%;
+  padding-top: 1.2%;
+  border-radius: 10px;
+  height: 3.5vh;
+  background-color: #fafafa;
+  cursor: pointer;
 }
 .sellContainer #sellForm button {
   position: relative;
@@ -76,8 +86,10 @@
 
 .dark .sellContainer {
   background-color: #1a1a1a;
-  border: none;
-  box-shadow: 0px 0px 3px 0.1px #17b466;
+  border-top: 3px solid #17b466;
+}
+.dark .sellContainer #sellForm #itemName {
+  background-color: #262626;
 }
 .dark .sellContainer #sellForm input {
   border: 1px solid #262626;
