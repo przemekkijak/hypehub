@@ -103,16 +103,14 @@ span {
         grid-column: 2;
     }
 
-
-
     .addButton {
         @include center();
         cursor: pointer;
         margin-top: 1%;
         height: 3.5vh;
         width: 12vw;
-        background: none;
-        border: 1px solid $menu-color;
+        color: $font-color-dark;
+        background-color: $menu-color;
     }
 }
 #unSold {
@@ -132,7 +130,8 @@ span {
     width: 12vw;
     text-align: center;
     span {
-        opacity: 0.4;
+        color: $menu-color;
+        opacity: 1.0;
         font-size: 0.8em;
     }
 }
@@ -148,7 +147,15 @@ span {
             box-shadow: inset 0 0 1px gray;
         }
         .addButton {
-            border: 1px solid $menu-color-dark;
+            background-color: $menu-color-dark;
+            color: $background-second-dark;
+            font-weight: 500;
+        }
+    }
+    #dates {
+        span {
+            color: $font-color-dark;
+            opacity: 0.5;
         }
     }
 }
