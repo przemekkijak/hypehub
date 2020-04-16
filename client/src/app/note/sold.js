@@ -64,15 +64,15 @@ function Sold(props) {
         {store.getState().soldItems.map((item, index) => (
           <div className="itemSlot soldColumns" id="" key={index}>
             <p onClick={() => props.itemInfo(item.id)} id="itemNameSold">{item.name}</p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemBrand">{item.brand}</p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemSize">{itemSize(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemCond">
+            <p onClick={() => props.itemInfo(item.id)} id="itemBrandSold">{item.brand}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemSizeSold">{itemSize(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemCondSold">
               {convertCondition(item.cond)}
             </p>
-            <p onClick={() => props.itemInfo(item.id)} id="buyPrice">{item.buyPrice} zł</p>
-            <p onClick={() => props.itemInfo(item.id)} id="earnings" ref={profitR}>{getProfit(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemTracking">{getTracking(item)}</p>
-            <p onClick={() => props.itemInfo(item.id)} id="itemSoldFor">{item.soldFor}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="buyPriceSold">{item.buyPrice} zł</p>
+            <p onClick={() => props.itemInfo(item.id)} id="earningsSold" ref={profitR}>{getProfit(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemTrackingSold">{getTracking(item)}</p>
+            <p onClick={() => props.itemInfo(item.id)} id="itemSoldForSold">{item.soldFor}</p>
               <img
                 className="actionButton "
                 id="itemDelete"

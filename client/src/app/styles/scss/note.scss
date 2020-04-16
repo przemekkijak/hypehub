@@ -45,15 +45,13 @@
       height: 87%;
     }
     .itemsInfo {
-      // background-color: $background-second;
       position: relative;
       display: grid;
-      padding-top: 2px;
       margin-bottom: 2%;
       padding: 1.5% 0% 1% 0%;
       font-size: 1.0rem;
       span {
-        color: rgb(50,50,50);
+        color: $menu-color;
         cursor: pointer;
       }
       &:after {
@@ -65,7 +63,7 @@
         width: 100%;
         height: 1px;
         border-radius: 5%;
-        background-color: $menu-color4;
+        background-color: $menu-color;
       }
     }
     .itemSlot {

@@ -3,7 +3,6 @@
 // Container
 .modify {
     position: relative;
-    top: 120%;
   }
 
 span {
@@ -11,146 +10,29 @@ span {
 }
 
 .modifyForm {
+    position: relative;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%);
+    height: 85%;
+    width: 85%;
     display: grid;
+    background-color: $background-color;
 
     input {
-        padding: 1%;
+        text-align: center;
         height: 3.5vh;
         width: 100%;
         font-size: 12px;
         position: relative;
+        left: 15%;
         background: none;
         outline: none;
-        border: 1px solid $background-color;
+        border: none;
         background-color: rgba(90, 94, 92, 0.212);
-        border-radius: 2%;
-    }
-    span {
-        font-size: 11px;
-        position: absolute;
-        opacity: 0.8;
-        color: rgba(177, 172, 172, 0.664);
-        }
-        #itemName {
-            @include center();
-            border: none;
-            margin: 3% 0% 1% 0%;
-            font-size: 0.9em;
-            text-align: center;
-        }
-        #itemBrand {
-            @include center();
-        }
-
-    #dimensions {
-        @include center();
-        margin-top: 1%;
-        width: 65%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        input {
-            text-align: center;
-            margin: 2px;
-        }
-        #length { //span
-            left: 40%;
-            top: 36%;
-        }
-        #width { //span
-            left: 73%;
-            top: 36%;
-        }
-        #shoeInsert { //span
-            left: 80%;
-            top: 36%;
-        }
+        border-radius: 5px;
     }
 
-    #prices  {
-        @include center();
-        margin-top: 1%;
-        width: 65%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        input {
-            margin: 2px;
-            text-align: right;
-            padding-right: 20px;
-        }
-        #bPrice { //buyPrice span
-            top: 35%;
-            left: 3%;
-        }
-        #sPrice { //sellPrice span
-            left: 52%;
-            top: 35%;
-        }
-        #ePrice {
-            left: 55%;
-            top: 35%;
-        }
-    }
-
-    #shipInfo {
-        @include center();
-        margin-top: 1%;
-        width: 65%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        input {
-            text-align: right;
-            width: 50%;
-        }
-        #tracking {
-            top: 35%;
-            left: 3%;
-        }
-        #shipcp {
-            left: 77%;
-            top: 35%;
-        }
-        select {
-            @include center();
-            left: 26%;
-        }
-    }
-    #soldOnDiv {
-        @include center();
-        width: 60%;
-        text-align: center;
-        margin-top: 1%;
-        span {
-            position: absolute;
-            left: 45%;
-            top: 29%;
-        }
-    }
-
-    #cond {
-        height: 35px;
-        margin-top: 15px;
-        position: relative;
-        width: 30%;
-        left: 50%;
-        transform: translate(-50%);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        select {
-            @include center();
-        }
-        #condSpan {
-            position: absolute;
-            left: 45%;
-            top: 35%;
-            &:hover {
-                cursor: default;
-            }
-        }
-    }
     select {
         height: 3.5vh;
         width: 50%;
@@ -158,14 +40,75 @@ span {
         outline: none;
         border: none;
         position: relative;
+        left: 15%;
         option {
             background-color: rgb(55, 59, 57);
         }
     }
+    span {
+        font-size: 11px;
+        position: absolute;
+        opacity: 0.8;
+        color: rgba(177, 172, 172, 0.664);
+        }
+
+    #itemName {
+        grid-row: 1;
+        grid-column: 2/3;
+    }
+    #itemBrand {
+        grid-row: 2;
+        grid-column: 2/3;
+    }
+    #itemSize {
+        grid-row: 3;
+        grid-column: 2/3;
+    }
+    #itemLength {
+        width: 50%;
+        grid-row: 4;
+        grid-column: 2;
+    }
+    #itemWidth {
+        grid-row: 4;
+        position: relative;
+        left: -35%;
+        width: 50%;
+        grid-column: 3;
+    }
+    #itemInsert {
+        grid-row: 4;
+        grid-column: 2/3;
+    }
+    #itemCond {
+        grid-row: 5;
+        position: relative;
+        width: 100%;
+        grid-column: 2/3;
+    }
+    #itemBuyPrice {
+        width: 50%;
+        grid-row: 6;
+        grid-column: 2;
+    }
+    #itemEstimatedPrice {
+        width: 50%;
+        position: relative;
+        left: -35%;
+        grid-row: 6;
+        grid-column: 3;
+    }
+    #itemSellPrice {
+        grid-row: 5;
+        grid-column: 2;
+    }
+
+
+
     .addButton {
         @include center();
         cursor: pointer;
-        margin-top: 3%;
+        margin-top: 1%;
         height: 3.5vh;
         width: 12vw;
         background: none;
@@ -184,7 +127,7 @@ span {
 
 #dates {
     @include center();
-    margin-top: 4%;
+    margin-top: 5%;
     height: 5vh;
     width: 12vw;
     text-align: center;
@@ -193,6 +136,25 @@ span {
         font-size: 0.8em;
     }
 }
+
+
+// dark
+
+.dark {
+    .modifyForm {
+        background-color: $background-second-dark;
+        input {
+            background-color: $background-color-dark;
+            box-shadow: inset 0 0 1px gray;
+        }
+        .addButton {
+            border: 1px solid $menu-color-dark;
+        }
+    }
+}
+
+
+// end dark
 
   // RWD
 

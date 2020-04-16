@@ -4,7 +4,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 .modify {
   position: relative;
-  top: 120%;
 }
 
 span {
@@ -12,165 +11,27 @@ span {
 }
 
 .modifyForm {
+  position: relative;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%);
+  height: 85%;
+  width: 85%;
   display: grid;
+  background-color: #e6e6e6;
 }
 .modifyForm input {
-  padding: 1%;
+  text-align: center;
   height: 3.5vh;
   width: 100%;
   font-size: 12px;
   position: relative;
+  left: 15%;
   background: none;
   outline: none;
-  border: 1px solid #e6e6e6;
-  background-color: rgba(90, 94, 92, 0.212);
-  border-radius: 2%;
-}
-.modifyForm span {
-  font-size: 11px;
-  position: absolute;
-  opacity: 0.8;
-  color: rgba(177, 172, 172, 0.664);
-}
-.modifyForm #itemName {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
   border: none;
-  margin: 3% 0% 1% 0%;
-  font-size: 0.9em;
-  text-align: center;
-}
-.modifyForm #itemBrand {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-}
-.modifyForm #dimensions {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-  margin-top: 1%;
-  width: 65%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.modifyForm #dimensions input {
-  text-align: center;
-  margin: 2px;
-}
-.modifyForm #dimensions #length {
-  left: 40%;
-  top: 36%;
-}
-.modifyForm #dimensions #width {
-  left: 73%;
-  top: 36%;
-}
-.modifyForm #dimensions #shoeInsert {
-  left: 80%;
-  top: 36%;
-}
-.modifyForm #prices {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-  margin-top: 1%;
-  width: 65%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.modifyForm #prices input {
-  margin: 2px;
-  text-align: right;
-  padding-right: 20px;
-}
-.modifyForm #prices #bPrice {
-  top: 35%;
-  left: 3%;
-}
-.modifyForm #prices #sPrice {
-  left: 52%;
-  top: 35%;
-}
-.modifyForm #prices #ePrice {
-  left: 55%;
-  top: 35%;
-}
-.modifyForm #shipInfo {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-  margin-top: 1%;
-  width: 65%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.modifyForm #shipInfo input {
-  text-align: right;
-  width: 50%;
-}
-.modifyForm #shipInfo #tracking {
-  top: 35%;
-  left: 3%;
-}
-.modifyForm #shipInfo #shipcp {
-  left: 77%;
-  top: 35%;
-}
-.modifyForm #shipInfo select {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-  left: 26%;
-}
-.modifyForm #soldOnDiv {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-  width: 60%;
-  text-align: center;
-  margin-top: 1%;
-}
-.modifyForm #soldOnDiv span {
-  position: absolute;
-  left: 45%;
-  top: 29%;
-}
-.modifyForm #cond {
-  height: 35px;
-  margin-top: 15px;
-  position: relative;
-  width: 30%;
-  left: 50%;
-  transform: translate(-50%);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.modifyForm #cond select {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50%;
-}
-.modifyForm #cond #condSpan {
-  position: absolute;
-  left: 45%;
-  top: 35%;
-}
-.modifyForm #cond #condSpan:hover {
-  cursor: default;
+  background-color: rgba(90, 94, 92, 0.212);
+  border-radius: 5px;
 }
 .modifyForm select {
   height: 3.5vh;
@@ -179,9 +40,66 @@ span {
   outline: none;
   border: none;
   position: relative;
+  left: 15%;
 }
 .modifyForm select option {
   background-color: #373b39;
+}
+.modifyForm span {
+  font-size: 11px;
+  position: absolute;
+  opacity: 0.8;
+  color: rgba(177, 172, 172, 0.664);
+}
+.modifyForm #itemName {
+  grid-row: 1;
+  grid-column: 2/3;
+}
+.modifyForm #itemBrand {
+  grid-row: 2;
+  grid-column: 2/3;
+}
+.modifyForm #itemSize {
+  grid-row: 3;
+  grid-column: 2/3;
+}
+.modifyForm #itemLength {
+  width: 50%;
+  grid-row: 4;
+  grid-column: 2;
+}
+.modifyForm #itemWidth {
+  grid-row: 4;
+  position: relative;
+  left: -35%;
+  width: 50%;
+  grid-column: 3;
+}
+.modifyForm #itemInsert {
+  grid-row: 4;
+  grid-column: 2/3;
+}
+.modifyForm #itemCond {
+  grid-row: 5;
+  position: relative;
+  width: 100%;
+  grid-column: 2/3;
+}
+.modifyForm #itemBuyPrice {
+  width: 50%;
+  grid-row: 6;
+  grid-column: 2;
+}
+.modifyForm #itemEstimatedPrice {
+  width: 50%;
+  position: relative;
+  left: -35%;
+  grid-row: 6;
+  grid-column: 3;
+}
+.modifyForm #itemSellPrice {
+  grid-row: 5;
+  grid-column: 2;
 }
 .modifyForm .addButton {
   position: relative;
@@ -189,7 +107,7 @@ span {
   transform: translate(-50%);
   width: 50%;
   cursor: pointer;
-  margin-top: 3%;
+  margin-top: 1%;
   height: 3.5vh;
   width: 12vw;
   background: none;
@@ -214,7 +132,7 @@ span {
   left: 50%;
   transform: translate(-50%);
   width: 50%;
-  margin-top: 4%;
+  margin-top: 5%;
   height: 5vh;
   width: 12vw;
   text-align: center;
@@ -222,6 +140,17 @@ span {
 #dates span {
   opacity: 0.4;
   font-size: 0.8em;
+}
+
+.dark .modifyForm {
+  background-color: #1a1a1a;
+}
+.dark .modifyForm input {
+  background-color: #262626;
+  box-shadow: inset 0 0 1px gray;
+}
+.dark .modifyForm .addButton {
+  border: 1px solid #17b466;
 }
 
 /*# sourceMappingURL=modifyItem.css.map */

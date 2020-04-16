@@ -52,13 +52,12 @@
 .tableContainer .itemsInfo {
   position: relative;
   display: grid;
-  padding-top: 2px;
   margin-bottom: 2%;
   padding: 1.5% 0% 1% 0%;
   font-size: 1rem;
 }
 .tableContainer .itemsInfo span {
-  color: #323232;
+  color: #1f3b4d;
   cursor: pointer;
 }
 .tableContainer .itemsInfo:after {
@@ -70,7 +69,7 @@
   width: 100%;
   height: 1px;
   border-radius: 5%;
-  background-color: #bebebe;
+  background-color: #1f3b4d;
 }
 .tableContainer .itemSlot {
   position: relative;

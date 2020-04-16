@@ -154,7 +154,7 @@ function Modify(props) {
       }
 
     return(
-        <div className="modify">
+        <div className={`modify ${localStorage.getItem('hypehubTheme' > 0 ? 'dark' : '')}`}>
         <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
 
          <input
@@ -163,21 +163,17 @@ function Modify(props) {
           defaultValue={item.name}
           spellCheck="false"
           id="itemName"/>
-        <p>
           <input
           ref={itemBrand}
           defaultValue={item.brand}
           spellCheck="false"
           id="itemBrand"/>
-        </p>
-        <div id="dimensions">
 
-            <input
-            autoFocus={true}
-            ref={itemSize}
-            id="itemSize"
-            required
-            defaultValue={item.size}/>
+          <input
+          ref={itemSize}
+          id="itemSize"
+          required
+          defaultValue={item.size}/>
 
           {item.type === 1 && (
             <>
@@ -186,14 +182,12 @@ function Modify(props) {
             required
             id="itemLength"
             defaultValue={item.length} />
-            <span id="length">Dł:</span>
 
             <input
             ref={itemWidth}
             required
             id="itemWidth"
             defaultValue={item.width} />
-            <span id="width">Sz:</span>
           </>
           )}
           {item.type === 2 && (
@@ -202,18 +196,14 @@ function Modify(props) {
             ref={itemInsert}
             id="itemInsert"
             defaultValue={item.shoeInsert} />
-            <span id="shoeInsert">cm</span>
             </>
           )}
-        </div>
 
-        <div id="prices">
           <input
           ref={itemBuyPrice2}
           required
-          id="itemBuyPrice2"
+          id="itemBuyPrice"
           defaultValue={item.buyPrice} />
-          <span id="bPrice">Cena kupna</span>
 
         {item.sold === 0 && (
           <>
@@ -221,7 +211,6 @@ function Modify(props) {
           ref={itemEstimatedPrice}
           id="itemEstimatedPrice"
           defaultValue={item.estimatedPrice} />
-          <span id="ePrice">Przybliżona wartość</span>
           </>
         )}
         {item.sold === 1 && (
@@ -231,17 +220,14 @@ function Modify(props) {
             required
             id="itemSellPrice"
             defaultValue={item.sellPrice} />
-            <span id="sPrice">Cena sprzedaży</span>
         </>
         )}
-        </div>
         {item.sold === 1 && (
-          <div id="shipInfo">
+          <>
             <input
             ref={itemTrackingNumber}
             id="itemTrackingNumber"
             defaultValue={getTracking("number")}/>
-            <span id="tracking">Numer paczki</span>
 
             <select ref={shipCompany} id="shipCompany" defaultValue={getTracking("company")}>
               <option value=""></option>
@@ -251,12 +237,11 @@ function Modify(props) {
               <option value="ups">UPS</option>
               <option value="inpost">InPost</option>
           </select>
-          <span id="shipcp">Przewoźnik</span>
-          </div>
+          </>
         )}
 
         {item.sold === 1 && (
-          <div id="soldOnDiv">
+          <>
             <select ref={soldOn} id="soldOn" defaultValue={getPlatform()}>
               <option value=""></option>
               <option value="facebook">Facebook</option>
@@ -265,11 +250,9 @@ function Modify(props) {
               <option value="depop">Depop</option>
               <option value="other">Inna</option>
             </select>
-            <span>Platforma </span>
-          </div>
+          </>
         )}
 
-        <div id="cond">
           <select ref={itemCond} id="itemCond" defaultValue={item.cond}>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -282,21 +265,18 @@ function Modify(props) {
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
-          <span id="condSpan">Stan</span>
-        </div>
         <button type="submit" className="addButton" value="Submit">Zapisz</button>
       </form>
       {item.sold === 1 &&
           <button id="unSold" className="addButton" onClick={() => unSold()}>Wycofaj ze sprzedanych</button>
         }
-      <div id="dates">
+        <div id="dates">
           <span>Dodano: {item.createdAt.slice(0,10)}</span>
           {item.sold === 1 && (
             <p><span>Sprzedano: {item.soldAt.slice(0,10)}</span></p>
-
           )}
-      </div>
         </div>
+      </div>
     )
 }
 export default Modify;
