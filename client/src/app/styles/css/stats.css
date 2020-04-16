@@ -24,7 +24,7 @@
   margin-top: 4%;
 }
 #statsContainer #details #totalProfit {
-  background-color: #fafafa;
+  background-color: #f2f2f2;
   position: relative;
   border-radius: 2%;
   border-bottom: 1px solid #1f3b4d;
@@ -52,7 +52,7 @@
   color: rgba(150, 150, 150, 0.952);
 }
 #statsContainer #details #currentItems {
-  background-color: #fafafa;
+  background-color: #f2f2f2;
   position: relative;
   border-radius: 5%;
   width: 14vw;
@@ -89,7 +89,7 @@
   width: 10vh;
 }
 #statsContainer #details #soldItems {
-  background-color: #fafafa;
+  background-color: #f2f2f2;
   position: relative;
   border-radius: 5%;
   width: 14vw;

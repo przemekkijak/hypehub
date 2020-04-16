@@ -9,7 +9,7 @@
   transform: translate(-50%, -50%);
   width: 40vw;
   height: 60vh;
-  background-color: #e8e8e8;
+  background-color: #e6e6e6;
   display: grid;
   grid-template-rows: 20% 80%;
   border-radius: 3%;
@@ -53,7 +53,7 @@
   font-size: 12px;
   position: relative;
   outline: none;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #e6e6e6;
   background-color: #a0a0a0;
   border-radius: 3px;
   text-align: center;
@@ -61,22 +61,22 @@
 }
 .addInput::-webkit-input-placeholder {
   font-size: 0.8rem;
-  color: #fafafa;
+  color: #f2f2f2;
   opacity: 0.7;
 }
 .addInput::-moz-placeholder {
   font-size: 0.8rem;
-  color: #fafafa;
+  color: #f2f2f2;
   opacity: 0.7;
 }
 .addInput:-moz-placeholder {
   font-size: 0.8rem;
-  color: #fafafa;
+  color: #f2f2f2;
   opacity: 0.7;
 }
 .addInput:-ms-input-placeholder {
   font-size: 0.8rem;
-  color: #fafafa;
+  color: #f2f2f2;
   opacity: 0.7;
 }
 
@@ -90,7 +90,7 @@
   height: 4vh;
   width: 25%;
   outline: none;
-  color: #e8e8e8;
+  color: #e6e6e6;
   background-color: #1f3b4d;
   border: 1px solid #1f3b4d;
   border-radius: 7px;

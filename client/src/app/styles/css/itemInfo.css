@@ -8,8 +8,8 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 35vw;
-  background-color: #fafafa;
-  border: 1px solid #e8e8e8;
+  background-color: #f2f2f2;
+  border: 1px solid #e6e6e6;
   border-radius: 3%;
   display: grid;
   grid-template-rows: 5% 90%;
