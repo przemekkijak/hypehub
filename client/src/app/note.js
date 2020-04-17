@@ -4,9 +4,8 @@ import Current from "./note/current";
 import Sold from "./note/sold";
 import Pending from "./note/pending";
 import NoteMenu from "./note/noteMenu";
-import ItemInfo from "./note/itemInfo";
 import ReactModal from "react-modal";
-import store from "./redux/store/index";
+import Modify from "./note/modifyItem";
 
 import {
   BrowserRouter as Router,
@@ -32,24 +31,13 @@ function Note(props) {
     <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
     <Router>
       <div className="noteTableNavi">
-        <NavLink
-          className="link naviButton"
-          activeClassName="active"
-          to="/note/current"
-          >Posiadane</NavLink>
+        <NavLink className="link naviButton" activeClassName="active" to="/note/current">Posiadane</NavLink>
         <NavLink className="link naviButton" to="/note/sold">Sprzedane</NavLink>
         <NavLink className="link naviButton" to="/note/pending">Zamówione</NavLink>
-
-      <div id="search">
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Szukaj..."
-          onChange={(e) => props.searchItem(e.target.value)}
-        />
+        <div id="search">
+          <input id="searchInput" type="text" placeholder="Szukaj..." onChange={(e) => props.searchItem(e.target.value)}/>
+        </div>
       </div>
-      </div>
-
       <div className="tableContainer">
         <Switch>
           <Route path="/note/sold">
@@ -78,23 +66,14 @@ function Note(props) {
         <div className="noteContent">
           <Switch>
             <Route exact path="/note/sold">
-              <Sold
-                itemInfo={(id) => itemInfo(id)}
-                refreshItems={props.refreshItems}
-              />
+              <Sold itemInfo={(id) => itemInfo(id)} refreshItems={props.refreshItems}/>
             </Route>
-
             <Route exact path="/note/pending">
               <Pending />
             </Route>
-
             <Route exact path="/note/current">
-              <Current
-                itemInfo={(id) => itemInfo(id)}
-                refreshItems={props.refreshItems}
-              />
+              <Current itemInfo={(id) => itemInfo(id)} refreshItems={props.refreshItems}/>
             </Route>
-
             <Redirect to="/note/current" />
           </Switch>
         </div>
@@ -104,9 +83,9 @@ function Note(props) {
           overlayClassName={"modalOverlay"}
           onRequestClose={() => setItemModal(false)}
         >
-          <ItemInfo
-            handleModal={handleModal}
+          <Modify
             itemID={currentItem}
+            handleModal={() => handleModal()}
             refreshItems={props.refreshItems}
           />
         </ReactModal>

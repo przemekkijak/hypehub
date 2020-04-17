@@ -2,40 +2,44 @@
 /* details */
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
-.modify {
+#modifyContainer {
+  height: 45vh;
+  width: 30vw;
   position: relative;
   border: 1px solid #505050;
   border-radius: 1%;
-}
-
-span {
-  cursor: default;
-}
-
-.modifyForm {
-  position: relative;
-  left: 50%;
-  top: 8%;
-  transform: translate(-50%);
-  height: 85%;
-  width: 85%;
-  display: grid;
   background-color: #e6e6e6;
 }
-.modifyForm input {
+#modifyContainer span {
+  cursor: default;
+}
+#modifyContainer .modifyForm {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  padding-top: 4%;
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+#modifyContainer .modifyForm input {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
   text-align: center;
   height: 3.5vh;
   width: 100%;
   font-size: 12px;
   position: relative;
-  left: 15%;
   background: none;
   outline: none;
   border: none;
   background-color: rgba(90, 94, 92, 0.212);
   border-radius: 5px;
 }
-.modifyForm select {
+#modifyContainer .modifyForm select {
   height: 3.5vh;
   width: 50%;
   background-color: rgba(90, 94, 92, 0.212);
@@ -44,79 +48,75 @@ span {
   position: relative;
   left: 15%;
 }
-.modifyForm select option {
+#modifyContainer .modifyForm select option {
   background-color: #373b39;
 }
-.modifyForm span {
+#modifyContainer .modifyForm span {
   font-size: 11px;
   position: absolute;
   opacity: 0.8;
   color: rgba(177, 172, 172, 0.664);
 }
-.modifyForm #itemName {
-  grid-row: 1;
-  grid-column: 2/3;
-}
-.modifyForm #itemBrand {
-  grid-row: 2;
-  grid-column: 2/3;
-}
-.modifyForm #itemSize {
-  grid-row: 3;
-  grid-column: 2/3;
-}
-.modifyForm #itemLength {
-  width: 50%;
-  grid-row: 4;
-  grid-column: 2;
-}
-.modifyForm #itemWidth {
-  grid-row: 4;
-  position: relative;
-  left: -35%;
-  width: 50%;
-  grid-column: 3;
-}
-.modifyForm #itemInsert {
-  grid-row: 4;
-  grid-column: 2/3;
-}
-.modifyForm #itemCond {
-  grid-row: 5;
-  position: relative;
-  width: 100%;
-  grid-column: 2/3;
-}
-.modifyForm #itemBuyPrice {
-  width: 50%;
-  grid-row: 6;
-  grid-column: 2;
-}
-.modifyForm #itemEstimatedPrice {
-  width: 50%;
-  position: relative;
-  left: -35%;
-  grid-row: 6;
-  grid-column: 3;
-}
-.modifyForm #itemSellPrice {
-  grid-row: 5;
-  grid-column: 2;
-}
-.modifyForm .addButton {
+#modifyContainer .modifyForm .addButton {
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 50%;
   cursor: pointer;
-  margin-top: 1%;
+  top: -40%;
   height: 3.5vh;
   width: 12vw;
   color: rgba(255, 255, 255, 0.85);
   background-color: #1f3b4d;
 }
-
-#unSold {
+#modifyContainer .modifyForm #itemName {
+  grid-row: 1;
+  grid-column: 2/3;
+}
+#modifyContainer .modifyForm #itemBrand {
+  grid-row: 2;
+  grid-column: 2/3;
+}
+#modifyContainer .modifyForm #itemSize {
+  grid-row: 3;
+  grid-column: 2/3;
+}
+#modifyContainer .modifyForm #itemLength {
+  width: 50%;
+  grid-row: 4;
+  grid-column: 2;
+}
+#modifyContainer .modifyForm #itemWidth {
+  grid-row: 4;
+  position: relative;
+  left: -35%;
+  width: 50%;
+  grid-column: 3;
+}
+#modifyContainer .modifyForm #itemInsert {
+  grid-row: 4;
+  grid-column: 2/3;
+}
+#modifyContainer .modifyForm #itemCond {
+  grid-row: 5;
+  position: relative;
+  width: 100%;
+  grid-column: 2/3;
+}
+#modifyContainer .modifyForm #itemBuyPrice {
+  grid-row: 6;
+  grid-column: 2/3;
+}
+#modifyContainer .modifyForm #itemEstimatedPrice {
+  position: relative;
+  grid-row: 7;
+  grid-column: 2/3;
+}
+#modifyContainer .modifyForm #itemSellPrice {
+  grid-row: 5;
+  grid-column: 2;
+}
+#modifyContainer #unSold {
   width: 15vw;
   height: 3.5vh;
   border: 1px solid #bebebe;
@@ -128,24 +128,22 @@ span {
   margin-top: 3%;
   background: none;
 }
-
-#dates {
+#modifyContainer #dates {
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 50%;
-  margin-top: 5%;
+  top: -6%;
   height: 5vh;
   width: 12vw;
   text-align: center;
 }
-#dates span {
+#modifyContainer #dates span {
   color: #1f3b4d;
   opacity: 1;
   font-size: 0.8em;
 }
-
-#closeModal {
+#modifyContainer #closeModal {
   position: absolute;
   left: 94%;
   top: 4%;
@@ -153,27 +151,28 @@ span {
   outline: none;
   border: none;
   color: #1f3b4d;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight: 500;
   cursor: pointer;
 }
 
-.dark .modifyForm {
+.dark #modifyContainer {
   background-color: #1a1a1a;
 }
-.dark .modifyForm input {
+.dark #modifyContainer .modifyForm input {
   background-color: #262626;
   box-shadow: inset 0 0 1px gray;
 }
-.dark .modifyForm .addButton {
+.dark #modifyContainer .modifyForm .addButton {
   background-color: #17b466;
   color: #1a1a1a;
   font-weight: 500;
 }
-.dark #dates span {
+.dark #modifyContainer #dates span {
   color: rgba(255, 255, 255, 0.85);
   opacity: 0.5;
 }
-.dark #closeModal {
+.dark #modifyContainer #closeModal {
   color: #17b466;
 }
 

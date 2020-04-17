@@ -1,121 +1,113 @@
 @import "master";
 
 // Container
-.modify {
+#modifyContainer {
+    height: 45vh;
+    width: 30vw;
     position: relative;
     border: 1px solid rgb(80,80,80);
     border-radius: 1%;
-  }
-
-span {
-    cursor: default;
-}
-
-.modifyForm {
-    position: relative;
-    left: 50%;
-    top: 8%;
-    transform: translate(-50%);
-    height: 85%;
-    width: 85%;
-    display: grid;
     background-color: $background-color;
-
-    input {
-        text-align: center;
-        height: 3.5vh;
-        width: 100%;
-        font-size: 12px;
-        position: relative;
-        left: 15%;
-        background: none;
-        outline: none;
-        border: none;
-        background-color: rgba(90, 94, 92, 0.212);
-        border-radius: 5px;
-    }
-
-    select {
-        height: 3.5vh;
-        width: 50%;
-        background-color: rgba(90, 94, 92, 0.212);
-        outline: none;
-        border: none;
-        position: relative;
-        left: 15%;
-        option {
-            background-color: rgb(55, 59, 57);
-        }
-    }
     span {
-        font-size: 11px;
-        position: absolute;
-        opacity: 0.8;
-        color: rgba(177, 172, 172, 0.664);
+    cursor: default;
+    }
+    .modifyForm {
+        @include center();
+        padding-top: 4%;
+        height: 100%;
+        width: 100%;
+        display: grid;
+
+        input {
+            @include center();
+            text-align: center;
+            height: 3.5vh;
+            width: 100%;
+            font-size: 12px;
+            position: relative;
+            background: none;
+            outline: none;
+            border: none;
+            background-color: rgba(90, 94, 92, 0.212);
+            border-radius: 5px;
+        }
+        select {
+            height: 3.5vh;
+            width: 50%;
+            background-color: rgba(90, 94, 92, 0.212);
+            outline: none;
+            border: none;
+            position: relative;
+            left: 15%;
+            option {
+                background-color: rgb(55, 59, 57);
+            }
+        }
+        span {
+            font-size: 11px;
+            position: absolute;
+            opacity: 0.8;
+            color: rgba(177, 172, 172, 0.664);
+        }
+        .addButton {
+            @include center();
+            cursor: pointer;
+            top: -40%;
+            height: 3.5vh;
+            width: 12vw;
+            color: $font-color-dark;
+            background-color: $menu-color;
         }
 
-    #itemName {
-        grid-row: 1;
-        grid-column: 2/3;
+        #itemName {
+            grid-row: 1;
+            grid-column: 2/3;
+        }
+        #itemBrand {
+            grid-row: 2;
+            grid-column: 2/3;
+        }
+        #itemSize {
+            grid-row: 3;
+            grid-column: 2/3;
+        }
+        #itemLength {
+            width: 50%;
+            grid-row: 4;
+            grid-column: 2;
+        }
+        #itemWidth {
+            grid-row: 4;
+            position: relative;
+            left: -35%;
+            width: 50%;
+            grid-column: 3;
+        }
+        #itemInsert {
+            grid-row: 4;
+            grid-column: 2/3;
+        }
+        #itemCond {
+            grid-row: 5;
+            position: relative;
+            width: 100%;
+            grid-column: 2/3;
+        }
+        #itemBuyPrice {
+            grid-row: 6;
+            grid-column: 2/3;
+        }
+        #itemEstimatedPrice {
+            position: relative;
+            grid-row: 7;
+            grid-column: 2/3;
+        }
+        #itemSellPrice {
+            grid-row: 5;
+            grid-column: 2;
+        }
     }
-    #itemBrand {
-        grid-row: 2;
-        grid-column: 2/3;
-    }
-    #itemSize {
-        grid-row: 3;
-        grid-column: 2/3;
-    }
-    #itemLength {
-        width: 50%;
-        grid-row: 4;
-        grid-column: 2;
-    }
-    #itemWidth {
-        grid-row: 4;
-        position: relative;
-        left: -35%;
-        width: 50%;
-        grid-column: 3;
-    }
-    #itemInsert {
-        grid-row: 4;
-        grid-column: 2/3;
-    }
-    #itemCond {
-        grid-row: 5;
-        position: relative;
-        width: 100%;
-        grid-column: 2/3;
-    }
-    #itemBuyPrice {
-        width: 50%;
-        grid-row: 6;
-        grid-column: 2;
-    }
-    #itemEstimatedPrice {
-        width: 50%;
-        position: relative;
-        left: -35%;
-        grid-row: 6;
-        grid-column: 3;
-    }
-    #itemSellPrice {
-        grid-row: 5;
-        grid-column: 2;
-    }
-
-    .addButton {
-        @include center();
-        cursor: pointer;
-        margin-top: 1%;
-        height: 3.5vh;
-        width: 12vw;
-        color: $font-color-dark;
-        background-color: $menu-color;
-    }
-}
-#unSold {
+    #unSold {
     width: 15vw;
     height: 3.5vh;
     border: 1px solid $menu-color4;
@@ -123,60 +115,59 @@ span {
     cursor: pointer;
     margin-top: 3%;
     background: none;
-}
-
-#dates {
-    @include center();
-    margin-top: 5%;
-    height: 5vh;
-    width: 12vw;
-    text-align: center;
-    span {
-        color: $menu-color;
-        opacity: 1.0;
-        font-size: 0.8em;
-    }
-}
-
-#closeModal {
-    position: absolute;
-    left: 94%;
-    top: 4%;
-    background: none;
-    outline: none;
-    border: none;
-    color: $menu-color;
-    font-size: 1.3rem;
-    cursor: pointer;
-}
-
-
-// dark
-
-.dark {
-    .modifyForm {
-        background-color: $background-second-dark;
-        input {
-            background-color: $background-color-dark;
-            box-shadow: inset 0 0 1px gray;
-        }
-        .addButton {
-            background-color: $menu-color-dark;
-            color: $background-second-dark;
-            font-weight: 500;
-        }
     }
     #dates {
+        @include center();
+        top: -6%;
+        height: 5vh;
+        width: 12vw;
+        text-align: center;
         span {
-            color: $font-color-dark;
-            opacity: 0.5;
+            color: $menu-color;
+            opacity: 1.0;
+            font-size: 0.8em;
         }
     }
     #closeModal {
-        color: $menu-color-dark;
+        position: absolute;
+        left: 94%;
+        top: 4%;
+        background: none;
+        outline: none;
+        border: none;
+        color: $menu-color;
+        font-size: 1.4rem;
+        font-weight: 500;
+        cursor: pointer;
     }
 }
 
+// dark
+.dark {
+    #modifyContainer{
+        background-color: $background-second-dark;
+        .modifyForm {
+            input {
+                background-color: $background-color-dark;
+                box-shadow: inset 0 0 1px gray;
+            }
+            .addButton {
+                background-color: $menu-color-dark;
+                color: $background-second-dark;
+                font-weight: 500;
+            }
+        }
+        #dates {
+            span {
+                color: $font-color-dark;
+                opacity: 0.5;
+            }
+        }
+        #closeModal {
+            color: $menu-color-dark;
+        }
+    }
+}
 
 // end dark
 
