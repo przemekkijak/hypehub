@@ -8,7 +8,7 @@ function Modify(props) {
     const itemName = useRef(0);
     const itemBrand = useRef();
     const itemSize = useRef(0);
-    const itemBuyPrice2 = useRef(0);
+    const itemBuyPrice = useRef(0);
     const itemSellPrice = useRef(0);
     const itemEstimatedPrice = useRef(0);
     const soldOn = useRef("");
@@ -18,265 +18,199 @@ function Modify(props) {
     const itemInsert = useRef(0);
     const itemTrackingNumber = useRef(0);
     const shipCompany = useRef(0);
-    const data = [itemName,itemBrand, itemSize, itemBuyPrice2, itemSellPrice, itemEstimatedPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn];
+    const data = [itemName,itemBrand, itemSize, itemBuyPrice, itemSellPrice, itemEstimatedPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn];
 
 
   function handleSubmit(e) {
-      e.preventDefault();
-      let itemData = {
-        id: item.id,
-        name: itemName.current.value,
-        brand: itemBrand.current.value,
-        buyPrice: itemBuyPrice2.current.value,
-        sellPrice: itemSellPrice.current.value,
-        estimatedPrice: itemEstimatedPrice.current.value,
-        size: itemSize.current.value,
-        length: itemLength.current.value,
-        width: itemWidth.current.value,
-        insert: itemInsert.current.value,
-        soldOn: soldOn.current.value,
-        cond: itemCond.current.value,
-        trackingNumber: itemTrackingNumber.current.value,
-        shipCompany: shipCompany.current.value,
-        type: props.itemType,
-        ownerID: props.userID,
-      };
-      if(item.sold===0) {
-        itemData.sellPrice = 0;
-      }
-      if(item.type !== 1) {
-        itemData.length = 0;
-        itemData.width = 0;
-      }
-      if(item.type === 1 || item.type === 3) {
-        itemData.insert = 0;
-      }
-
-      var validateData = 0;
-      for (var element of data) {
-        let count = validateInput(element);
-          validateData += count;
-          if(validateData === data.length) {
-            axios.post('https://hypehub.pl/updateItem', {
-              item: itemData,
-            })
-            .then((res) => {
-              props.refreshItems();
-            })
-            props.handleModal();
-          }
-        }
-      }
-
-      function validateInput(input) {
-
-        var element = document.getElementById(input.current.id);
-        if(!element) {
-          return 1;
-        } else {
-        function success() {
-          element.style.border = "none";
-        }
-        function failed() {
-          element.style.border = "1px solid darkred";
-        }
-          switch(input.current.id) {
-            // Check each item field, if not passed test -> add red border
-            default:
-            case "itemName":
-            case "itemSize":
-            case "itemTrackingNumber":
-            case "shipCompany":
-            case "soldOn":
-            case "itemInsert":
-            case "itemBrand":
-              if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
-                success();
-                return 1;
-              } else {
-                failed();
-                return 0;
-              }
-              case "itemBuyPrice2":
-              case "itemSellPrice":
-              case "itemEstimatedPrice":
-              case "itemCond":
-              case "itemLength":
-              case "itemWidth":
-              if(/^[0-9]*$/.test(input.current.value)) {
-                success();
-                return 1;
-              } else {
-                failed();
-                return 0;
-              }
-           }
-        }
-      }
-
-      function getTracking(type) {
-        switch(type) {
-          default:
-          case "number":
-            if(item.trackingNumber === "undefined" || item.trackingNumber === null || item.trackingNumber === "") {
-              return "";
-            } else {
-              return item.trackingNumber;
-            }
-          case "company":
-            if(item.shipCompany === "") {
-              return "Brak";
-            } else {
-              return item.shipCompany;
-            }
-        }
-      }
-
-      function getPlatform() {
-        if(item.soldOn == null) {
-          return "";
-        }
-        else {
-          return item.soldOn;
-        }
-      }
-
-      function unSold() {
-        axios.post("https://hypehub.pl/unSold", {
-          id: item.id,
+    e.preventDefault();
+    let itemData = {
+      id: item.id,
+      name: itemName.current.value,
+      brand: itemBrand.current.value,
+      buyPrice: itemBuyPrice.current.value,
+      sellPrice: itemSellPrice.current.value,
+      estimatedPrice: itemEstimatedPrice.current.value,
+      size: itemSize.current.value,
+      length: itemLength.current.value,
+      width: itemWidth.current.value,
+      insert: itemInsert.current.value,
+      soldOn: soldOn.current.value,
+      cond: itemCond.current.value,
+      trackingNumber: itemTrackingNumber.current.value,
+      shipCompany: shipCompany.current.value,
+      type: props.itemType,
+      ownerID: props.userID,
+    };
+    if(item.sold===0) {
+      itemData.sellPrice = 0;
+    }
+    if(item.type !== 1) {
+      itemData.length = 0;
+      itemData.width = 0;
+    }
+    if(item.type === 1 || item.type === 3) {
+      itemData.insert = 0;
+    }
+    var validateData = 0;
+    for (var element of data) {
+      let count = validateInput(element);
+      validateData += count;
+      if(validateData === data.length) {
+        axios.post('https://hypehub.pl/updateItem', {
+          item: itemData,
         })
-        .then((res) => {
-          if(res.status === 200) {
+          .then(() => {
             props.refreshItems();
-            props.handleModal();
-          }
-        })
+          })
+        props.handleModal();
       }
+    }
+  }
 
-    return(
-        <div className={`modify ${localStorage.getItem('hypehubTheme' > 0 ? 'dark' : '')}`}>
-        <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
+  function validateInput(input) {
+    var element = document.getElementById(input.current.id);
+    if(!element) {
+      return 1;
+    } else {
+      function success() {
+        element.style.border = "none";
+      }
+      function failed() {
+        element.style.border = "1px solid darkred";
+      }
+      switch(input.current.id) {
+        // Check each item field, if not passed test -> add red border
+        default:
+        case "itemName":
+        case "itemSize":
+        case "itemTrackingNumber":
+        case "shipCompany":
+        case "soldOn":
+        case "itemInsert":
+        case "itemBrand":
+          if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
+            success();
+            return 1;
+            } else {
+              failed();
+              return 0;
+            }
+        case "itemBuyPrice2":
+        case "itemSellPrice":
+        case "itemEstimatedPrice":
+        case "itemCond":
+        case "itemLength":
+        case "itemWidth":
+          if(/^[0-9]*$/.test(input.current.value)) {
+            success();
+            return 1;
+          } else {
+            failed();
+            return 0;
+          }
+      }
+    }
+  }
 
-         <input
-          ref={itemName}
-          required
-          defaultValue={item.name}
-          spellCheck="false"
-          id="itemName"/>
-          <input
-          ref={itemBrand}
-          defaultValue={item.brand}
-          spellCheck="false"
-          id="itemBrand"/>
-
-          <input
-          ref={itemSize}
-          id="itemSize"
-          required
-          defaultValue={item.size}/>
-
-          {item.type === 1 && (
-            <>
-            <input
-            ref={itemLength}
-            required
-            id="itemLength"
-            defaultValue={item.length} />
-
-            <input
-            ref={itemWidth}
-            required
-            id="itemWidth"
-            defaultValue={item.width} />
-          </>
-          )}
-          {item.type === 2 && (
-            <>
-            <input
-            ref={itemInsert}
-            id="itemInsert"
-            defaultValue={item.shoeInsert} />
-            </>
-          )}
-
-          <input
-          ref={itemBuyPrice2}
-          required
-          id="itemBuyPrice"
-          defaultValue={item.buyPrice} />
-
-        {item.sold === 0 && (
-          <>
-          <input
-          ref={itemEstimatedPrice}
-          id="itemEstimatedPrice"
-          defaultValue={item.estimatedPrice} />
-          </>
-        )}
-        {item.sold === 1 && (
-          <>
-            <input
-            ref={itemSellPrice}
-            required
-            id="itemSellPrice"
-            defaultValue={item.sellPrice} />
-        </>
-        )}
-        {item.sold === 1 && (
-          <>
-            <input
-            ref={itemTrackingNumber}
-            id="itemTrackingNumber"
-            defaultValue={getTracking("number")}/>
-
-            <select ref={shipCompany} id="shipCompany" defaultValue={getTracking("company")}>
-              <option value=""></option>
-              <option value="dpd">DPD</option>
-              <option value="dhl">DHL</option>
-              <option value="pp">Poczta Polska</option>
-              <option value="ups">UPS</option>
-              <option value="inpost">InPost</option>
-          </select>
-          </>
-        )}
-
-        {item.sold === 1 && (
-          <>
-            <select ref={soldOn} id="soldOn" defaultValue={getPlatform()}>
-              <option value=""></option>
-              <option value="facebook">Facebook</option>
-              <option value="vinted">Vinted</option>
-              <option value="grailed">Grailed</option>
-              <option value="depop">Depop</option>
-              <option value="other">Inna</option>
-            </select>
-          </>
-        )}
-
-          <select ref={itemCond} id="itemCond" defaultValue={item.cond}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-        <button type="submit" className="addButton" value="Submit">Zapisz</button>
-      </form>
-      {item.sold === 1 &&
-          <button id="unSold" className="addButton" onClick={() => unSold()}>Wycofaj ze sprzedanych</button>
+  function getTracking(type) {
+    switch(type) {
+      default:
+      case "number":
+        if(item.trackingNumber === "undefined" || item.trackingNumber === null || item.trackingNumber === "") {
+          return "";
+        } else {
+          return item.trackingNumber;
         }
-        <div id="dates">
-          <span>Dodano: {item.createdAt.slice(0,10)}</span>
+        case "company":
+          if(item.shipCompany === "") {
+            return "Brak";
+          } else {
+            return item.shipCompany;
+          }
+    }
+  }
+
+  function getPlatform() {
+    if(item.soldOn == null) {
+      return "";
+    } else {
+      return item.soldOn;
+    }
+  }
+
+  function unSold() {
+    axios.post("https://hypehub.pl/unSold", {
+      id: item.id,
+    })
+      .then((res) => {
+        if(res.status === 200) {
+          props.refreshItems();
+          props.handleModal();
+        }
+      })
+  }
+
+  return(
+    <div className={`modify ${localStorage.getItem('hypehubTheme' > 0 ? 'dark' : '')}`}>
+    <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
+
+      <input ref={itemName} defaultValue={item.name} spellCheck="false" id="itemName" required/>
+      <input ref={itemBrand} defaultValue={item.brand} spellCheck="false" id="itemBrand"/>
+      <input ref={itemSize} defaultValue={item.size} id="itemSize" required/>
+
+      {item.type === 1 && ( //check if item is Cloth
+      <>
+      <input ref={itemLength} defaultValue={item.length} id="itemLength" required/>
+      <input ref={itemWidth} defaultValue={item.width} id="itemWidth" required/>
+      </>
+      )}
+      {item.type === 2 && ( //check if item is Shoe
+      <input ref={itemInsert} defaultValue={item.shoeInsert} id="itemInsert"/>
+      )}
+
+      <input ref={itemBuyPrice} defaultValue={item.buyPrice} id="itemBuyPrice" required/>
+
+      {item.sold === 0 && (
+      <input ref={itemEstimatedPrice} defaultValue={item.estimatedPrice} id="itemEstimatedPrice"/>
+      )}
+
+      {item.sold === 1 && (
+      <>
+      <input ref={itemSellPrice} defaultValue={item.sellPrice} id="itemSellPrice" required/>
+      <input ref={itemTrackingNumber} defaultValue={getTracking("number")} id="itemTrackingNumber"/>
+      <select ref={shipCompany} defaultValue={getTracking("company")}  id="shipCompany">
+        <option value=""></option>
+        <option value="dpd">DPD</option>
+        <option value="dhl">DHL</option>
+        <option value="pp">Poczta Polska</option>
+        <option value="ups">UPS</option>
+        <option value="inpost">InPost</option>
+      </select>
+      <select ref={soldOn} id="soldOn" defaultValue={getPlatform()}>
+        <option value=""></option>
+        <option value="facebook">Facebook</option>
+        <option value="vinted">Vinted</option>
+        <option value="grailed">Grailed</option>
+        <option value="depop">Depop</option>
+        <option value="other">Inna</option>
+      </select>
+      </>
+      )}
+      <input type="number" ref={itemCond} defaultValue={item.cond} id="itemCond" min="1" max="10"/>
+      <button type="submit" className="addButton">Zapisz</button>
+    </form>
+
+      {item.sold === 1 &&
+        <button id="unSold" className="addButton" onClick={() => unSold()}>Wycofaj ze sprzedanych</button>
+      }
+      <div id="dates">
+        <span>Dodano: {item.createdAt.slice(0,10)}</span>
           {item.sold === 1 && (
             <p><span>Sprzedano: {item.soldAt.slice(0,10)}</span></p>
           )}
-        </div>
       </div>
+      <button id="closeModal" onClick={() => props.handleModal()}>x</button>
+    </div>
     )
 }
 export default Modify;

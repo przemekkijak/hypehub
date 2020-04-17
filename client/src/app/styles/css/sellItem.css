@@ -8,8 +8,8 @@
   height: 40vh;
   display: grid;
   background-color: #e6e6e6;
-  border-top: 3px solid #1f3b4d;
-  border-radius: 3%;
+  border: none;
+  border-radius: 1%;
 }
 .sellContainer #sellForm {
   position: relative;
@@ -86,7 +86,7 @@
 
 .dark .sellContainer {
   background-color: #1a1a1a;
-  border-top: 3px solid #17b466;
+  border: 1px solid #505050;
 }
 .dark .sellContainer #sellForm #itemName {
   background-color: #262626;

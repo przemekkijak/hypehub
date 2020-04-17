@@ -3,6 +3,8 @@
 // Container
 .modify {
     position: relative;
+    border: 1px solid rgb(80,80,80);
+    border-radius: 1%;
   }
 
 span {
@@ -12,7 +14,7 @@ span {
 .modifyForm {
     position: relative;
     left: 50%;
-    top: 10%;
+    top: 8%;
     transform: translate(-50%);
     height: 85%;
     width: 85%;
@@ -136,6 +138,18 @@ span {
     }
 }
 
+#closeModal {
+    position: absolute;
+    left: 94%;
+    top: 4%;
+    background: none;
+    outline: none;
+    border: none;
+    color: $menu-color;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
 
 // dark
 
@@ -157,6 +171,9 @@ span {
             color: $font-color-dark;
             opacity: 0.5;
         }
+    }
+    #closeModal {
+        color: $menu-color-dark;
     }
 }
 

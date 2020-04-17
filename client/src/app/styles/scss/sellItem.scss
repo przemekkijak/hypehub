@@ -6,8 +6,8 @@
     height: 40vh;
     display: grid;
     background-color: $background-color;
-    border-top: 3px solid $menu-color;
-    border-radius: 3%;
+    border: none;
+    border-radius: 1%;
     #sellForm {
         position: relative;
         top: 5%;
@@ -64,7 +64,7 @@
 
     .sellContainer {
         background-color: $background-second-dark;
-        border-top: 3px solid $menu-color-dark;
+        border: 1px solid rgb(80,80,80);
         #sellForm {
             #itemName {
                 background-color: $background-color-dark;
