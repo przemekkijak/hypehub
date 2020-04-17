@@ -15,14 +15,14 @@
         @include center();
         padding-top: 4%;
         height: 100%;
-        width: 100%;
+        width: 80%;
         display: grid;
 
         input {
             @include center();
             text-align: center;
             height: 3.5vh;
-            width: 100%;
+            width: 120%;
             font-size: 12px;
             position: relative;
             background: none;
@@ -43,12 +43,6 @@
                 background-color: rgb(55, 59, 57);
             }
         }
-        span {
-            font-size: 11px;
-            position: absolute;
-            opacity: 0.8;
-            color: rgba(177, 172, 172, 0.664);
-        }
         .addButton {
             @include center();
             cursor: pointer;
@@ -58,54 +52,90 @@
             color: $font-color-dark;
             background-color: $menu-color;
         }
-
+        .fieldSpan {
+            position: absolute;
+            top: 3%;
+            left: 12%;
+            font-size: 0.8rem;
+            color: rgb(150,150,150);
+        }
         #itemName {
             grid-row: 1;
-            grid-column: 2/3;
+            grid-column: 2;
         }
         #itemBrand {
             grid-row: 2;
-            grid-column: 2/3;
+            grid-column: 2;
         }
         #itemSize {
             grid-row: 3;
             grid-column: 2/3;
         }
         #itemLength {
-            width: 50%;
+            width: 60%;
+            left: 120%;
             grid-row: 4;
-            grid-column: 2;
+            grid-column: 1;
         }
         #itemWidth {
             grid-row: 4;
-            position: relative;
-            left: -35%;
-            width: 50%;
+            width: 60%;
+            left: -20%;
             grid-column: 3;
         }
         #itemInsert {
             grid-row: 4;
-            grid-column: 2/3;
+            grid-column: 2;
         }
         #itemCond {
             grid-row: 5;
-            position: relative;
-            width: 100%;
-            grid-column: 2/3;
+            grid-column: 2;
         }
         #itemBuyPrice {
             grid-row: 6;
-            grid-column: 2/3;
+            grid-column: 2;
         }
         #itemEstimatedPrice {
-            position: relative;
             grid-row: 7;
-            grid-column: 2/3;
+            grid-column: 2;
         }
         #itemSellPrice {
             grid-row: 5;
             grid-column: 2;
         }
+        // Names for fields
+        #nameSpan {
+            grid-row: 1;
+        }
+        #brandSpan {
+            grid-row: 2;
+        }
+        #sizeSpan {
+            grid-row: 3;
+        }
+        #lengthSpan {
+            grid-row: 4;
+        }
+        #widthSpan {
+            grid-row: 4;
+            grid-column: 3;
+            left: 30%;
+        }
+        #insertSpan {
+            grid-row: 4;
+            left: 2%;
+        }
+        #condSpan {
+            grid-row: 5;
+        }
+        #buySpan {
+            grid-row: 6;
+            left: 7%;
+        }
+        #estimatedSpan {
+            grid-row: 7;
+        }
+
     }
     #unSold {
     width: 15vw;

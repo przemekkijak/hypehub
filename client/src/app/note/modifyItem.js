@@ -177,29 +177,43 @@ function Modify(props) {
     <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
 
       <input ref={itemName} defaultValue={item.name} spellCheck="false" id="itemName" required/>
+      <span id="nameSpan" className="fieldSpan">Nazwa</span>
       <input ref={itemBrand} defaultValue={item.brand} spellCheck="false" id="itemBrand"/>
+      <span id="brandSpan" className="fieldSpan">Marka</span>
       <input ref={itemSize} defaultValue={item.size} id="itemSize" required/>
+      <span id="sizeSpan" className="fieldSpan">Rozmiar</span>
 
       {item.type === 1 && ( //check if item is Cloth
       <>
       <input ref={itemLength} defaultValue={item.length} id="itemLength" required/>
+      <span id="lengthSpan" className="fieldSpan">Długość</span>
       <input ref={itemWidth} defaultValue={item.width} id="itemWidth" required/>
+      <span id="widthSpan" className="fieldSpan">Szerokość</span>
       </>
       )}
       {item.type === 2 && ( //check if item is Shoe
+      <>
       <input ref={itemInsert} defaultValue={item.shoeInsert} id="itemInsert"/>
+      <span id="insertSpan" className="fieldSpan">Długość wkładki</span>
+      </>
       )}
 
       <input ref={itemBuyPrice} defaultValue={item.buyPrice} id="itemBuyPrice" required/>
+      <span id="buySpan" className="fieldSpan">Cena kupna</span>
 
       {item.sold === 0 && (
+      <>
       <input ref={itemEstimatedPrice} defaultValue={item.estimatedPrice} id="itemEstimatedPrice"/>
+      <span id="estimatedSpan" className="fieldSpan">Wartość</span>
+      </>
       )}
 
       {item.sold === 1 && (
       <>
       <input ref={itemSellPrice} defaultValue={item.sellPrice} id="itemSellPrice" required/>
+      <span id="sellSpan" className="fieldSpan">Cena sprzedaży</span>
       <input ref={itemTrackingNumber} defaultValue={getTracking("number")} id="itemTrackingNumber"/>
+      <span id="trackingspan" className="fieldSpan">Numer paczki</span>
       <select ref={shipCompany} defaultValue={getTracking("company")}  id="shipCompany">
         <option value=""></option>
         <option value="dpd">DPD</option>
@@ -208,6 +222,7 @@ function Modify(props) {
         <option value="ups">UPS</option>
         <option value="inpost">InPost</option>
       </select>
+      <span id="shipSpan" className="fieldSpan">Przewoźnik</span>
       <select ref={soldOn} id="soldOn" defaultValue={getPlatform()}>
         <option value=""></option>
         <option value="facebook">Facebook</option>
@@ -216,9 +231,11 @@ function Modify(props) {
         <option value="depop">Depop</option>
         <option value="other">Inna</option>
       </select>
+      <span id="platformSpan" className="fieldSpan">Platforma sprzedaży</span>
       </>
       )}
       <input type="number" ref={itemCond} defaultValue={item.cond} id="itemCond" min="1" max="10"/>
+      <span id="condSpan" className="fieldSpan">Stan</span>
       <button type="submit" className="addButton">Zapisz</button>
     </form>
 

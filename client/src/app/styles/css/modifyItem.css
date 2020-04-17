@@ -20,7 +20,7 @@
   width: 50%;
   padding-top: 4%;
   height: 100%;
-  width: 100%;
+  width: 80%;
   display: grid;
 }
 #modifyContainer .modifyForm input {
@@ -30,7 +30,7 @@
   width: 50%;
   text-align: center;
   height: 3.5vh;
-  width: 100%;
+  width: 120%;
   font-size: 12px;
   position: relative;
   background: none;
@@ -51,12 +51,6 @@
 #modifyContainer .modifyForm select option {
   background-color: #373b39;
 }
-#modifyContainer .modifyForm span {
-  font-size: 11px;
-  position: absolute;
-  opacity: 0.8;
-  color: rgba(177, 172, 172, 0.664);
-}
 #modifyContainer .modifyForm .addButton {
   position: relative;
   left: 50%;
@@ -69,52 +63,87 @@
   color: rgba(255, 255, 255, 0.85);
   background-color: #1f3b4d;
 }
+#modifyContainer .modifyForm .fieldSpan {
+  position: absolute;
+  top: 3%;
+  left: 12%;
+  font-size: 0.8rem;
+  color: #969696;
+}
 #modifyContainer .modifyForm #itemName {
   grid-row: 1;
-  grid-column: 2/3;
+  grid-column: 2;
 }
 #modifyContainer .modifyForm #itemBrand {
   grid-row: 2;
-  grid-column: 2/3;
+  grid-column: 2;
 }
 #modifyContainer .modifyForm #itemSize {
   grid-row: 3;
   grid-column: 2/3;
 }
 #modifyContainer .modifyForm #itemLength {
-  width: 50%;
+  width: 60%;
+  left: 120%;
   grid-row: 4;
-  grid-column: 2;
+  grid-column: 1;
 }
 #modifyContainer .modifyForm #itemWidth {
   grid-row: 4;
-  position: relative;
-  left: -35%;
-  width: 50%;
+  width: 60%;
+  left: -20%;
   grid-column: 3;
 }
 #modifyContainer .modifyForm #itemInsert {
   grid-row: 4;
-  grid-column: 2/3;
+  grid-column: 2;
 }
 #modifyContainer .modifyForm #itemCond {
   grid-row: 5;
-  position: relative;
-  width: 100%;
-  grid-column: 2/3;
+  grid-column: 2;
 }
 #modifyContainer .modifyForm #itemBuyPrice {
   grid-row: 6;
-  grid-column: 2/3;
+  grid-column: 2;
 }
 #modifyContainer .modifyForm #itemEstimatedPrice {
-  position: relative;
   grid-row: 7;
-  grid-column: 2/3;
+  grid-column: 2;
 }
 #modifyContainer .modifyForm #itemSellPrice {
   grid-row: 5;
   grid-column: 2;
+}
+#modifyContainer .modifyForm #nameSpan {
+  grid-row: 1;
+}
+#modifyContainer .modifyForm #brandSpan {
+  grid-row: 2;
+}
+#modifyContainer .modifyForm #sizeSpan {
+  grid-row: 3;
+}
+#modifyContainer .modifyForm #lengthSpan {
+  grid-row: 4;
+}
+#modifyContainer .modifyForm #widthSpan {
+  grid-row: 4;
+  grid-column: 3;
+  left: 30%;
+}
+#modifyContainer .modifyForm #insertSpan {
+  grid-row: 4;
+  left: 2%;
+}
+#modifyContainer .modifyForm #condSpan {
+  grid-row: 5;
+}
+#modifyContainer .modifyForm #buySpan {
+  grid-row: 6;
+  left: 7%;
+}
+#modifyContainer .modifyForm #estimatedSpan {
+  grid-row: 7;
 }
 #modifyContainer #unSold {
   width: 15vw;
