@@ -61,8 +61,7 @@ function App() {
   }
 
   function refreshItems() {
-    axios
-      .post(`${env}/getCurrentItems`, {
+    axios.post(`${env}/getCurrentItems`, {
         id: store.getState().user.uid,
       })
       .then((res) => {
@@ -70,8 +69,7 @@ function App() {
         loadingItems(true);
       });
 
-    axios
-      .post(`${env}/getSoldItems`, {
+    axios.post(`${env}/getSoldItems`, {
         id: store.getState().user.uid,
       })
       .then((res) => {
@@ -132,7 +130,6 @@ function App() {
     <Router>
     <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
       <div className={`App ${localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}`} id="root">
-
         {isLoged ? (
           <>
             <div className="navigationContainer">
@@ -158,7 +155,6 @@ function App() {
                   to="bulk"
                 >
                   <div className="navElementContainer">
-
                     <BulkSVG/>
                     <span>Bulk</span>
                   </div>

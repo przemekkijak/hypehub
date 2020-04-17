@@ -13,19 +13,20 @@ function Modify(props) {
   const itemSellPrice = useRef(0);
   const itemEstimatedPrice = useRef(0);
   const soldOn = useRef("");
+  const soldFor = useRef(0);
   const itemCond = useRef(0);
   const itemLength = useRef(0);
   const itemWidth = useRef(0);
   const itemInsert = useRef(0);
   const itemTrackingNumber = useRef(0);
   const shipCompany = useRef(0);
-  const data = [itemName,itemBrand, itemSize, itemBuyPrice, itemSellPrice, itemEstimatedPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn];
+  const data = [itemName,itemBrand, itemSize, itemBuyPrice, itemSellPrice, itemEstimatedPrice, itemCond, itemLength, itemWidth, itemInsert, itemTrackingNumber, shipCompany, soldOn, soldFor];
 
   useEffect(() => {
     if(loaded) {
       let container = document.getElementById("modifyContainer");
       if(item.sold === 1) {
-        container.style.height = "55vh";
+        container.style.height = "60vh";
         container.style.width = "35vw";
       }
     } else {
@@ -106,6 +107,7 @@ function Modify(props) {
         case "itemTrackingNumber":
         case "shipCompany":
         case "soldOn":
+        case "soldFor":
         case "itemInsert":
         case "itemBrand":
           if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
@@ -213,7 +215,7 @@ function Modify(props) {
       <input ref={itemSellPrice} defaultValue={item.sellPrice} id="itemSellPrice" required/>
       <span id="sellSpan" className="fieldSpan">Cena sprzedaży</span>
       <input ref={itemTrackingNumber} defaultValue={getTracking("number")} id="itemTrackingNumber"/>
-      <span id="trackingspan" className="fieldSpan">Numer paczki</span>
+      <span id="trackingSpan" className="fieldSpan">Numer paczki</span>
       <select ref={shipCompany} defaultValue={getTracking("company")}  id="shipCompany">
         <option value=""></option>
         <option value="dpd">DPD</option>
@@ -232,6 +234,8 @@ function Modify(props) {
         <option value="other">Inna</option>
       </select>
       <span id="platformSpan" className="fieldSpan">Platforma sprzedaży</span>
+      <input ref={soldFor} defaultValue={item.soldFor} id="itemSoldFor" />
+      <span id="soldForSpan" className="fieldSpan">Kupujący</span>
       </>
       )}
       <input type="number" ref={itemCond} defaultValue={item.cond} id="itemCond" min="1" max="10"/>
