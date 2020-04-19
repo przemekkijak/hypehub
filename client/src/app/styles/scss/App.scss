@@ -57,6 +57,7 @@ body {
     .naviElement {
       span {
         position: relative;
+        left: 5%;
         top: 35%;
         font-weight: 400;
         color: $font-color;
@@ -65,9 +66,12 @@ body {
       }
       .navElementContainer {
         cursor: pointer;
-        width: 10vw;
-        height: 7vh;
+        position: relative;
+        left: 5%;
+        width: 9vw;
+        height: 6.5vh;
         border: none;
+        border-radius: 4%;
         background-color: none;
       }
     }
@@ -87,7 +91,7 @@ body {
       position: absolute;
       height: 2.6vh;
       width: 1.3vw;
-      margin: 11% 0% 0% -20%;
+      margin: 11% 0% 0% -15%;
       fill: $font-color;
     }
     #userIcon {
@@ -140,26 +144,30 @@ body {
     #navis {
       .naviElement {
         span {
-          color: $font-color-dark;
+          color: rgb(180,180,180);
+          font-size: 0.9rem;
+          font-weight: 500;
         }
       }
       .navElementContainer {
         background-color: $background-second-dark;
       }
+      .navIcon {
+        fill: rgb(180,180,180);
+      }
       .navActive {
         .navElementContainer {
-          background-color: $background-color-dark;
-          border-right: 3px solid $menu-color-dark;
+          background-color: $menu-color-dark;
+          border: none;
+          box-shadow: inset 0 0 2px 1px rgb(50,50,50);
+          opacity: 0.95;
         }
         span {
-          color: $menu-color-dark;
+          color: $background-second-dark;
         }
         .navIcon {
-          fill: $menu-color-dark;
+          fill: $background-second-dark;
         }
-      }
-      .navIcon {
-        fill: $font-color-dark;
       }
     }
     #toggleTheme {

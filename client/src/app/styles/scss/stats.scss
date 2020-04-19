@@ -10,6 +10,8 @@
         position: absolute;
         width: 5.5vw;
         height: 5.5vh;
+        left: -5%;
+        top: 25%;
         fill: $font-color;
     }
 
@@ -32,8 +34,6 @@
             height: 15vh;
             #profitSVG {
                 fill: $menu-color;
-                left: -5%;
-                top: 25%;
             }
             p {
                 color: $font-color;
@@ -61,8 +61,9 @@
             height: 15vh;
             #currentSVG {
                 position: absolute;
-                width: 5vw;
-                fill: $menu-color-dark;
+                left: -5%;
+                top: 25%;
+                fill: $menu-color;
             }
             p {
                 color: $menu-color;
@@ -97,6 +98,10 @@
             border-radius: 5%;
             width: 14vw;
             height: 15vh;
+            #soldSVG {
+                position: absolute;
+                left: -5%;
+            }
             p {
                 color: $menu-color;
                 &:first-of-type {

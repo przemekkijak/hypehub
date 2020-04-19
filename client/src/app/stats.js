@@ -3,7 +3,7 @@ import "./styles/css/stats.css";
 import PlatformStats from "./stats/platformStats";
 import MoneyStats from "./stats/moneyStats";
 import store from "../app/redux/store/index";
-import {StatsProfitSVG} from '../app/svg/icons.js';
+import {StatsProfitSVG, StatsCurrentSVG, StatsSoldSVG} from '../app/svg/icons.js';
 
 
 function Stats(props) {
@@ -38,12 +38,14 @@ function Stats(props) {
 
 
           <div id="currentItems">
+            <StatsCurrentSVG/>
             <p>Posiadane przedmioty</p>
             <p>{store.getState().currentItems.length}</p>
             <p>Wartość: {moneyValue(store.getState().currentItems, 1)} PLN</p>
           </div>
 
           <div id="soldItems">
+            <StatsSoldSVG/>
             <p>Sprzedane przedmioty</p>
             <p>{store.getState().soldItems.length}</p>
           </div>
@@ -60,13 +62,6 @@ function Stats(props) {
         <PlatformStats />
       </div>
 
-        {/* <div id="month">
-          <MoneyStats period="30" />
-        </div>
-
-        <div id="year">
-          <MoneyStats period="365" />
-        </div> */}
       </div>
 
 
