@@ -23,20 +23,18 @@
         display: grid;
         grid-template-columns: repeat(3, 33%);
         margin-top: 4%;
-
-
-        #totalProfit {
+        .statsBox {
             background-color: $background-second;
-            position: relative;
             border-radius: 2%;
-            border-bottom: 1px solid $menu-color;
             width: 14vw;
             height: 15vh;
-            #profitSVG {
-                fill: $menu-color;
-            }
             p {
                 color: $font-color;
+            }
+        }
+        #totalProfit {
+            position: relative;
+            p {
                 position: relative;
                 &:first-of-type {
                     font-size: 1.7rem;
@@ -54,19 +52,8 @@
         }
 
         #currentItems {
-            background-color: $background-second;
             position: relative;
-            border-radius: 5%;
-            width: 14vw;
-            height: 15vh;
-            #currentSVG {
-                position: absolute;
-                left: -5%;
-                top: 25%;
-                fill: $menu-color;
-            }
             p {
-                color: $menu-color;
                 position: relative;
                 top: 30%;
                 font-size: 1.4rem;
@@ -93,17 +80,8 @@
         }
 
         #soldItems {
-            background-color: $background-second;
             position: relative;
-            border-radius: 5%;
-            width: 14vw;
-            height: 15vh;
-            #soldSVG {
-                position: absolute;
-                left: -5%;
-            }
             p {
-                color: $menu-color;
                 &:first-of-type {
                     position: relative;
                     top: 25%;
@@ -123,12 +101,15 @@
                 width: 10vh;
             }
         }
-
     }
 
-
-
     #moneyStats {
+        .statsChart {
+            position: relative;
+            height: 36.5vh;
+            width: 35vw;
+            border-radius: 1%;
+        }
         position: relative;
         top: 15%;
         display: grid;
@@ -136,31 +117,24 @@
         #platform {
             position: relative;
             grid-row: 1;
-            height: 36.5vh;
-            width: 35vw;
             left: 10%;
-            border-radius: 2%;
         }
         #week {
             position: relative;
-            width: 35vw;
-            height: 36.5vh;
             grid-row: 1;
             grid-column: 2;
-            border-radius: 2%;
         }
     }
 }
 
     .dark {
         #statsContainer {
+            .statsSVG {
+                fill: $menu-color-dark;
+            }
             #details {
                 #totalProfit {
                     background-color: $background-second-dark;
-                    border-bottom: 1px solid $menu-color-dark;
-                    #profitSVG {
-                        fill: $menu-color-dark;
-                    }
                     p {
                         color: $font-color-dark;
                         &:last-of-type {
@@ -170,14 +144,23 @@
                 }
                 #currentItems {
                     background-color: $background-second-dark;
+                    #currentSVG {
+                        fill: rgb(85, 84, 175);
+                    }
                     p {
                         color: $font-color-dark;
                         &:last-of-type {
                             border: none;
+                            color: $menu-color4-dark;
+                            top: 30%;
+                            left: 5%;
                         }
                     }
                 }
                 #soldItems {
+                    #soldSVG {
+                        fill: rgb(125, 128, 115);
+                    }
                     background-color: $background-second-dark;
                     p {
                         color: $font-color-dark;

@@ -30,21 +30,21 @@ function Stats(props) {
 
       <div id="details">
 
-        <div id="totalProfit">
+        <div id="totalProfit" className="statsBox">
           <StatsProfitSVG/>
           <p>{moneyValue(store.getState().soldItems, 2)} PLN</p>
           <p>Całkowity zysk</p>
         </div>
 
 
-          <div id="currentItems">
+          <div id="currentItems" className="statsBox">
             <StatsCurrentSVG/>
             <p>Posiadane przedmioty</p>
             <p>{store.getState().currentItems.length}</p>
             <p>Wartość: {moneyValue(store.getState().currentItems, 1)} PLN</p>
           </div>
 
-          <div id="soldItems">
+          <div id="soldItems" className="statsBox">
             <StatsSoldSVG/>
             <p>Sprzedane przedmioty</p>
             <p>{store.getState().soldItems.length}</p>
@@ -54,11 +54,11 @@ function Stats(props) {
 
 
       <div id="moneyStats">
-        <div id="week">
+        <div id="week" className="statsChart">
           <MoneyStats period="7" />
         </div>
 
-        <div id="platform">
+        <div id="platform" className="statsChart">
         <PlatformStats />
       </div>
 

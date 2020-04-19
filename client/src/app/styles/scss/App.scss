@@ -78,13 +78,14 @@ body {
     .navActive {
       .navElementContainer {
         border: none;
-        border-right: 5px solid $menu-color;
-        background-color: $background-color;
+        background-color: $menu-color;
         @include transition(background-color 0.5s ease);
       }
       span {
-        font-size: 1.0rem;
-        color: rgb(26,54,72);
+        color: $background-second;
+      }
+      .navIcon {
+        fill: $background-second;
       }
     }
     .navIcon {
@@ -159,7 +160,7 @@ body {
         .navElementContainer {
           background-color: $menu-color-dark;
           border: none;
-          box-shadow: inset 0 0 2px 1px rgb(50,50,50);
+          box-shadow: inset 0 0 2px 2px $background-second-dark;
           opacity: 0.95;
         }
         span {

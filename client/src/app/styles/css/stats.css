@@ -25,19 +25,19 @@
   grid-template-columns: repeat(3, 33%);
   margin-top: 4%;
 }
-#statsContainer #details #totalProfit {
+#statsContainer #details .statsBox {
   background-color: #f2f2f2;
-  position: relative;
   border-radius: 2%;
-  border-bottom: 1px solid #1f3b4d;
   width: 14vw;
   height: 15vh;
 }
-#statsContainer #details #totalProfit #profitSVG {
-  fill: #1f3b4d;
+#statsContainer #details .statsBox p {
+  color: #1f3b4d;
+}
+#statsContainer #details #totalProfit {
+  position: relative;
 }
 #statsContainer #details #totalProfit p {
-  color: #1f3b4d;
   position: relative;
 }
 #statsContainer #details #totalProfit p:first-of-type {
@@ -52,20 +52,9 @@
   color: rgba(150, 150, 150, 0.952);
 }
 #statsContainer #details #currentItems {
-  background-color: #f2f2f2;
   position: relative;
-  border-radius: 5%;
-  width: 14vw;
-  height: 15vh;
-}
-#statsContainer #details #currentItems #currentSVG {
-  position: absolute;
-  left: -5%;
-  top: 25%;
-  fill: #1f3b4d;
 }
 #statsContainer #details #currentItems p {
-  color: #1f3b4d;
   position: relative;
   top: 30%;
   font-size: 1.4rem;
@@ -90,18 +79,7 @@
   width: 10vh;
 }
 #statsContainer #details #soldItems {
-  background-color: #f2f2f2;
   position: relative;
-  border-radius: 5%;
-  width: 14vw;
-  height: 15vh;
-}
-#statsContainer #details #soldItems #soldSVG {
-  position: absolute;
-  left: -5%;
-}
-#statsContainer #details #soldItems p {
-  color: #1f3b4d;
 }
 #statsContainer #details #soldItems p:first-of-type {
   position: relative;
@@ -126,29 +104,28 @@
   display: grid;
   height: 60vh;
 }
+#statsContainer #moneyStats .statsChart {
+  position: relative;
+  height: 36.5vh;
+  width: 35vw;
+  border-radius: 1%;
+}
 #statsContainer #moneyStats #platform {
   position: relative;
   grid-row: 1;
-  height: 36.5vh;
-  width: 35vw;
   left: 10%;
-  border-radius: 2%;
 }
 #statsContainer #moneyStats #week {
   position: relative;
-  width: 35vw;
-  height: 36.5vh;
   grid-row: 1;
   grid-column: 2;
-  border-radius: 2%;
 }
 
+.dark #statsContainer .statsSVG {
+  fill: #17b466;
+}
 .dark #statsContainer #details #totalProfit {
   background-color: #1a1a1a;
-  border-bottom: 1px solid #17b466;
-}
-.dark #statsContainer #details #totalProfit #profitSVG {
-  fill: #17b466;
 }
 .dark #statsContainer #details #totalProfit p {
   color: rgba(255, 255, 255, 0.85);
@@ -159,14 +136,23 @@
 .dark #statsContainer #details #currentItems {
   background-color: #1a1a1a;
 }
+.dark #statsContainer #details #currentItems #currentSVG {
+  fill: #5554af;
+}
 .dark #statsContainer #details #currentItems p {
   color: rgba(255, 255, 255, 0.85);
 }
 .dark #statsContainer #details #currentItems p:last-of-type {
   border: none;
+  color: rgba(150, 150, 150, 0.952);
+  top: 30%;
+  left: 5%;
 }
 .dark #statsContainer #details #soldItems {
   background-color: #1a1a1a;
+}
+.dark #statsContainer #details #soldItems #soldSVG {
+  fill: #7d8073;
 }
 .dark #statsContainer #details #soldItems p {
   color: rgba(255, 255, 255, 0.85);

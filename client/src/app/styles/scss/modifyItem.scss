@@ -187,13 +187,15 @@
 
     }
     #unSold {
-    width: 10vw;
-    height: 3.5vh;
-    border: 1px solid $menu-color4;
-    @include center();
-    cursor: pointer;
-    margin-top: 3%;
-    background: none;
+        @include center();
+        color: $menu-color;
+        width: 14vw;
+        height: 3.5vh;
+        border: 1px solid $menu-color;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 3%;
+        background: none;
     }
     #dates {
         @include center();

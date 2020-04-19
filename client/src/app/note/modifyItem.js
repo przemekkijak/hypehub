@@ -244,7 +244,7 @@ function Modify(props) {
     </form>
 
       {item.sold === 1 &&
-        <button id="unSold" className="addButton" onClick={() => unSold()}>Wycofaj ze sprzedanych</button>
+        <button id="unSold" onClick={() => unSold()}>Wycofaj ze sprzedanych</button>
       }
       <div id="dates">
         <span>Dodano: {item.createdAt.slice(0,10)}</span>

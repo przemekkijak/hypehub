@@ -193,13 +193,15 @@
   left: 20%;
 }
 #modifyContainer #unSold {
-  width: 10vw;
-  height: 3.5vh;
-  border: 1px solid #bebebe;
   position: relative;
   left: 50%;
   transform: translate(-50%);
   width: 50%;
+  color: #1f3b4d;
+  width: 14vw;
+  height: 3.5vh;
+  border: 1px solid #1f3b4d;
+  border-radius: 10px;
   cursor: pointer;
   margin-top: 3%;
   background: none;
