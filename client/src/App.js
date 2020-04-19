@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Note from "./app/note.js";
 import Stats from "./app/stats.js";
 import Resell from "./app/resell.js";

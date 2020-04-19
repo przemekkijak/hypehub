@@ -30,6 +30,7 @@
   border-radius: 2%;
   width: 14vw;
   height: 15vh;
+  border: 1px solid rgba(20, 40, 60, 0.3);
 }
 #statsContainer #details .statsBox p {
   color: #1f3b4d;
@@ -66,10 +67,10 @@
   font-size: 0.9rem;
 }
 #statsContainer #details #currentItems p:last-of-type {
-  border-top: 1px solid #1f3b4d;
   padding-top: 4%;
   position: relative;
-  top: 44%;
+  top: 30%;
+  left: 5%;
   font-size: 0.9rem;
 }
 #statsContainer #details #currentItems .detailsIcon {
@@ -109,6 +110,7 @@
   height: 36.5vh;
   width: 35vw;
   border-radius: 1%;
+  background-color: #f2f2f2;
 }
 #statsContainer #moneyStats #platform {
   position: relative;
@@ -123,6 +125,9 @@
 
 .dark #statsContainer .statsSVG {
   fill: #17b466;
+}
+.dark #statsContainer #details .statsBox {
+  border: 1px solid #464646;
 }
 .dark #statsContainer #details #totalProfit {
   background-color: #1a1a1a;
@@ -157,10 +162,7 @@
 .dark #statsContainer #details #soldItems p {
   color: rgba(255, 255, 255, 0.85);
 }
-.dark #statsContainer #moneyStats #platform {
-  background-color: #1a1a1a;
-}
-.dark #statsContainer #moneyStats #week {
+.dark #statsContainer #moneyStats .statsChart {
   background-color: #1a1a1a;
 }
 

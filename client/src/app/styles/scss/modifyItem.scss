@@ -247,6 +247,10 @@
                 opacity: 0.5;
             }
         }
+        #unSold {
+            color: $menu-color4;
+            border: 1px solid $menu-color4-dark;
+        }
         #closeModal {
             color: $menu-color-dark;
         }

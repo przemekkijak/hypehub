@@ -125,6 +125,7 @@
   background-repeat: no-repeat;
 }
 .noteTableNavi #search #searchInput {
+  color: #262626;
   position: relative;
   top: -10%;
   height: 5vh;

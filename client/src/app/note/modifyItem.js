@@ -56,6 +56,7 @@ function Modify(props) {
       width: itemWidth.current.value,
       insert: itemInsert.current.value,
       soldOn: soldOn.current.value,
+      soldFor: soldFor.current.value,
       cond: itemCond.current.value,
       trackingNumber: itemTrackingNumber.current.value,
       shipCompany: shipCompany.current.value,

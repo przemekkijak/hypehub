@@ -42,7 +42,7 @@ body {
   position: absolute;
   visibility: hidden;
   top: 15%;
-  left: 20%;
+  left: 25%;
 }
 .navigationContainer #todayProfit p:last-of-type {
   margin-top: 5%;

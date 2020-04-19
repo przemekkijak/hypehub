@@ -28,6 +28,7 @@
             border-radius: 2%;
             width: 14vw;
             height: 15vh;
+            border: 1px solid rgba(20, 40, 60, 0.3);
             p {
                 color: $font-color;
             }
@@ -64,10 +65,10 @@
                     font-size: 0.9rem;
                 }
                 &:last-of-type {
-                    border-top: 1px solid $menu-color;
                     padding-top: 4%;
                     position: relative;
-                    top: 44%;
+                    top: 30%;
+                    left: 5%;
                     font-size: 0.9rem;
                 }
             }
@@ -109,6 +110,7 @@
             height: 36.5vh;
             width: 35vw;
             border-radius: 1%;
+            background-color: $background-second;
         }
         position: relative;
         top: 15%;
@@ -132,7 +134,11 @@
             .statsSVG {
                 fill: $menu-color-dark;
             }
+
             #details {
+                .statsBox {
+                    border: 1px solid rgb(70,70,70);
+                }
                 #totalProfit {
                     background-color: $background-second-dark;
                     p {
@@ -169,10 +175,7 @@
             }
 
             #moneyStats {
-                #platform {
-                    background-color: $background-second-dark;
-                }
-                #week {
+                .statsChart {
                     background-color: $background-second-dark;
                 }
             }

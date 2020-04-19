@@ -253,6 +253,10 @@
   color: rgba(255, 255, 255, 0.85);
   opacity: 0.5;
 }
+.dark #modifyContainer #unSold {
+  color: #bebebe;
+  border: 1px solid rgba(150, 150, 150, 0.952);
+}
 .dark #modifyContainer #closeModal {
   color: #17b466;
 }
