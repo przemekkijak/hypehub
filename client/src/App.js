@@ -30,12 +30,11 @@ function App() {
     }
     let token = cookies.get("hhtkn");
     if (token !== null) {
-      axios
-        .post(`${env}/checkToken`, {
+      axios.post(`${env}/checkToken`, {
           token: token,
         })
         .then((res) => {
-          store.dispatch(setUser({uid: res.data.uid}));
+          store.dispatch(setUser({uid: res.data.uid, isLoged: true}));
           refreshItems();
           setLoged(true);
         });
@@ -146,17 +145,6 @@ function App() {
                   <div className="navElementContainer">
                     <ShirtSVG/>
                     <span>Itemy</span>
-                  </div>
-                </NavLink>
-
-                <NavLink
-                  className="link naviElement"
-                  activeClassName="navActive"
-                  to="bulk"
-                >
-                  <div className="navElementContainer">
-                    <BulkSVG/>
-                    <span>Bulk</span>
                   </div>
                 </NavLink>
 

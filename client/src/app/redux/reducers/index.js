@@ -3,8 +3,8 @@ import { setCurrentItems, setSoldItems, setUserData } from "../constants/action-
 
 const initialState = {
     user: {
+        isLoged: false,
         uid: 0,
-        theme: 0
     },
     currentItems: [],
     soldItems: [],

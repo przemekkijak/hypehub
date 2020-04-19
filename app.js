@@ -55,6 +55,11 @@ pool.getConnection(function(err, connection) {
       } if(results.length > 0) {
         bcrypt.compare(password, results[0].password, (error, result) => {
           if(result === true) {
+            pool.query('UPDATE users SET lastLogged=CURRENT_TIMESTAMP where id="'+results[0].id+'"', (error) => {
+              if(error) {
+                throw error;
+              }
+            });
             token = jwt.sign({uid: results[0].id}, process.env.jwtSecret);
             res.send({uid: results[0].id, token: token});
           }
