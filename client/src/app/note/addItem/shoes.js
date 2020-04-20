@@ -94,11 +94,12 @@ function AddShoes(props) {
       <form ref={formBox} onSubmit={handleSubmit} id="addShoesForm" autoComplete="off">
           <input
           ref={itemName}
-          autoFocus={true}
+          // autoFocus={true}
           required
           id="itemName"
           className="addInput"
           spellCheck="false"
+          autoFocus
           placeholder="Nazwa"/>
 
           <input
@@ -121,6 +122,7 @@ function AddShoes(props) {
           placeholder="Dlugosc wkladki (cm)"/>
 
           <input
+          type="number"
           ref={itemPrice}
           required
           id="itemPrice"
@@ -128,6 +130,7 @@ function AddShoes(props) {
           placeholder="Cena"/>
 
           <input
+          type="number"
           ref={itemEstimatedPrice}
           id="itemEstimatedPrice"
           className="addInput"
@@ -135,6 +138,7 @@ function AddShoes(props) {
           />
 
           <input
+          type="number"
           ref={itemCond}
           required
           id="itemCond"

@@ -88,7 +88,7 @@ function AddAccessories(props) {
 
   return (
     <>
-      <form ref={formBox} onSubmit={handleSubmit} id="addAccForm" autoComplete="off">
+      <form ref={formBox} onSubmit={handleSubmit} id="addAccForm">
           <input
           ref={itemName}
           autoFocus={true}
@@ -114,17 +114,20 @@ function AddAccessories(props) {
           <input
           ref={itemPrice}
           required
+          type="number"
           id="itemPrice"
           className="addInput"
           placeholder="Cena"/>
 
           <input
+                   type="number"
           ref={itemEstimatedPrice}
           id="itemEstimatedPrice"
           className="addInput"
           placeholder="Wartość"/>
 
           <input
+                   type="number"
           ref={itemCond}
           required
           id="itemCond"

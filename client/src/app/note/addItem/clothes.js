@@ -107,7 +107,7 @@ function AddClothes(props) {
           ref={itemName}
           className="addInput"
           id="itemName"
-          autoFocus={true}
+          autoFocus
           required
           placeholder="Nazwa"
           spellCheck="false"/>
@@ -117,7 +117,8 @@ function AddClothes(props) {
           id="itemBrand"
           className="addInput"
           placeholder="Marka"
-          spellCheck="false"/>
+          spellCheck="false"
+          tabIndex="1"/>
 
           <input
           id="itemSize"
@@ -125,10 +126,12 @@ function AddClothes(props) {
           ref={itemSize}
           required
           placeholder="Rozmiar"
-          spellCheck="false"/>
+          spellCheck="false"
+          tabIndex="1"/>
 
 
           <input
+          type="number"
           ref={itemLength}
           id="itemLength"
           className="addInput"
@@ -136,6 +139,7 @@ function AddClothes(props) {
           spellCheck="false"/>
 
           <input
+          type="number"
           ref={itemWidth}
           className="addInput"
           placeholder="Szerokość"
@@ -143,6 +147,7 @@ function AddClothes(props) {
           id="itemWidth"/>
 
           <input
+          type="number"
           ref={itemPrice}
           spellCheck="false"
           placeholder="Cena"
@@ -151,12 +156,14 @@ function AddClothes(props) {
           required />
 
           <input
+          type="number"
           ref={itemEstimatedPrice}
           placeholder="Wartość"
           className="addInput"
           id="itemEstimatedPrice"/>
 
           <input
+          type="number"
           ref={itemCond}
           placeholder="Stan"
           spellCheck="false"
