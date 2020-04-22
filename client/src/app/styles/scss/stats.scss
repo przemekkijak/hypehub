@@ -8,6 +8,7 @@
     width: 70vw;
     height: 92vh;
     background-color: $background-second;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
     border-radius: 5px;
 
     .statsSVG {
@@ -20,9 +21,10 @@
     }
 
     #details {
-        position: relative;
-        left: 8%;
-        width: 68vw;
+        position: absolute;
+        left: 15%;
+        width: 50vw;
+        height: 30vh;
         display: grid;
         grid-template-columns: repeat(3, 33%);
         margin-top: 4%;
@@ -111,49 +113,50 @@
             width: 27vw;
             border-radius: 1%;
         }
-        position: relative;
-        top: 12%;
-        left: 3%;
+        position: absolute;
+        top: 60%;
+        left: 7%;
         display: grid;
-        height: 60vh;
+        height: 30vh;
+        grid-template-columns: 60% 50%;
         #platform {
             position: relative;
-            grid-row: 1;
-            left: 10%;
         }
         #week {
             position: relative;
-            grid-row: 1;
-            grid-column: 2;
         }
     }
     #top3 {
         position: absolute;
-        top: 75%;
-        left: 48%;
+        top: -55%;
+        left: 53%;
         transform: translate(-50%,-50%);
         #topProfit {
-            border: 3px solid $background-color;
             border-radius: 1%;
             padding-top: 2%;
             position: relative;
-            height: 24vh;
-            width: 30vw;
+            height: 22vh;
+            width: 40vw;
             display: grid;
-            grid-template-rows: 20% repeat(3,25%);
+            grid-template-rows: 25% repeat(3,25%);
             font-size: 0.8rem;
             p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 100%;
                 &:first-of-type {
+                    border-radius: 10px;
+                    position: relative;
+                    background-color: $menu-color;
+                    color: $background-second;
+                    top: -25%;
                     font-weight: 500;
                     font-size: 0.9rem;
                 }
             }
             .profitElement {
                 height: 4vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 background-color: $background-color;
             }
         }
@@ -207,9 +210,15 @@
 
     #top3 {
         #topProfit {
-            border: 3px solid $background-color-dark;
+            border: none;
+            p {
+                &:first-of-type {
+                    color: $background-second-dark;
+                    background-color: $menu-color-dark;
+                }
+            }
             .profitElement {
-                background-color: $background-color-dark;
+                background: linear-gradient(90deg, rgba(30,30,30,1) 0%, rgba(38,38,38,1) 100%);
             }
         }
     }
