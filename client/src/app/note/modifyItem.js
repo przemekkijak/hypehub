@@ -175,8 +175,7 @@ function Modify(props) {
 
   return(
   loaded && (
-    <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
-    <div id="modifyContainer">
+    <div id="modifyContainer" className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
     <form ref={formBox} onSubmit={handleSubmit} className="modifyForm">
 
       <input ref={itemName} defaultValue={item.name} spellCheck="false" id="itemName" required/>
@@ -254,7 +253,6 @@ function Modify(props) {
           )}
       </div>
       <button id="closeModal" onClick={() => props.handleModal()}>x</button>
-  </div>
   </div>
     )
   )

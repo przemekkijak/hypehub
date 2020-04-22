@@ -224,8 +224,10 @@
 }
 
 // dark
-.dark {
-    #modifyContainer{
+    #modifyContainer.dark{
+        * {
+            color: $font-color-dark;
+        }
         background-color: $background-second-dark;
         .modifyForm {
             input {
@@ -255,7 +257,6 @@
             color: $menu-color-dark;
         }
     }
-}
 
 // end dark
 

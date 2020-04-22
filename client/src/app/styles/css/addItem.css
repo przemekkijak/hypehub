@@ -139,6 +139,9 @@
 #addItemContainer.dark {
   background-color: #1a1a1a;
 }
+#addItemContainer.dark * {
+  color: rgba(255, 255, 255, 0.85);
+}
 #addItemContainer.dark .addRadio:not(:checked) + label:after {
   border-bottom: 3px solid rgba(150, 150, 150, 0.952);
 }

@@ -234,30 +234,33 @@
   cursor: pointer;
 }
 
-.dark #modifyContainer {
+#modifyContainer.dark {
   background-color: #1a1a1a;
 }
-.dark #modifyContainer .modifyForm input {
+#modifyContainer.dark * {
+  color: rgba(255, 255, 255, 0.85);
+}
+#modifyContainer.dark .modifyForm input {
   background-color: #262626;
   box-shadow: inset 0 0 1px gray;
 }
-.dark #modifyContainer .modifyForm select {
+#modifyContainer.dark .modifyForm select {
   box-shadow: inset 0 0 1px gray;
 }
-.dark #modifyContainer .modifyForm .addButton {
+#modifyContainer.dark .modifyForm .addButton {
   background-color: #17b466;
   color: #1a1a1a;
   font-weight: 500;
 }
-.dark #modifyContainer #dates span {
+#modifyContainer.dark #dates span {
   color: rgba(255, 255, 255, 0.85);
   opacity: 0.5;
 }
-.dark #modifyContainer #unSold {
+#modifyContainer.dark #unSold {
   color: #bebebe;
   border: 1px solid rgba(150, 150, 150, 0.952);
 }
-.dark #modifyContainer #closeModal {
+#modifyContainer.dark #closeModal {
   color: #17b466;
 }
 

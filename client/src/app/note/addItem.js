@@ -44,56 +44,19 @@ function AddItem(props) {
   return (
       <div id="addItemContainer" className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
         <div className="itemType">
-          <input
-            type="radio"
-            name="itemTypeRadio"
-            id="clothes"
-            value="clothes"
-            className="addRadio"
-            onChange={() => setType(1)}
-            defaultChecked
-          />
+          <input type="radio" name="itemTypeRadio" id="clothes" className="addRadio" onChange={() => setType(1)} defaultChecked/>
           <label htmlFor="clothes">
-            <img
-              src="../img/additem/shirt.png"
-              alt="Item clothes"
-              className="itemIcon"
-              id="clothesIcon"
-            />
+            <img src="../img/additem/shirt.png" alt="Item clothes" className="itemIcon" id="clothesIcon"/>
           </label>
 
-          <input
-            type="radio"
-            name="itemTypeRadio"
-            id="shoes"
-            value="shoes"
-            className="addRadio"
-            onChange={() => setType(2)}
-          />
+          <input type="radio" name="itemTypeRadio" id="shoes" className="addRadio" onChange={() => setType(2)}/>
           <label htmlFor="shoes">
-            <img
-              src="../img/additem/shoe.png"
-              alt="Item shoes"
-              className="itemIcon"
-              id="shoeIcon"
-            />
+            <img src="../img/additem/shoe.png" alt="Item shoes" className="itemIcon" id="shoeIcon"/>
           </label>
 
-          <input
-            type="radio"
-            name="itemTypeRadio"
-            id="accessories"
-            value="3"
-            className="addRadio"
-            onChange={() => setType(3)}
-          />
+          <input type="radio" name="itemTypeRadio" id="accessories" className="addRadio" onChange={() => setType(3)}/>
           <label htmlFor="accessories">
-            <img
-              src="../img/additem/accessories.png"
-              alt="Item Accessories"
-              className="itemIcon"
-              id="hatIcon"
-            />
+            <img src="../img/additem/accessories.png" alt="Item Accessories" className="itemIcon" id="hatIcon"/>
           </label>
         </div>
         {itemForm(itemType)}

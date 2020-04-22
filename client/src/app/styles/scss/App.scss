@@ -124,14 +124,12 @@ body {
 
 
 // dark theme
-.dark {
-  * {
-    color: $font-color-dark;
-  }
-  .App {
+  .App.dark {
+    * {
+      color: $font-color-dark;
+    }
     background-color: $background-color-dark;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 4 4'%3E%3Cpath fill='%231a1a1a' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-  }
   .navigationContainer {
     border-right: none;
     background-color: $background-second-dark;

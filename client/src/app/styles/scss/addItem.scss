@@ -105,6 +105,9 @@
 
 // dark mode
 #addItemContainer.dark {
+  * {
+    color: $font-color-dark;
+  }
   background-color: $background-second-dark;
   .addRadio:not(:checked)+label:after {
     border-bottom: 3px solid $menu-color4-dark;
