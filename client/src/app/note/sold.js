@@ -42,7 +42,7 @@ function Sold(props) {
   function getTracking(item) {
     if(item.shipCompany === "tosent") {
       let style = {
-        color: 'red',
+        color: 'rgb(226,202,10)',
         fontSize: '0.9rem'
       }
       return <span style={style}>Do wysłania</span>;

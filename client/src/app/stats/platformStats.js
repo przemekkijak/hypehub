@@ -3,6 +3,14 @@ import Chart from "chart.js";
 import store from "../redux/store/index";
 
 function PlatformStats(props) {
+  var titleColor;
+  let theme = localStorage.getItem('hypehubTheme');
+  if(theme < 1 ) {
+    titleColor = 'rgba(31,59,77,1)';
+  } else {
+    titleColor = 'rgba(255,255,255,0.6)';
+  }
+
   useEffect(() => {
     const { facebook, vinted, grailed, depop, other } = getPlatformData();
     new Chart(document.getElementById("platformStats"), {
@@ -56,7 +64,7 @@ function PlatformStats(props) {
         title: {
           display: true,
           text: "Sprzedaż według platform",
-          fontColor: 'rgba(255,255,255, 0.6)',
+          fontColor: titleColor,
           padding: 15,
           fontSize: 14,
         },

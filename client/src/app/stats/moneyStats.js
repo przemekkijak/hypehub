@@ -22,6 +22,14 @@ function MoneyStats(props) {
       break;
   }
 
+  var titleColor;
+  let theme = localStorage.getItem('hypehubTheme');
+  if(theme < 1 ) {
+    titleColor = 'rgba(31,59,77,1)';
+  } else {
+    titleColor = 'rgba(255,255,255,0.6)';
+  }
+
   useEffect(() => {
     new Chart(document.getElementById(period), {
       type: "line",
@@ -56,7 +64,7 @@ function MoneyStats(props) {
         title: {
           display: true,
           text: `Zarobki z ostatnich ${period} dni`,
-          fontColor: 'rgba(255,255,255, 0.6)',
+          fontColor: titleColor,
           padding: 15,
           fontSize: 14,
         },
