@@ -111,7 +111,7 @@ function App() {
     var profit = 0;
     for(let item of items) {
       if(item.soldAt.slice(0,10) === today) {
-        profit += item.sellPrice;
+        profit += (item.sellPrice-item.buyPrice);
       }
     }
     if(profit > 0) {
