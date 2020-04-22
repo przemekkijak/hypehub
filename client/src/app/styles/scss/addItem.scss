@@ -1,6 +1,6 @@
 @import "master";
 
-.addItemContainer {
+#addItemContainer {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -104,11 +104,8 @@
 
 
 // dark mode
-.dark {
-  .addItemContainer {
-    background-color: $background-second-dark;
-  }
-
+#addItemContainer.dark {
+  background-color: $background-second-dark;
   .addRadio:not(:checked)+label:after {
     border-bottom: 3px solid $menu-color4-dark;
   }

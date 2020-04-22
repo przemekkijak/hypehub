@@ -42,8 +42,7 @@ function AddItem(props) {
   }
 
   return (
-    <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
-      <div className="addItemContainer">
+      <div id="addItemContainer" className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
         <div className="itemType">
           <input
             type="radio"
@@ -99,7 +98,6 @@ function AddItem(props) {
         </div>
         {itemForm(itemType)}
       </div>
-    </div>
   );
 }
 

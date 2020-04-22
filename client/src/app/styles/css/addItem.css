@@ -2,7 +2,7 @@
 /* details */
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
-.addItemContainer {
+#addItemContainer {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -136,21 +136,21 @@
   border-bottom: 3px solid #1f3b4d;
 }
 
-.dark .addItemContainer {
+#addItemContainer.dark {
   background-color: #1a1a1a;
 }
-.dark .addRadio:not(:checked) + label:after {
+#addItemContainer.dark .addRadio:not(:checked) + label:after {
   border-bottom: 3px solid rgba(150, 150, 150, 0.952);
 }
-.dark .addRadio:checked + label:after {
+#addItemContainer.dark .addRadio:checked + label:after {
   border-bottom: 3px solid #17b466;
 }
-.dark .addInput {
+#addItemContainer.dark .addInput {
   background-color: #262626;
   border: none;
   box-shadow: inset 0px 0px 2px 0px rgba(150, 150, 150, 0.952);
 }
-.dark .addButton {
+#addItemContainer.dark .addButton {
   background-color: #17b466;
   border: 1px solid #17b466;
 }

@@ -117,8 +117,7 @@ function AddClothes(props) {
           id="itemBrand"
           className="addInput"
           placeholder="Marka"
-          spellCheck="false"
-          tabIndex="1"/>
+          spellCheck="false"/>
 
           <input
           id="itemSize"
@@ -126,9 +125,7 @@ function AddClothes(props) {
           ref={itemSize}
           required
           placeholder="Rozmiar"
-          spellCheck="false"
-          tabIndex="1"/>
-
+          spellCheck="false"/>
 
           <input
           type="number"
