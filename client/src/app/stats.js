@@ -31,7 +31,7 @@ function Stats(props) {
     for(let i = 0; i<items.length; i++) {
       let item = {
         name: items[i].name,
-        profit: (items[i].sellPrice-items[i].buyPrice)
+        profit: (items[i].sellPrice-items[i].buyPrice),
       }
       items2.push(item);
     }

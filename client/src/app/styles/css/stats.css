@@ -130,23 +130,31 @@
   top: 75%;
   left: 48%;
   transform: translate(-50%, -50%);
-  height: 20vh;
 }
 #statsContainer #top3 #topProfit {
-  border: 1px solid #e6e6e6;
+  border: 3px solid #e6e6e6;
+  border-radius: 1%;
   padding-top: 2%;
   position: relative;
-  height: 15vh;
-  width: 35vw;
+  height: 24vh;
+  width: 30vw;
   display: grid;
-  grid-template-rows: 30% 20% 20% 20%;
+  grid-template-rows: 20% repeat(3, 25%);
   font-size: 0.8rem;
 }
 #statsContainer #top3 #topProfit p {
   width: 100%;
 }
 #statsContainer #top3 #topProfit p:first-of-type {
+  font-weight: 500;
   font-size: 0.9rem;
+}
+#statsContainer #top3 #topProfit .profitElement {
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e6e6e6;
 }
 
 #statsContainer.dark {
@@ -193,7 +201,9 @@
 }
 #statsContainer.dark #top3 #topProfit {
   border: 3px solid #262626;
-  border-radius: 1%;
+}
+#statsContainer.dark #top3 #topProfit .profitElement {
+  background-color: #262626;
 }
 
 /*# sourceMappingURL=stats.css.map */
