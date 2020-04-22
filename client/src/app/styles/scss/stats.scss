@@ -1,10 +1,14 @@
 @import "master";
 
 #statsContainer {
-    position: relative;
-    width: 90vw;
-    height: 100vh;
-    left: 3%;
+    position: absolute;
+    left: 52%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 80vh;
+    background-color: $background-second;
+    border-radius: 5px;
 
     .statsSVG {
         position: absolute;
@@ -17,8 +21,7 @@
 
     #details {
         position: relative;
-        top: 4%;
-        left: 15%;
+        left: 8%;
         width: 68vw;
         display: grid;
         grid-template-columns: repeat(3, 33%);
@@ -51,7 +54,6 @@
 
             }
         }
-
         #currentItems {
             position: relative;
             p {
@@ -79,7 +81,6 @@
                 width: 10vh;
             }
         }
-
         #soldItems {
             position: relative;
             p {
@@ -103,12 +104,11 @@
             }
         }
     }
-
     #moneyStats {
         .statsChart {
             position: relative;
             height: 36.5vh;
-            width: 35vw;
+            width: 30vw;
             border-radius: 1%;
             background-color: $background-second;
         }
@@ -120,6 +120,7 @@
             position: relative;
             grid-row: 1;
             left: 10%;
+            // background-color:
         }
         #week {
             position: relative;
@@ -129,55 +130,54 @@
     }
 }
 
-    .dark {
-        #statsContainer {
-            .statsSVG {
-                fill: $menu-color-dark;
-            }
+#statsContainer.dark {
+    background-color: $background-second-dark;
+    .statsSVG {
+        fill: $menu-color-dark;
+    }
 
-            #details {
-                .statsBox {
-                    border: 1px solid rgb(70,70,70);
-                }
-                #totalProfit {
-                    background-color: $background-second-dark;
-                    p {
-                        color: $font-color-dark;
-                        &:last-of-type {
-                            color: $menu-color4-dark;
-                        }
-                    }
-                }
-                #currentItems {
-                    background-color: $background-second-dark;
-                    #currentSVG {
-                        fill: rgb(85, 84, 175);
-                    }
-                    p {
-                        color: $font-color-dark;
-                        &:last-of-type {
-                            border: none;
-                            color: $menu-color4-dark;
-                            top: 30%;
-                            left: 5%;
-                        }
-                    }
-                }
-                #soldItems {
-                    #soldSVG {
-                        fill: rgb(125, 128, 115);
-                    }
-                    background-color: $background-second-dark;
-                    p {
-                        color: $font-color-dark;
-                    }
-                }
-            }
-
-            #moneyStats {
-                .statsChart {
-                    background-color: $background-second-dark;
+    #details {
+        .statsBox {
+            border: 1px solid rgb(70,70,70);
+        }
+        #totalProfit {
+            background-color: $background-second-dark;
+            p {
+                color: $font-color-dark;
+                &:last-of-type {
+                    color: $menu-color4-dark;
                 }
             }
         }
+        #currentItems {
+            background-color: $background-second-dark;
+            #currentSVG {
+                fill: rgb(85, 84, 175);
+            }
+            p {
+                color: $font-color-dark;
+                &:last-of-type {
+                    border: none;
+                    color: $menu-color4-dark;
+                    top: 30%;
+                    left: 5%;
+                }
+            }
+        }
+        #soldItems {
+            #soldSVG {
+                fill: rgb(125, 128, 115);
+            }
+            background-color: $background-second-dark;
+            p {
+                color: $font-color-dark;
+                }
+        }
     }
+
+    #moneyStats {
+        .statsChart {
+            background-color: $background-second-dark;
+        }
+        }
+}

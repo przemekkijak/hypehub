@@ -3,10 +3,14 @@
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 #statsContainer {
-  position: relative;
-  width: 90vw;
-  height: 100vh;
-  left: 3%;
+  position: absolute;
+  left: 52%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 80vh;
+  background-color: #f2f2f2;
+  border-radius: 5px;
 }
 #statsContainer .statsSVG {
   position: absolute;
@@ -18,8 +22,7 @@
 }
 #statsContainer #details {
   position: relative;
-  top: 4%;
-  left: 15%;
+  left: 8%;
   width: 68vw;
   display: grid;
   grid-template-columns: repeat(3, 33%);
@@ -108,7 +111,7 @@
 #statsContainer #moneyStats .statsChart {
   position: relative;
   height: 36.5vh;
-  width: 35vw;
+  width: 30vw;
   border-radius: 1%;
   background-color: #f2f2f2;
 }
@@ -123,46 +126,49 @@
   grid-column: 2;
 }
 
-.dark #statsContainer .statsSVG {
+#statsContainer.dark {
+  background-color: #1a1a1a;
+}
+#statsContainer.dark .statsSVG {
   fill: #17b466;
 }
-.dark #statsContainer #details .statsBox {
+#statsContainer.dark #details .statsBox {
   border: 1px solid #464646;
 }
-.dark #statsContainer #details #totalProfit {
+#statsContainer.dark #details #totalProfit {
   background-color: #1a1a1a;
 }
-.dark #statsContainer #details #totalProfit p {
+#statsContainer.dark #details #totalProfit p {
   color: rgba(255, 255, 255, 0.85);
 }
-.dark #statsContainer #details #totalProfit p:last-of-type {
+#statsContainer.dark #details #totalProfit p:last-of-type {
   color: rgba(150, 150, 150, 0.952);
 }
-.dark #statsContainer #details #currentItems {
+#statsContainer.dark #details #currentItems {
   background-color: #1a1a1a;
 }
-.dark #statsContainer #details #currentItems #currentSVG {
+#statsContainer.dark #details #currentItems #currentSVG {
   fill: #5554af;
 }
-.dark #statsContainer #details #currentItems p {
+#statsContainer.dark #details #currentItems p {
   color: rgba(255, 255, 255, 0.85);
 }
-.dark #statsContainer #details #currentItems p:last-of-type {
+#statsContainer.dark #details #currentItems p:last-of-type {
   border: none;
   color: rgba(150, 150, 150, 0.952);
   top: 30%;
   left: 5%;
 }
-.dark #statsContainer #details #soldItems {
+#statsContainer.dark #details #soldItems {
   background-color: #1a1a1a;
 }
-.dark #statsContainer #details #soldItems #soldSVG {
+#statsContainer.dark #details #soldItems #soldSVG {
   fill: #7d8073;
 }
-.dark #statsContainer #details #soldItems p {
+#statsContainer.dark #details #soldItems p {
   color: rgba(255, 255, 255, 0.85);
 }
-.dark #statsContainer #moneyStats .statsChart {
+#statsContainer.dark #moneyStats .statsChart {
   background-color: #1a1a1a;
 }
 
