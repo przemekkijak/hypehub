@@ -1,7 +1,7 @@
 @import "master";
 
   /* Sell Item */
-  .sellContainer {
+  #sellContainer {
     width: 30vw;
     height: 40vh;
     display: grid;
@@ -59,10 +59,10 @@
 }
 
 // DARK THEME
-
-.dark {
-
-    .sellContainer {
+    #sellContainer.dark {
+        * {
+            color: $font-color-dark;
+        }
         background-color: $background-second-dark;
         border: 1px solid rgb(80,80,80);
         #sellForm {
@@ -82,7 +82,6 @@
             }
         }
     }
-}
 
 
 // RWD

@@ -110,8 +110,7 @@ function SellItem(props) {
 
   return (
     loading && (
-      <div className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
-        <div className="sellContainer">
+        <div id="sellContainer" className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
           <form onSubmit={handleSubmit} autoComplete="off" id="sellForm">
             <div id="itemName">{item.name}</div>
 
@@ -161,7 +160,6 @@ function SellItem(props) {
             </button>
           </form>
         </div>
-      </div>
     )
   );
 }

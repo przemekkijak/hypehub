@@ -90,74 +90,69 @@ function AddShoes(props) {
   }
 
   return (
-    <>
-      <form ref={formBox} onSubmit={handleSubmit} id="addShoesForm" autoComplete="off">
-          <input
-          ref={itemName}
-          // autoFocus={true}
-          required
-          id="itemName"
-          className="addInput"
-          spellCheck="false"
-          autoFocus
-          placeholder="Nazwa"/>
+    <form ref={formBox} onSubmit={handleSubmit} id="addShoesForm" autoComplete="off">
+      <input
+        ref={itemName}
+        required
+        id="itemName"
+        className="addInput"
+        spellCheck="false"
+        autoFocus
+        placeholder="Nazwa"/>
 
-          <input
-          ref={itemBrand}
-          id="itemBrand"
-          className="addInput"
-          spellCheck="false"
-          placeholder="Marka"/>
+      <input
+        ref={itemBrand}
+        id="itemBrand"
+        className="addInput"
+        spellCheck="false"
+        placeholder="Marka"/>
 
-          <input
-          ref={itemSize}
-          required
-          id="itemSize"
-          className="addInput"
-          placeholder="Rozmiar"/>
-          <input
-          ref={itemInsert}
-          id="itemInsert"
-          className="addInput"
-          placeholder="Dlugosc wkladki (cm)"/>
+      <input
+        ref={itemSize}
+        id="itemSize"
+        className="addInput"
+        placeholder="Rozmiar"/>
 
-          <input
-          type="number"
-          ref={itemPrice}
-          required
-          id="itemPrice"
-          className="addInput"
-          placeholder="Cena"/>
+      <input
+        ref={itemInsert}
+        id="itemInsert"
+        className="addInput"
+        placeholder="Dlugosc wkladki (cm)"/>
 
-          <input
-          type="number"
-          ref={itemEstimatedPrice}
-          id="itemEstimatedPrice"
-          className="addInput"
-          placeholder="Wartość"
-          />
+      <input
+        type="number"
+        ref={itemPrice}
+        required
+        id="itemPrice"
+        className="addInput"
+        placeholder="Cena"/>
 
-          <input
-          type="number"
-          ref={itemCond}
-          required
-          id="itemCond"
-          className="addInput"
-          placeholder="Stan"/>
+      <input
+        type="number"
+        ref={itemEstimatedPrice}
+        id="itemEstimatedPrice"
+        className="addInput"
+        placeholder="Wartość"/>
 
-          <input
-          type="date"
-          ref={itemCreatedAt}
-          id="itemCreatedAt"
-          className="addInput"
-          name="createdAt"
-          defaultValue={getDate()}
-          max={getDate()}
-          />
+      <input
+        type="number"
+        ref={itemCond}
+        required
+        id="itemCond"
+        className="addInput"
+        placeholder="Stan"/>
 
-          <button type="submit" className="addButton" value="Submit">Dodaj</button>
-      </form>
-    </>
+      <input
+        type="date"
+        ref={itemCreatedAt}
+        id="itemCreatedAt"
+        className="addInput"
+        name="createdAt"
+        defaultValue={getDate()}
+        max={getDate()}/>
+
+      <button type="submit" className="addButton" value="Submit">Dodaj</button>
+    </form>
   );
 }
 

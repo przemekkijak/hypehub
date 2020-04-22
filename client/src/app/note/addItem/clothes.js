@@ -98,15 +98,79 @@ function AddClothes(props) {
 
   return (
     <form ref={formBox} onSubmit={handleSubmit} id="addClothes" autoComplete="off">
-      <input ref={itemName} className="addInput" id="itemName" autoFocus required placeholder="Nazwa" spellCheck="false"/>
-      <input ref={itemBrand} id="itemBrand" className="addInput" placeholder="Marka" spellCheck="false"/>
-      <input ref={itemSize} id="itemSize" className="addInput" placeholder="Rozmiar" spellCheck="false"/>
-      <input type="number" ref={itemLength} id="itemLength" className="addInput" placeholder="Długość" spellCheck="false"/>
-      <input type="number" ref={itemWidth}  id="itemWidth" className="addInput" placeholder="Szerokość" spellCheck="false"/>
-      <input type="number" ref={itemPrice} id="itemPrice" className="addInput" placeholder="Cena" spellCheck="false" required/>
-      <input type="number" ref={itemEstimatedPrice} id="itemEstimatedPrice" className="addInput" placeholder="Wartość"/>
-      <input type="number" ref={itemCond} id="itemCond" className="addInput" placeholder="Stan" spellCheck="false" required/>
-      <input type="date" ref={itemCreatedAt} name="createdAt" id="itemCreatedAt" className="addInput" defaultValue={getDate()} max={getDate()}/>
+      <input
+        ref={itemName}
+        className="addInput"
+        id="itemName"
+        autoFocus
+        required
+        placeholder="Nazwa"
+        spellCheck="false"/>
+
+      <input
+        ref={itemBrand}
+        id="itemBrand"
+        className="addInput"
+        placeholder="Marka"
+        spellCheck="false"/>
+
+      <input
+        ref={itemSize}
+        id="itemSize"
+        className="addInput"
+        placeholder="Rozmiar"
+        spellCheck="false"/>
+
+      <input
+        type="number"
+        ref={itemLength}
+        id="itemLength"
+        className="addInput"
+        placeholder="Długość"
+        spellCheck="false"/>
+
+      <input
+        type="number"
+        ref={itemWidth}
+        id="itemWidth"
+        className="addInput"
+        placeholder="Szerokość"
+        spellCheck="false"/>
+
+      <input
+        type="number"
+        ref={itemPrice}
+        id="itemPrice"
+        className="addInput"
+        placeholder="Cena"
+        spellCheck="false"
+        required/>
+
+      <input
+        type="number"
+        ref={itemEstimatedPrice}
+        id="itemEstimatedPrice"
+        className="addInput"
+        placeholder="Wartość"/>
+
+      <input
+        type="number"
+        ref={itemCond}
+        id="itemCond"
+        className="addInput"
+        placeholder="Stan"
+        spellCheck="false"
+        required/>
+
+      <input
+        type="date"
+        ref={itemCreatedAt}
+        name="createdAt"
+        id="itemCreatedAt"
+        className="addInput"
+        defaultValue={getDate()}
+        max={getDate()}/>
+
       <button type="submit" className="addButton">Dodaj</button>
 
     </form>

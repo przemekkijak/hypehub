@@ -3,7 +3,7 @@
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 /* Sell Item */
-.sellContainer {
+#sellContainer {
   width: 30vw;
   height: 40vh;
   display: grid;
@@ -11,11 +11,11 @@
   border: none;
   border-radius: 1%;
 }
-.sellContainer #sellForm {
+#sellContainer #sellForm {
   position: relative;
   top: 5%;
 }
-.sellContainer #sellForm #itemName {
+#sellContainer #sellForm #itemName {
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -29,7 +29,7 @@
   background-color: #f2f2f2;
   cursor: pointer;
 }
-.sellContainer #sellForm button {
+#sellContainer #sellForm button {
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -37,7 +37,7 @@
   height: 3.5vh;
   width: 8vw;
 }
-.sellContainer #sellForm input {
+#sellContainer #sellForm input {
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -52,23 +52,23 @@
   border-radius: 2%;
   box-shadow: inset 0 0 1px gray;
 }
-.sellContainer #sellForm input::-webkit-input-placeholder {
+#sellContainer #sellForm input::-webkit-input-placeholder {
   font-size: 12px;
   opacity: 0.9;
 }
-.sellContainer #sellForm input::-moz-placeholder {
+#sellContainer #sellForm input::-moz-placeholder {
   font-size: 12px;
   opacity: 0.9;
 }
-.sellContainer #sellForm input:-moz-placeholder {
+#sellContainer #sellForm input:-moz-placeholder {
   font-size: 12px;
   opacity: 0.9;
 }
-.sellContainer #sellForm input:-ms-input-placeholder {
+#sellContainer #sellForm input:-ms-input-placeholder {
   font-size: 12px;
   opacity: 0.9;
 }
-.sellContainer #sellForm select {
+#sellContainer #sellForm select {
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -80,23 +80,26 @@
   height: 3.5vh;
   margin: 3px;
 }
-.sellContainer #sellForm select option {
+#sellContainer #sellForm select option {
   background-color: #373b39;
 }
 
-.dark .sellContainer {
+#sellContainer.dark {
   background-color: #1a1a1a;
   border: 1px solid #505050;
 }
-.dark .sellContainer #sellForm #itemName {
+#sellContainer.dark * {
+  color: rgba(255, 255, 255, 0.85);
+}
+#sellContainer.dark #sellForm #itemName {
   background-color: #262626;
 }
-.dark .sellContainer #sellForm input {
+#sellContainer.dark #sellForm input {
   border: 1px solid #262626;
   border-radius: 3px;
   outline: none;
 }
-.dark .sellContainer #sellForm button {
+#sellContainer.dark #sellForm button {
   border: 1px solid #17b466;
   color: black;
   background-color: #17b466;
