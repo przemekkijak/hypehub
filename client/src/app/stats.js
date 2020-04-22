@@ -25,6 +25,20 @@ function Stats(props) {
       return money;
   }
 
+  function topProfit(position) {
+    var items = store.getState().soldItems;
+    var items2 = [];
+    for(let i = 0; i<items.length; i++) {
+      let item = {
+        name: items[i].name,
+        profit: (items[i].sellPrice-items[i].buyPrice)
+      }
+      items2.push(item);
+    }
+    items2.sort((a,b) => (a.profit > b.profit) ? -1 : 1);
+    return `${items2[position].name} - ${items2[position].profit} zł`;
+  }
+
   return (
     <div id="statsContainer" className={localStorage.getItem('hypehubTheme') > 0 ? 'dark' : ''}>
 
@@ -52,7 +66,6 @@ function Stats(props) {
 
       </div>
 
-
       <div id="moneyStats">
         <div id="week" className="statsChart">
           <MoneyStats period="7" />
@@ -60,6 +73,16 @@ function Stats(props) {
 
         <div id="platform" className="statsChart">
         <PlatformStats />
+      </div>
+
+      <div id="top3">
+        <div id="topProfit">
+          <p>Najbardziej dochodowe transakcje</p>
+          <p className="profitElement">{topProfit(0)}</p>
+          <p className="profitElement">{topProfit(1)}</p>
+          <p className="profitElement">{topProfit(2)}</p>
+        </div>
+
       </div>
 
       </div>
