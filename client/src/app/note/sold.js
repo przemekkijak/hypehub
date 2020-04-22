@@ -40,6 +40,13 @@ function Sold(props) {
     }
   }
   function getTracking(item) {
+    if(item.shipCompany === "tosent") {
+      let style = {
+        color: 'red',
+        fontSize: '0.9rem'
+      }
+      return <span style={style}>Do wysłania</span>;
+    }
     if(item.trackingNumber !== "" && item.shipCompany !== "") {
       return `${item.shipCompany.toUpperCase()} - ${item.trackingNumber}`;
     } else if(item.shipCompany !== "" && item.trackingNumber === "") {

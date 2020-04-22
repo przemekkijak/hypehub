@@ -29,10 +29,8 @@ function SellItem(props) {
   function handleSubmit(e) {
     e.preventDefault();
       var tracking;
-      if(!trackingNumber.current.value) {
-        tracking = "";
-      } else {
-        tracking = trackingNumber.current.value;
+      if(trackingNumber.current === null) {
+        trackingNumber.current = "";
       }
 
     let item = {
@@ -41,7 +39,7 @@ function SellItem(props) {
       soldFor: soldFor.current.value,
       soldOn: soldOn.current.value,
       shipCompany: shipCompany.current.value,
-      trackingNumber: tracking
+      trackingNumber: trackingNumber.current.value
     };
     var validateData = 0;
     for (let element of itemData) {
@@ -64,18 +62,20 @@ function SellItem(props) {
 
   function validateInput(input) {
     var element = document.getElementById(input.current.id);
-    function success() {
-      if (element) {
-        element.style.border = "none";
+    if(!element) {
+      return 1;
+    } else {
+      function success() {
+        if(element) {
+          element.style.border = "none";
+        }
       }
-    }
-    function failed() {
-      if (element) {
-        element.style.border = "1px solid darkred";
+      function failed() {
+        if(element) {
+          element.style.border = "1px solid darkred";
+        }
       }
-    }
-
-    switch (input.current.id) {
+      switch (input.current.id) {
       // Check each item field, if not passed test -> add red border
       default:
       case "soldFor":
@@ -97,11 +97,12 @@ function SellItem(props) {
           failed();
           return 0;
         }
+      }
     }
   }
 
   function checkTracking() {
-    if (shipCompany.current.value !== "") {
+    if (shipCompany.current.value !== "" && shipCompany.current.value !== "tosent") {
       enableTracking(true);
     } else {
       enableTracking(false);
@@ -140,6 +141,7 @@ function SellItem(props) {
               <option value="" disabled selected hidden>
                 Wybierz przewoźnika
               </option>
+              <option value="tosent">Do wysłania</option>
               <option value="dpd">DPD</option>
               <option value="dhl">DHL</option>
               <option value="pp">Poczta Polska</option>
@@ -150,7 +152,6 @@ function SellItem(props) {
               <input
                 placeholder="Numer paczki"
                 id="trackingNumber"
-                defaultValue=""
                 ref={trackingNumber}
               />
             )}
