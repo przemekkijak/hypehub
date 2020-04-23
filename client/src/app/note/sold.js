@@ -40,18 +40,32 @@ function Sold(props) {
     }
   }
   function getTracking(item) {
+    var toSentStyle = {
+      color: 'rgb(226,202,10)',
+      fontSize: '0.9rem'
+    }
+    var toSentSpan = <span style={toSentStyle}> Do wysłania</span>
     if(item.shipCompany === "tosent") {
-      let style = {
-        color: 'rgb(226,202,10)',
-        fontSize: '0.9rem'
+      return toSentSpan;
+    }
+    if(item.shipCompany === "inpost") {
+      console.log(`Item: ${item.name} + ${item.trackingNumber}`)
+      if(item.trackingNumber == 0) {
+        return (<><span>InPost</span>&nbsp;{toSentSpan}</>)
+      } else {
+        return `InPost ${item.trackingNumber}`;
       }
-      return <span style={style}>Do wysłania</span>;
     }
     if(item.trackingNumber !== "" && item.shipCompany !== "") {
-      return `${item.shipCompany.toUpperCase()} - ${item.trackingNumber}`;
-    } else if(item.shipCompany !== "" && item.trackingNumber === "") {
+      if(item.trackingNumber == 0) {
+        return (<>{item.shipCompany.toUpperCase()}&nbsp;{toSentSpan}</>);
+      } else {
+        return `${item.shipCompany.toUpperCase()} ${item.trackingNumber}`;
+      }
+      } else if(item.shipCompany !== "" && item.trackingNumber === "") {
       return `${item.shipCompany.toUpperCase()}`;
     }
+
   }
   function getProfit(item) {
     let calculateProfit = item.sellPrice - item.buyPrice;
