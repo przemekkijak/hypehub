@@ -44,7 +44,7 @@ function Sold(props) {
       color: 'rgb(226,202,10)',
       fontSize: '0.9rem'
     }
-    var toSentSpan = <span style={toSentStyle}> Do wysłania</span>
+    var toSentSpan = <span style={toSentStyle}> [Do wysłania]</span>
     if(item.shipCompany === "tosent") {
       return toSentSpan;
     }

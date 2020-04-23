@@ -98,69 +98,72 @@ function AddClothes(props) {
 
   return (
     <form ref={formBox} onSubmit={handleSubmit} id="addClothes" autoComplete="off">
+      <span className="sectionSpan" id="requiredInfo">Wymagane informacje</span>
       <input
         ref={itemName}
         className="addInput"
         id="itemName"
         autoFocus
         required
-        placeholder="Nazwa"
         spellCheck="false"/>
+        <span id="nameSpan" className="fieldSpan">Nazwa</span>
 
-      <input
-        ref={itemBrand}
-        id="itemBrand"
-        className="addInput"
-        placeholder="Marka"
-        spellCheck="false"/>
-
-      <input
+        <input
         ref={itemSize}
         id="itemSize"
         className="addInput"
-        placeholder="Rozmiar"
         spellCheck="false"/>
+        <span id="sizeSpan" className="fieldSpan">Rozmiar</span>
+
+        <input
+        type="number"
+        ref={itemPrice}
+        id="itemPrice"
+        className="addInput"
+        spellCheck="false"
+        required/>
+        <span id="priceSpan" className="fieldSpan">Cena</span>
+
+        <span id="detailsInfo" className="sectionSpan">Szczegóły</span>
 
       <input
         type="number"
         ref={itemLength}
         id="itemLength"
         className="addInput"
-        placeholder="Długość"
         spellCheck="false"/>
+        <span id="lengthSpan" className="fieldSpan">Długość</span>
 
       <input
         type="number"
         ref={itemWidth}
         id="itemWidth"
         className="addInput"
-        placeholder="Szerokość"
         spellCheck="false"/>
+        <span id="widthSpan" className="fieldSpan">Szerokość</span>
 
       <input
-        type="number"
-        ref={itemPrice}
-        id="itemPrice"
+        ref={itemBrand}
+        id="itemBrand"
         className="addInput"
-        placeholder="Cena"
-        spellCheck="false"
-        required/>
+        spellCheck="false"/>
+      <span id="brandSpan" className="fieldSpan">Marka</span>
 
       <input
         type="number"
         ref={itemEstimatedPrice}
         id="itemEstimatedPrice"
-        className="addInput"
-        placeholder="Wartość"/>
+        className="addInput"/>
+        <span id="estimatedSpan" className="fieldSpan">Wartość</span>
 
       <input
         type="number"
         ref={itemCond}
         id="itemCond"
         className="addInput"
-        placeholder="Stan"
         spellCheck="false"
         required/>
+        <span id="condSpan" className="fieldSpan">Stan</span>
 
       <input
         type="date"
@@ -170,6 +173,7 @@ function AddClothes(props) {
         className="addInput"
         defaultValue={getDate()}
         max={getDate()}/>
+        <span id="createdAtSpan" className="fieldSpan">Data zakupu</span>
 
       <button type="submit" className="addButton">Dodaj</button>
 

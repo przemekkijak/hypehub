@@ -6,11 +6,11 @@
     top: 50%;
     transform: translate(-50%,-50%);
     width: 40vw;
-    height: 60vh;
+    height: 70vh;
     background-color: $background-color;
     display: grid;
     grid-template-rows: 20% 80%;
-    border-radius: 3%;
+    border-radius: 2%;
 
   }
 
@@ -62,12 +62,11 @@
     margin-top: 1%;
     height: 4vh;
     width: 25%;
-    outline: none;
     color: $background-color;
     background-color: $menu-color;
     border: 1px solid $menu-color;
     border-radius: 7px;
-    grid-row: 9;
+    grid-row: 11;
     grid-column: 1/4;
   }
 
@@ -109,6 +108,7 @@
     color: $font-color-dark;
   }
   background-color: $background-second-dark;
+  border: 2px solid rgb(40,40,40);
   .addRadio:not(:checked)+label:after {
     border-bottom: 3px solid $menu-color4-dark;
   }

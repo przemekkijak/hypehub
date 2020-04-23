@@ -8,11 +8,11 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 40vw;
-  height: 60vh;
+  height: 70vh;
   background-color: #e6e6e6;
   display: grid;
   grid-template-rows: 20% 80%;
-  border-radius: 3%;
+  border-radius: 2%;
 }
 
 .itemType {
@@ -89,12 +89,11 @@
   margin-top: 1%;
   height: 4vh;
   width: 25%;
-  outline: none;
   color: #e6e6e6;
   background-color: #1f3b4d;
   border: 1px solid #1f3b4d;
   border-radius: 7px;
-  grid-row: 9;
+  grid-row: 11;
   grid-column: 1/4;
 }
 
@@ -138,6 +137,7 @@
 
 #addItemContainer.dark {
   background-color: #1a1a1a;
+  border: 2px solid #282828;
 }
 #addItemContainer.dark * {
   color: rgba(255, 255, 255, 0.85);

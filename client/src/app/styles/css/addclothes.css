@@ -13,22 +13,74 @@
   grid-column: 1/4;
 }
 #addClothes #itemCreatedAt {
-  grid-row: 8;
+  grid-row: 10;
   padding-left: 7%;
 }
 #addClothes #itemLength {
   position: relative;
   width: 32%;
-  left: 30%;
+  left: -3%;
   grid-column: 2/2;
-  grid-row: 4;
+  grid-row: 6;
 }
 #addClothes #itemWidth {
   width: 32%;
-  left: 70%;
+  left: 53%;
   position: relative;
   grid-column: 2/2;
-  grid-row: 4;
+  grid-row: 6;
+}
+#addClothes .sectionSpan {
+  position: relative;
+  margin-bottom: 1%;
+}
+#addClothes #requiredInfo {
+  left: 17%;
+}
+#addClothes #detailsInfo {
+  left: 30%;
+}
+#addClothes .fieldSpan {
+  position: absolute;
+  opacity: 0.7;
+  font-size: 0.8rem;
+  left: 17%;
+  top: 8%;
+}
+#addClothes #nameSpan {
+  grid-row: 1;
+}
+#addClothes #sizeSpan {
+  grid-row: 2;
+  top: 12%;
+}
+#addClothes #priceSpan {
+  grid-row: 3;
+  top: 13%;
+}
+#addClothes #lengthSpan {
+  grid-row: 6;
+  top: 3%;
+}
+#addClothes #widthSpan {
+  grid-row: 6;
+  grid-column: 3;
+  top: 3%;
+}
+#addClothes #brandSpan {
+  grid-row: 7;
+  top: 4%;
+}
+#addClothes #estimatedSpan {
+  grid-row: 8;
+  top: 5%;
+}
+#addClothes #condSpan {
+  grid-row: 9;
+  top: 5%;
+}
+#addClothes #createdAtSpan {
+  grid-row: 10;
 }
 
 @media only screen and (max-width: 1440px) {
