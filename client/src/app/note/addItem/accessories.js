@@ -87,51 +87,55 @@ function AddAccessories(props) {
   }
 
   return (
-    <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
+    <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" id="accForm">
+      <span className="sectionSpan" id="requiredInfo">Wymagane informacje</span>
       <input
         ref={itemName}
         autoFocus={true}
         required
         id="itemName"
         className="addInput"
-        spellCheck="false"
-        placeholder="Nazwa"/>
-
-      <input
-        ref={itemBrand}
-        id="itemBrand"
-        className="addInput"
-        spellCheck="false"
-        placeholder="Marka"/>
+        spellCheck="false"/>
+        <span id="nameSpan" className="fieldSpan">Nazwa</span>
 
       <input
         ref={itemSize}
         id="itemSize"
-        className="addInput"
-        placeholder="Rozmiar"/>
+        required
+        className="addInput"/>
+        <span id="sizeSpan" className="fieldSpan">Rozmiar</span>
 
       <input
         ref={itemPrice}
         required
         type="number"
         id="itemPrice"
+        className="addInput"/>
+        <span id="priceSpan" className="fieldSpan">Cena</span>
+
+      <span id="detailsInfo" className="sectionSpan">Szczegóły</span>
+
+      <input
+        ref={itemBrand}
+        id="itemBrand"
         className="addInput"
-        placeholder="Cena"/>
+        spellCheck="false"/>
+      <span id="brandSpan" className="fieldSpan">Marka</span>
+
 
       <input
         type="number"
         ref={itemEstimatedPrice}
         id="itemEstimatedPrice"
-        className="addInput"
-        placeholder="Wartość"/>
+        className="addInput"/>
+        <span id="estimatedSpan" className="fieldSpan">Wartość</span>
 
       <input
         type="number"
         ref={itemCond}
-        required
         id="itemCond"
-        className="addInput"
-        placeholder="Stan"/>
+        className="addInput"/>
+        <span id="condSpan" className="fieldSpan">Stan</span>
 
       <input
         type="date"
@@ -141,6 +145,7 @@ function AddAccessories(props) {
         name="createdAt"
         defaultValue={getDate()}
         max={getDate()}/>
+        <span id="createdAtSpan" className="fieldSpan">Data zakupu</span>
 
       <button type="submit" className="addButton">Dodaj</button>
     </form>

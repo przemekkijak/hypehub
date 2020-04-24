@@ -91,6 +91,16 @@
   grid-row: 10;
 }
 
+#accForm #brandSpan {
+  grid-row: 6;
+}
+#accForm #estimatedSpan {
+  grid-row: 7;
+}
+#accForm #condSpan {
+  grid-row: 8;
+}
+
 @media only screen and (max-width: 1440px) {
   #addClothes input {
     height: 5.4vh;

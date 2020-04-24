@@ -95,7 +95,17 @@
 
 }
 
-
+#accForm {
+  #brandSpan {
+    grid-row: 6;
+  }
+  #estimatedSpan {
+    grid-row: 7;
+  }
+  #condSpan {
+    grid-row: 8;
+  }
+}
 
 
 

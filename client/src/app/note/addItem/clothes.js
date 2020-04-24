@@ -161,8 +161,7 @@ function AddClothes(props) {
         ref={itemCond}
         id="itemCond"
         className="addInput"
-        spellCheck="false"
-        required/>
+        spellCheck="false"/>
         <span id="condSpan" className="fieldSpan">Stan</span>
 
       <input
