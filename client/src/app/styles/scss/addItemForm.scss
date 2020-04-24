@@ -2,7 +2,7 @@
 @import "addItem.css";
 
 
-#addClothes {
+.addItemForm {
   display: grid;
   height: 100%;
   position: relative;
@@ -30,7 +30,10 @@
     grid-column: 2/2;
     grid-row: 6;
   }
-
+  #itemInsert {
+    grid-row: 6;
+    grid-column: 1/4;
+  }
   .sectionSpan {
     position: relative;
     margin-bottom: 1%;
@@ -68,6 +71,10 @@
   #widthSpan {
     grid-row: 6;
     grid-column: 3;
+    top: 3%;
+  }
+  #insertSpan {
+    grid-row: 6;
     top: 3%;
   }
   #brandSpan {

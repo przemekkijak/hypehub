@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import axios from 'axios';
-import '../../styles/css/addaccessories.css';
+import '../../styles/css/addItemForm.css';
 
 function AddAccessories(props) {
   const formBox = useRef();
@@ -87,7 +87,7 @@ function AddAccessories(props) {
   }
 
   return (
-    <form ref={formBox} onSubmit={handleSubmit} id="addAccForm">
+    <form ref={formBox} onSubmit={handleSubmit} className="addItemForm">
       <input
         ref={itemName}
         autoFocus={true}

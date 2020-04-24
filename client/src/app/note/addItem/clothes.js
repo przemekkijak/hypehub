@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import axios from 'axios';
-import '../../styles/css/addclothes.css';
+import '../../styles/css/addItemForm.css';
 
 function AddClothes(props) {
   const formBox = useRef();
@@ -97,7 +97,7 @@ function AddClothes(props) {
   }
 
   return (
-    <form ref={formBox} onSubmit={handleSubmit} id="addClothes" autoComplete="off">
+    <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" autoComplete="off">
       <span className="sectionSpan" id="requiredInfo">Wymagane informacje</span>
       <input
         ref={itemName}

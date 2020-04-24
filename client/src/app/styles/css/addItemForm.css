@@ -3,83 +3,91 @@
 /*bordes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import "addItem.css";
-#addClothes {
+.addItemForm {
   display: grid;
   height: 100%;
   position: relative;
   top: -3%;
 }
-#addClothes #itemName, #addClothes #itemBrand, #addClothes #itemSize, #addClothes #itemPrice, #addClothes #itemEstimatedPrice, #addClothes #itemCond, #addClothes #itemCreatedAt {
+.addItemForm #itemName, .addItemForm #itemBrand, .addItemForm #itemSize, .addItemForm #itemPrice, .addItemForm #itemEstimatedPrice, .addItemForm #itemCond, .addItemForm #itemCreatedAt {
   grid-column: 1/4;
 }
-#addClothes #itemCreatedAt {
+.addItemForm #itemCreatedAt {
   grid-row: 10;
   padding-left: 7%;
 }
-#addClothes #itemLength {
+.addItemForm #itemLength {
   position: relative;
   width: 32%;
   left: -3%;
   grid-column: 2/2;
   grid-row: 6;
 }
-#addClothes #itemWidth {
+.addItemForm #itemWidth {
   width: 32%;
   left: 53%;
   position: relative;
   grid-column: 2/2;
   grid-row: 6;
 }
-#addClothes .sectionSpan {
+.addItemForm #itemInsert {
+  grid-row: 6;
+  grid-column: 1/4;
+}
+.addItemForm .sectionSpan {
   position: relative;
   margin-bottom: 1%;
 }
-#addClothes #requiredInfo {
+.addItemForm #requiredInfo {
   left: 17%;
 }
-#addClothes #detailsInfo {
+.addItemForm #detailsInfo {
   left: 30%;
 }
-#addClothes .fieldSpan {
+.addItemForm .fieldSpan {
   position: absolute;
   opacity: 0.7;
   font-size: 0.8rem;
   left: 17%;
   top: 8%;
 }
-#addClothes #nameSpan {
+.addItemForm #nameSpan {
   grid-row: 1;
 }
-#addClothes #sizeSpan {
+.addItemForm #sizeSpan {
   grid-row: 2;
   top: 12%;
 }
-#addClothes #priceSpan {
+.addItemForm #priceSpan {
   grid-row: 3;
   top: 13%;
 }
-#addClothes #lengthSpan {
+.addItemForm #lengthSpan {
   grid-row: 6;
   top: 3%;
 }
-#addClothes #widthSpan {
+.addItemForm #widthSpan {
   grid-row: 6;
   grid-column: 3;
   top: 3%;
 }
-#addClothes #brandSpan {
+.addItemForm #insertSpan {
+  grid-row: 6;
+  top: 3%;
+}
+.addItemForm #brandSpan {
   grid-row: 7;
   top: 4%;
 }
-#addClothes #estimatedSpan {
+.addItemForm #estimatedSpan {
   grid-row: 8;
   top: 5%;
 }
-#addClothes #condSpan {
+.addItemForm #condSpan {
   grid-row: 9;
   top: 5%;
 }
-#addClothes #createdAtSpan {
+.addItemForm #createdAtSpan {
   grid-row: 10;
 }
 
@@ -98,4 +106,4 @@
   }
 }
 
-/*# sourceMappingURL=addclothes.css.map */
+/*# sourceMappingURL=additemform.css.map */

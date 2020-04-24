@@ -30,10 +30,14 @@ function Current(props) {
   }
 
   function itemCondition(cond) {
-    if (cond === 10) {
-      return "DS";
-    } else {
-      return cond + "/10";
+    switch(cond) {
+      default:
+        return `${cond}/10`;
+      case 10:
+        return 'DS';
+      case 0:
+        return '';
+
     }
   }
   function itemSize(item) {

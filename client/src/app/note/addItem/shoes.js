@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import axios from 'axios';
-import '../../styles/css/addshoes.css';
+import '../../styles/css/addItemForm.css';
 
 function AddShoes(props) {
   const formBox = useRef();
@@ -64,6 +64,7 @@ function AddShoes(props) {
         case "itemSize":
         case "itemBrand":
         case "itemCreatedAt":
+        case "itemInsert":
           if(/^[a-zA-Z0-9 / ,.-]*$/.test(input.current.value)) {
             success();
             return 1;
@@ -71,7 +72,6 @@ function AddShoes(props) {
             failed();
             return 0;
           }
-        case "itemInsert":
         case "itemPrice":
         case "itemEstimatedPrice":
         case "itemCond":
@@ -90,57 +90,62 @@ function AddShoes(props) {
   }
 
   return (
-    <form ref={formBox} onSubmit={handleSubmit} id="addShoesForm" autoComplete="off">
+    <form ref={formBox} onSubmit={handleSubmit} className="addItemForm" autoComplete="off">
+      <span className="sectionSpan" id="requiredInfo">Wymagane informacje</span>
       <input
         ref={itemName}
         required
         id="itemName"
         className="addInput"
         spellCheck="false"
-        autoFocus
-        placeholder="Nazwa"/>
-
-      <input
-        ref={itemBrand}
-        id="itemBrand"
-        className="addInput"
-        spellCheck="false"
-        placeholder="Marka"/>
+        autoFocus/>
+        <span id="nameSpan" className="fieldSpan">Nazwa</span>
 
       <input
         ref={itemSize}
+        required
         id="itemSize"
-        className="addInput"
-        placeholder="Rozmiar"/>
-
-      <input
-        ref={itemInsert}
-        id="itemInsert"
-        className="addInput"
-        placeholder="Dlugosc wkladki (cm)"/>
+        className="addInput"/>
+        <span id="sizeSpan" className="fieldSpan">Rozmiar</span>
 
       <input
         type="number"
         ref={itemPrice}
         required
         id="itemPrice"
+        className="addInput"/>
+        <span id="priceSpan" className="fieldSpan">Cena</span>
+
+      <span id="detailsInfo" className="sectionSpan">Szczegóły</span>
+
+      <input
+        ref={itemInsert}
+        type="number"
+        step="0.5"
+        id="itemInsert"
+        className="addInput"/>
+        <span id="insertSpan" className="fieldSpan">Wkładka (cm)</span>
+
+      <input
+        ref={itemBrand}
+        id="itemBrand"
         className="addInput"
-        placeholder="Cena"/>
+        spellCheck="false"/>
+        <span id="brandSpan" className="fieldSpan">Marka</span>
 
       <input
         type="number"
         ref={itemEstimatedPrice}
         id="itemEstimatedPrice"
-        className="addInput"
-        placeholder="Wartość"/>
+        className="addInput"/>
+        <span id="estimatedSpan" className="fieldSpan">Wartość</span>
 
       <input
         type="number"
         ref={itemCond}
-        required
         id="itemCond"
-        className="addInput"
-        placeholder="Stan"/>
+        className="addInput"/>
+        <span id="condSpan" className="fieldSpan">Stan</span>
 
       <input
         type="date"
@@ -150,6 +155,7 @@ function AddShoes(props) {
         name="createdAt"
         defaultValue={getDate()}
         max={getDate()}/>
+        <span id="createdAtSpan" className="fieldSpan">Data zakupu</span>
 
       <button type="submit" className="addButton" value="Submit">Dodaj</button>
     </form>
